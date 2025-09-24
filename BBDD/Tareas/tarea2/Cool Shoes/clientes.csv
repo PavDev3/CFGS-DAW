@@ -1,0 +1,7 @@
+cliente_id,nombre,email,telefono,direccion_envio
+501,Marta Romero,marta.romero@example.com,600123456,"C/ Gran Vía 12, Madrid"
+502,Juan Pérez,juan.perez@example.com,600987654,"Av. Andalucía 45, Sevilla"
+503,Laura García,laura.garcia@example.com,611222333,"C/ Colón 8, Valencia"
+504,Carlos Ruiz,carlos.ruiz@example.com,622333444,"Paseo de Gracia 5, Barcelona"
+505,Ana Torres,ana.torres@example.com,633444555,"C/ Real 89, Málaga"
+506,Pablo López,pablo.lopez@example.com,644555666,"Av. Libertad 101, Zaragoza"

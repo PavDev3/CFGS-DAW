@@ -1,0 +1,47 @@
+<mxfile host="app.diagrams.net" modified="2025-09-24T00:00:00.000Z" agent="drawio" version="24.7.1" type="device">
+    <diagram id="citius-altius-fortius-erd" name="ERD">
+        <mxGraphModel dx="1280" dy="720" grid="1" gridSize="10" guides="1" tooltips="1" connect="1" arrows="1" fold="1" page="1" pageScale="1" pageWidth="827" pageHeight="1169" math="0" shadow="0">
+            <root>
+                <mxCell id="0"/>
+                <mxCell id="1" parent="0"/>
+
+                <!-- ====== Tablas ====== -->
+                <!-- Socio -->
+                <mxCell id="tbl_socio" value="Socio&#xa;———&#xa;socio_id (PK)&#xa;nombre&#xa;edad&#xa;telefono&#xa;email" style="shape=rectangle;whiteSpace=wrap;rounded=1;fillColor=#dae8fc;strokeColor=#6c8ebf;strokeWidth=1;spacing=6;fontSize=12;" vertex="1" parent="1">
+                    <mxGeometry x="60" y="80" width="220" height="150" as="geometry"/>
+                </mxCell>
+
+                <!-- Actividad -->
+                <mxCell id="tbl_actividad" value="Actividad&#xa;———&#xa;actividad_id (PK)&#xa;nombre_actividad&#xa;horario&#xa;entrenador" style="shape=rectangle;whiteSpace=wrap;rounded=1;fillColor=#d5e8d4;strokeColor=#82b366;strokeWidth=1;spacing=6;fontSize=12;" vertex="1" parent="1">
+                    <mxGeometry x="420" y="80" width="240" height="150" as="geometry"/>
+                </mxCell>
+
+                <!-- Inscripcion -->
+                <mxCell id="tbl_inscripcion" value="Inscripcion&#xa;———&#xa;inscripcion_id (PK)&#xa;socio_id (FK)&#xa;actividad_id (FK)&#xa;fecha_inscripcion" style="shape=rectangle;whiteSpace=wrap;rounded=1;fillColor=#fff2cc;strokeColor=#d6b656;strokeWidth=1;spacing=6;fontSize=12;" vertex="1" parent="1">
+                    <mxGeometry x="240" y="300" width="260" height="160" as="geometry"/>
+                </mxCell>
+
+                <!-- ====== Relaciones (aristas) ====== -->
+                <!-- Socio (1) —— (N) Inscripcion -->
+                <mxCell id="rel_socio_inscripcion" edge="1" parent="1" source="tbl_socio" target="tbl_inscripcion" style="endArrow=block;endFill=1;html=1;rounded=0;orthogonalLoop=1;jettySize=auto;exitX=0.5;exitY=1;exitDx=0;exitDy=0;entryX=0.25;entryY=0;entryDx=0;entryDy=0;">
+                    <mxGeometry relative="1" as="geometry"/>
+                </mxCell>
+
+                <!-- Actividad (1) —— (N) Inscripcion -->
+                <mxCell id="rel_actividad_inscripcion" edge="1" parent="1" source="tbl_actividad" target="tbl_inscripcion" style="endArrow=block;endFill=1;html=1;rounded=0;orthogonalLoop=1;jettySize=auto;exitX=0.5;exitY=1;exitDx=0;exitDy=0;entryX=0.75;entryY=0;entryDx=0;entryDy=0;">
+                    <mxGeometry relative="1" as="geometry"/>
+                </mxCell>
+
+                <!-- ====== Notas de cardinalidad (opcional visual) ====== -->
+                <mxCell id="card_socio" value="1  ——  N" style="text;whiteSpace=wrap;html=1;fillColor=none;strokeColor=none;fontSize=11;fontColor=#666666;" vertex="1" parent="1">
+                    <mxGeometry x="170" y="260" width="80" height="20" as="geometry"/>
+                </mxCell>
+                <mxCell id="card_actividad" value="1  ——  N" style="text;whiteSpace=wrap;html=1;fillColor=none;strokeColor=none;fontSize=11;fontColor=#666666;" vertex="1" parent="1">
+                    <mxGeometry x="430" y="260" width="80" height="20" as="geometry"/>
+                </mxCell>
+
+            </root>
+        </mxGraphModel>
+    </diagram>
+</mxfile>
+  

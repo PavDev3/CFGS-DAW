@@ -1,0 +1,9 @@
+
+pedido_id,cliente_id,fecha_pedido,estado_envio,total_pedido
+1001,501,2025-09-10,Enviado,208.99
+1002,502,2025-09-11,Procesando,143.90
+1003,503,2025-09-12,Entregado,64.50
+1004,504,2025-09-14,Cancelado,144.00
+1005,505,2025-09-15,Enviado,217.89
+1006,506,2025-09-16,Procesando,110.00
+
