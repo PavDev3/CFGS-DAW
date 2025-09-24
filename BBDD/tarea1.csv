@@ -1,0 +1,7 @@
+profesores,information_personal,nombres,apellidos,fecha_nacimiento,genero,teléfono,email
+profesores,information_profesional,numero_empleado,fecha_ingreso,estado,tipo_contrato,jornada,cargo,departamento
+profesores,materias_asignadas,materia,cursos,horas_semanales
+1,María Elena,García López,1985-03-15,Femenino,123123123,maria.garcia@colegio.edu.co
+1,PROF001,2020-02-01,Activo,Indefinido,Tiempo completo,Profesor de Matemáticas,Ciencias Exactas
+1,Matemáticas,1° ESO,2° ESO,3° ESO,20
+1,Álgebra,1Bach,2Bach,8

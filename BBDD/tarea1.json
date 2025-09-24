@@ -1,0 +1,36 @@
+{
+  "profesores": [
+    {
+      "id": 1,
+      "information_personal": {
+        "nombres": "María Elena",
+        "apellidos": "García López", 
+        "fecha_nacimiento": "1985-03-15",
+        "genero": "Femenino",
+        "teléfono": "123123123",
+        "email": "maria.garcia@colegio.edu.co"
+      },
+      "information_profesional": {
+        "numero_empleado": "PROF001",
+        "fecha_ingreso": "2020-02-01",
+        "estado": "Activo",
+        "tipo_contrato": "Indefinido",
+        "jornada": "Tiempo completo",
+        "cargo": "Profesor de Matemáticas",
+        "departamento": "Ciencias Exactas"
+      },
+      "materias_asignadas": [
+        {
+          "materia": "Matemáticas",
+          "cursos": ["1° ESO", "2° ESO", "3° ESO"],
+          "horas_semanales": 20
+        },
+        {
+          "materia": "Álgebra",
+          "cursos": ["1Bach", "2Bach"],
+          "horas_semanales": 8
+        }
+      ]
+    }
+  ]
+}
