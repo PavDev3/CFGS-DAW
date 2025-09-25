@@ -1,0 +1,7 @@
+cliente_id (PK),nombre,direccion,telefono,email
+501,Ana Torres,"C/ Gran Vía 12, Madrid",600111222,ana.torres@example.com
+502,Carlos Ruiz,"Av. Andalucía 45, Sevilla",600333444,carlos.ruiz@example.com
+503,Laura Gómez,"C/ Colón 8, Valencia",600555666,laura.gomez@example.com
+504,David Pérez,"Paseo de Gracia 5, Barcelona",600777888,david.perez@example.com
+505,Marta Romero,"C/ Real 89, Málaga",600999000,marta.romero@example.com
+506,Pablo López,"Av. Libertad 101, Zaragoza",644555666,pablo.lopez@example.com
