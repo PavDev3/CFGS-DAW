@@ -1,4 +1,4 @@
-inscripcion_id,socio_id,actividad_id,fecha_inscripcion
+inscripcion_id (PK),socio_id (FK),actividad_id (FK),fecha_inscripcion
 1001,1,101,2025-09-10
 1002,2,102,2025-09-11
 1003,3,103,2025-09-12
