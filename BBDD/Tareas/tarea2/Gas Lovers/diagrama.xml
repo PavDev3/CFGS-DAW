@@ -1,0 +1,44 @@
+<mxfile host="app.diagrams.net" modified="2025-09-25T00:00:00.000Z" agent="drawio" version="24.7.1" type="device">
+    <diagram id="gas-lovers-erd" name="ERD - GAS LOVERS">
+        <mxGraphModel dx="1280" dy="720" grid="1" gridSize="10" guides="1" tooltips="1" connect="1" arrows="1" fold="1" page="1" pageScale="1" pageWidth="1169" pageHeight="827" math="0" shadow="0">
+            <root>
+                <mxCell id="0"/>
+                <mxCell id="1" parent="0"/>
+
+                <!-- Moto -->
+                <mxCell id="tbl_moto" value="Moto&#xa;———&#xa;moto_id (PK)&#xa;marca&#xa;modelo&#xa;anio&#xa;precio&#xa;cantidad_stock&#xa;caracteristicas" style="shape=rectangle;whiteSpace=wrap;rounded=1;fillColor=#dae8fc;strokeColor=#6c8ebf;strokeWidth=1;spacing=6;fontSize=12;" vertex="1" parent="1">
+                    <mxGeometry x="70" y="90" width="260" height="210" as="geometry"/>
+                </mxCell>
+
+                <!-- Cliente -->
+                <mxCell id="tbl_cliente" value="Cliente&#xa;———&#xa;cliente_id (PK)&#xa;nombre&#xa;direccion&#xa;telefono&#xa;email" style="shape=rectangle;whiteSpace=wrap;rounded=1;fillColor=#d5e8d4;strokeColor=#82b366;strokeWidth=1;spacing=6;fontSize=12;" vertex="1" parent="1">
+                    <mxGeometry x="470" y="90" width="260" height="190" as="geometry"/>
+                </mxCell>
+
+                <!-- Venta -->
+                <mxCell id="tbl_venta" value="Venta&#xa;———&#xa;venta_id (PK)&#xa;moto_id (FK)&#xa;cliente_id (FK)&#xa;fecha_venta&#xa;precio_unitario&#xa;importe_total" style="shape=rectangle;whiteSpace=wrap;rounded=1;fillColor=#fff2cc;strokeColor=#d6b656;strokeWidth=1;spacing=6;fontSize=12;" vertex="1" parent="1">
+                    <mxGeometry x="270" y="340" width="280" height="200" as="geometry"/>
+                </mxCell>
+
+                <!-- Relaciones -->
+                <mxCell id="rel_moto_venta" edge="1" parent="1" source="tbl_moto" target="tbl_venta" style="endArrow=block;endFill=1;html=1;rounded=0;orthogonalLoop=1;jettySize=auto;exitX=0.5;exitY=1;exitDx=0;exitDy=0;entryX=0.25;entryY=0;entryDx=0;entryDy=0;">
+                    <mxGeometry relative="1" as="geometry"/>
+                </mxCell>
+
+                <mxCell id="rel_cliente_venta" edge="1" parent="1" source="tbl_cliente" target="tbl_venta" style="endArrow=block;endFill=1;html=1;rounded=0;orthogonalLoop=1;jettySize=auto;exitX=0.5;exitY=1;exitDx=0;exitDy=0;entryX=0.75;entryY=0;entryDx=0;entryDy=0;">
+                    <mxGeometry relative="1" as="geometry"/>
+                </mxCell>
+
+                <!-- Cardinalidades (texto opcional) -->
+                <mxCell id="card_moto" value="1  ——  N" style="text;whiteSpace=wrap;html=1;fillColor=none;strokeColor=none;fontSize=11;fontColor=#666666;" vertex="1" parent="1">
+                    <mxGeometry x="170" y="310" width="80" height="20" as="geometry"/>
+                </mxCell>
+                <mxCell id="card_cli" value="1  ——  N" style="text;whiteSpace=wrap;html=1;fillColor=none;strokeColor=none;fontSize=11;fontColor=#666666;" vertex="1" parent="1">
+                    <mxGeometry x="510" y="310" width="80" height="20" as="geometry"/>
+                </mxCell>
+
+            </root>
+        </mxGraphModel>
+    </diagram>
+</mxfile>
+  
