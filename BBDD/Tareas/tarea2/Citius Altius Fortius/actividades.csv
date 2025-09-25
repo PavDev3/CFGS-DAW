@@ -1,4 +1,4 @@
-actividad_id,nombre_actividad,horario,entrenador
+actividad_id (PK),nombre_actividad,horario,entrenador
 101,Spinning,Lunes 18:00-19:00,Luis Martínez
 102,Yoga,Martes 19:00-20:00,Clara Sánchez
 103,Boxeo,Jueves 20:00-21:00,Pablo Fernández
