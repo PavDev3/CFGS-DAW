@@ -1,0 +1,60 @@
+<mxfile host="app.diagrams.net" modified="2025-09-25T00:00:00.000Z" agent="drawio" version="24.7.1" type="device">
+    <diagram id="cool-shoes-erd" name="ERD - COOL SHOES">
+        <mxGraphModel dx="1280" dy="720" grid="1" gridSize="10" guides="1" tooltips="1" connect="1" arrows="1" fold="1" page="1" pageScale="1" pageWidth="1169" pageHeight="827" math="0" shadow="0">
+            <root>
+                <mxCell id="0"/>
+                <mxCell id="1" parent="0"/>
+
+                <!-- ===== Tablas ===== -->
+                <!-- Producto -->
+                <mxCell id="tbl_producto" value="Producto&#xa;———&#xa;producto_id (PK)&#xa;modelo&#xa;talla&#xa;color&#xa;precio_unitario&#xa;cantidad_stock" style="shape=rectangle;whiteSpace=wrap;rounded=1;fillColor=#dae8fc;strokeColor=#6c8ebf;strokeWidth=1;spacing=6;fontSize=12;" vertex="1" parent="1">
+                    <mxGeometry x="80" y="90" width="260" height="190" as="geometry"/>
+                </mxCell>
+
+                <!-- Cliente -->
+                <mxCell id="tbl_cliente" value="Cliente&#xa;———&#xa;cliente_id (PK)&#xa;nombre&#xa;email&#xa;telefono&#xa;direccion_envio" style="shape=rectangle;whiteSpace=wrap;rounded=1;fillColor=#d5e8d4;strokeColor=#82b366;strokeWidth=1;spacing=6;fontSize=12;" vertex="1" parent="1">
+                    <mxGeometry x="470" y="90" width="280" height="200" as="geometry"/>
+                </mxCell>
+
+                <!-- Pedido -->
+                <mxCell id="tbl_pedido" value="Pedido&#xa;———&#xa;pedido_id (PK)&#xa;cliente_id (FK)&#xa;fecha_pedido&#xa;estado_envio&#xa;total_pedido" style="shape=rectangle;whiteSpace=wrap;rounded=1;fillColor=#ffe6cc;strokeColor=#d79b00;strokeWidth=1;spacing=6;fontSize=12;" vertex="1" parent="1">
+                    <mxGeometry x="280" y="350" width="260" height="170" as="geometry"/>
+                </mxCell>
+
+                <!-- DetallePedido -->
+                <mxCell id="tbl_detalle" value="DetallePedido&#xa;———&#xa;detalle_id (PK)&#xa;pedido_id (FK)&#xa;producto_id (FK)&#xa;cantidad&#xa;subtotal" style="shape=rectangle;whiteSpace=wrap;rounded=1;fillColor=#fff2cc;strokeColor=#d6b656;strokeWidth=1;spacing=6;fontSize=12;" vertex="1" parent="1">
+                    <mxGeometry x="80" y="560" width="280" height="180" as="geometry"/>
+                </mxCell>
+
+                <!-- ===== Relaciones ===== -->
+                <!-- Cliente (1) —— (N) Pedido -->
+                <mxCell id="rel_cliente_pedido" edge="1" parent="1" source="tbl_cliente" target="tbl_pedido" style="endArrow=block;endFill=1;html=1;rounded=0;orthogonalLoop=1;jettySize=auto;exitX=0.5;exitY=1;exitDx=0;exitDy=0;entryX=0.75;entryY=0;entryDx=0;entryDy=0;">
+                    <mxGeometry relative="1" as="geometry"/>
+                </mxCell>
+
+                <!-- Pedido (1) —— (N) DetallePedido -->
+                <mxCell id="rel_pedido_detalle" edge="1" parent="1" source="tbl_pedido" target="tbl_detalle" style="endArrow=block;endFill=1;html=1;rounded=0;orthogonalLoop=1;jettySize=auto;exitX=0.25;exitY=1;exitDx=0;exitDy=0;entryX=0.5;entryY=0;entryDx=0;entryDy=0;">
+                    <mxGeometry relative="1" as="geometry"/>
+                </mxCell>
+
+                <!-- Producto (1) —— (N) DetallePedido -->
+                <mxCell id="rel_producto_detalle" edge="1" parent="1" source="tbl_producto" target="tbl_detalle" style="endArrow=block;endFill=1;html=1;rounded=0;orthogonalLoop=1;jettySize=auto;exitX=0.5;exitY=1;exitDx=0;exitDy=0;entryX=0.1;entryY=0;entryDx=0;entryDy=0;">
+                    <mxGeometry relative="1" as="geometry"/>
+                </mxCell>
+
+                <!-- ===== Cardinalidades (texto opcional) ===== -->
+                <mxCell id="card_cli_ped" value="1  ——  N" style="text;whiteSpace=wrap;html=1;fillColor=none;strokeColor=none;fontSize=11;fontColor=#666666;" vertex="1" parent="1">
+                    <mxGeometry x="520" y="320" width="80" height="20" as="geometry"/>
+                </mxCell>
+                <mxCell id="card_ped_det" value="1  ——  N" style="text;whiteSpace=wrap;html=1;fillColor=none;strokeColor=none;fontSize=11;fontColor=#666666;" vertex="1" parent="1">
+                    <mxGeometry x="260" y="520" width="80" height="20" as="geometry"/>
+                </mxCell>
+                <mxCell id="card_prod_det" value="1  ——  N" style="text;whiteSpace=wrap;html=1;fillColor=none;strokeColor=none;fontSize=11;fontColor=#666666;" vertex="1" parent="1">
+                    <mxGeometry x="140" y="520" width="80" height="20" as="geometry"/>
+                </mxCell>
+
+            </root>
+        </mxGraphModel>
+    </diagram>
+</mxfile>
+  

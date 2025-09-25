@@ -1,4 +1,4 @@
-socio_id,nombre,edad,telefono,email
+socio_id (PK),nombre,edad,telefono,email
 1,Ana Torres,25,600111222,ana.torres@example.com
 2,Carlos Ruiz,32,600333444,carlos.ruiz@example.com
 3,Laura Gómez,28,600555666,laura.gomez@example.com
