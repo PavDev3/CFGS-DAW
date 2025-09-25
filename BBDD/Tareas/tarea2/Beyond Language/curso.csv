@@ -1,0 +1,6 @@
+curso_id (PK),nombre_curso,nivel,horario,profesor
+101,Inglés Básico,A1,Lunes y Miércoles 10:00-11:30,Clara Sánchez
+102,Conversación Intermedia,B1,Martes y Jueves 18:00-19:30,Luis Martínez
+103,Gramática Avanzada,B2,Lunes y Miércoles 19:00-20:30,Elena García
+104,Preparación Cambridge C1,C1,Sábado 09:00-12:00,Pablo Fernández
+105,Inglés para Viajes,A2,Viernes 17:00-18:30,Andrés López

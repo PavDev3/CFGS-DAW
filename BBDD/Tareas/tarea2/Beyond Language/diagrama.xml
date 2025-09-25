@@ -1,0 +1,47 @@
+<mxfile host="app.diagrams.net" modified="2025-09-25T00:00:00.000Z" agent="drawio" version="24.7.1" type="device">
+    <diagram id="beyond-language-erd" name="ERD - Beyond Language">
+        <mxGraphModel dx="1280" dy="720" grid="1" gridSize="10" guides="1" tooltips="1" connect="1" arrows="1" fold="1" page="1" pageScale="1" pageWidth="1169" pageHeight="827" math="0" shadow="0">
+            <root>
+                <mxCell id="0"/>
+                <mxCell id="1" parent="0"/>
+
+                <!-- ====== Tablas ====== -->
+                <!-- Estudiante -->
+                <mxCell id="tbl_estudiante" value="Estudiante&#xa;———&#xa;estudiante_id (PK)&#xa;nombre&#xa;nivel_ingles&#xa;telefono&#xa;email" style="shape=rectangle;whiteSpace=wrap;rounded=1;fillColor=#dae8fc;strokeColor=#6c8ebf;strokeWidth=1;spacing=6;fontSize=12;" vertex="1" parent="1">
+                    <mxGeometry x="80" y="90" width="230" height="170" as="geometry"/>
+                </mxCell>
+
+                <!-- Curso -->
+                <mxCell id="tbl_curso" value="Curso&#xa;———&#xa;curso_id (PK)&#xa;nombre_curso&#xa;nivel&#xa;horario&#xa;profesor" style="shape=rectangle;whiteSpace=wrap;rounded=1;fillColor=#d5e8d4;strokeColor=#82b366;strokeWidth=1;spacing=6;fontSize=12;" vertex="1" parent="1">
+                    <mxGeometry x="470" y="90" width="260" height="170" as="geometry"/>
+                </mxCell>
+
+                <!-- Asignacion -->
+                <mxCell id="tbl_asignacion" value="Asignacion&#xa;———&#xa;asignacion_id (PK)&#xa;estudiante_id (FK)&#xa;curso_id (FK)&#xa;fecha_inscripcion&#xa;calificacion" style="shape=rectangle;whiteSpace=wrap;rounded=1;fillColor=#fff2cc;strokeColor=#d6b656;strokeWidth=1;spacing=6;fontSize=12;" vertex="1" parent="1">
+                    <mxGeometry x="270" y="320" width="260" height="190" as="geometry"/>
+                </mxCell>
+
+                <!-- ====== Relaciones ====== -->
+                <!-- Estudiante (1) —— (N) Asignacion -->
+                <mxCell id="rel_estudiante_asignacion" edge="1" parent="1" source="tbl_estudiante" target="tbl_asignacion" style="endArrow=block;endFill=1;html=1;rounded=0;orthogonalLoop=1;jettySize=auto;exitX=0.5;exitY=1;exitDx=0;exitDy=0;entryX=0.25;entryY=0;entryDx=0;entryDy=0;">
+                    <mxGeometry relative="1" as="geometry"/>
+                </mxCell>
+
+                <!-- Curso (1) —— (N) Asignacion -->
+                <mxCell id="rel_curso_asignacion" edge="1" parent="1" source="tbl_curso" target="tbl_asignacion" style="endArrow=block;endFill=1;html=1;rounded=0;orthogonalLoop=1;jettySize=auto;exitX=0.5;exitY=1;exitDx=0;exitDy=0;entryX=0.75;entryY=0;entryDx=0;entryDy=0;">
+                    <mxGeometry relative="1" as="geometry"/>
+                </mxCell>
+
+                <!-- Notas de cardinalidad (opcionales) -->
+                <mxCell id="card_est" value="1  ——  N" style="text;whiteSpace=wrap;html=1;fillColor=none;strokeColor=none;fontSize=11;fontColor=#666666;" vertex="1" parent="1">
+                    <mxGeometry x="180" y="295" width="80" height="20" as="geometry"/>
+                </mxCell>
+                <mxCell id="card_cur" value="1  ——  N" style="text;whiteSpace=wrap;html=1;fillColor=none;strokeColor=none;fontSize=11;fontColor=#666666;" vertex="1" parent="1">
+                    <mxGeometry x="500" y="295" width="80" height="20" as="geometry"/>
+                </mxCell>
+
+            </root>
+        </mxGraphModel>
+    </diagram>
+</mxfile>
+  

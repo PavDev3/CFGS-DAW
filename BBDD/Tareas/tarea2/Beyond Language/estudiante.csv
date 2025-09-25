@@ -1,0 +1,6 @@
+estudiante_id (PK),nombre,nivel_ingles,telefono,email
+1,Ana Torres,B1,600111222,ana.torres@example.com
+2,Carlos Ruiz,A2,600333444,carlos.ruiz@example.com
+3,Laura Gómez,B2,600555666,laura.gomez@example.com
+4,David Pérez,C1,600777888,david.perez@example.com
+5,Marta Romero,A1,600999000,marta.romero@example.com

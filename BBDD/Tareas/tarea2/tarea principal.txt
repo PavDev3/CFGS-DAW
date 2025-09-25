@@ -1,0 +1,17 @@
+Ahora que ya tienes conocimientos básicos sobre lo más elemental de las bases de datos, debes entrenar la extracción de información de tu interés para construir una base de datos, a partir del enunciado de un problema.
+
+Para cada uno de estos supuestos, se pide que:
+
+Identifiques cada una de las tablas que podría tener una base de datos que gestionara ese sistema de información, y les pongas un nombre representativo.
+Identifiques cada uno de los campos de cada tabla y elijas el tipo de dato más apropiado para ellos. Si en el enunciado no aparece de forma explícita un campo que crees que es necesario, puedes añadirlo por tu cuenta.
+Identifica claves primarias y ajenas
+Crea la tabla con sus correspondientes campos y rellénala con al menos 5 registros cada una. Puedes hacerlo en google docs o Hoja de calculo.
+Estos son los 4 supuestos sobre los que tienes que hacer todo lo anterior:
+
+COOL SHOES. Se desea desarrollar un sistema de información para gestionar las ventas, el inventario y los clientes de una zapatería online. 
+Este sistema deberá permitir el registro de los productos disponibles, incluyendo información sobre el modelo, la talla, el color, el precio y la cantidad en stock.
+Además, deberá gestionar los pedidos realizados por los clientes, incluyendo datos del cliente, detalles del pedido y estado del envío.
+CITIUS ALTIUS FORTIUS. Un club deportivo necesita un sistema para administrar sus socios, las actividades deportivas que ofrece y las inscripciones a estas actividades. 
+El sistema debe incluir información sobre cada socio (nombre, edad, contacto), las diferentes actividades disponibles (nombre de la actividad, horario, entrenador asignado) y el registro de inscripciones, indicando qué socio se ha inscrito en qué actividad.
+BEYOND LANGUAGE. Para una academia de inglés se requiere un sistema que gestione tanto a los estudiantes como a los cursos y profesores. Este sistema debe permitir registrar información sobre los estudiantes (nombre, nivel de inglés, contacto), los cursos ofrecidos (nombre del curso, nivel, horario, profesor) y las asignaciones de estudiantes a cursos, incluyendo las calificaciones obtenidas.
+GAS LOVERS. Un concesionario de motos necesita un sistema para administrar las ventas, el inventario de motos y los clientes. El sistema deberá incluir información detallada de cada moto (marca, modelo, año, precio, características técnicas), los datos de los clientes (nombre, dirección, contacto) y los registros de ventas realizadas, especificando la moto vendida, el cliente y la fecha de la venta.
