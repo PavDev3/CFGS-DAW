@@ -1,0 +1,79 @@
+<mxfile host="65bd71144e">
+    <diagram id="comparar_horas" name="Comparar dos horas">
+        <mxGraphModel dx="1333" dy="809" grid="1" gridSize="10" guides="1" tooltips="1" connect="1" arrows="1" fold="1" page="1" pageScale="1" pageWidth="850" pageHeight="1100" math="0" shadow="0">
+            <root>
+                <mxCell id="0"/>
+                <mxCell id="1" parent="0"/>
+                <mxCell id="2" value="Inicio" style="ellipse;whiteSpace=wrap;html=1;aspect=fixed;" parent="1" vertex="1">
+                    <mxGeometry x="20" y="40" width="80" height="80" as="geometry"/>
+                </mxCell>
+                <mxCell id="3" value="h1:INT, m1:INT, s1:INT, &lt;br&gt;h2:INT , m2:INT, s2:INT, &lt;br&gt;t1:INT, t2:INT" style="rounded=1;whiteSpace=wrap;html=1;" parent="1" vertex="1">
+                    <mxGeometry x="150" y="50" width="170" height="60" as="geometry"/>
+                </mxCell>
+                <mxCell id="fjg47ekRXEydn2ZSWer9-30" value="" style="edgeStyle=none;html=1;" edge="1" parent="1" source="4" target="6">
+                    <mxGeometry relative="1" as="geometry"/>
+                </mxCell>
+                <mxCell id="4" value="ESCRIBIR: &quot;Introduce Hora 1 (h m s)&quot;&lt;br&gt;LEER: h1, m1, s1" style="shape=parallelogram;perimeter=parallelogramPerimeter;whiteSpace=wrap;html=1;" parent="1" vertex="1">
+                    <mxGeometry x="85" y="160" width="300" height="60" as="geometry"/>
+                </mxCell>
+                <mxCell id="fjg47ekRXEydn2ZSWer9-31" value="" style="edgeStyle=none;html=1;" edge="1" parent="1" source="6" target="8">
+                    <mxGeometry relative="1" as="geometry"/>
+                </mxCell>
+                <mxCell id="6" value="ESCRIBIR: &quot;Introduce Hora 2 (h m s)&quot;&lt;br&gt;LEER: h2, m2, s2" style="shape=parallelogram;perimeter=parallelogramPerimeter;whiteSpace=wrap;html=1;" parent="1" vertex="1">
+                    <mxGeometry x="85" y="270" width="300" height="60" as="geometry"/>
+                </mxCell>
+                <mxCell id="fjg47ekRXEydn2ZSWer9-32" value="" style="edgeStyle=none;html=1;" edge="1" parent="1" source="8" target="10">
+                    <mxGeometry relative="1" as="geometry"/>
+                </mxCell>
+                <mxCell id="8" value="t1 ← h1*3600 + m1*60 + s1&lt;br&gt;t2 ← h2*3600 + m2*60 + s2" style="rounded=1;whiteSpace=wrap;html=1;" parent="1" vertex="1">
+                    <mxGeometry x="425" y="270" width="300" height="60" as="geometry"/>
+                </mxCell>
+                <mxCell id="10" value="t1 &amp;gt; t2" style="rhombus;whiteSpace=wrap;html=1;" parent="1" vertex="1">
+                    <mxGeometry x="150" y="370" width="300" height="80" as="geometry"/>
+                </mxCell>
+                <mxCell id="11" value="ESCRIBIR: &quot;Hora 1 es mayor&quot;" style="rounded=1;whiteSpace=wrap;html=1;" parent="1" vertex="1">
+                    <mxGeometry x="55" y="580" width="220" height="60" as="geometry"/>
+                </mxCell>
+                <mxCell id="12" value="t2 &amp;gt; t1" style="rhombus;whiteSpace=wrap;html=1;" parent="1" vertex="1">
+                    <mxGeometry x="390" y="440" width="300" height="80" as="geometry"/>
+                </mxCell>
+                <mxCell id="13" value="ESCRIBIR: &quot;Hora 2 es mayor&quot;" style="rounded=1;whiteSpace=wrap;html=1;" parent="1" vertex="1">
+                    <mxGeometry x="315" y="580" width="220" height="60" as="geometry"/>
+                </mxCell>
+                <mxCell id="14" value="ESCRIBIR: &quot;Las horas son iguales&quot;" style="rounded=1;whiteSpace=wrap;html=1;" parent="1" vertex="1">
+                    <mxGeometry x="570" y="580" width="220" height="60" as="geometry"/>
+                </mxCell>
+                <mxCell id="15" value="Fin" style="ellipse;whiteSpace=wrap;html=1;aspect=fixed;" parent="1" vertex="1">
+                    <mxGeometry x="380" y="710" width="80" height="80" as="geometry"/>
+                </mxCell>
+                <mxCell id="16" value="" style="endArrow=block;rounded=1;html=1;" parent="1" source="2" target="3" edge="1">
+                    <mxGeometry relative="1" as="geometry"/>
+                </mxCell>
+                <mxCell id="17" value="" style="endArrow=block;rounded=1;html=1;" parent="1" source="3" target="4" edge="1">
+                    <mxGeometry relative="1" as="geometry"/>
+                </mxCell>
+                <mxCell id="24" value="Sí" style="endArrow=block;rounded=1;html=1;" parent="1" source="10" target="11" edge="1">
+                    <mxGeometry relative="1" as="geometry"/>
+                </mxCell>
+                <mxCell id="25" value="No" style="endArrow=block;rounded=1;html=1;" parent="1" source="10" target="12" edge="1">
+                    <mxGeometry relative="1" as="geometry"/>
+                </mxCell>
+                <mxCell id="26" value="Sí" style="endArrow=block;rounded=1;html=1;" parent="1" source="12" target="13" edge="1">
+                    <mxGeometry relative="1" as="geometry"/>
+                </mxCell>
+                <mxCell id="27" value="No" style="endArrow=block;rounded=1;html=1;" parent="1" source="12" target="14" edge="1">
+                    <mxGeometry relative="1" as="geometry"/>
+                </mxCell>
+                <mxCell id="28" value="" style="endArrow=block;rounded=1;html=1;" parent="1" source="11" target="15" edge="1">
+                    <mxGeometry relative="1" as="geometry"/>
+                </mxCell>
+                <mxCell id="29" value="" style="endArrow=block;rounded=1;html=1;" parent="1" source="13" target="15" edge="1">
+                    <mxGeometry relative="1" as="geometry"/>
+                </mxCell>
+                <mxCell id="30" value="" style="endArrow=block;rounded=1;html=1;" parent="1" source="14" target="15" edge="1">
+                    <mxGeometry relative="1" as="geometry"/>
+                </mxCell>
+            </root>
+        </mxGraphModel>
+    </diagram>
+</mxfile>
