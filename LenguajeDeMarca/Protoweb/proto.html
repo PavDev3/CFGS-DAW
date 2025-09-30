@@ -1,0 +1,55 @@
+<head>
+    <title>Protoweb</title>
+    <meta charset="UTF-8">
+    <style>
+        .buscar {
+            border: 0px;
+            border-radius: 20px;
+            color: lightyellow;
+            background-color: green;
+            font-size: 3rem;
+            transition: all 0.5s ease;
+        }
+        .buscar:hover {
+            box-shadow: 0 6px 16px rgba(49, 138, 172, 1);
+            color: yellow;
+            transition: all 0.5s ease;
+        }     
+        .inputshadow{
+            border-radius: 1rem;
+            background: #23272f;
+            width: 20%;
+            outline: none;
+            flex-basis: 100%;
+            padding: 1rem;
+            border: none;
+            border: 1px solid transparent;
+            color: white;
+            transition: all 0.2s ease-in-out;
+        }
+        .inputshadow:focus{
+            border: 1px solid #4caf50;
+            box-shadow: 0 0 100px 0 rgba(76, 175, 80, 0.5),
+            0 0 0 1px rgba(76, 175, 80, 0.5);
+
+        }
+    </style>
+</head>
+<body style="background-color: lightyellow">
+    <center>
+        <br>
+        <br>
+        <from action="https://www.google.com/search" method="get" target="_blank">
+            <strong style="font-size: 5rem">
+                <span style="color: blue">G</span><span style="color: red">o</span><span style="color: yellow">o</span><span style="color: blue">g</span><span style="color: green">l</span><span style="color: red">e</span>
+            </strong>
+            <input type="search" name="q" size="15" style="border: 0px; border-radius:20px; background-color:lightblue; font-size: 3rem">
+            <strong>&nbsp;&nbsp;</strong>
+            <input type="submit" value="&nbsp;&nbsp;Buscar&nbsp;&nbsp;" class="buscar">
+
+        </from>
+       
+    </center>
+    <input type="text" name="q" size="15" class="inputshadow">
+</body>
+</html>
