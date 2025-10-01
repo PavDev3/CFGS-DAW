@@ -1,0 +1,35 @@
+Base de datos -> colección organizada de información estructurada
+Almacena
+Proporciona estructura 
+Proporciona CRUD
+
+funciones de SGBD:
+CRUD + seguridad + control de acceso + backup
+
+
+Programadores ->  Diseñan Programas
+Administradores de BD -> Es el administrador de la gestión de la base de datos
+Usuario finale -> Persona que interactúa con la Base de datos
+
+Tipo de Base de datos:
+
+Jerárquico: Estructura solo de Padre a hijos
+
+Red: Estructura que cruzan Padres e hijos
+
+OOP: Base de datos como colección de objetos
+
+Relacional: Estructura de tablas relacionados entre si de forma lógica
+
+Entidad-Relación: Relaciones entre entidades forma sencilla al estilo Red
+
+Primary Key: Columna especial designada de manera única. Debe de tener valor único y nunca null
+ForeignKey:  Columna para asignar relaciones entre tablas
+
+Base de datos no relacionales: 
+
+Estructura de base de datos en bloque, como un JSON. 
+
+
+
+
