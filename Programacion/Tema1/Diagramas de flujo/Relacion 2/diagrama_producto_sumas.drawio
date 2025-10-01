@@ -1,0 +1,75 @@
+<mxfile host="65bd71144e" pages="2">
+    <diagram name="Producto mediante sumas" id="HRDjP0nrwntg-MGRHbnA">
+        <mxGraphModel dx="1329" dy="799" grid="1" gridSize="10" guides="1" tooltips="1" connect="1" arrows="1" fold="1" page="1" pageScale="1" pageWidth="827" pageHeight="1169" math="0" shadow="0">
+            <root>
+                <mxCell id="0"/>
+                <mxCell id="1" parent="0"/>
+                <mxCell id="E1dAv3-2NYj1-EsjpR4A-1" value="Inicio" style="ellipse;whiteSpace=wrap;html=1;aspect=fixed;" parent="1" vertex="1">
+                    <mxGeometry x="220" y="20" width="80" height="80" as="geometry"/>
+                </mxCell>
+                <mxCell id="E1dAv3-2NYj1-EsjpR4A-2" value="A,&amp;nbsp;&lt;div&gt;rep,&lt;/div&gt;&lt;div&gt;&amp;nbsp;res=0,&lt;/div&gt;&lt;div&gt;&amp;nbsp;i=1: ENTERO&lt;/div&gt;" style="rounded=1;whiteSpace=wrap;html=1;" parent="1" vertex="1">
+                    <mxGeometry x="361" y="30" width="106" height="60" as="geometry"/>
+                </mxCell>
+                <mxCell id="E1dAv3-2NYj1-EsjpR4A-23" value="" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;" parent="1" source="E1dAv3-2NYj1-EsjpR4A-3" target="E1dAv3-2NYj1-EsjpR4A-5" edge="1">
+                    <mxGeometry relative="1" as="geometry"/>
+                </mxCell>
+                <mxCell id="E1dAv3-2NYj1-EsjpR4A-3" value="ESCRIBIR: &quot;Introduce número A&quot;&lt;div&gt;LEER: A&lt;/div&gt;" style="shape=parallelogram;perimeter=parallelogramPerimeter;whiteSpace=wrap;html=1;" parent="1" vertex="1">
+                    <mxGeometry x="244" y="120" width="340" height="60" as="geometry"/>
+                </mxCell>
+                <mxCell id="E1dAv3-2NYj1-EsjpR4A-24" value="" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;" parent="1" source="E1dAv3-2NYj1-EsjpR4A-5" target="E1dAv3-2NYj1-EsjpR4A-7" edge="1">
+                    <mxGeometry relative="1" as="geometry"/>
+                </mxCell>
+                <mxCell id="E1dAv3-2NYj1-EsjpR4A-5" value="ESCRIBIR: &quot;Introduce número de veces a repetir&quot;&lt;div&gt;LEER: rep&lt;/div&gt;" style="shape=parallelogram;perimeter=parallelogramPerimeter;whiteSpace=wrap;html=1;" parent="1" vertex="1">
+                    <mxGeometry x="216" y="220" width="396" height="60" as="geometry"/>
+                </mxCell>
+                <mxCell id="E1dAv3-2NYj1-EsjpR4A-7" value="i &amp;lt;= rep" style="rhombus;whiteSpace=wrap;html=1;" parent="1" vertex="1">
+                    <mxGeometry x="354" y="310" width="120" height="80" as="geometry"/>
+                </mxCell>
+                <mxCell id="E1dAv3-2NYj1-EsjpR4A-8" value="res = res + A" style="rounded=1;whiteSpace=wrap;html=1;" parent="1" vertex="1">
+                    <mxGeometry x="160" y="370" width="160" height="60" as="geometry"/>
+                </mxCell>
+                <mxCell id="E1dAv3-2NYj1-EsjpR4A-9" value="i = i + 1" style="rounded=1;whiteSpace=wrap;html=1;" parent="1" vertex="1">
+                    <mxGeometry x="216" y="490" width="180" height="60" as="geometry"/>
+                </mxCell>
+                <mxCell id="E1dAv3-2NYj1-EsjpR4A-10" value="ESCRIBIR: &quot;El producto es: res&quot;" style="rounded=1;whiteSpace=wrap;html=1;" parent="1" vertex="1">
+                    <mxGeometry x="540" y="410" width="140" height="60" as="geometry"/>
+                </mxCell>
+                <mxCell id="E1dAv3-2NYj1-EsjpR4A-11" value="Fin" style="ellipse;whiteSpace=wrap;html=1;aspect=fixed;" parent="1" vertex="1">
+                    <mxGeometry x="430" y="450" width="80" height="80" as="geometry"/>
+                </mxCell>
+                <mxCell id="E1dAv3-2NYj1-EsjpR4A-12" value="" style="endArrow=block;rounded=1;html=1;" parent="1" source="E1dAv3-2NYj1-EsjpR4A-1" target="E1dAv3-2NYj1-EsjpR4A-2" edge="1">
+                    <mxGeometry relative="1" as="geometry"/>
+                </mxCell>
+                <mxCell id="E1dAv3-2NYj1-EsjpR4A-13" value="" style="endArrow=block;rounded=1;html=1;" parent="1" source="E1dAv3-2NYj1-EsjpR4A-2" target="E1dAv3-2NYj1-EsjpR4A-3" edge="1">
+                    <mxGeometry relative="1" as="geometry"/>
+                </mxCell>
+                <mxCell id="E1dAv3-2NYj1-EsjpR4A-18" value="Sí" style="endArrow=block;rounded=1;html=1;" parent="1" source="E1dAv3-2NYj1-EsjpR4A-7" target="E1dAv3-2NYj1-EsjpR4A-8" edge="1">
+                    <mxGeometry relative="1" as="geometry"/>
+                </mxCell>
+                <mxCell id="E1dAv3-2NYj1-EsjpR4A-19" value="No" style="endArrow=block;rounded=1;html=1;" parent="1" source="E1dAv3-2NYj1-EsjpR4A-7" target="E1dAv3-2NYj1-EsjpR4A-10" edge="1">
+                    <mxGeometry relative="1" as="geometry"/>
+                </mxCell>
+                <mxCell id="E1dAv3-2NYj1-EsjpR4A-20" value="" style="endArrow=block;rounded=1;html=1;" parent="1" source="E1dAv3-2NYj1-EsjpR4A-8" target="E1dAv3-2NYj1-EsjpR4A-9" edge="1">
+                    <mxGeometry relative="1" as="geometry"/>
+                </mxCell>
+                <mxCell id="E1dAv3-2NYj1-EsjpR4A-21" value="" style="endArrow=block;rounded=1;html=1;" parent="1" source="E1dAv3-2NYj1-EsjpR4A-9" target="E1dAv3-2NYj1-EsjpR4A-7" edge="1">
+                    <mxGeometry relative="1" as="geometry"/>
+                </mxCell>
+                <mxCell id="E1dAv3-2NYj1-EsjpR4A-22" value="" style="endArrow=block;rounded=1;html=1;" parent="1" source="E1dAv3-2NYj1-EsjpR4A-10" target="E1dAv3-2NYj1-EsjpR4A-11" edge="1">
+                    <mxGeometry relative="1" as="geometry"/>
+                </mxCell>
+                <mxCell id="7WjZU-StnKyth_H3Hdcp-2" value="if (a&amp;lt;0 AND rep &amp;gt;=0)&lt;br&gt;or (a&amp;gt;=0 AND rep &amp;lt; 0)&lt;br&gt;res = -res&lt;div&gt;&lt;br/&gt;&lt;/div&gt;" style="rounded=1;whiteSpace=wrap;html=1;" vertex="1" parent="1">
+                    <mxGeometry x="640" y="270" width="140" height="60" as="geometry"/>
+                </mxCell>
+            </root>
+        </mxGraphModel>
+    </diagram>
+    <diagram id="v9i8Jahp2nJWpb2peRrk" name="Página-2">
+        <mxGraphModel dx="946" dy="586" grid="1" gridSize="10" guides="1" tooltips="1" connect="1" arrows="1" fold="1" page="1" pageScale="1" pageWidth="827" pageHeight="1169" math="0" shadow="0">
+            <root>
+                <mxCell id="0"/>
+                <mxCell id="1" parent="0"/>
+            </root>
+        </mxGraphModel>
+    </diagram>
+</mxfile>
