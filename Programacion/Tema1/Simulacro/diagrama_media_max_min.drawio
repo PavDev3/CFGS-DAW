@@ -1,0 +1,76 @@
+<mxfile host="65bd71144e">
+    <diagram id="media_max_min" name="Media Max Min">
+        <mxGraphModel dx="1744" dy="517" grid="1" gridSize="10" guides="1" tooltips="1" connect="1" arrows="1" fold="1" page="1" pageScale="1" pageWidth="850" pageHeight="1100" math="0" shadow="0">
+            <root>
+                <mxCell id="0"/>
+                <mxCell id="1" parent="0"/>
+                <mxCell id="2" value="Inicio" style="ellipse;whiteSpace=wrap;html=1;aspect=fixed;" parent="1" vertex="1">
+                    <mxGeometry x="400" y="40" width="80" height="80" as="geometry"/>
+                </mxCell>
+                <mxCell id="3" value="Definir: n, suma=0, contador=0, max, min" style="rounded=1;whiteSpace=wrap;html=1;" parent="1" vertex="1">
+                    <mxGeometry x="190" y="140" width="420" height="60" as="geometry"/>
+                </mxCell>
+                <mxCell id="4" value="ESCRIBIR: &quot;Introduce un número (0 para terminar)&quot;" style="shape=parallelogram;perimeter=parallelogramPerimeter;whiteSpace=wrap;html=1;" parent="1" vertex="1">
+                    <mxGeometry x="190" y="240" width="420" height="60" as="geometry"/>
+                </mxCell>
+                <mxCell id="5" value="LEER: n" style="shape=parallelogram;perimeter=parallelogramPerimeter;whiteSpace=wrap;html=1;" parent="1" vertex="1">
+                    <mxGeometry x="190" y="320" width="420" height="60" as="geometry"/>
+                </mxCell>
+                <mxCell id="6" value="¿n != 0?" style="rhombus;whiteSpace=wrap;html=1;" parent="1" vertex="1">
+                    <mxGeometry x="190" y="400" width="420" height="80" as="geometry"/>
+                </mxCell>
+                <mxCell id="7" value="suma = suma + n, contador++" style="rounded=1;whiteSpace=wrap;html=1;" parent="1" vertex="1">
+                    <mxGeometry x="10" y="490" width="420" height="60" as="geometry"/>
+                </mxCell>
+                <mxCell id="8" value="Si n &gt; max entonces max = n" style="rounded=1;whiteSpace=wrap;html=1;" parent="1" vertex="1">
+                    <mxGeometry x="-30" y="570" width="420" height="60" as="geometry"/>
+                </mxCell>
+                <mxCell id="9" value="Si n &lt; min entonces min = n" style="rounded=1;whiteSpace=wrap;html=1;" parent="1" vertex="1">
+                    <mxGeometry x="-30" y="670" width="420" height="60" as="geometry"/>
+                </mxCell>
+                <mxCell id="10" value="media = suma / contador" style="rounded=1;whiteSpace=wrap;html=1;" parent="1" vertex="1">
+                    <mxGeometry x="460" y="490" width="420" height="60" as="geometry"/>
+                </mxCell>
+                <mxCell id="11" value="ESCRIBIR: &quot;Media, Máximo y Mínimo&quot;" style="rounded=1;whiteSpace=wrap;html=1;" parent="1" vertex="1">
+                    <mxGeometry x="190" y="840" width="420" height="60" as="geometry"/>
+                </mxCell>
+                <mxCell id="12" value="Fin" style="ellipse;whiteSpace=wrap;html=1;aspect=fixed;" parent="1" vertex="1">
+                    <mxGeometry x="400" y="940" width="80" height="80" as="geometry"/>
+                </mxCell>
+                <mxCell id="13" value="" style="endArrow=block;rounded=1;html=1;" parent="1" source="2" target="3" edge="1">
+                    <mxGeometry relative="1" as="geometry"/>
+                </mxCell>
+                <mxCell id="14" value="" style="endArrow=block;rounded=1;html=1;" parent="1" source="3" target="4" edge="1">
+                    <mxGeometry relative="1" as="geometry"/>
+                </mxCell>
+                <mxCell id="15" value="" style="endArrow=block;rounded=1;html=1;" parent="1" source="4" target="5" edge="1">
+                    <mxGeometry relative="1" as="geometry"/>
+                </mxCell>
+                <mxCell id="16" value="" style="endArrow=block;rounded=1;html=1;" parent="1" source="5" target="6" edge="1">
+                    <mxGeometry relative="1" as="geometry"/>
+                </mxCell>
+                <mxCell id="17" value="Sí" style="endArrow=block;rounded=1;html=1;" parent="1" source="6" target="7" edge="1">
+                    <mxGeometry relative="1" as="geometry"/>
+                </mxCell>
+                <mxCell id="18" value="No" style="endArrow=block;rounded=1;html=1;" parent="1" source="6" target="10" edge="1">
+                    <mxGeometry relative="1" as="geometry"/>
+                </mxCell>
+                <mxCell id="19" value="" style="endArrow=block;rounded=1;html=1;" parent="1" source="7" target="8" edge="1">
+                    <mxGeometry relative="1" as="geometry"/>
+                </mxCell>
+                <mxCell id="20" value="" style="endArrow=block;rounded=1;html=1;" parent="1" source="8" target="9" edge="1">
+                    <mxGeometry relative="1" as="geometry"/>
+                </mxCell>
+                <mxCell id="21" value="" style="endArrow=block;rounded=1;html=1;" parent="1" source="9" target="4" edge="1">
+                    <mxGeometry relative="1" as="geometry"/>
+                </mxCell>
+                <mxCell id="22" value="" style="endArrow=block;rounded=1;html=1;" parent="1" source="10" target="11" edge="1">
+                    <mxGeometry relative="1" as="geometry"/>
+                </mxCell>
+                <mxCell id="23" value="" style="endArrow=block;rounded=1;html=1;" parent="1" source="11" target="12" edge="1">
+                    <mxGeometry relative="1" as="geometry"/>
+                </mxCell>
+            </root>
+        </mxGraphModel>
+    </diagram>
+</mxfile>
