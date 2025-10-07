@@ -1,0 +1,94 @@
+<mxfile host="65bd71144e">
+    <diagram name="Cálculo del Factorial" id="Q71rAFPMbbPDAgyXanvC">
+        <mxGraphModel dx="896" dy="619" grid="1" gridSize="10" guides="1" tooltips="1" connect="1" arrows="1" fold="1" page="1" pageScale="1" pageWidth="827" pageHeight="1169" math="0" shadow="0">
+            <root>
+                <mxCell id="0"/>
+                <mxCell id="1" parent="0"/>
+                <mxCell id="RKgv_uAVDBzMmzX2CUga-1" value="Inicio" style="ellipse;whiteSpace=wrap;html=1;aspect=fixed;" parent="1" vertex="1">
+                    <mxGeometry x="100" y="130" width="80" height="80" as="geometry"/>
+                </mxCell>
+                <mxCell id="RKgv_uAVDBzMmzX2CUga-2" value="n, factorial, i: Entero" style="rounded=1;whiteSpace=wrap;html=1;" parent="1" vertex="1">
+                    <mxGeometry x="240" y="140" width="120" height="60" as="geometry"/>
+                </mxCell>
+                <mxCell id="3" style="edgeStyle=none;html=1;exitX=0.5;exitY=1;exitDx=0;exitDy=0;entryX=0.5;entryY=0;entryDx=0;entryDy=0;" edge="1" parent="1" source="RKgv_uAVDBzMmzX2CUga-3" target="RKgv_uAVDBzMmzX2CUga-4">
+                    <mxGeometry relative="1" as="geometry"/>
+                </mxCell>
+                <mxCell id="RKgv_uAVDBzMmzX2CUga-3" value="ESCRIBIR: &quot;Introduce un número entero positivo o cero&quot;&lt;div&gt;LEER: n&lt;/div&gt;" style="shape=parallelogram;perimeter=parallelogramPerimeter;whiteSpace=wrap;html=1;" parent="1" vertex="1">
+                    <mxGeometry x="25" y="240" width="450" height="60" as="geometry"/>
+                </mxCell>
+                <mxCell id="RKgv_uAVDBzMmzX2CUga-4" value="n &amp;gt;= 0" style="rhombus;whiteSpace=wrap;html=1;" parent="1" vertex="1">
+                    <mxGeometry x="200" y="350" width="100" height="80" as="geometry"/>
+                </mxCell>
+                <mxCell id="2" style="edgeStyle=none;html=1;entryX=1;entryY=0.5;entryDx=0;entryDy=0;" edge="1" parent="1" source="RKgv_uAVDBzMmzX2CUga-5" target="RKgv_uAVDBzMmzX2CUga-3">
+                    <mxGeometry relative="1" as="geometry">
+                        <Array as="points">
+                            <mxPoint x="500" y="270"/>
+                        </Array>
+                    </mxGeometry>
+                </mxCell>
+                <mxCell id="RKgv_uAVDBzMmzX2CUga-5" value="ESCRIBIR: &quot;Dato incorrecto. Vuelve a intentar&quot;" style="rounded=1;whiteSpace=wrap;html=1;" parent="1" vertex="1">
+                    <mxGeometry x="400" y="360" width="200" height="60" as="geometry"/>
+                </mxCell>
+                <mxCell id="RKgv_uAVDBzMmzX2CUga-6" value="factorial = 1" style="rounded=1;whiteSpace=wrap;html=1;" parent="1" vertex="1">
+                    <mxGeometry x="200" y="480" width="100" height="60" as="geometry"/>
+                </mxCell>
+                <mxCell id="RKgv_uAVDBzMmzX2CUga-7" value="i = 1" style="rounded=1;whiteSpace=wrap;html=1;" parent="1" vertex="1">
+                    <mxGeometry x="200" y="570" width="100" height="60" as="geometry"/>
+                </mxCell>
+                <mxCell id="RKgv_uAVDBzMmzX2CUga-8" value="i &amp;lt;= n" style="rhombus;whiteSpace=wrap;html=1;" parent="1" vertex="1">
+                    <mxGeometry x="210" y="670" width="100" height="80" as="geometry"/>
+                </mxCell>
+                <mxCell id="RKgv_uAVDBzMmzX2CUga-9" value="factorial = factorial * i" style="rounded=1;whiteSpace=wrap;html=1;" parent="1" vertex="1">
+                    <mxGeometry x="10" y="600" width="150" height="60" as="geometry"/>
+                </mxCell>
+                <mxCell id="RKgv_uAVDBzMmzX2CUga-10" value="i = i + 1" style="rounded=1;whiteSpace=wrap;html=1;" parent="1" vertex="1">
+                    <mxGeometry x="10" y="750" width="150" height="60" as="geometry"/>
+                </mxCell>
+                <mxCell id="RKgv_uAVDBzMmzX2CUga-11" value="ESCRIBIR: &quot;El factorial de&quot; + n + &quot;es&quot; + factorial" style="rounded=1;whiteSpace=wrap;html=1;" parent="1" vertex="1">
+                    <mxGeometry x="360" y="680" width="250" height="60" as="geometry"/>
+                </mxCell>
+                <mxCell id="RKgv_uAVDBzMmzX2CUga-12" value="Fin" style="ellipse;whiteSpace=wrap;html=1;aspect=fixed;" parent="1" vertex="1">
+                    <mxGeometry x="350" y="790" width="80" height="80" as="geometry"/>
+                </mxCell>
+                <mxCell id="RKgv_uAVDBzMmzX2CUga-13" value="" style="endArrow=block;rounded=1;html=1;" parent="1" source="RKgv_uAVDBzMmzX2CUga-1" target="RKgv_uAVDBzMmzX2CUga-2" edge="1">
+                    <mxGeometry relative="1" as="geometry"/>
+                </mxCell>
+                <mxCell id="RKgv_uAVDBzMmzX2CUga-14" value="" style="endArrow=block;rounded=1;html=1;" parent="1" source="RKgv_uAVDBzMmzX2CUga-2" target="RKgv_uAVDBzMmzX2CUga-3" edge="1">
+                    <mxGeometry relative="1" as="geometry"/>
+                </mxCell>
+                <mxCell id="RKgv_uAVDBzMmzX2CUga-16" value="No" style="endArrow=block;rounded=1;html=1;" parent="1" source="RKgv_uAVDBzMmzX2CUga-4" target="RKgv_uAVDBzMmzX2CUga-5" edge="1">
+                    <mxGeometry relative="1" as="geometry"/>
+                </mxCell>
+                <mxCell id="RKgv_uAVDBzMmzX2CUga-17" value="Sí" style="endArrow=block;rounded=1;html=1;" parent="1" source="RKgv_uAVDBzMmzX2CUga-4" target="RKgv_uAVDBzMmzX2CUga-6" edge="1">
+                    <mxGeometry relative="1" as="geometry"/>
+                </mxCell>
+                <mxCell id="RKgv_uAVDBzMmzX2CUga-19" value="" style="endArrow=block;rounded=1;html=1;" parent="1" source="RKgv_uAVDBzMmzX2CUga-6" target="RKgv_uAVDBzMmzX2CUga-7" edge="1">
+                    <mxGeometry relative="1" as="geometry"/>
+                </mxCell>
+                <mxCell id="RKgv_uAVDBzMmzX2CUga-20" value="" style="endArrow=block;rounded=1;html=1;" parent="1" source="RKgv_uAVDBzMmzX2CUga-7" target="RKgv_uAVDBzMmzX2CUga-8" edge="1">
+                    <mxGeometry relative="1" as="geometry"/>
+                </mxCell>
+                <mxCell id="RKgv_uAVDBzMmzX2CUga-21" value="Sí" style="endArrow=block;rounded=1;html=1;" parent="1" source="RKgv_uAVDBzMmzX2CUga-8" target="RKgv_uAVDBzMmzX2CUga-9" edge="1">
+                    <mxGeometry relative="1" as="geometry"/>
+                </mxCell>
+                <mxCell id="RKgv_uAVDBzMmzX2CUga-22" value="No" style="endArrow=block;rounded=1;html=1;" parent="1" source="RKgv_uAVDBzMmzX2CUga-8" target="RKgv_uAVDBzMmzX2CUga-11" edge="1">
+                    <mxGeometry relative="1" as="geometry"/>
+                </mxCell>
+                <mxCell id="RKgv_uAVDBzMmzX2CUga-23" value="" style="endArrow=block;rounded=1;html=1;" parent="1" source="RKgv_uAVDBzMmzX2CUga-9" target="RKgv_uAVDBzMmzX2CUga-10" edge="1">
+                    <mxGeometry relative="1" as="geometry"/>
+                </mxCell>
+                <mxCell id="RKgv_uAVDBzMmzX2CUga-24" value="" style="endArrow=block;rounded=1;html=1;entryX=0.5;entryY=1;entryDx=0;entryDy=0;" parent="1" source="RKgv_uAVDBzMmzX2CUga-10" target="RKgv_uAVDBzMmzX2CUga-8" edge="1">
+                    <mxGeometry relative="1" as="geometry">
+                        <Array as="points">
+                            <mxPoint x="85" y="840"/>
+                            <mxPoint x="260" y="840"/>
+                        </Array>
+                    </mxGeometry>
+                </mxCell>
+                <mxCell id="RKgv_uAVDBzMmzX2CUga-25" value="" style="endArrow=block;rounded=1;html=1;" parent="1" source="RKgv_uAVDBzMmzX2CUga-11" target="RKgv_uAVDBzMmzX2CUga-12" edge="1">
+                    <mxGeometry relative="1" as="geometry"/>
+                </mxCell>
+            </root>
+        </mxGraphModel>
+    </diagram>
+</mxfile>
