@@ -1,0 +1,22 @@
+MENUS 
+MAIN - ADVANCED - BOOT - SECURITY  - EXIT
+
+- En main veremos configuracion informacion de bios, manufacturacion , procesador , fecha hora, memoria total , numero de serie y hora/fecha 
+
+- ADVANCED 
+
+Podremos configurar temas tecnicos de los componentes de nuestro ordenador, desde CPU, ACPI, PCIExpress , USBs...
+
+- BOOT
+
+Aqui podremos poner el orden de arranca del sistema
+
+- SECURITY
+
+Aqui podremos configurar temas de password para los discos duros, bios, administracion y TPM
+
+- EXIT
+
+Podremos salir de la bios , guardando cambios o sin guardar.
+
+
