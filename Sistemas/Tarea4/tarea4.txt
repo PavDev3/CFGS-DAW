@@ -1,0 +1,6 @@
+Commodore Amiga 500.
+
+Procesador:  Motorola 68000
+Fabricante: Commodore International
+
+IMB Power 
