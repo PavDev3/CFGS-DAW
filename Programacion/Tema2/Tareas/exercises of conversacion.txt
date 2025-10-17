@@ -1,0 +1,19 @@
+1.
+ 1 = ✅
+ 2 = ✅
+ 3 = ✅
+ 4 = ✅ 
+ 5 = ✅ 
+ 6 = ❌
+
+2.
+ 8 = int newType = (int) l;  -> 1000  -> no loss
+ 9 = char newType = (char) i -> C ->  no loss 
+ 10 = byte newType = (byte) i ->  44 -> 300 is out of range
+ 11 = long newType = (long) f -> 123 -> loss 456
+
+3.
+ 13 = short -> yes to int
+ 14 = long -> yes to int 
+ 15 = int -> no
+ 16 = byte -> yes to int
