@@ -1,0 +1,10 @@
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap');
+
+:root {
+  --color-primary: #606C38;
+  --color-secondary: #283618;
+  --color-light: #FEFAE0;
+  --color-accent: #DDA15E;
+  --color-dark: #BC6C25;
+  --font-family: 'Inter', 'BBH Sans Bogle', sans-serif;
+}
