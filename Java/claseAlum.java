@@ -26,6 +26,8 @@ public class claseAlum {
         porcentajeSuspensos = (suspensos * 100) / numeroAlumnos;
         System.out.println("El porcentaje de aprobados es: " + porcentajeAprobados + "%");
         System.out.println("El porcentaje de suspensos es: " + porcentajeSuspensos + "%");
+        System.out.println("Fin del programa.");
         scanner.close();
+        
     }
 }
