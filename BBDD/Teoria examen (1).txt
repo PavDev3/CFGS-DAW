@@ -1,0 +1,322 @@
+[BIG DATA]
+
+--> ¿Qué es Big data? 
+
+Big data se refiere al manejo de grandes volúmenes de datos que no pueden ser tratados de forma convencional.
+
+	Volumen  : Cantidad enorme de datos.
+	Velocidad: Se generan y procesan muy rápido
+	Variedad : Datos de diferentes tipos (texto, imágenes, videos...)
+	Veracidad: Datos que pueden ser poco fiables
+	Valor	 : Lo importante es extraer información útil
+
+
+--> Base de Datos en Big data: 
+
+	= Datos no estructurados o semi
+
+	= Procesamiento masivo y en paralelo
+
+	= Escalabilidad horizontal (Distribuir la carga de trabajo creando nuevos servidores o nodos)
+	
+	= Flexible, pero la consistencia puede ser eventual
+	
+	
+	
+	
+--> Usos de Big Data:
+
+	. Análisis de preferencia
+	. Análisis predictivo
+	. Optimización de rutas
+	. Gestión de demanda
+	. Análisis de patrones
+
+
+--> Herramientas y arquitecturas:
+
+	- NoSQL: datos no estructurados o semi-estructurados. 
+	  
+	  MongoDB 	= JSON
+	  Cassandra = Datos distruibuidos a gran escala 
+	  Redis	    = Almacenamiento en memoria para alta velocidad 
+	
+	¿Qué es un Almacenamiento distruibuido? = Distribución de datos entre muchos equipos conectados en red, formando un cluster donde maneja volúmenes de información. "HDFS", divide los datos en bloques y los reparte en nodos.
+	
+	¿Qué es Procesamiento paralelo? = Tecnologias como MapReduce o Apache Spark permiten dividir una tarea en partes mas pequeñas y procesarlas en distintos nodos para luego reunir el resultado.
+	
+	¿Qué es Data Lake? = Gran repositorio donde se almacenan datos sin procesar, conserva la informaciónpara procesarla mas adelante, ejemplos: Amazon S3 o Azure Data Lake.
+
+
+[FRAGMENTACION Y SISTEMAS DISTRUIBUIDOS]
+
+
+--> ¿Qué es Un Sistema Distruibuido? 
+
+Un sistema distribuido es un conjunto de computadoras o nodos que funcionan como una unidad lógica, compartiendo recursos, datos y tareas, al que al usuario se le muestra como uno solo. En lugar de centralizar toda la información, los datos se fragmentan y se distribuyen en varios nodos de la red, lo que mejora rendimiento, disponibilidad y escalabilidad.
+
+
+	Multiplicidad de nodos  			: Varios equipos colaboran como uno solo
+	Autonomia							: Cada nodo oera por sí mismo, pero cooridna acciones globales
+	Transparencia 						: El sistema debe parecer "una sola máquina" al usuario
+	Concurrencia y tolerancia a fallos	: Varios procesos pueden ejecutarse simultáneamente	sin que un fallo total ocurra si un nodo cae
+	
+	
+--> ¿Qué es la fragmentación de datos? 
+
+La fragmentación divide una base de datos en partes llamadas fragmentos, que pueden distribuirse físicamente entre nodos distintos
+	
+																									<	VENTAJAS	>  										<	Desventajas	> 
+	Horizontal	: Cada fragmento contiene un subconjunto de filas							               							     
+	Vertical	: Cada fragmento contiene un subconjunto de columnas 						Escalabilidad y modularidad					/	Complejidad administrativa (Coordinación entre nodos)
+	Mixta		: Combinas ambas técnicas													Tolerancia a fallos mediante replicación	/	Problemas de concsitencia de datos y latenicia
+																							Mejor rendimiento y balanceo de carga		/	Seguridad (más puntos de ataque y necvesidad de cifrado o autentificación
+	
+
+	Ejemplo: Google aplica estos principios en servicios como Drive, Maps o Gmail, donde os datos se distribuyen y replican globalmente para garantizar disponibilidad y baja latencia
+	
+	
+	
+	
+	
+	
+	
+[NORMALIZACION]
+
+	
+La normalización es un proceso de diseño de bases de datos que organiza los datos en tablas y relaciones para reducir redundancia y asegurar integridad. Su meta es evitar inconsistencias y facilitar el mantenimiento.
+
+--> ¿Qué sucede si no existe normalización? ? 
+
+= Duplicación de datos
+= Consultas poco fiables (Diferentes copias de un mismo dato)
+= Actualizaciones difíciles y propensas a errores
+
+
+--> Etapas principales
+
+
+	= 1NF  : Cada campo debe tener un valor único. No se permiten listas o arrays ni valores múltiples 	           (PRIMERA FORMA)
+	= 2NF  : Eliminar dependencias parciales; todos los atributos deben depender de la clave primaria completa	   (SEGUNDA FORMA)
+	= 3NF  : Eliminar dependencias transitivas (atributos que dependen de otros no clave)						   (TERCERA FORMA)
+	= BCNF : Versión más estrica que resuelve dependencias complejas entre múltiples claves candidatas             (BOYCE-CODD)
+	
+	¿Cuándo no normalizar? = En algunos casos, se desnormaliza para optimizar el rendimiento, en sistemas de consulta intensiva o grandes volúmenes de datos
+	
+--> Conceptos clave
+
+	= Campo/Atributo :		   Columna de una tabla.
+	= Dependencia funcional :  Un atributo depende de otro.
+	= Dependencia no trivial:  Cuando un campo depende de otro que no forma parte del resultado. 
+	= Dependencia transitiva:  Un dato depende de otro, que a su vez depende de otro.
+	= Valor atómico : 		   Un solo dato, no una lista.
+	= Claves candidatas: 	   Campos que pueden servir como clave, porque no se repiten.
+	= Clave compuesta: 		   Clave formada por dos o más campos juntos. Ejemplo: (Curso, Estudiante).
+	= Clave primaria : 		   Identificador único.
+	= Determinante: 		   Campo que define el valor de otro. Ejemplo: "DNI" determina "Nombre"
+
+--> Conclusión
+
+La normalización crea estructuras sólidas y coherentes que: 
+
+1. Mejoran la calidad e integridad de los datos. 
+2. Facilitan el mantenimiento y escalabilidad. 
+3. Sientan bases firmes para el crecimiento del sistema.
+
+
+[ALTA DISPONIBILIDAD]
+
+
+La alta disponibilidad (HA) busca que los sistemas estén siempre operativos, incluso ante fallos de hardware, red o software. Se logra eliminando puntos únicos de fallo, mediante replicación, 
+failover automático y monitoreo continuo
+
+--> ¿HA vs. Disaster Recovery? 
+
+	= HA : Responde a fallos menores y garantiza continudad inmediata
+	= DR : Actúa ante desastres mayores, restaurando datos y sistemas tras el evento
+	
+--> Coste del downtime
+
+Cada minuto sin servicio puede costar miles de dólares y dañar la reputación de la empresa, justificando inversiones en HA
+
+
+--> Métricas esenciales
+
+	= RTO (Recovery Time Objective)	 : Tiempo máximo de recuperación.
+	= RPO (Recovery Point Objective) : Pérdida de datos tolerable.
+	= MTTR / MTBF / MTTF             : Métricas de confiabilidad y reparación.
+	= “Nines”						 : Porcentaje de disponibilidad (99.9%, 99.99%, etc.).
+	
+--> Arquitecturas para HA
+
+	= Activo–Pasivo			: Un nodo activo, otro en espera (failover).
+	= Multi–Master			: Varios nodos activos aceptan escrituras.
+	= Shared–Nothing		: Cada nodo con almacenamiento independiente.
+	= Geo-replicación		: Copias en múltiples regiones.
+	
+--> Replicación
+
+	= Síncrona			: Sin pérdida de datos (RPO=0), pero más lenta.
+	= Asíncrona			: Mejor rendimiento, posible pérdida mínima.
+	= Semi-asíncrona	: Equilibrio entre ambas.
+	
+--> Topologías
+
+	= Maestro–esclavo, multi–master, en anillo, por quórum.
+	
+--> Consistencia y Teorema CAP 
+
+	El teorema CAP establece que un sistema distribuido no puede garantizar simultáneamente:
+	
+	= Consistencia
+	= Disponibilidad
+	= Tolerancia a particiones de red
+	
+--> Protocolos de consenso y transacciones
+
+	= Paxos / Raft	: Aseguran consenso entre nodos distribuidos
+	= 2PC / 3PC		: Garantizan que una transacción distribuida se complete o se cancele completamente.
+	
+--> Failover y Split-Brain
+
+	= Failover		: Cambio automático al nodo de respaldo ante fallo.
+	= Split-Brain	: Error grave cuando dos nodos se creen maestros simultáneamente → inconsistencias.
+	
+    Prevención mediante quorum, heartbeat, fencing y monitores externos (Pacemaker, Corosync).
+	
+--> Copias de seguridad
+
+	= Físicas		: Copia directa de archivos del sistema (rápidas).
+	= Lógicas		: Exportan datos en formato SQL/JSON (portables).
+	= PITR			: Restauración a un punto exacto en el tiempo.
+	
+	
+[PROTECCION DE DATOS]
+	
+--> ¿Qué es la Protección de Datos?
+
+La protección de datos consiste en resguardar toda la información personal que puede identificar a una persona (nombre, DNI, dirección, correo electrónico, datos bancarios, salud, orientación sexual, creencias, etc.) para que no sea usada sin consentimiento ni de forma indebida.
+
+Su objetivo es garantizar el respeto a la privacidad y evitar accesos o usos no autorizados.
+
+	= Integridad		: La integridad asegura que los datos sean exactos, completos y no se alteren de forma no autorizada.
+	= Confidencialidad	: La confidencialidad garantiza que la información solo pueda ser conocida por personas autorizadas.
+	= Disponibilidad	: La disponibilidad asegura que los datos estén accesibles y utilizables cuando las personas autorizadas los necesiten, incluso frente a fallos, ataques o desastres
+	
+	
+--> Métodos de Seguridad
+
+= Cifrado de bases de datos y archivos 	   : Transforma el texto original (plano) en un texto cifrado mediante algoritmos como RSA, AES, ChaCha20 o SHA.
+											 Solo quienes poseen la clave pueden descifrarlo, protegiendo la información ante robos o interceptaciones.
+
+
+= Copias de seguridad periódicas (Backups) : Son respaldos programados que permiten restaurar la información ante pérdidas o daños.
+	
+	Completo	: Copia toda la base de datos.
+	Incremental : Copia solo lo que cambió desde el último backup.
+	Diferencial : Copia lo que cambió desde el último completo.
+
+Los backups se combinan con estrategias como almacenamiento externo o en la nube para mayor resiliencia.
+
+= Control de acceso y contraseñas seguras  : Limita quién puede acceder y qué puede hacer.
+
+Se aplican políticas de usuarios, contraseñas fuertes, autenticación de múltiples factores y gestión de privilegios.
+
+= Auditorías y monitorización			   : Registra todas las actividades en la base de datos para detectar accesos sospechosos o violaciones.
+
+
+Sus objetivos son:
+
+		=	Saber quién accedió y qué datos consultó.
+
+		=	Detectar anomalías o intentos de intrusión.
+
+		=	Vigilar el estado del servidor y el tráfico.
+		
+		
+
+--> Legislación
+
+	= LOPD :
+	
+Aprobada en 1999, fue la primera ley que reguló el uso de datos personales.
+
+Limitaciones:
+
+       = No se adaptaba a la era digital (nube, redes sociales, big data).
+
+	   = Las sanciones eran leves.
+	   
+	   
+	= GDPR :
+	
+Entró en vigor en 2018, reemplazando a la LOPD.
+
+
+Características clave:
+
+		= Obligación de notificar brechas de seguridad en 72 horas.
+
+		= Derecho al olvido: el usuario puede exigir la eliminación de sus datos.
+
+		= Multas severas: hasta el 4 % de los ingresos anuales globales.
+
+		= Consentimiento explícito: las empresas deben pedir autorización clara para el uso de datos.
+		
+		
+		
+		
+		
+		
+[ESCALABILIDAD]
+
+La escalabilidad es la capacidad de una base de datos para adaptarse al crecimiento de una aplicación sin perder rendimiento.
+Permite que el sistema maneje más usuarios, datos o transacciones sin colapsar.
+
+--> Tipos de Escalabilidad
+
+= Escalabilidad vertical:  Consiste en mejorar el hardware de un solo servidor (más CPU, RAM, almacenamiento, etc.). (Aplicaciones monolíticas o bases de datos críticas con alta coherencia).
+
+
+			= Ventajas	 : Sencilla de implementar.
+			= Desventajas: Tiene límites físicos y puede ser costosa.
+			= Ejemplo	 : Cambiar un servidor con 16 GB de RAM por uno de 64 GB.
+			
+	<CLAVES>
+			= Más CPU o memoria = mejor rendimiento.
+			= Más simple de configurar.
+			= Tiene límites físicos y económicos (no se puede crecer indefinidamente).
+			
+			
+			
+= Escalabilidad horizontal:  Consiste en añadir más servidores para repartir la carga. (La nube y la virtualización han hecho esto posible.)
+
+			= Ventajas	 : Alta disponibilidad y flexibilidad.
+			= Desventajas: Requiere coordinación entre nodos y mayor complejidad.
+			= Ejemplo	 : Añadir más instancias de base de datos o nodos en la nube.
+			
+	<CLAVES>
+			= Añadir más equipos en vez de aumentar la potencia de uno.
+			= Mejorar disponibilidad y tolerancia a fallos.
+			= Ideal para servicios web, streaming o redes sociales con millones de peticiones simultáneas.
+			
+			
+			
+--> Ventajas Escalabilidad
+
+			= Soporta el crecimiento: permite atender más usuarios o tareas sin fallos.
+			= Mejora el rendimiento: consultas más rápidas gracias a la distribución de carga.
+			= Reduce costos: se amplía solo cuando es necesario (pago por uso en la nube).
+			= Aumenta la confiabilidad: menor riesgo de caídas.
+			= Facilita el desarrollo: actualizaciones seguras sin detener el sistema.
+	
+	
+--> Impactos en los Negocios
+
+			= Manejar grandes volúmenes de datos.
+			= Atender más usuarios sin degradar el servicio.
+			= Garantizar estabilidad y continuidad operativa.
+			= Adaptarse tecnológicamente y competir mejor.
+			= Tomar decisiones basadas en datos en tiempo real.
+	
+	Ejemplo: Una tienda online puede crecer de cientos a miles de clientes sin rediseñar su base de datos, solo ampliando nodos o recursos.
