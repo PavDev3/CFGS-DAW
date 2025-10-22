@@ -1,0 +1,73 @@
+**BIG DATA Y BASES DE DATOS**
+
+**Big Data** se define como el manejo de grandes volúmenes de datos que no pueden ser procesados de forma convencional. 
+Se caracteriza por las **5V**: 
+
+**Volumen** (gran cantidad de datos)
+**Velocidad** (procesamiento rápido),
+**Variedad** (diferentes tipos de datos)
+**Veracidad** (posiblemente poco fiables)
+**Valor** (extracción de información útil).
+
+Mientras que las Bases de Datos Tradicionales (SQL) manejan datos en tablas con escalabilidad vertical (ej. MySQL, Oracle), el Big Data maneja datos **no estructurados o semiestructurados**,
+utiliza procesamiento masivo en paralelo y se beneficia de la **escalabilidad horizontal** (ej. MongoDB, Hadoop, Cassandra).
+
+Las aplicaciones de Big Data incluyen el análisis de preferencias en **Redes Sociales**, el **análisis predictivo** en la salud (medicina personalizada), las recomendaciones personalizadas en Comercio (Amazon, Netflix), 
+la optimización de rutas en Transporte (Uber), y la detección de fraude en **Finanzas** mediante el análisis de patrones anormales.
+
+Las herramientas clave en Big Data incluyen bases de datos **NoSQL** (MongoDB para documentos JSON, Cassandra para datos distribuidos a gran escala), el **almacenamiento distribuido** (como HDFS), 
+el procesamiento paralelo (MapReduce, Apache Spark), y los **Lagos de Datos** (Data Lakes) para almacenar datos sin procesar (ej. Amazon S3).
+
+**SISTEMAS DISTRIBUIDOS Y ESCALABILIDAD**
+
+Un **sistema distribuido** está compuesto por múltiples nodos autónomos que trabajan de forma coordinada, comunicándose mediante una red. Para el usuario, se comporta como una sola base de datos lógica. 
+Sus características incluyen la **tolerancia a fallos** (uno o varios nodos pueden fallar sin detener el sistema) y la **concurrencia**.
+
+La **fragmentación de datos** es clave, ya que la información se divide y se reparte en distintos nodos. Las ventajas de estos sistemas son la **escalabilidad** (añadir más nodos para capacidad), 
+la tolerancia a fallos por redundancia y replicación, y el mejor rendimiento debido a la ejecución de consultas en paralelo. Los desafíos principales son la **complejidad de gestión**, la dificultad para mantener la **consistencia** 
+y los problemas de seguridad. Google utiliza fragmentación y replicación para garantizar el acceso de servicios como Gmail y Maps.
+
+La **escalabilidad** es la capacidad de una base de datos para adaptarse al crecimiento de una aplicación sin perder eficiencia. Existen dos tipos principales:
+1. **Escalabilidad Vertical (Scale Up):** Aumentar la potencia de un solo servidor (más CPU, RAM). Es simple de implementar pero tiene un límite físico.
+2. **Escalabilidad Horizontal (Scale Out):** Añadir más servidores (equipos) para compartir la carga. Mejora la disponibilidad y es ideal para alta demanda.
+
+**ALTA DISPONIBILIDAD (HA)**
+
+La **Alta Disponibilidad (HA)** es la capacidad de un sistema de base de datos para mantener un alto nivel de tiempo de actividad, asegurando que el servicio esté disponible continuamente ante fallos de hardware, software o red.
+La HA se diferencia de **Disaster Recovery (DR)**, que maneja eventos catastróficos mayores.
+
+Métricas clave:
+*   **RTO (Recovery Time Objective):** Tiempo máximo tolerable para restaurar la funcionalidad del sistema tras un fallo.
+*   **RPO (Recovery Point Objective):** Máximo tiempo de datos que se puede permitir perder.
+
+Patrones de arquitectura: **Activo-Pasivo** (un nodo activo y uno en espera), **Multi-Master** (varios nodos activos aceptan escrituras), y **Shared-Nothing** (cada nodo tiene su propio almacenamiento local).
+
+La **replicación** duplica y sincroniza la información entre varios nodos para mejorar la disponibilidad y el rendimiento. Las variantes son: **Síncrona** (no hay pérdida de datos, RPO = 0, pero mayor latencia), y **Asíncrona** (mejor rendimiento,
+pero riesgo de pérdida de datos si falla el nodo primario).
+
+El **failover** es el mecanismo automático para cambiar a un servidor secundario cuando el principal falla. Un problema crítico es el **split-brain**, donde dos o más nodos creen simultáneamente ser el maestro, causando inconsistencias.
+Esto se previene mediante el control de **Quorum** (acuerdo mínimo de nodos para operar),
+**Heartbeat** (señales periódicas), y **Fencing (STONITH)** (aislamiento de un nodo problemático).
+
+Los protocolos de consenso como **Paxos** y **Raft** buscan garantizar que varios nodos lleguen a un acuerdo en sistemas distribuidos. Google Spanner es un ejemplo de base de datos distribuida que ofrece gran consistencia y escalabilidad horizontal.
+
+**NORMALIZACIÓN DE BASES DE DATOS**
+
+La **normalización** es el proceso de organizar datos en tablas estructuradas para **reducir la redundancia** y mejorar la integridad. Si no se normaliza, se generan datos duplicados, consultas poco confiables y actualizaciones complicadas.
+
+Las etapas principales son:
+1. **Primera Forma Normal (1NF):** Cada campo debe contener un solo **valor atómico**; no se permiten listas ni valores múltiples en una celda.
+2. **Segunda Forma Normal (2NF):** Cada atributo no clave debe depender totalmente de la **clave primaria completa**; si depende solo de una parte, debe moverse a otra tabla.
+3. **Tercera Forma Normal (3NF):** Elimina las **dependencias transitivas**; los campos no clave deben depender directamente de la clave primaria, no de otros campos no clave.
+4. **Forma Normal de Boyce-Codd (BCNF):** Versión más estricta de la 3NF que maneja dependencias funcionales complejas.
+
+**PROTECCIÓN DE DATOS Y LEGISLACIÓN**
+
+Los datos personales son cualquier información que pueda identificar a una persona (nombre, salud, datos bancarios). La protección busca garantizar la **Integridad**, **Confidencialidad** y **Disponibilidad** de estos datos.
+
+Métodos de seguridad incluyen el **cifrado** (transformar texto plano usando algoritmos matemáticos), **copias de seguridad periódicas** (completas, incrementales o diferenciales), **control de accesos**, y **auditorías y monitorización**
+para detectar comportamientos sospechosos.
+
+La legislación europea más importante es el **GDPR (Reglamento General de Protección de Datos)**, que reemplazó a la LOPD española en 2018. A diferencia de la LOPD, el GDPR afecta a toda Europa y a cualquier empresa que trate datos de ciudadanos europeos.
+El GDPR exige un **consentimiento explícito**, incluye el **derecho al olvido**,
+y establece multas mucho más severas (hasta el 4% de los ingresos anuales globales). Además, obliga a notificar brechas de seguridad en un plazo de **72 horas**.
