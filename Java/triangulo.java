@@ -15,7 +15,7 @@ public class triangulo {
         // bucle para validar que la base sea un número positivo e impar
         if (base <= 0) {
 			System.out.println("La base debe ser un número positivo.");
-			System.out.println("Inténtelo de nuevo.");
+			System.out.println("Introcuzca otro numero distinto a 0: ");
 			base = sc.nextInt();
 			
 		}
@@ -23,7 +23,7 @@ public class triangulo {
         if (base % 2 == 0) {
         	System.out.println("La base debe ser un número impar.");
         	
-        	System.out.println("Inténtelo de nuevo.");
+        	System.out.println("Ingrese de nuevo la base del triangulo: ");
         				base = sc.nextInt();
         				
         }
@@ -51,10 +51,7 @@ public class triangulo {
 				System.out.println();
 				espacios--;
 			}
-        }
-        
-
-        sc.close();
+        }       
     }
 }
     
