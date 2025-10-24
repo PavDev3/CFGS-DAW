@@ -8,6 +8,14 @@ public class rectangulo {
         alto = sc.nextInt();
         System.out.print("Ingrese el ancho del rectángulo: ");
         ancho = sc.nextInt();
+        
+        if (alto <= 0 || ancho <= 0) {
+        				System.out.println("El alto y el ancho deben ser números positivos.");
+        				System.out.println("Inténtelo de nuevo.");
+        				alto = sc.nextInt();
+        				ancho = sc.nextInt();
+        				
+        }
 
         // Dibuja rectángulo con 2 contadores, uno para el alto y otro para el ancho
         for (int i = 0; i < alto; i++) {

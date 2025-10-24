@@ -6,7 +6,7 @@ public class cajafuerte {
         Scanner scanner = new Scanner(System.in);
         Random random = new Random();
         
-        int passwordOk = random.nextInt(9999);
+        int passwordOk = random.nextInt(10000);
         String passwordOkString = String.format("%04d", passwordOk);
         System.out.println("La contrasena es: " + passwordOkString);
         
