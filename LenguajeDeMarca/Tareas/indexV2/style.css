@@ -6,6 +6,7 @@
 body {
     margin: 0;
     padding: 0;
+    background-color: var(--color-light)
 }
 
 
@@ -53,11 +54,15 @@ body {
     justify-content: start;
     height: 100%;
     width: 100%;
-    background-color: var(--color-light);
+    
 }
 
 /* footer para el pie de pagina de la pagina */
 .footer {
+    position: fixed;
+    bottom: 0;
+    left: 0;
+    right: 0;
     display: flex;
     justify-content: center;
     align-items: center;
@@ -66,4 +71,73 @@ body {
     padding: 1rem;
     background-color: var(--color-primary);
     color: var(--color-light);
+    z-index: 1000;
 }
+
+/* Estilos para el ejemplo de flexbox */
+.content {
+    padding: 2rem;
+    max-width: 1200px;
+    margin: 0 auto;
+    margin-bottom: 6rem; /* Espacio para el footer fijo */
+}
+
+.content h1 {
+    text-align: center;
+    color: var(--color-primary);
+    margin-bottom: 2rem;
+    font-size: 2.5rem;
+}
+
+.flex-container {
+    display: flex;
+    gap: 2rem;
+    padding: 2rem;
+    background-color: var(--color-accent);
+    border-radius: 1rem;
+    box-shadow: 0 8px 32px rgba(0, 0, 0, 0.1);
+    margin: 2rem 0;
+}
+
+.flex-item {
+    flex: 1;
+    background-color: var(--color-light);
+    padding: 2rem;
+    border-radius: 0.8rem;
+    box-shadow: 0 4px 16px rgba(0, 0, 0, 0.1);
+    border: 3px solid var(--color-primary);
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.flex-item:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 8px 24px rgba(0, 0, 0, 0.15);
+}
+
+.flex-item h3 {
+    color: var(--color-primary);
+    margin-top: 0;
+    margin-bottom: 1rem;
+    font-size: 1.5rem;
+    text-align: center;
+}
+
+.flex-item p {
+    color: #555;
+    line-height: 1.6;
+    text-align: justify;
+    margin: 0;
+}
+
+/* Responsive design */
+@media (max-width: 768px) {
+    .flex-container {
+        flex-direction: column;
+        gap: 1.5rem;
+    }
+    
+    .content h1 {
+        font-size: 2rem;
+    }
+}
+
