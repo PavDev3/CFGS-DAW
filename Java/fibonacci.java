@@ -3,6 +3,8 @@ public class fibonacci {
 	
 		public static void main(String[] args) {
 		Scanner sc = new Scanner(System.in);
+		//Empezamos con los dos primeros numeros de la serie
+		
 		int a = 0, b = 1;
 		int c;
 		System.out.println(" Fibonacci hasta el limite de: ");
@@ -17,3 +19,4 @@ public class fibonacci {
 		}
 	}  
 }
+
