@@ -10,8 +10,7 @@ public class rectangulo {
         ancho = sc.nextInt();
         System.out.println("Dibujalo con :");
         char letra = sc.next().charAt(0);
-        
-        
+  
         if (alto <= 0 || ancho <= 0) {
         				System.out.println("El alto y el ancho deben ser números positivos.");
         				System.out.println("Inténtelo de nuevo.");
