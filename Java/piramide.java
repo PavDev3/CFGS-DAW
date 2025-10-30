@@ -12,7 +12,7 @@ public class piramide {
 
         Scanner scanner = new Scanner(System.in);        // Crear objeto Scanner para leer entrada del teclado
         System.out.println("Introduce el número de niveles de la pirámide: ");        // Pedimos el nivel
-        niveles = scanner.nextInt();        // Guardamos
+        niveles = scanner.nextInt();        // Guardamos los niveles
         
 
         if (niveles > 0) { // Verificar que el número de niveles sea positivo
