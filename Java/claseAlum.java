@@ -12,7 +12,7 @@ public class claseAlum {
         int aprobados = 0;
         int suspensos = 0;
         System.out.println("El numero de alumnos es: " + numeroAlumnos);
-        while (i < numeroAlumnos) {
+        while (i < numeroAlumnos) {// bucle para introducir las notas de los alumnos
             int nota = random.nextInt(10);
             System.out.println("El alumno " + i + " tiene una nota de " + nota);
             i++;
