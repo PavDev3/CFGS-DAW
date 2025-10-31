@@ -102,6 +102,10 @@ public class baraja {
     				}
     			}
     		}
+    		break;
+    	default:
+			System.out.println("El palo introducido no es valido");
+			break;
     	}
     }
 }
