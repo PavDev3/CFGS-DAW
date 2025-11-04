@@ -1,0 +1,242 @@
+/* Estilos básicos para ejercicio de programación */
+
+/* Variables CSS */
+:root {
+    --color-primary: #2c3e50;
+    --color-secondary: #34495e;
+    --color-accent: #3498db;
+    --color-light: #ecf0f1;
+    --color-dark: #2c3e50;
+    --color-success: #27ae60;
+    --color-danger: #e74c3c;
+    --color-warning: #f39c12;
+    --spacing-small: 0.5rem;
+    --spacing-medium: 1rem;
+    --spacing-large: 2rem;
+    --border-radius: 0.5rem;
+}
+
+/* Reset básico */
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
+
+body {
+    margin: 0;
+    padding: 0;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    background-color: var(--color-light);
+    color: var(--color-dark);
+    line-height: 1.6;
+}
+
+/* Header */
+header {
+    background-color: var(--color-primary);
+    color: var(--color-light);
+    padding: var(--spacing-medium);
+    text-align: center;
+}
+
+header h1 {
+    margin: 0;
+    font-size: 2rem;
+}
+
+/* Navegación */
+nav {
+    background-color: var(--color-primary);
+    color: var(--color-light);
+    display: flex;
+    gap: var(--spacing-small);
+    padding: var(--spacing-medium);
+    justify-content: center;
+    flex-wrap: wrap;
+}
+
+nav a,
+.nav-link {
+    color: var(--color-light);
+    text-decoration: none;
+    border: 2px solid var(--color-light);
+    font-size: 1rem;
+    font-weight: bold;
+    padding: var(--spacing-small) var(--spacing-medium);
+    border-radius: var(--border-radius);
+    transition: all 0.3s ease;
+}
+
+nav a:hover,
+.nav-link:hover {
+    background-color: var(--color-accent);
+    color: var(--color-light);
+    transform: translateY(-2px);
+}
+
+nav a.active,
+.nav-link.active {
+    background-color: var(--color-accent);
+    color: var(--color-light);
+    font-weight: bold;
+}
+
+/* Contenedor principal */
+.container {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: var(--spacing-large);
+}
+
+/* Formularios */
+form {
+    background-color: white;
+    padding: var(--spacing-large);
+    border-radius: var(--border-radius);
+    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+    margin: var(--spacing-large) auto;
+    max-width: 600px;
+}
+
+.form-group {
+    margin-bottom: var(--spacing-medium);
+}
+
+label {
+    display: block;
+    margin-bottom: var(--spacing-small);
+    font-weight: bold;
+    color: var(--color-dark);
+}
+
+input[type="text"],
+input[type="email"],
+input[type="number"],
+input[type="password"],
+input[type="date"],
+textarea,
+select {
+    width: 100%;
+    padding: var(--spacing-small);
+    border: 2px solid #ddd;
+    border-radius: var(--border-radius);
+    font-size: 1rem;
+    transition: border-color 0.3s ease;
+}
+
+input:focus,
+textarea:focus,
+select:focus {
+    outline: none;
+    border-color: var(--color-accent);
+}
+
+textarea {
+    resize: vertical;
+    min-height: 100px;
+}
+
+/* Botones */
+button,
+.btn {
+    background-color: var(--color-accent);
+    color: white;
+    border: none;
+    padding: var(--spacing-small) var(--spacing-medium);
+    border-radius: var(--border-radius);
+    font-size: 1rem;
+    font-weight: bold;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    margin: var(--spacing-small);
+}
+
+button:hover,
+.btn:hover {
+    background-color: var(--color-secondary);
+    transform: translateY(-2px);
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+}
+
+button:active,
+.btn:active {
+    transform: translateY(0);
+}
+
+.btn-success {
+    background-color: var(--color-success);
+}
+
+.btn-danger {
+    background-color: var(--color-danger);
+}
+
+.btn-warning {
+    background-color: var(--color-warning);
+}
+
+/* Tablas */
+table {
+    width: 100%;
+    border-collapse: collapse;
+    margin: var(--spacing-large) 0;
+    background-color: white;
+    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+}
+
+th,
+td {
+    padding: var(--spacing-small);
+    text-align: left;
+    border-bottom: 1px solid #ddd;
+}
+
+th {
+    background-color: var(--color-primary);
+    color: var(--color-light);
+    font-weight: bold;
+}
+
+tr:hover {
+    background-color: var(--color-light);
+}
+
+/* Mensajes y alertas */
+.alert {
+    padding: var(--spacing-medium);
+    margin: var(--spacing-medium) 0;
+    border-radius: var(--border-radius);
+    border-left: 4px solid;
+}
+
+.alert-success {
+    background-color: #d4edda;
+    border-color: var(--color-success);
+    color: #155724;
+}
+
+.alert-danger {
+    background-color: #f8d7da;
+    border-color: var(--color-danger);
+    color: #721c24;
+}
+
+.alert-warning {
+    background-color: #fff3cd;
+    border-color: var(--color-warning);
+    color: #856404;
+}
+
+/* Utilidades */
+.text-center {
+    text-align: center;
+}
+
+.mt-1 { margin-top: var(--spacing-small); }
+.mt-2 { margin-top: var(--spacing-medium); }
+.mt-3 { margin-top: var(--spacing-large); }
+
+.mb-1 { margin-bottom: var(--spacing-small); }
+.mb-2 { margin-bottom: var(--spacing-medium); }
+.mb-3 { margin-bottom: var(--spacing-large); }
