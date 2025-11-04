@@ -1,0 +1,29 @@
+
+1. Introducción
+Objetivo del Informe: Explica brevemente el propósito del informe, que es documentar el diseño de un sistema de información para un videoclub.
+Alcance: Describe el alcance del sistema, incluyendo las funcionalidades principales que cubrirá.
+2. Descripción del Sistema de Información
+Entidades y Atributos: Detalla cada entidad del sistema, junto con sus atributos. Por ejemplo:
+Pelicula: ID, Título, Director, Año de lanzamiento, Género, Clasificación.
+Director: ID, Nombre, Nacionalidad, Fecha de nacimiento.
+Cliente: ID, Nombre, Dirección, Teléfono, Email.
+Alquiler: ID, Fecha de alquiler, Fecha de devolución, ID de Cliente, ID de Película.
+Categoría: ID, Nombre, Descripción.
+Proveedor: ID, Nombre, Dirección, Teléfono.
+3. Modelo Entidad-Relación (ER)
+Diagrama ER: Incluye un diagrama ER que muestre las entidades, atributos y relaciones. Puedes crear este diagrama usando herramientas como Lucidchart, Draw.io, o Microsoft Visio, y luego exportarlo como imagen para incluirlo en el PDF.
+Relaciones y Cardinalidades: Explica las relaciones entre las entidades y las cardinalidades asociadas. Por ejemplo:
+Película - Director: Relación de muchos a muchos.
+Película - Alquiler: Relación de uno a muchos.
+Cliente - Alquiler: Relación de uno a muchos.
+Película - Categoría: Relación de muchos a muchos.
+Película - Proveedor: Relación de uno a muchos.
+4. Decisiones de Diseño
+Elección de Entidades y Atributos: Explica por qué se eligieron ciertas entidades y atributos. Por ejemplo, la inclusión de "Proveedor" para gestionar el suministro de películas.
+Relaciones y Cardinalidades: Justifica las relaciones y cardinalidades elegidas, como la relación de muchos a muchos entre "Película" y "Director".
+Generalización (Opcional): Si se utilizó, describe la generalización y su propósito.
+5. Conclusión
+Resumen: Resume los puntos clave del informe y destaca cómo el sistema de información diseñado cumple con los requisitos del videoclub.
+Futuras Mejoras: Menciona posibles mejoras o extensiones del sistema en el futuro.
+6. Anexos (Opcional)
+Código SQL: Incluye el código SQL utilizado para crear las tablas y relaciones, si es relevante.
