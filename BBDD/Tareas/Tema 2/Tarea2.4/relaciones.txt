@@ -1,0 +1,50 @@
+Entidades y Atributos
+Película
+
+ID (bigint, PK)
+Título (text)
+Director (text)
+Año de lanzamiento (integer)
+Género (text)
+Clasificación (text)
+Director
+
+ID (bigint, PK)
+Nombre (text)
+Nacionalidad (text)
+Fecha de nacimiento (date)
+Cliente
+
+ID (bigint, PK)
+Nombre (text)
+Dirección (text)
+Teléfono (text)
+Email (text)
+Alquiler
+
+ID (bigint, PK)
+Fecha de alquiler (date)
+Fecha de devolución (date)
+ID de Cliente (FK)
+ID de Película (FK)
+Categoría
+
+ID (bigint, PK)
+Nombre (text)
+Descripción (text)
+Proveedor
+
+ID (bigint, PK)
+Nombre (text)
+Dirección (text)
+Teléfono (text)
+Relaciones
+Película - Director: Una película puede tener uno o más directores, y un director puede haber dirigido una o más películas. (Relación de muchos a muchos)
+Película - Alquiler: Una película puede estar asociada a varios alquileres, pero un alquiler está asociado a una sola película. (Relación de uno a muchos)
+Cliente - Alquiler: Un cliente puede tener varios alquileres, pero un alquiler está asociado a un solo cliente. (Relación de uno a muchos)
+Película - Categoría: Una película puede pertenecer a una o más categorías, y una categoría puede incluir varias películas. (Relación de muchos a muchos)
+Película - Proveedor: Una película es suministrada por un solo proveedor, pero un proveedor puede suministrar varias películas. (Relación de uno a muchos)
+Generalización (Opcional)
+Podemos utilizar una generalización para los tipos de clientes, por ejemplo, diferenciando entre "Cliente Regular" y "Cliente VIP", donde ambos heredan de la entidad "Cliente".
+
+Este modelo ER proporciona una estructura básica para gestionar la información de un videoclub, permitiendo el seguimiento de películas, directores, clientes, alquileres, categorías y proveedores.
