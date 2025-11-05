@@ -1,0 +1,39 @@
+En equipos de 3 personas, cada equipo va a definir:
+
+Un sistema de información.
+
+El modelo entidad relación 
+
+Si no se os ocurre ningún sistema de información, algunas propuestas que podéis diseñar son la base de datos de un gimnasio, una academia de idiomas, una biblioteca, una liga amateur de fútbol/baloncesto o la base de datos de un festival de música.
+
+Con las nociones básicas adquiridas durante esta unidad sobre el modelado de ER, llega el momento de concretar el sistema de información y crear el modelo ER .
+
+Toda solución debe:
+
+Tener un mínimo de 6 entidades.
+
+Utilizar relaciones con diferentes cardinalidades.
+
+Emplear atributos de diferente tipo.
+
+(opcional) Utilizar una generalización o agregación.
+
+ENTREGA: Se debe entregar un informe en pdf con el sistema de información, el modelo ER y describir las decisiones tomadas en su elaboración.
+
+EVALUACIÓN: Esta tarea computa en la nota del RA6. Diseña modelos relacionales normalizados interpretando diagramas entidad/relación.
+
+6a) Se han utilizado herramientas gráficas para representar el diseño lógico.
+
+6b) Se han identificado las tablas del diseño lógico.
+
+6c) Se han identificado los campos que forman parte de las tablas del diseño lógico.
+
+6d) Se han analizado las relaciones entre las tablas del diseño lógico.
+
+6e) Se han identificado los campos clave.
+
+6f) Se han aplicado reglas de integridad.
+
+6g) Se han aplicado reglas de normalización.
+
+6h) Se han analizado y documentado las restricciones que no pueden plasmarse en el diseño lógico.
