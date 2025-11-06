@@ -137,4 +137,18 @@ body {
     margin: 0;
 }
 
+.btn {
+    background-color: var(--color-primary);
+    color: var(--color-light);
+    border: none;
+    padding: 0.5rem 1rem;
+    border-radius: 0.5rem;
+    cursor: pointer;
+    transition: all 0.3s ease;
+}
 
+.btn:hover {
+    background-color: var(--color-accent);
+    color: var(--color-secondary);
+    padding: 0.5rem 1rem;
+}
