@@ -14,6 +14,7 @@
     --spacing-medium: 1rem;
     --spacing-large: 2rem;
     --border-radius: 0.5rem;
+    
 }
 
 /* Reset básico */
@@ -21,13 +22,14 @@
     box-sizing: border-box;
     margin: 0;
     padding: 0;
+    background-color: var(--color-primary);
 }
 
 body {
+    background-color: var(--color-secondary);
     margin: 0;
     padding: 0;
     font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-    background-color: var(--color-light);
     color: var(--color-dark);
     line-height: 1.6;
 }
@@ -37,12 +39,24 @@ header {
     background-color: var(--color-primary);
     color: var(--color-light);
     padding: var(--spacing-medium);
-    text-align: center;
+    display: flex;
+    align-items: center;
+    gap: var(--spacing-medium);
 }
 
 header h1 {
     margin: 0;
-    font-size: 2rem;
+    font-size: 2.5rem;
+    flex: 1;
+    text-align: center;
+}
+
+h1 {
+    color: var(--color-light);
+    margin: 0;
+    font-size: 2.5rem;
+    flex: 1;
+    text-align: center;
 }
 
 /* Navegación */
@@ -84,31 +98,37 @@ nav a.active,
 
 /* Contenedor principal */
 .container {
-    max-width: 1200px;
+    background-color: var(--color-secondary);
+    width: 100%;
+    height: 100%;
     margin: 0 auto;
-    padding: var(--spacing-large);
+    padding: var(--spacing-medium);
 }
 
 /* Botones */
 .btn {
-    background-color: var(--color-primary);
-    color: var(--color-light);
-    border: 2px solid var(--color-primary);
-    padding: var(--spacing-small) var(--spacing-medium);
+    width: 8rem;
+    height: 4rem;
+    text-decoration: none;
     font-size: 1rem;
     font-weight: bold;
+    padding: var(--spacing-small) var(--spacing-medium);
     border-radius: var(--border-radius);
-    cursor: pointer;
+    background-color: var(--color-primary);
+    border-color: var(--color-light);
+    color: var(--color-light);
+    border-width: 3px;
+    
+    border-style: solid;
     transition: all 0.3s ease;
-    text-decoration: none;
+    cursor: pointer;
     display: inline-block;
 }
 
 .btn:hover {
     background-color: var(--color-accent);
-    border-color: var(--color-accent);
+    color: var(--color-light);
     transform: translateY(-2px);
-    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
 }
 
 .btn:active {
