@@ -1,0 +1,70 @@
+Ejercicio 1: Academia de Inglés
+    Persona (Alumno) (id, nombre, nivel_ingles)
+        PK: id
+    Grupo (id, nivel_ingles, profesor_id)
+        PK: id
+        FK: profesor_id referencia a Profesor(id)
+    Profesor (id, nombre, nacionalidad)
+        PK: id
+    Alumno_Grupo (alumno_id, grupo_id)
+        PK: (alumno_id, grupo_id)
+        FK: alumno_id referencia a Persona(id)
+        FK: grupo_id referencia a Grupo(id)
+
+Ejercicio 2: Centro de Salud
+    Médico (id, datos_personales, año_colegiación)
+        PK: id
+    Paciente (id, datos_personales, medico_id)
+        PK: id
+        FK: medico_id referencia a Médico(id)
+    Sala (id, ubicación)
+        PK: id
+    Horario (medico_id, sala_id, horario)
+        PK: (medico_id, sala_id)
+        FK: medico_id referencia a Médico(id)
+        FK: sala_id referencia a Sala(id)
+
+Ejercicio 3: Banco
+    Sucursal (num_sucursal, ciudad, activo)
+        PK: num_sucursal
+    Cliente (codigo, dni, nombre, apellidos, dirección, ciudad)
+        PK: codigo
+    Cuenta (num_cuenta, saldo, sucursal_id)
+        PK: num_cuenta
+        FK: sucursal_id referencia a Sucursal(num_sucursal)
+    Transacción (id, cuenta_id, fecha, tipo_operación, cantidad)
+        PK: id
+        FK: cuenta_id referencia a Cuenta(num_cuenta)
+    Cliente_Cuenta (cliente_id, cuenta_id)
+        PK: (cliente_id, cuenta_id)
+        FK: cliente_id referencia a Cliente(codigo)
+        FK: cuenta_id referencia a Cuenta(num_cuenta)
+
+Ejercicio 4: Instituto
+    Profesor (dni, nombre, dirección, teléfono)
+        PK: dni
+    Módulo (código, nombre, profesor_dni)
+        PK: código
+        FK: profesor_dni referencia a Profesor(dni)
+    Alumno (n_expediente, nombre, apellidos, fecha_nacimiento)
+        PK: n_expediente
+    Grupo (nombre, nivel_educativo, delegado_expediente)
+        PK: nombre
+        FK: delegado_expediente referencia a Alumno(n_expediente)
+    Alumno_Módulo (alumno_expediente, módulo_codigo)
+        PK: (alumno_expediente, módulo_codigo)
+        FK: alumno_expediente referencia a Alumno(n_expediente)
+        FK: módulo_codigo referencia a Módulo(código)
+
+Ejercicio 5: Empresa de Venta de Automóviles
+    Coche (matrícula, marca, modelo, color, precio_venta)
+        PK: matrícula
+    Cliente (codigo, nif, nombre, dirección, ciudad, teléfono)
+        PK: codigo
+    Revisión (codigo, coche_matrícula, cambio_filtro, cambio_aceite, cambio_frenos, otros)
+        PK: codigo
+        FK: coche_matrícula referencia a Coche(matrícula)
+    Compra (cliente_codigo, coche_matrícula)
+        PK: (cliente_codigo, coche_matrícula)
+        FK: cliente_codigo referencia a Cliente(codigo)
+        FK: coche_matrícula referencia a Coche(matrícula)
