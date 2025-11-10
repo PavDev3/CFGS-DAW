@@ -1,0 +1,31 @@
+Mapeo del Modelo ER a Modelo Relacional
+=========================================
+
+PERSONA:
+    - dni (PK)
+    - nombre
+    - id_grupo (FK) -> GRUPO.id
+    (Relación 1:N con GRUPO - "pertenece", FK en PERSONA)
+
+GRUPO:
+    - id (PK)
+    - id_nivel (FK) -> NIVEL.id
+    (Relación 1:1 con NIVEL - "tiene", FK en GRUPO)
+
+PROFESOR:
+    - dni (PK)
+    - nombre
+    - id_grupo (FK) -> GRUPO.id
+    (Relación 1:N con GRUPO - "ensena", FK en PROFESOR)
+
+NIVEL:
+    - id (PK)
+
+TABLA PARA ATRIBUTO MULTIVALUADO:
+
+PROFESOR_NACIONALIDAD:
+    - dni_profesor (FK) -> PROFESOR.dni
+    - nacionalidad
+    - PRIMARY KEY (dni_profesor, nacionalidad)
+    (Atributo multivaluado "nacionalidad" de PROFESOR)
+
