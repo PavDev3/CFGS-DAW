@@ -1,0 +1,67 @@
+Instituto: 
+    Persona:
+        id
+        nombre
+    Grupo:
+        id
+    Profesor:
+        nombre
+        nacionalidad
+        dni
+    Nivel:
+        id
+    Profesor_Grupo:
+        id
+    Grupo_Persona:
+
+    Grupo_Nivel:
+
+
+Consultas: 
+    Medico:
+        id
+    Paciente:
+        id
+        datos_personales
+    Sala:
+        id
+        ubicacion
+    Pasa_consulta:
+        id_medico,
+        id_sala,
+        horario,
+
+Banco:
+    Banco:
+        id
+    Sucursal:
+        id
+        ciudad
+        activo
+    Cliente:
+        dni
+        direccion
+        nombre_completo
+        ciudad
+    Cuenta:
+        numero_cuenta  
+        saldo
+    Transacion:
+        id
+        fecha
+        tipo
+        cantidad
+    SUCURSAL_CLIENTE:
+        id_cliente_sucursal (PK)
+        id_sucursal (FK)
+        dni_cliente (FK)
+    CLIENTE_CUENTA:
+        cuenta.cliente (PK)
+        cuenta.numero_cuenta (FK)
+        cuenta.dni_cliente (PK)
+
+
+
+    
+
+

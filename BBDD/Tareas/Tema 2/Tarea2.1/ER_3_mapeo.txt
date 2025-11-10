@@ -1,0 +1,47 @@
+Mapeo del Modelo ER a Modelo Relacional
+=========================================
+
+BANCO:
+    - id_banco (PK) - Se añade como clave primaria
+    - nombre (opcional, no aparece en el diagrama)
+
+SUCURSAL:
+    - id (PK)
+    - ciudad
+    - activo
+    - id_banco (FK) -> BANCO.id_banco
+    (Relación 1:N con BANCO, FK en SUCURSAL)
+
+CLIENTE:
+    - dni (PK)
+    - direccion
+    - nombre_completo
+    - ciudad
+
+CUENTA:
+    - numero_cuenta (PK)
+    - saldo
+
+TRANSACCION:
+    - id (PK)
+    - fecha
+    - tipo
+    - cantidad
+    - numero_cuenta (FK) -> CUENTA.numero_cuenta
+    (Relación 1:N con CUENTA, FK en TRANSACCION)
+
+TABLAS DE RELACIÓN N:N:
+
+SUCURSAL_CLIENTE:
+    - id_sucursal (FK) -> SUCURSAL.id
+    - dni_cliente (FK) -> CLIENTE.dni
+    - PRIMARY KEY (id_sucursal, dni_cliente)
+    (Relación N:N entre SUCURSAL y CLIENTE - "va")
+
+CLIENTE_CUENTA:
+    - dni_cliente (FK) -> CLIENTE.dni
+    - numero_cuenta (FK) -> CUENTA.numero_cuenta
+    - PRIMARY KEY (dni_cliente, numero_cuenta)
+    (Relación N:N entre CLIENTE y CUENTA - "abre")
+
+
