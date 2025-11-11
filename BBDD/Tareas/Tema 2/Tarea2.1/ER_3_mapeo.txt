@@ -45,3 +45,4 @@ CLIENTE_CUENTA:
     (Relación N:N entre CLIENTE y CUENTA - "abre")
 
 
+
