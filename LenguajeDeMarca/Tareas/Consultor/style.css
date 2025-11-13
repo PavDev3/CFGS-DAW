@@ -41,7 +41,9 @@ header {
     padding: var(--spacing-medium);
     display: flex;
     align-items: center;
+    justify-content: space-between;
     gap: var(--spacing-medium);
+    position: relative;
 }
 
 header h1 {
@@ -68,6 +70,14 @@ nav {
     padding: var(--spacing-medium);
     justify-content: center;
     flex-wrap: wrap;
+}
+
+/* Nav dentro del header - centrado */
+header nav {
+    position: absolute;
+    left: 50%;
+    transform: translateX(-50%);
+    padding: 0;
 }
 
 nav a,
@@ -123,6 +133,11 @@ nav a.active,
     transition: all 0.3s ease;
     cursor: pointer;
     display: inline-block;
+}
+
+/* Botón en header - a la izquierda */
+header .btn {
+    flex-shrink: 0;
 }
 
 .btn:hover {
