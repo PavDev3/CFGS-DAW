@@ -61,7 +61,7 @@ body {
     justify-content: start;
     height: 100%;
     width: 100%;
-    
+    background-color: var(--color-light);
 }
 
 /* footer para el pie de pagina de la pagina */
