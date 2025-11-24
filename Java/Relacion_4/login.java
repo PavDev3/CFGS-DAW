@@ -7,16 +7,12 @@ public class login {
         Scanner scanner = new Scanner(System.in);
         String usuario = pedirUsuario(scanner);
         String password = pedirPassword(scanner);
-        if (login(usuario, password)) {
+        if (usuario.equals(usuario) && password.equals(password)) {
             System.out.println("Login correcto");
         } else {
             System.out.println("Login incorrecto");
         }
         scanner.close();
-    }
-
-    private static boolean login(String usuario, String password) {
-        return usuario.equals(usuario) && password.equals(password);
     }
 
     private static String pedirUsuario(Scanner scanner) {
