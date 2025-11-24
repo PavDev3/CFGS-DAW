@@ -1,0 +1,17 @@
+CREATE DATABASE Bicicletas_Rapidas_SA;
+
+CREATE TABLE bicicletas (
+    id INT PRIMARY KEY AUTO_INCREMENT UNIQUE,
+    modelo VARCHAR(255) NOT NULL UNIQUE,
+    precio INT NOT NULL CHECK (precio >= 0),
+    stock INT DEFAULT 5,
+    color VARCHAR(255) NOT NULL,
+    fecha_entrada DATE DEFAULT CURRENT_DATE
+);
+
+ALTER TABLE bicicletas 
+    ADD COLUMN descripcion TEXT NOT NULL,
+    MODIFY COLUMN precio DECIMAL(4,2) NOT NULL,
+    MODIFY COLUMN stock INT NOT NULL CHECK (stock >= 0),
+    MODIFY COLUMN color VARCHAR(30) NOT NULL,
+    ADD COLUMN promocion BOOLEAN NOT NULL DEFAULT FALSE;

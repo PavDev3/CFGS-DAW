@@ -9,7 +9,7 @@ CREATE TABLE bicicletas (
     precio DECIMAL(10, 2) NOT NULL CHECK (precio >= 0),
     stock INT DEFAULT 5,
     color VARCHAR(255) NOT NULL,
-    fecha_entrada TIMESTAMP DEFAULT CURRENT_TIMESTAMP,
+    fecha_entrada TIMESTAMP DEFAULT CURRENT_TIMESTAMP
 );
 
 ALTER TABLE bicicletas (
