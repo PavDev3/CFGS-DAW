@@ -16,15 +16,36 @@ public class sumarNum {
     }
 
     private static void sumarNum(String frase) {
+        // Variable para almacenar la suma total
         int suma = 0;
+        // Variable para construir el número actual mientras leemos dígitos consecutivos
+        String numeroActual = "";
+        
+        // Recorrer cada carácter de la frase
         for (int i = 0; i < frase.length(); i++) {
-            // Comprobar si el caracter es un número
-            if (Character.isDigit(frase.charAt(i))) {
-                // Creo variable num que guarda el valor del caracter en entero el - '0' es para convertir el caracter a entero
-                int num = frase.charAt(i) - '0';
-                suma += num;
+            char caracter = frase.charAt(i);
+            
+            // Si el carácter es un dígito, añadirlo al número actual
+            if (Character.isDigit(caracter)) {
+                // Añadir el dígito al número actual
+                numeroActual += caracter;
+            } else {
+                // Si no es un dígito y tenemos un número construido, sumarlo
+                if (!numeroActual.isEmpty()) {
+                    // Convertir el número actual a entero y sumarlo a la suma total
+                    suma += Integer.parseInt(numeroActual);
+                    // Reiniciar el número actual para el siguiente número
+                    numeroActual = ""; 
+                }
             }
         }
+        
+        // Si al final de la frase queda un número sin procesar, sumarlo también
+        if (!numeroActual.isEmpty()) {
+            suma += Integer.parseInt(numeroActual);
+        }
+        
+        // Mostrar el resultado
         System.out.println("La suma de los números es: " + suma);
     }
 }
