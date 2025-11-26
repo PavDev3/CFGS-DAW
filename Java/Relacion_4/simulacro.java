@@ -14,13 +14,13 @@ public class simulacro {
 
             switch (option) {
                 case 1:
-                    System.out.println("Numero de espacios: " + contarEspacios(frase));
+                    System.out.println("Numero de letras: " + contarLetras(frase));
                     break;
                 case 2:
                     System.out.println("Numero de palabras: " + contarPalabras(frase));
                     break;
                 case 3:
-                    System.out.println("Mayusculas en ultima letra: " + contarMayusculas(frase));
+                    System.out.println("Frase capitalizada: " + capitalizarPalabras(frase));
                     break;
                 case 4:
                     System.out.println("Frase invertida: " + invertir(frase));
@@ -53,9 +53,9 @@ public class simulacro {
 
     public static int menu() {
         System.out.println("Menu:");
-        System.out.println("1 --> Contar espacios");
-        System.out.println("2 --> Contar palabras");
-        System.out.println("3 --> Mayusculas en ultima palabra");
+        System.out.println("1 --> Contar Letras");
+        System.out.println("2 --> Contar Palabras");
+        System.out.println("3 --> Capitalizar cada palabra");
         System.out.println("4 --> Invertir frase");
         System.out.println("5 --> Salir");
         
@@ -66,9 +66,7 @@ public class simulacro {
         while (!valido) {
             // Pedir la opcion al usuario
             System.out.print("Seleccione una opcion (1-5): ");
-            
             String input = scanner.nextLine().trim();
-            
             // Verificar que solo contenga digitos
             boolean esNumero = true;
             for (int i = 0; i < input.length(); i++) {
@@ -93,13 +91,13 @@ public class simulacro {
         return option;
     }
 
-    public static int contarEspacios(String frase) {
+    public static int contarLetras(String frase) {
         // Inicializar el contador a 0
         int contador = 0;
-        // Recorrer la frase y contar los espacios
+        // Recorrer la frase y contar las letras
         for (int i = 0; i < frase.length(); i++) {
-            if (frase.charAt(i) == ' ') {
-                contador++;
+            if (Character.isLetter(frase.charAt(i))) {
+            contador++;
             }
         }
         return contador;
@@ -125,32 +123,47 @@ public class simulacro {
         return contador;
     }
 
-    public static int contarMayusculas(String frase) {
-        int contador = 0;
-        String fraseTrans = frase + " "; // metemos un espacio al final para procesar la ultima palabra
-        
-        for (int i = 0; i < fraseTrans.length() - 1; i++) {
-            // Si el caracter actual no es espacio y el siguiente SI es espacio (fin de palabra)
-            if (fraseTrans.charAt(i) != ' ' && fraseTrans.charAt(i + 1) == ' ') {
-                char ultimaLetra = fraseTrans.charAt(i);
-                // Comprobamos si es mayuscula
-                if (Character.isUpperCase(ultimaLetra)) {
-                    contador++;
-                }
+    public static String capitalizarPalabras(String frase) {
+        // Inicializar el resultado como un StringBuilder
+        StringBuilder resultado = new StringBuilder();
+
+        boolean esPrimeraLetra = true;
+        // Recorrer la frase y capitalizar las palabras
+        for (int i = 0; i < frase.length(); i++) {
+            // Obtener el caracter actual
+            char caracter = frase.charAt(i);
+            // Si el caracter actual es un espacio, meterlo al resultado y reiniciar la bandera
+            if (caracter == ' ') {
+                // Meter el espacio al resultado
+                resultado.append(caracter);
+                // Reiniciar la bandera
+                esPrimeraLetra = true;
+            // Si el caracter actual no es un espacio y es la primera letra de la palabra, capitalizarla
+            } else if (esPrimeraLetra && Character.isLetter(caracter)) {
+                resultado.append(Character.toUpperCase(caracter));
+                // Reiniciar la bandera
+                esPrimeraLetra = false;
+            // Si el caracter actual no es un espacio y no es la primera letra de la palabra, ponerla en minuscula
+            } else {
+                resultado.append(Character.toLowerCase(caracter));
+                esPrimeraLetra = false;
             }
         }
-        return contador;
+        
+        return resultado.toString();
     }
 
     public static String invertir(String frase) {
+        // Arreglamos la frase para que lea la ultima palabra
+       String fraseFix = frase + " ";
+        // Inicializar el resultado vacio para montar la nueva frase
         String resultado = "";
+        // Inicializar la palabra actual como vacia para montar la nueva palabra
         String palabraActual = "";
-         // metemos un espacio al final para procesar la ultima palabra
-        String fraseTrans = frase + " ";
         // Recorrer la frase y invertir las palabras
-        for (int i = 0; i < fraseTrans.length(); i++) {
+        for (int i = 0; i < fraseFix.length(); i++) {
             // Obtener el caracter actual
-            char caracter = fraseTrans.charAt(i);
+            char caracter = fraseFix.charAt(i);
             // Si el caracter actual no es un espacio, es una palabra
             if (caracter != ' ') {
                 // Si el caracter actual no es un espacio, es una palabra
