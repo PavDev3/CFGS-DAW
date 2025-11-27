@@ -1,0 +1,65 @@
+Actividades
+Mando todas las respuestas en un documento. Máximo tres capturas por ejercicio.
+
+Ejercicio 1
+Haz que se muestre el icono del teclado táctil en los iconos de la esquina de la barra de tareas. Haz que la barra de herramientas se oculte automáticamente. Añade una ventana de bloqueo.
+
+Ejercicio 2
+Entra en el Símbolo del sistema. Borra la pantalla. Muestra la versión de Windows. Muestra la etiqueta del volumen. Muestra la ayuda del comando time y muestra la hora del sistema sin que te vuelva a pedir que escribas una nueva. Sal y cierra la aplicación.
+
+Ejercicio 3
+Instala la última versión de PowerShell en tu sistema operativo Windows.
+
+Ejercicio 4
+Comprueba si tienes instalada la aplicación Terminal, y si no es así, instálala. Una vez instalada, abre en la mitad de la pantalla derecha PowerShell y en la otra mitad Símbolo del sistema.
+
+Ejercicio 5
+Muestra las variables de entorno del sistema COMPUTERNAME, TEMP, PATH y COMPROCESADORES.
+
+Ejercicio 6
+Crea un fichero y añádele los atributos de oculto y de solo lectura. Muestra los valores de los atributos con el comando attrib.
+
+Ejercicio 7
+Crea una carpeta llamada actividades y dentro de ella otras tres llamadas unidad1, unidad2 y unidad3. Realízalo desde el Explorador de archivos. Elimina las carpetas del interior de actividades de forma permanente (sin enviarlas a la Papelera de reciclaje). Elimina la carpeta actividades. Vuelve a realizar la misma actividad, pero con comandos.
+
+Ejercicio 8
+Crea dos usuarios estándar llamados alumno1 y alumno2. Añádelos a un grupo llamado Clase. Crea otro usuario llamado profesor que sea administrador y que pertenezca al grupo Clase.
+
+Ejercicio 9
+Comparte una carpeta llamada compartirwindows con el sistema operativo anfitrión.
+
+Ejercicio 10
+Crea una carpeta llamada trabajos_clase como el usuario profesor en una unidad D:. Añade permisos de lectura y ejecución y acceso a los usuarios que pertenezcan al grupo Clase. Comprueba que alumno1 y alumno2 pueden acceder. Crea una carpeta dentro de ella denominada alumno1 a la que solo tenga acceso de lectura, escritura y ejecución el alumno llamado alumno1.
+
+Ejercicio 11
+Abre el Administrador de tareas, consulta el PID y finaliza la tarea desde el este administrador.
+
+Ejercicio 12
+Programa una tarea para que realice un apagado del equipo cada noche a las 23:30.
+
+Ejercicio 13
+Entra en el sistema, equivócate con la contraseña al iniciar sesión y comprueba el registro del evento.
+
+Ejercicio 14
+Realiza una copia de seguridad del Registro de Windows en un fichero llamado registro.reg.
+
+Ejercicio 15
+Busca en el Registro del sistema de Windows la clave correspondiente al tipo de archivo .html.
+
+Ejercicio 16
+Crear un script llamado apagar.bat que te muestre un aviso con tu nombre de usuario, el nombre del equipo y te indique que se va a apagar en 60 segundos. Crea otro script llamado anular.bat que anule el apagado.
+
+Ejercicio 17
+Crea un script en PowerShell llamado datos.ps1 y pruebalo. Te debe borrar la pantalla, mostrar el nombre del equipo, el nombre del usuario y la fecha y hora.
+
+Ejercicio 18 (voluntario)
+Activa BitLocker sobre una unidad USB.
+
+Ejercicio 19
+Clona una máquina virtual en la que tengas instalado el sistema operativo Windows. Puedes utilizar alguna de las que creaste en la Ejercicio 2.4 o en la Ejercicio 2.9. Llama a la máquina clonada Windows RAID1 y añade en ella un volumen RAID 1 o volumen reflejado.
+
+Ejercicio 20
+Rompe el volumen reflejado que creaste en la actividad anterior.
+
+Ejercicio 21
+Instala el subsistema de Windows para Linux con la distribución Debian.
