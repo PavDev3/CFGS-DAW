@@ -1,0 +1,93 @@
+Project er2_pelis {
+  database_type: 'MySQL'
+  Note: 'Base de datos de películas, directores, actores, festivales, cines y proyecciones'
+}
+
+Table movies {
+  id int [pk, increment, not null]
+  title_es varchar(255) [not null]
+  title_original varchar(255)
+  release_year int
+}
+
+Table directors {
+  id int [pk, increment, not null]
+  name varchar(255) [not null]
+}
+
+Table actors {
+  id int [pk, increment, not null]
+  name varchar(255) [not null]
+}
+
+Table festivals {
+  id int [pk, increment, not null]
+  name varchar(255) [not null, unique]
+}
+
+Table festival_editions {
+  id int [pk, increment, not null]
+  festival_id int [not null]
+  year int [not null]
+  
+  Note: 'Unique constraint on (festival_id, year)'
+}
+
+Table awards {
+  id int [pk, increment, not null]
+  festival_edition_id int [not null]
+  movie_id int [not null]
+  category varchar(255) [not null]
+}
+
+Table cinemas {
+  id int [pk, increment, not null]
+  name varchar(255) [not null]
+  city varchar(255) [not null]
+  
+  Note: 'Unique constraint on (name, city)'
+}
+
+Table cinema_halls {
+  id int [pk, increment, not null]
+  cinema_id int [not null]
+  hall_number int [not null]
+  capacity int [not null]
+}
+
+Table screenings {
+  id int [pk, increment, not null]
+  movie_id int [not null]
+  cinema_hall_id int [not null]
+  start_date date [not null]
+  end_date date [not null]
+  viewers int
+  revenue decimal(10, 2)
+}
+
+Table movie_directors {
+  movie_id int [not null]
+  director_id int [not null]
+  
+  Note: 'Composite primary key (movie_id, director_id)'
+}
+
+Table movie_actors {
+  movie_id int [not null]
+  actor_id int [not null]
+  
+  Note: 'Composite primary key (movie_id, actor_id)'
+}
+
+// Relaciones
+Ref: festival_editions.festival_id > festivals.id
+Ref: awards.festival_edition_id > festival_editions.id
+Ref: awards.movie_id > movies.id
+Ref: cinema_halls.cinema_id > cinemas.id
+Ref: screenings.movie_id > movies.id
+Ref: screenings.cinema_hall_id > cinema_halls.id
+Ref: movie_directors.movie_id > movies.id
+Ref: movie_directors.director_id > directors.id
+Ref: movie_actors.movie_id > movies.id
+Ref: movie_actors.actor_id > actors.id
+
