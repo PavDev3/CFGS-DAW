@@ -24,11 +24,11 @@ public class palabraescondida {
     }
 
     private static void encontrada(String frase, String palabra) {
-        int contador = 0;
+        
         boolean encontrada = false;
         for (int i = 0; i < frase.length(); i++) {
             if (frase.charAt(i) == palabra.charAt(0)) {
-                contador++;
+        
                 encontrada = true;
             }
         }
