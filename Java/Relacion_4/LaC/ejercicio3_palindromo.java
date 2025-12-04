@@ -1,3 +1,5 @@
+package Relacion_4.LaC;
+
 import java.util.*;
 
 public class ejercicio3_palindromo {
@@ -43,10 +45,15 @@ public class ejercicio3_palindromo {
 		return resultado;
 	}
 	
-	// Convertir un carácter a minúscula
+	// Convertir un carácter a minúscula usando comparaciones
 	public static char aMinuscula(char c) {
-		if (c >= 'A' && c <= 'Z') {
-			return (char)(c + 32);
+		// Verificar si es una letra (mayúscula o minúscula)
+		if ((c >= 'a' && c <= 'z') || (c >= 'A' && c <= 'Z')) {
+			// Si es mayúscula, convertir a minúscula
+			if (c >= 'A' && c <= 'Z') {
+				int diferencia = 'a' - 'A';
+				return (char)(c + diferencia);
+			}
 		}
 		return c;
 	}
