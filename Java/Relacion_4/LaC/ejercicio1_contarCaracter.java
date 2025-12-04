@@ -1,4 +1,6 @@
-import java.util.*;
+package Relacion_4.LaC;
+
+import java.util.Scanner;
 
 public class ejercicio1_contarCaracter {
 	public static Scanner teclado = new Scanner(System.in);
@@ -29,11 +31,15 @@ public class ejercicio1_contarCaracter {
 		return contador;
 	}
 	
-	// Función auxiliar para convertir un carácter a minúscula
+	// Función auxiliar para convertir un carácter a minúscula usando comparaciones
 	public static char aMinuscula(char c) {
-		// Si es una letra mayúscula (A-Z), convertir a minúscula
-		if (c >= 'A' && c <= 'Z') {
-			return (char)(c + 32); // Diferencia ASCII entre mayúsculas y minúsculas
+		// Verificar si es una letra (mayúscula o minúscula)
+		if ((c >= 'a' && c <= 'z') || (c >= 'A' && c <= 'Z')) {
+			// Si es mayúscula, convertir a minúscula
+			if (c >= 'A' && c <= 'Z') {
+				int diferencia = 'a' - 'A';
+				return (char)(c + diferencia);
+			}
 		}
 		return c;
 	}

@@ -1,3 +1,5 @@
+package Relacion_4.LaC;
+
 import java.util.*;
 
 public class ejercicio10_validarWebs {

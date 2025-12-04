@@ -1,3 +1,5 @@
+package Relacion_4.LaC;
+
 import java.util.*;
 
 public class ejercicio4_palabraEscondida {
@@ -48,14 +50,22 @@ public class ejercicio4_palabraEscondida {
 	public static String convertirAMinuscula(String s) {
 		String resultado = "";
 		for (int i = 0; i < s.length(); i++) {
-			char c = s.charAt(i);
-			if (c >= 'A' && c <= 'Z') {
-				resultado += (char)(c + 32);
-			} else {
-				resultado += c;
-			}
+			resultado += aMinuscula(s.charAt(i));
 		}
 		return resultado;
+	}
+	
+	// Convertir un carácter a minúscula usando comparaciones
+	public static char aMinuscula(char c) {
+		// Verificar si es una letra (mayúscula o minúscula)
+		if ((c >= 'a' && c <= 'z') || (c >= 'A' && c <= 'Z')) {
+			// Si es mayúscula, convertir a minúscula
+			if (c >= 'A' && c <= 'Z') {
+				int diferencia = 'a' - 'A';
+				return (char)(c + diferencia);
+			}
+		}
+		return c;
 	}
 }
 
