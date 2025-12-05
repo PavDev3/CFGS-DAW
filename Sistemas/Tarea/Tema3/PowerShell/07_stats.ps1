@@ -1,11 +1,4 @@
-param(
-    [Parameter(Mandatory=$true)]
-    [string]$File
-)
-if (-not (Test-Path -Path $File -PathType Leaf)) {
-    Write-Output "Error: El fichero '$File' no existe."
-    exit 1
-}
+$File = Read-Host "Introduce el fichero"
 $lineas = Get-Content -Path $File
 $numeros = @()
 foreach ($linea in $lineas) {
@@ -16,7 +9,10 @@ foreach ($linea in $lineas) {
     try {
         $numero = [double]$lineaTrim
         $numeros += $numero
-    } 
+    } catch {
+        Write-Output "Error: La linea '$linea' no es un numero valido."
+        exit 1
+    }
 }
 if ($numeros.Count -eq 0) {
     Write-Output "Error: No se encontraron numeros validos en el fichero '$File'."
