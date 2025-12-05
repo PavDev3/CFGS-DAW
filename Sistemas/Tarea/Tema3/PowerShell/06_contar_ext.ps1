@@ -1,10 +1,5 @@
-param(
-    [Parameter(Mandatory=$true)]
-    [string]$Dir,
-    
-    [Parameter(Mandatory=$true)]
-    [string]$Extension
-)
+$Dir = Read-Host "Introduce el directorio"
+$Extension = Read-Host "Introduce la extension"
 if (-not (Test-Path -Path $Dir -PathType Container)) {
     Write-Output "Error: El directorio '$Dir' no existe."
     exit 1
