@@ -1,12 +1,14 @@
 package rectangulo;
 
 public class Rectangulo {
+			// Atributos
 		   private double ancho = 1.0D;
 		   private double longitud = 1.0D;
 
-		   public void setLongitud(double var1) {
-		      if (var1 > 0.0D && var1 < 20.0D) {
-		         this.longitud = var1;
+		   	// Constructor
+		   public void setLongitud(double longitud) {
+		      if (longitud > 0.0D && longitud < 20.0D) {
+		         this.longitud = longitud;
 		      }
 
 		   }
@@ -15,9 +17,9 @@ public class Rectangulo {
 		      return this.longitud;
 		   }
 
-		   public void setAncho(double var1) {
-		      if (var1 > 0.0D && var1 < 20.0D) {
-		         this.ancho = var1;
+		   public void setAncho(double ancho) {
+		      if (ancho > 0.0D && ancho < 20.0D) {
+		         this.ancho = ancho;
 		      }
 
 		   }
@@ -33,6 +35,6 @@ public class Rectangulo {
 		   public double calcularPerimetro() {
 		      return 2.0D * (this.ancho + this.longitud);
 		   }
-		}
+}
 
 
