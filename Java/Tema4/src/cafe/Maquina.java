@@ -17,7 +17,7 @@ public class Maquina {
 	// Metodos
 	
 	public void servirCafeSolo() {
-		int precioCafeSolo = 1;
+		double precioCafeSolo = 1;
 		if (monedero.getSaldo() >= precioCafeSolo &&
 			depoCafe.getCantidad() > 0 &&
 			depoLeche.getCantidad() > 0 &&
@@ -25,20 +25,16 @@ public class Maquina {
 			
 			monedero.setSaldo(monedero.getSaldo() + precioCafeSolo);
 			depoCafe.servirCafe(1);
-			depoLeche.servirLeche(1);
 			depoVaso.servirVaso(1);
 		} 
 	}
 	
-	public void servirLecheSolo() {
+	public void servirLecheSolo() {		
 		double precioLecheSolo = 0.8;
 		if (monedero.getSaldo() >= precioLecheSolo &&
 				depoLeche.getCantidad() > 0 &&
 				depoVaso.getCantidad() > 0) {
 				monedero.setSaldo(monedero.getSaldo() + precioLecheSolo);
-				
-				monedero.setSaldo(monedero.getSaldo() + precioLecheSolo);
-				depoCafe.servirCafe(1);
 				depoLeche.servirLeche(1);
 				depoVaso.servirVaso(1);
 		}
@@ -50,8 +46,6 @@ public class Maquina {
 				depoCafe.getCantidad() > 0 &&
 				depoLeche.getCantidad() > 0 &&
 				depoVaso.getCantidad() > 0) {
-				monedero.setSaldo(monedero.getSaldo() + precioCafeConLeche);
-				
 				monedero.setSaldo(monedero.getSaldo() + precioCafeConLeche);
 				depoCafe.servirCafe(1);
 				depoLeche.servirLeche(1);
