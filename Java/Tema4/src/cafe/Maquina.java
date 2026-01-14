@@ -78,7 +78,6 @@ public class Maquina {
 				System.out.println("Cafe con leche servido.");
 				break;
 			case 4:
-				// Mostrar estado de la maquina
 				estadoMaquina();	
 				break;
 			case 5: 
