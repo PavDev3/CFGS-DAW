@@ -3,8 +3,7 @@ package rectangulo;
 import java.util.Scanner;
 public class Main {
 	public static void main (String[] args){
-		
-		
+			
 		Rectangulo rect1 = new Rectangulo();
 		
 		Scanner scanner = new Scanner(System.in);
