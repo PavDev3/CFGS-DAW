@@ -1,6 +1,9 @@
+package rectangulo;
+
 import java.util.Scanner;
-public class mainRectangulo {
+public class Main {
 	public static void main (String[] args){
+		
 		
 		Rectangulo rect1 = new Rectangulo();
 		
@@ -18,5 +21,6 @@ public class mainRectangulo {
 		System.out.println("El area del rectangulo es: " + rect1.calcularArea());
 		System.out.println("El perimetro del rectangulo es: " + rect1.calcularPerimetro());
 		
+		scanner.close();
 	}
 }
