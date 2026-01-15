@@ -130,4 +130,27 @@ SELECT DISTINCT COLOR, CIUDAD FROM `COMPONENTES`;
 
 4- Obtener  de  la  tabla  de  artículos  los  valores  de  T#  y  CIUDAD  donde  el  nombre  de  la  ciudad acaba en D o contiene al menos una E. 
 SELECT T, CIUDAD FROM `ARTICULOS` WHERE CIUDAD LIKE '%D%' OR CIUDAD LIKE '%E%';
+Obtener  los  valores  de  P#  para  los  proveedores  que  suministran  para  el  artículo  T1  el  componente C1. 
+SELECT P FROM ENVIOS WHERE T = 'T1' AND C = 'C1';
+
+6.Obtener los valores de TNOMBRE en orden alfabético para los artículos abastecidos por el proveedor P1. 
+SELECT TNOMBRE FROM `ARTICULOS` WHERE CIUDAD = 'MADRID';
+
+7.Obtener los valores de C# para los componentes suministrados para cualquier artículo de MADRID. 
+SELECT C FROM ENVIOS WHERE T IN (SELECT T FROM ARTICULOS WHERE CIUDAD = 'MADRID');
+
+8.Obtener  todos  los  valores  de  C#  de  los  componentes  tales  que  ningún  otro  componente    tenga un valor de peso inferior. 
+SELECT C FROM COMPONENTES WHERE PESO = (SELECT MAX(PESO) FROM COMPONENTES);
+
+9.Obtener los valores de P# para los proveedores que suministren los artículos T1 Y T2 ambos proveedores deben de suministrar los dos artículos
+hazlo con una subconsulta que primero consulte t1 y luego t2 y luego los proveedores que suministran los dos artículos
+como seria asi 
+SELECT P FROM ENVIOS WHERE T = 'T1' AND P IN (SELECT P FROM ENVIOS WHERE T = 'T2');
+
+
+
+
+
+
 */
+
