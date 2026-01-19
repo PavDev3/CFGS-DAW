@@ -6,9 +6,9 @@ public class Main {
 		Scanner scanner = new Scanner(System.in);
 		// generar saldo inicial aleatorio entre 100 y 1000
 		int saldoInicial = (int)(Math.random() * 901) + 100;
-		Cuenta cuenta = new Cuenta(saldoInicial);
+		Cuenta cuenta = new Cuenta(saldoInicial, 0);
 		
-		cuenta.mostrarSaldo();
+		cuenta.mostrarSaldo(saldoInicial);
 		Menu menu = new Menu(cuenta);
 		
 		// crear menu

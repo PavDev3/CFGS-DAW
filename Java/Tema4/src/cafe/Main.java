@@ -11,8 +11,22 @@ public class Main {
 		maquina.mostrarMenu();
 		System.out.println("Seleccione una opcion:");
 		int opcion = scanner.nextInt();
-		while (opcion != 5) {
-			maquina.ejecutarOpcion(opcion);
+		while (opcion != 7) {
+			// Opciones que requieren dinero (1, 2, 3)
+			if (opcion >= 1 && opcion <= 3) {
+				System.out.println("Introduzca el dinero:");
+				double dinero = scanner.nextDouble();
+				maquina.ejecutarOpcion(opcion, dinero);
+			} else if (opcion == 5) {
+				// Llenar depósitos
+				maquina.llenarDepositos();
+			} else if (opcion == 6) {
+				// Vaciar monedero
+				maquina.vaciarMonedero();
+			} else {
+				// Opciones que no requieren dinero (4, 7)
+				maquina.ejecutarOpcion(opcion, 0);
+			}
 			maquina.mostrarMenu();
 			System.out.println("Seleccione una opcion:");
 			opcion = scanner.nextInt();

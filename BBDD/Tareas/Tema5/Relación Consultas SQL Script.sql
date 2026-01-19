@@ -147,6 +147,27 @@ hazlo con una subconsulta que primero consulte t1 y luego t2 y luego los proveed
 como seria asi 
 SELECT P FROM ENVIOS WHERE T = 'T1' AND P IN (SELECT P FROM ENVIOS WHERE T = 'T2');
 
+10.Obtener  los  valores  de  P#  para  los  proveedores  que  suministran  para  un  artículo  de  SEVILLA o MADRID un componente ROJO.
+select distinct `ENVIOS`.`P` 
+from `ENVIOS` 
+join ARTICULOS ON `ENVIOS`.`T` = `ARTICULOS`.`T`
+join `COMPONENTES` on `ENVIOS`.`C` = `COMPONENTES`.`C`
+where (`ARTICULOS`.`CIUDAD` = 'SEVILLA' OR  `ARTICULOS`.`CIUDAD` = 'MADRID') AND `COMPONENTES`.`COLOR` = 'ROJO';
+
+11. Obtener,  mediante  subconsultas,  los  valores  de  C# para  los  componentes  suministrados  para algún artículo de SEVILLA por un proveedor de SEVILLA
+
+select distinct c from `ENVIOS`
+where T in (
+  select T from `ARTICULOS`
+  where CIUDAD = 'SEVILLA'
+)
+and P in (
+  select P from `PROVEEDORES` where CIUDAD = 'SEVILLA'
+);
+
+12. Obtener  los  valores  de  T#  para  los  artículos  que  usan  al  menos  un  componente  que  se  puede obtener con el proveedor P1
+
+
 
 
 
