@@ -23,7 +23,7 @@ public class Menu {
 	public void ejecutarOpcion(int opcion, int cantidad) {
 		switch (opcion) {
 			case 1:
-				cuenta.mostrarSaldo();
+				cuenta.mostrarSaldo(cuenta.obtenerSaldo());
 				break;
 			case 2:
 				cuenta.depositar(cantidad);

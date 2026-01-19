@@ -16,7 +16,11 @@ public class Monedero {
 	}
 	
 	public double getSaldo() {
-		return saldo;
+		return (float) saldo;
+	}
+	
+	public String getSaldoFormateado() {
+		return String.format("%.2f", saldo) + " €";
 	}
 	
 
