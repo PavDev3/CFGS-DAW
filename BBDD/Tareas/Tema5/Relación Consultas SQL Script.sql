@@ -166,9 +166,11 @@ and P in (
 );
 
 12. Obtener  los  valores  de  T#  para  los  artículos  que  usan  al  menos  un  componente  que  se  puede obtener con el proveedor P1
+SELECT DISTINCT T FROM ENVIOS
+WHERE C IN (
+SELECT DISTINCT C FROM ENVIOS WHERE P = 'P1' );
 
-
-
+13. Obtener todas las ternas (CIUDAD, C#, CIUDAD) tales que un proveedor de la primera ciudad  suministre  el  componente  especificado  para  un  artículo  montado  en  la  segunda  ciudad.
 
 
 
