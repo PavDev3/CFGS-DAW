@@ -171,6 +171,14 @@ WHERE C IN (
 SELECT DISTINCT C FROM ENVIOS WHERE P = 'P1' );
 
 13. Obtener todas las ternas (CIUDAD, C#, CIUDAD) tales que un proveedor de la primera ciudad  suministre  el  componente  especificado  para  un  artículo  montado  en  la  segunda  ciudad.
+=======
+SELECT P.CIUDAD, C.C, A.CIUDAD
+FROM PROVEEDORES P, ENVIOS E, COMPONENTES C, ARTICULOS A
+WHERE P.P = E.P 
+  AND E.C = C.C 
+  AND E.T = A.T 
+  AND A.CIUDAD <> P.CIUDAD
+ORDER BY P.CIUDAD, C.C, A.CIUDAD;
 
 
 
