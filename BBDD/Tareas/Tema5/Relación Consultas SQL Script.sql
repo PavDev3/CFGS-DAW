@@ -134,7 +134,10 @@ Obtener  los  valores  de  P#  para  los  proveedores  que  suministran  para  e
 SELECT P FROM ENVIOS WHERE T = 'T1' AND C = 'C1';
 
 6.Obtener los valores de TNOMBRE en orden alfabético para los artículos abastecidos por el proveedor P1. 
-SELECT TNOMBRE FROM `ARTICULOS` WHERE CIUDAD = 'MADRID';
+SELECT DISTINCT A.TNOMBRE 
+FROM ARTICULOS A, ENVIOS E 
+WHERE A.T = E.T AND E.P = 'P1' 
+ORDER BY A.TNOMBRE;
 
 7.Obtener los valores de C# para los componentes suministrados para cualquier artículo de MADRID. 
 SELECT C FROM ENVIOS WHERE T IN (SELECT T FROM ARTICULOS WHERE CIUDAD = 'MADRID');
@@ -171,14 +174,187 @@ WHERE C IN (
 SELECT DISTINCT C FROM ENVIOS WHERE P = 'P1' );
 
 13. Obtener todas las ternas (CIUDAD, C#, CIUDAD) tales que un proveedor de la primera ciudad  suministre  el  componente  especificado  para  un  artículo  montado  en  la  segunda  ciudad.
-=======
 SELECT P.CIUDAD, C.C, A.CIUDAD
 FROM PROVEEDORES P, ENVIOS E, COMPONENTES C, ARTICULOS A
 WHERE P.P = E.P 
   AND E.C = C.C 
   AND E.T = A.T 
-  AND A.CIUDAD <> P.CIUDAD
 ORDER BY P.CIUDAD, C.C, A.CIUDAD;
+
+14. Repetir el ejercicio anterior pero sin recuperar las ternas en los que los dos valores de ciudad sean los mismos.
+SELECT P.CIUDAD, C.C, A.CIUDAD
+FROM PROVEEDORES P, ENVIOS E, COMPONENTES C, ARTICULOS A
+WHERE P.P = E.P 
+  AND E.C = C.C 
+  AND E.T = A.T 
+  AND P.CIUDAD <> A.CIUDAD
+ORDER BY P.CIUDAD, C.C, A.CIUDAD;
+
+15. Obtener el número de suministros, el de artículos distintos suministrados y la cantidad total de artículos suministrados por el proveedor P2.
+SELECT 
+    COUNT(*) AS NUM_SUMINISTROS,
+    COUNT(DISTINCT T) AS ARTICULOS_DISTINTOS,
+    SUM(CANTIDAD) AS CANTIDAD_TOTAL
+FROM ENVIOS 
+WHERE P = 'P2';
+
+16. Para cada artículo y componente suministrado obtener los valores de C#, T# y la cantidad total correspondiente.
+SELECT C, T, SUM(CANTIDAD) AS CANTIDAD_TOTAL
+FROM ENVIOS 
+GROUP BY C, T
+ORDER BY C, T;
+
+17. Obtener los valores de T# de los artículos abastecidos al menos por un proveedor que no viva en MADRID y que no esté en la misma ciudad en la que se monta el artículo.
+SELECT DISTINCT E.T
+FROM ENVIOS E, PROVEEDORES P, ARTICULOS A
+WHERE E.P = P.P 
+  AND E.T = A.T 
+  AND P.CIUDAD <> 'MADRID' 
+  AND P.CIUDAD <> A.CIUDAD;
+
+18. Obtener los valores de P# para los proveedores que suministran al menos un componente suministrado al menos por un proveedor que suministra al menos un componente ROJO.
+SELECT DISTINCT P
+FROM ENVIOS 
+WHERE C IN (
+    SELECT DISTINCT C 
+    FROM ENVIOS 
+    WHERE P IN (
+        SELECT DISTINCT P 
+        FROM ENVIOS E, COMPONENTES C 
+        WHERE E.C = C.C AND C.COLOR = 'ROJO'
+    )
+);
+
+19. Obtener los identificadores de artículos, T#, para los que se ha suministrado algún componente del que se haya suministrado una media superior a 320 artículos.
+SELECT DISTINCT T
+FROM ENVIOS 
+WHERE C IN (
+    SELECT C 
+    FROM ENVIOS 
+    GROUP BY C 
+    HAVING AVG(CANTIDAD) > 320
+);
+
+20. Seleccionar los identificadores de proveedores que hayan realizado algún envío con Cantidad mayor que la media de los envíos realizados para el componente a que corresponda dicho envío.
+SELECT DISTINCT P
+FROM ENVIOS E1
+WHERE E1.CANTIDAD > (
+    SELECT AVG(E2.CANTIDAD) 
+    FROM ENVIOS E2 
+    WHERE E2.C = E1.C
+);
+
+21. Seleccionar los identificadores de componentes suministrados para el artículo 'T2' por el proveedor 'P2'.
+SELECT C
+FROM ENVIOS 
+WHERE T = 'T2' AND P = 'P2';
+
+22. Seleccionar todos los datos de los envíos realizados de componentes cuyo color no sea 'ROJO'.
+SELECT E.*
+FROM ENVIOS E, COMPONENTES C
+WHERE E.C = C.C AND C.COLOR <> 'ROJO';
+
+23. Seleccionar los identificadores de componentes que se suministren para los artículos 'T1' y 'T2'.
+SELECT DISTINCT C
+FROM ENVIOS 
+WHERE T = 'T1' AND C IN (
+    SELECT C FROM ENVIOS WHERE T = 'T2'
+);
+
+24. Seleccionar el identificador de proveedor y el número de envíos de componentes de color 'ROJO' llevados a cabo por cada proveedor.
+SELECT E.P, COUNT(*) AS NUM_ENVIOS_ROJOS
+FROM ENVIOS E, COMPONENTES C
+WHERE E.C = C.C AND C.COLOR = 'ROJO'
+GROUP BY E.P;
+
+25. Seleccionar los colores de componentes suministrados por el proveedor 'P1'.
+SELECT DISTINCT C.COLOR
+FROM ENVIOS E, COMPONENTES C
+WHERE E.P = 'P1' AND E.C = C.C;
+
+26. Seleccionar los datos de envío y nombre de ciudad de aquellos envíos que cumplan que el artículo, proveedor y componente son de la misma ciudad.
+SELECT E.*, P.CIUDAD
+FROM ENVIOS E, PROVEEDORES P, ARTICULOS A, COMPONENTES C
+WHERE E.P = P.P 
+  AND E.T = A.T 
+  AND E.C = C.C 
+  AND P.CIUDAD = A.CIUDAD 
+  AND P.CIUDAD = C.CIUDAD;
+
+27. Seleccionar los nombres de los componentes que son suministrados en una cantidad total superior a 500.
+SELECT C.CNOMBRE
+FROM ENVIOS E, COMPONENTES C
+WHERE E.C = C.C
+GROUP BY C.C, C.CNOMBRE
+HAVING SUM(E.CANTIDAD) > 500;
+
+28. Seleccionar los identificadores de proveedores que residan en Sevilla y no suministren más de dos artículos distintos.
+SELECT P
+FROM PROVEEDORES
+WHERE CIUDAD = 'SEVILLA'
+AND P IN (
+    SELECT E.P
+    FROM ENVIOS E
+    GROUP BY E.P
+    HAVING COUNT(DISTINCT E.T) <= 2
+);
+
+29. Seleccionar los identificadores de artículos para los cuales todos sus componentes se fabrican en una misma ciudad.
+SELECT DISTINCT E.T
+FROM ENVIOS E
+WHERE NOT EXISTS (
+    SELECT 1
+    FROM ENVIOS E2, COMPONENTES C1, COMPONENTES C2
+    WHERE E2.T = E.T 
+      AND E2.C = C1.C 
+      AND E.C = C2.C 
+      AND C1.CIUDAD <> C2.CIUDAD
+);
+
+30. Seleccionar los identificadores de artículos para los que se provean envíos de todos los componentes existentes en la base de datos.
+SELECT T
+FROM ARTICULOS A
+WHERE NOT EXISTS (
+    SELECT C FROM COMPONENTES
+    WHERE C NOT IN (
+        SELECT E.C FROM ENVIOS E WHERE E.T = A.T
+    )
+);
+
+31. Seleccionar los códigos de proveedor y artículo que suministran al menos dos componentes de color 'ROJO'.
+SELECT E.P, E.T
+FROM ENVIOS E, COMPONENTES C
+WHERE E.C = C.C AND C.COLOR = 'ROJO'
+GROUP BY E.P, E.T
+HAVING COUNT(DISTINCT E.C) >= 2;
+
+32. Propón tu mismo consultas que puedan realizarse sobre esta base de datos de ejemplo.
+-- Consulta propuesta: Obtener los proveedores que suministran componentes con mayor cantidad media que la media general
+SELECT P, AVG(CANTIDAD) AS MEDIA_PROVEEDOR
+FROM ENVIOS
+GROUP BY P
+HAVING AVG(CANTIDAD) > (
+    SELECT AVG(CANTIDAD) FROM ENVIOS
+);
+
+-- Consulta propuesta: Obtener los componentes que son suministrados por más proveedores que la media
+SELECT C, COUNT(DISTINCT P) AS NUM_PROVEEDORES
+FROM ENVIOS
+GROUP BY C
+HAVING COUNT(DISTINCT P) > (
+    SELECT AVG(NUM_PROV) FROM (
+        SELECT COUNT(DISTINCT P) AS NUM_PROV 
+        FROM ENVIOS 
+        GROUP BY C
+    ) AS MEDIAS
+);
+
+-- Consulta propuesta: Obtener las ciudades que proveen más cantidad total de componentes que otras ciudades
+SELECT P.CIUDAD, SUM(E.CANTIDAD) AS CANTIDAD_TOTAL
+FROM PROVEEDORES P, ENVIOS E
+WHERE P.P = E.P
+GROUP BY P.CIUDAD
+ORDER BY CANTIDAD_TOTAL DESC;
 
 
 
