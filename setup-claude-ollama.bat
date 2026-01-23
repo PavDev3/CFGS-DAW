@@ -28,18 +28,77 @@ echo 📋 Paso 2: Verificando Chocolatey...
 where >nul 2>nul choco
 if %errorlevel% neq 0 (
     echo ⚠️  Chocolatey no encontrado. Instalando Chocolatey...
-    powershell -NoProfile -InputFormat None -ExecutionPolicy Bypass -Command "[System.Net.ServicePointManager]::SecurityProtocol = [System.Net.ServicePointManager]::SecurityProtocol -bor 3072; iex ((New-Object System.Net.WebClient).DownloadString('https://community.chocolatey.org/install.ps1'))"
+    echo 📥 Descargando e instalando Chocolatey (requiere conexión a internet)...
+    
+    REM Verificar si se está ejecutando como administrador
+    net session >nul 2>&1
     if %errorlevel% neq 0 (
-        echo ❌ Error al instalar Chocolatey
+        echo ⚠️  Este script requiere ejecutarse como Administrador para instalar Chocolatey
+        echo 💡 Por favor, haz clic derecho en el script y selecciona "Ejecutar como administrador"
+        echo 🔄 Intentando continuar sin derechos de administrador...
+        echo.
+        echo 📋 Instrucciones manuales si esto falla:
+        echo 1. Abre PowerShell como Administrador
+        echo 2. Ejecuta: Set-ExecutionPolicy Bypass -Scope Process -Force
+        echo 3. Ejecuta: [System.Net.ServicePointManager]::SecurityProtocol = [System.Net.ServicePointManager]::SecurityProtocol -bor 3072
+        echo 4. Ejecuta: iex ((New-Object System.Net.WebClient).DownloadString('https://community.chocolatey.org/install.ps1'))
+        echo.
+        echo 🔍 Intentando instalación automática...
+    )
+    
+    REM Intentar instalar Chocolatey con PowerShell
+    powershell -NoProfile -InputFormat None -ExecutionPolicy Bypass -Command ^
+        "try { ^
+            [System.Net.ServicePointManager]::SecurityProtocol = [System.Net.ServicePointManager]::SecurityProtocol -bor 3072; ^
+            iex ((New-Object System.Net.WebClient).DownloadString('https://community.chocolatey.org/install.ps1')); ^
+            Write-Host '✅ Chocolatey instalado exitosamente'; ^
+            exit 0; ^
+        } catch { ^
+            Write-Host '❌ Error durante la instalación de Chocolatey:'; ^
+            Write-Host $_.Exception.Message; ^
+            exit 1; ^
+        }"
+    
+    if %errorlevel% neq 0 (
+        echo ❌ Error al instalar Chocolatey automáticamente
+        echo.
+        echo 📋 Alternativa 1: Instalación manual de Chocolatey:
+        echo 1. Abre PowerShell como Administrador
+        echo 2. Copia y pega este comando:
+        echo    Set-ExecutionPolicy Bypass -Scope Process -Force; [System.Net.ServicePointManager]::SecurityProtocol = [System.Net.ServicePointManager]::SecurityProtocol -bor 3072; iex ((New-Object System.Net.WebClient).DownloadString('https://community.chocolatey.org/install.ps1'))
+        echo.
+        echo 📋 Alternativa 2: Descargar el instalador desde:
+        echo https://chocolatey.org/install
+        echo.
+        echo ⏹️  Presiona cualquier tecla para continuar sin Chocolatey (usará instalación manual)...
+        pause >nul
+        goto skip_choco
+    )
+    
+    echo ✅ Chocolatey instalado
+    echo 🔄 Actualizando variables de entorno...
+    
+    REM Refrescar variables de entorno
+    call "%ALLUSERSPROFILE%\chocolatey\bin\RefreshEnv.cmd" 2>nul
+    
+    REM Intentar actualizar PATH para esta sesión
+    set "PATH=%ALLUSERSPROFILE%\chocolatey\bin;%PATH%"
+    
+    REM Verificar que choco esté disponible
+    timeout /t 3 /nobreak >nul
+    where >nul 2>nul choco
+    if %errorlevel% neq 0 (
+        echo ⚠️  Chocolatey está instalado pero no disponible en esta sesión
+        echo 💡 Reinicia el script o abre una nueva terminal como administrador
         pause
         exit /b 1
     )
-    echo ✅ Chocolatey instalado
-    echo 🔄 Actualizando variables de entorno...
-    call refreshenv
 ) else (
     echo ✅ Chocolatey ya está instalado
+    choco --version
 )
+
+:skip_choco
 
 REM Paso 3: Verificar e instalar Ollama
 echo 📋 Paso 3: Verificando Ollama...
