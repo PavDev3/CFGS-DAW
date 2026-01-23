@@ -1,12 +1,14 @@
 package cafe;
 
 import java.util.Scanner;
+
 public class Main_Cafe {
 	public static void main(String[] args) {
-		
+
 		Scanner scanner = new Scanner(System.in);
 		Maquina maquina = new Maquina();
 		
+		//
 		System.out.println("Bienvenido a la maquina de cafe.");
 		maquina.mostrarMenu();
 		System.out.println("Seleccione una opcion:");
@@ -27,8 +29,11 @@ public class Main_Cafe {
 				// Opciones que no requieren dinero (4, 7)
 				maquina.ejecutarOpcion(opcion, 0);
 			}
+
+			// Mostrar el menú y solicitar la siguiente opción
 			maquina.mostrarMenu();
 			System.out.println("Seleccione una opcion:");
+			// Repetir hasta que se seleccione la opción de salir (7)
 			opcion = scanner.nextInt();
 		}
 
