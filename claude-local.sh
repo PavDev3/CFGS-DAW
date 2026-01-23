@@ -38,16 +38,43 @@ echo "✅ ANTHROPIC_AUTH_TOKEN configurado a: $ANTHROPIC_AUTH_TOKEN"
 export CLAUDE_CODE_DISABLE_NONESSENTIAL_TRAFFIC=1
 echo "✅ CLAUDE_CODE_DISABLE_NONESSENTIAL_TRAFFIC configurado"
 
-# Paso 4: Verificar que el modelo esté disponible
-echo "📋 Paso 4: Verificando modelo qwen2.5-coder:7b..."
-if ollama list | grep -q "qwen2.5-coder:7b"; then
-    echo "✅ Modelo qwen2.5-coder:7b encontrado"
+# Paso 4: Seleccionar modelo
+echo "📋 Paso 4: Seleccionando modelo..."
+echo "Modelos disponibles:"
+echo "1) qwen2.5-coder:7b (4.7GB - ligero y rápido)"
+echo "2) qwen3-coder:latest (18GB - más potente)"
+echo "3) Otro modelo (especificar nombre)"
+
+echo -n "Elige una opción [1-3]: "
+read -r choice
+
+case $choice in
+    1)
+        MODEL="qwen2.5-coder:7b"
+        ;;
+    2)
+        MODEL="qwen3-coder:latest"
+        ;;
+    3)
+        echo -n "Ingresa el nombre del modelo: "
+        read -r MODEL
+        ;;
+    *)
+        echo "Opción no válida, usando qwen2.5-coder:7b por defecto"
+        MODEL="qwen2.5-coder:7b"
+        ;;
+esac
+
+# Paso 5: Verificar que el modelo esté disponible
+echo "📋 Paso 5: Verificando modelo $MODEL..."
+if ollama list | grep -q "$MODEL"; then
+    echo "✅ Modelo $MODEL encontrado"
 else
-    echo "⚠️  Modelo qwen2.5-coder:7b no encontrado. ¿Deseas descargarlo? (s/n)"
+    echo "⚠️  Modelo $MODEL no encontrado. ¿Deseas descargarlo? (s/n)"
     read -r response
     if [[ "$response" =~ ^[Ss]$ ]]; then
-        echo "📥 Descargando modelo qwen2.5-coder:7b..."
-        ollama pull qwen2.5-coder:7b
+        echo "📥 Descargando modelo $MODEL..."
+        ollama pull "$MODEL"
         echo "✅ Modelo descargado"
     else
         echo "❌ Se requiere el modelo para continuar. Abortando."
@@ -55,10 +82,10 @@ else
     fi
 fi
 
-# Paso 5: Iniciar Claude Code con el modelo local
-echo "📋 Paso 5: Iniciando Claude Code con modelo local..."
+# Paso 6: Iniciar Claude Code con el modelo seleccionado
+echo "📋 Paso 6: Iniciando Claude Code con modelo local..."
 echo ""
-echo "🎯 Claude Code se iniciará con el modelo qwen2.5-coder:7b"
+echo "🎯 Claude Code se iniciará con el modelo $MODEL"
 echo "📁 Navega a tu proyecto y escribe comandos como:"
 echo "   - 'crea un programa Java que...'"
 echo "   - 'ayuda con este error...'"
@@ -70,4 +97,4 @@ echo "🚀 Iniciando Claude Code..."
 echo ""
 
 # Iniciar Claude Code en el directorio actual
-claude --model qwen2.5-coder:7b
+claude --model "$MODEL"
