@@ -1,0 +1,101 @@
+Table director {
+    id_director int [pk, increment]
+    nombre varchar(100) [not null]
+    nacionalidad varchar(50)
+    fecha_nacimiento date
+}
+
+Table cliente {
+    id_cliente int [pk, increment]
+    nombre varchar(100) [not null]
+    email varchar(100)
+    ciudad varchar(50)
+    calle varchar(100)
+    numero varchar(20)
+}
+
+Table telefono_cliente {
+    id_telefono int [pk, increment]
+    id_cliente int [not null]
+    telefono varchar(20) [not null]
+}
+
+Table categoria {
+    id_categoria int [pk, increment]
+    nombre varchar(100) [not null]
+    descripcion text
+}
+
+Table proveedor {
+    id_proveedor int [pk, increment]
+    nombre varchar(100) [not null]
+    direccion varchar(200)
+    telefono varchar(20)
+}
+
+Table trabajador {
+    id_trabajador int [pk, increment]
+    nombre varchar(100) [not null]
+    fecha_contratacion date [not null]
+    salario decimal(10, 2)
+}
+
+Table pelicula {
+    id_pelicula int [pk, increment]
+    titulo varchar(200) [not null]
+    año_lanzamiento int
+    genero varchar(50)
+    clasificacion varchar(20)
+    id_proveedor int [not null]
+}
+
+Table ejemplar {
+    id_ejemplar int [pk, increment]
+    estado varchar(50)
+    stock int [default: 0]
+    id_pelicula int [not null]
+}
+
+Table dirige {
+    id_director int [not null]
+    id_pelicula int [not null]
+    
+    Note: 'Primary key: (id_director, id_pelicula)'
+}
+
+Table alquila {
+    id_cliente int [not null]
+    id_ejemplar int [not null]
+    fecha_recogida date [not null]
+    fecha_entrega date
+    id_trabajador int [not null]
+    
+    Note: 'Primary key: (id_cliente, id_ejemplar, fecha_recogida)'
+}
+
+Table pertenece {
+    id_pelicula int [not null]
+    id_categoria int [not null]
+    
+    Note: 'Primary key: (id_pelicula, id_categoria)'
+}
+
+Ref: telefono_cliente.id_cliente > cliente.id_cliente [delete: cascade, update: cascade]
+
+Ref: pelicula.id_proveedor > proveedor.id_proveedor [delete: restrict, update: cascade]
+
+Ref: ejemplar.id_pelicula > pelicula.id_pelicula [delete: restrict, update: cascade]
+
+Ref: dirige.id_director > director.id_director [delete: cascade, update: cascade]
+
+Ref: dirige.id_pelicula > pelicula.id_pelicula [delete: cascade, update: cascade]
+
+Ref: alquila.id_cliente > cliente.id_cliente [delete: cascade, update: cascade]
+
+Ref: alquila.id_ejemplar > ejemplar.id_ejemplar [delete: restrict, update: cascade]
+
+Ref: alquila.id_trabajador > trabajador.id_trabajador [delete: restrict, update: cascade]
+
+Ref: pertenece.id_pelicula > pelicula.id_pelicula [delete: cascade, update: cascade]
+
+Ref: pertenece.id_categoria > categoria.id_categoria [delete: cascade, update: cascade]
