@@ -1,0 +1,14 @@
+4. Resumen rápido para repasar
+
+1. Pseudo-clases (:hover, :focus, :nth-child, :valid…): estado, interacción del usuario o posición en el DOM.
+
+2. Pseudo-elementos (::before, ::after, ::first-letter, ::placeholder…): partes concretas o contenido generado sin tocar el HTML.
+
+3. Pseudo-clases clave:
+• Interacción: :hover, :active, :focus, :focus-visible.
+• Enlaces: :link, :visited.
+• Formularios: :required, :optional, :valid, :invalid, :checked, :disabled, :enabled, :placeholder-shown, :user-valid, :user-invalid.
+• Estructura: :first-child, :last-child, :nth-child(), :first-of-type, :last-of-type, :only-child, :only-of-type.
+• Lógicas: :not(), :is(), :where(), :has().
+
+4. Pseudo-elementos clave: ::before, ::after, ::first-line, ::first-letter, ::placeholder, ::selection, ::marker, ::file-selector-button.

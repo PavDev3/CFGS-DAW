@@ -1,0 +1,12 @@
+3. Pseudo-elementos en CSS
+
+3.1. Conceptos básicos
+
+• Sintaxis moderna: selector::pseudo-element { reglas }.
+
+• Sirven para dar estilo a partes de un elemento que no son nodos HTML normales: primera letra, primera línea, marcador de lista, contenido generado, selección de texto, etc.
+
+Ejemplo:
+css
+q::before { content: "«"; }
+q::after { content: "»"; }

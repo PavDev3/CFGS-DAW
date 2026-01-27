@@ -1,0 +1,83 @@
+Ejercicios Classroom w3schools: Pseudo-elementos
+
+1. Drag and drop the correct pseudo-element to insert content before the text of an <h1> element(before, after, marker, selection).
+h1::before {
+content: 'Hello';
+}
+
+2. Which pseudo-element is used to style the first letter of a block-level element?
+a) ::first-line
+b) ::before
+c) ::first-letter
+d) ::after
+
+3. Set the background-color to red, of the first line of the paragraph.
+<style>
+p::first-line {
+background-color: red;
+}
+</style>
+<body>
+<p class="intro">
+In my younger and more vulnerable years
+my father gave me some advice that I've
+been turning over in my mind ever since.
+'Whenever you feel like criticizing anyone,' he told me,
+'just remember that all the people in this world
+haven't had the advantages that you've had.'
+</p>
+</body>
+
+4. Set the background-color to red, for the first letter of the <p> element.
+<style>
+p::first-letter {
+background-color: red;
+}
+</style>
+<body>
+<p class="intro">
+In my younger and more vulnerable years
+my father gave me some advice that I've
+been turning over in my mind ever since.
+'Whenever you feel like criticizing anyone,' he told me,
+'just remember that all the people in this world
+haven't had the advantages that you've had.'
+</p>
+</body>
+
+5. Insert the image "smiley.gif" before, and after any <p>element, using the ::before and ::after pseudo-elements.
+<style>
+p::before {
+content: url('smiley.gif');
+}
+p::after {
+content: url('smiley.gif');
+}
+</style>
+<body>
+<p>This is a paragraph.</p>
+<p>This is a paragraph.</p>
+</body>
+
+6. What is the purpose of the ::before pseudo-element?
+a) To style the first line of text in an element
+b) To insert content before the content of an element
+c) To style the first letter of text in an element
+d) To add content after the content of an element
+
+7. Drag and drop the correct pseudo-element to style the first letter of a paragraph(first-letter, first-line, before, after).
+p::first-letter {
+color: red;
+font-size: xx-large;
+}
+
+8. Drag and drop the correct pseudo-element to insert content after the text of an <h1> element(before, after, marker, selection).
+h1::after {
+content: 'Goodbye';
+}
+
+9. Drag and drop the correct pseudo-element to style the text selected by a user(first letter, first-line, selection, marker).
+::selection {
+color: red;
+background: yellow;
+}
