@@ -1,0 +1,13 @@
+3.2. Contenido generado: ::before y ::after
+
+• ::before: inserta contenido antes del contenido real del elemento.
+• ::after: inserta contenido después del contenido real.
+• Ambos requieren la propiedad content (aunque sea "").
+
+Ejemplo icono en enlaces externos:
+css
+a.external::after {
+content: "↗";
+font-size: 0.8em;
+margin-left: 0.25em;
+}

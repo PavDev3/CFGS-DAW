@@ -1,0 +1,13 @@
+2.4. Posición en el árbol (estructurales)
+
+• :first-child / :last-child: primer o último hijo de su padre.
+• :only-child: único hijo del padre.
+• :nth-child(n) / :nth-last-child(n): hijo en posición n, desde el principio o el final.
+• :first-of-type / :last-of-type: primer o último elemento de su tipo entre sus hermanos.
+• :only-of-type: único elemento de ese tipo entre sus hermanos.
+• :nth-of-type(n) / :nth-last-of-type(n): como nth-child, pero filtrando por tipo de etiqueta.
+
+Ejemplo para filas alternas:
+css
+tr:nth-child(even) { background: #f2f2f2; }
+tr:nth-child(odd) { background: white; }
