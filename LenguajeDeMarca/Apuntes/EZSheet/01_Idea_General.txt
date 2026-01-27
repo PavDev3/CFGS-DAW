@@ -1,0 +1,7 @@
+PSEUDO-CLASES Y PSEUDO-ELEMENTOS
+
+1. Idea general
+
+Una pseudo-clase describe un estado especial de un elemento (cómo está o dónde está en el árbol del DOM).
+
+Un pseudo-elemento describe una parte concreta de ese elemento (primera letra, primera línea, contenido antes/después, marcador de lista, etc.).
