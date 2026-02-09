@@ -1,0 +1,128 @@
+@startuml
+hide circle
+skinparam linetype ortho
+skinparam classAttributeIconSize 0
+entity "customers" as customers {
+  *customer_id* : TEXT <<PK>>
+  --
+  company_name : TEXT
+  contact_name : TEXT
+  contact_title : TEXT
+  address : TEXT
+  city : TEXT
+  region : TEXT
+  postal_code : TEXT
+  country : TEXT
+  phone : TEXT
+  fax : TEXT
+}
+entity "employees" as employees {
+  *employee_id* : INT <<PK>>
+  --
+  last_name : TEXT
+  first_name : TEXT
+  title : TEXT
+  title_of_courtesy : TEXT
+  birth_date : DATE
+  hire_date : DATE
+  address : TEXT
+  city : TEXT
+  region : TEXT
+  postal_code : TEXT
+  country : TEXT
+  home_phone : TEXT
+  extension : TEXT
+  reports_to : INT <<FK employees.employee_id>>
+}
+entity "orders" as orders {
+  *order_id* : INT <<PK>>
+  --
+  customer_id : TEXT <<FK customers.customer_id>>
+  employee_id : INT <<FK employees.employee_id>>
+  order_date : DATE
+  required_date : DATE
+  shipped_date : DATE
+  ship_via : INT <<FK shippers.shipper_id>>
+  freight : DECIMAL
+  ship_name : TEXT
+  ship_address : TEXT
+  ship_city : TEXT
+  ship_region : TEXT
+  ship_postal_code : TEXT
+  ship_country : TEXT
+}
+entity "shippers" as shippers {
+  *shipper_id* : INT <<PK>>
+  --
+  company_name : TEXT
+  phone : TEXT
+}
+entity "order_details" as order_details {
+  *order_id* : INT <<PK,FK orders.order_id>>
+  *product_id* : INT <<PK,FK products.product_id>>
+  --
+  quantity : INT
+  discount : DECIMAL
+}
+entity "products" as products {
+  *product_id* : INT <<PK>>
+  --
+  product_name : TEXT
+  supplier_id : INT <<FK suppliers.supplier_id>>
+  category_id : INT <<FK categories.category_id>>
+  quantity_per_unit : TEXT
+  unit_price : DECIMAL
+  units_in_stock : INT
+  units_on_order : INT
+  reorder_level : INT
+  discontinued : INT
+}
+entity "suppliers" as suppliers {
+  *supplier_id* : INT <<PK>>
+  --
+  company_name : TEXT
+  contact_name : TEXT
+  contact_title : TEXT
+  address : TEXT
+  city : TEXT
+  region : TEXT
+  postal_code : TEXT
+  country : TEXT
+  phone : TEXT
+  fax : TEXT
+  home_page : TEXT
+}
+entity "categories" as categories {
+  *category_id* : INT <<PK>>
+  --
+  category_name : TEXT
+  description : TEXT
+}
+entity "regions" as regions {
+  *region_id* : INT <<PK>>
+  --
+  region_description : TEXT
+}
+entity "territories" as territories {
+  *territory_id* : TEXT <<PK>>
+  --
+  territory_description : TEXT
+  region_id : INT <<FK regions.region_id>>
+}
+entity "employee_territories" as employee_territories {
+  *employee_id* : INT <<PK,FK employees.employee_id>>
+  *territory_id* : TEXT <<PK,FK territories.territory_id>>
+}
+' Relationships (with multiplicities)
+customers  "1" -- "*" orders : customer_id
+employees  "1" -- "*" orders : employee_id
+shippers   "1" -- "*" orders : ship_via
+orders     "1" -- "*" order_details : order_id
+products   "1" -- "*" order_details : product_id
+suppliers  "1" -- "*" products : supplier_id
+categories "1" -- "*" products : category_id
+regions    "1" -- "*" territories : region_id
+employees  "1" -- "*" employee_territories : employee_id
+territories "1" -- "*" employee_territories : territory_id
+employees  "0..1" -- "*" employees : reports_to
+@enduml
