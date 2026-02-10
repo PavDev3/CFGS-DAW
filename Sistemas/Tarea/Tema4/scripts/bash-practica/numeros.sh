@@ -11,3 +11,4 @@ elif [ "$numero" -gt 0 ]; then
 else
     echo "El numero es 0"
 fi
+
