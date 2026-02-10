@@ -33,6 +33,7 @@ public class main {
 		return numero; */
 		
 		
+		
 		System.out.print(mensaje);
 		while (!scanner.hasNextInt()) {
 			System.out.println("Entrada no válida. Por favor, ingrese un número entero.");
