@@ -31,9 +31,13 @@ public class Menu {
 				System.out.println("Nuevo saldo: " + cuenta.obtenerSaldo());
 				break;
 			case 3:
-				cuenta.retirar(cantidad);
-				System.out.println("Retiro realizado.");
-				System.out.println("Nuevo saldo: " + cuenta.obtenerSaldo());
+				try {
+					cuenta.retirar(cantidad);
+					System.out.println("Retiro realizado.");
+					System.out.println("Nuevo saldo: " + cuenta.obtenerSaldo());
+				} catch (SaldoInsuficienteException e) {
+					System.out.println(e.getMessage());
+				}
 				break;
 			case 4:
 				System.out.println("Gracias por usar FilipoBank.");
