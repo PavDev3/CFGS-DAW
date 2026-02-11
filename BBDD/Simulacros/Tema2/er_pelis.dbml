@@ -1,93 +1,152 @@
 Project er2_pelis {
   database_type: 'MySQL'
-  Note: 'Base de datos de películas, directores, actores, festivales, cines y proyecciones'
+  Note: '''
+    # Base de datos de Películas
+    Modelo relacional de películas, directores, actores, festivales, cines y proyecciones.
+    
+    **Autor:** Pablo
+  '''
 }
 
+// ==========================================
+// TABLAS PRINCIPALES
+// ==========================================
+
+// Tabla central del modelo: almacena las peliculas
 Table movies {
-  id int [pk, increment, not null]
-  title_es varchar(255) [not null]
-  title_original varchar(255)
-  release_year int
+  id int [pk, increment, not null, note: 'Identificador unico de la pelicula']
+  title_es varchar(255) [not null, note: 'Titulo en español']
+  title_original varchar(255) [note: 'Titulo en idioma original, puede ser null si coincide con el español']
+  release_year int [note: 'Año de estreno']
 }
 
+// Directores de cine
 Table directors {
   id int [pk, increment, not null]
-  name varchar(255) [not null]
+  name varchar(255) [not null, note: 'Nombre completo del director']
 }
 
+// Actores que participan en peliculas
 Table actors {
   id int [pk, increment, not null]
-  name varchar(255) [not null]
+  name varchar(255) [not null, note: 'Nombre completo del actor/actriz']
 }
 
+// ==========================================
+// TABLAS DE FESTIVALES Y PREMIOS
+// ==========================================
+
+// Festivales de cine (ej: Cannes, Berlin, San Sebastian)
 Table festivals {
   id int [pk, increment, not null]
-  name varchar(255) [not null, unique]
+  name varchar(255) [not null, unique, note: 'Nombre del festival, debe ser unico']
 }
 
+// Cada edicion anual de un festival
 Table festival_editions {
   id int [pk, increment, not null]
-  festival_id int [not null]
-  year int [not null]
-  
-  Note: 'Unique constraint on (festival_id, year)'
+  festival_id int [not null, note: 'FK al festival al que pertenece esta edicion']
+  year int [not null, note: 'Año de celebracion de la edicion']
+
+  Note: 'La combinacion (festival_id, year) debe ser unica: un festival solo tiene una edicion por año'
 }
 
+// Premios otorgados en una edicion de un festival a una pelicula
 Table awards {
   id int [pk, increment, not null]
-  festival_edition_id int [not null]
-  movie_id int [not null]
-  category varchar(255) [not null]
+  festival_edition_id int [not null, note: 'FK a la edicion del festival que otorga el premio']
+  movie_id int [not null, note: 'FK a la pelicula premiada']
+  category varchar(255) [not null, note: 'Categoria del premio (ej: Mejor Pelicula, Mejor Director)']
 }
 
+// ==========================================
+// TABLAS DE CINES Y PROYECCIONES
+// ==========================================
+
+// Cines fisicos donde se proyectan peliculas
 Table cinemas {
   id int [pk, increment, not null]
-  name varchar(255) [not null]
-  city varchar(255) [not null]
-  
-  Note: 'Unique constraint on (name, city)'
+  name varchar(255) [not null, note: 'Nombre del cine']
+  city varchar(255) [not null, note: 'Ciudad donde se encuentra']
+
+  Note: 'La combinacion (name, city) debe ser unica: no puede haber dos cines con el mismo nombre en la misma ciudad'
 }
 
+// Salas dentro de un cine
 Table cinema_halls {
   id int [pk, increment, not null]
-  cinema_id int [not null]
-  hall_number int [not null]
-  capacity int [not null]
+  cinema_id int [not null, note: 'FK al cine al que pertenece la sala']
+  hall_number int [not null, note: 'Numero de sala dentro del cine']
+  capacity int [not null, note: 'Aforo maximo de la sala']
 }
 
+// Proyecciones: una pelicula se proyecta en una sala durante un periodo
 Table screenings {
   id int [pk, increment, not null]
-  movie_id int [not null]
-  cinema_hall_id int [not null]
-  start_date date [not null]
-  end_date date [not null]
-  viewers int
-  revenue decimal(10, 2)
+  movie_id int [not null, note: 'FK a la pelicula proyectada']
+  cinema_hall_id int [not null, note: 'FK a la sala donde se proyecta']
+  start_date date [not null, note: 'Fecha de inicio de la proyeccion']
+  end_date date [not null, note: 'Fecha de fin de la proyeccion']
+  viewers int [note: 'Numero de espectadores, puede ser null si aun no se conoce']
+  revenue decimal(10,2) [note: 'Recaudacion en euros, puede ser null si aun no se conoce']
 }
 
+// ==========================================
+// TABLAS INTERMEDIAS (relaciones N:M)
+// ==========================================
+
+// Relacion muchos a muchos entre peliculas y directores
+// Una pelicula puede tener varios directores y un director puede dirigir varias peliculas
 Table movie_directors {
-  movie_id int [not null]
-  director_id int [not null]
-  
-  Note: 'Composite primary key (movie_id, director_id)'
+  movie_id int [not null, note: 'FK a la pelicula']
+  director_id int [not null, note: 'FK al director']
+
+  indexes {
+    (movie_id, director_id) [pk]
+  }
+
+  Note: 'Clave primaria compuesta (movie_id, director_id)'
 }
 
+// Relacion muchos a muchos entre peliculas y actores
+// Una pelicula puede tener varios actores y un actor puede actuar en varias peliculas
 Table movie_actors {
-  movie_id int [not null]
-  actor_id int [not null]
-  
-  Note: 'Composite primary key (movie_id, actor_id)'
+  movie_id int [not null, note: 'FK a la pelicula']
+  actor_id int [not null, note: 'FK al actor/actriz']
+
+  indexes {
+    (movie_id, actor_id) [pk]
+  }
+
+  Note: 'Clave primaria compuesta (movie_id, actor_id)'
 }
 
-// Relaciones
+// ==========================================
+// RELACIONES (Foreign Keys)
+// ==========================================
+
+// Festival editions -> Festivals (una edicion pertenece a un festival)
 Ref: festival_editions.festival_id > festivals.id
+
+// Awards -> Festival editions (un premio se da en una edicion)
 Ref: awards.festival_edition_id > festival_editions.id
+
+// Awards -> Movies (un premio se da a una pelicula)
 Ref: awards.movie_id > movies.id
+
+// Cinema halls -> Cinemas (una sala pertenece a un cine)
 Ref: cinema_halls.cinema_id > cinemas.id
+
+// Screenings -> Movies (una proyeccion es de una pelicula)
 Ref: screenings.movie_id > movies.id
+
+// Screenings -> Cinema halls (una proyeccion es en una sala)
 Ref: screenings.cinema_hall_id > cinema_halls.id
+
+// Movie_directors -> Movies y Directors (relacion N:M)
 Ref: movie_directors.movie_id > movies.id
 Ref: movie_directors.director_id > directors.id
+
+// Movie_actors -> Movies y Actors (relacion N:M)
 Ref: movie_actors.movie_id > movies.id
 Ref: movie_actors.actor_id > actors.id
-
