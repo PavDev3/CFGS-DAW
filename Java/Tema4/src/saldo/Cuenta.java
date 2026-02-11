@@ -29,13 +29,13 @@ public class Cuenta {
 		}
 	}
 	
-	public void retirar(int cantidad) {
-		if (cantidad > 0 && cantidad <= saldo) {
+	public void retirar(int cantidad) throws SaldoInsuficienteException {
+		if (cantidad > saldo) {
+			throw new SaldoInsuficienteException("Fondos insuficientes para retirar " + cantidad);
+		}
+		if (cantidad > 0) {
 			saldo -= cantidad;
 			retiros++;
-		}
-		else {
-			System.out.println("Fondos insuficientes para retirar " + cantidad);
 		}
 	}
 	
