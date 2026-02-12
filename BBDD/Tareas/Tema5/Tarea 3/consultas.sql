@@ -116,23 +116,37 @@ ORDER BY num_tickets DESC
 LIMIT 5;
 
 -- 18. Descripción, fecha y estado de todos los tickets del técnico que haya resuelto menos tickets (al menos uno).
-SELECT t.descripcion, t.fecha_creacion, t.estado
+SELECT t.descripcion, t.fecha_creacion, t.estado, te.email AS email_tecnico, te.nombre AS nombre_tecnico
 FROM ticket t
-WHERE t.email_tecnico = (
+JOIN tecnico te ON t.email_tecnico = te.email
+WHERE t.email_tecnico IN (
     SELECT email_tecnico
     FROM ticket
     WHERE estado = 'Resuelto'
       AND email_tecnico IS NOT NULL
     GROUP BY email_tecnico
-    ORDER BY COUNT(*) ASC
-    LIMIT 1
+    HAVING COUNT(*) = (
+        SELECT MIN(num_resueltos)
+        FROM (
+            SELECT COUNT(*) AS num_resueltos
+            FROM ticket
+            WHERE estado = 'Resuelto'
+              AND email_tecnico IS NOT NULL
+            GROUP BY email_tecnico
+        ) AS conteo
+    )
 );
+
+-- 18.1. Todos los tickets de los técnicos t1 y t4.
+SELECT t.*, te.nombre AS nombre_tecnico
+FROM ticket t
+JOIN tecnico te ON t.email_tecnico = te.email
+WHERE t.email_tecnico IN ('tecnico1@example.com', 'tecnico4@example.com');
 
 -- 19. Muestra el último ticket registrado.
 SELECT *
 FROM ticket
-ORDER BY idTicket DESC
-LIMIT 1;
+WHERE idTicket = (SELECT MAX(idTicket) FROM ticket);
 
 -- 20. Todos los estados por los que ha pasado el ticket con idTicket 5,
 --     incluyendo descripción, nombre del técnico, nombre del usuario y fecha.
