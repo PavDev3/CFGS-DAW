@@ -10,16 +10,20 @@ public class mainBanco {
 		// Crear la cuenta (repite hasta que sea valida)
 		cuentaBancaria cuenta = null;
 		System.out.println("=== Bienvenido al Banco ===");
-		System.out.print("Introduce el nombre del titular: ");
-		String titular = scanner.nextLine();
 		
 		while (cuenta == null) {
+			System.out.print("Introduce el nombre del titular: ");
+			String titular = scanner.nextLine();
 			System.out.print("Introduce el saldo inicial: ");
 			double saldoInicial = scanner.nextDouble();
+			scanner.nextLine(); // Limpiar el salto de linea que deja nextDouble()
 			
 			try {
 				cuenta = new cuentaBancaria(titular, saldoInicial);
 				System.out.println("Cuenta creada: " + cuenta);
+			} catch (CuentaSinTitularException e) {
+				System.out.println("Error: " + e.getMessage());
+				System.out.println("Intentalo de nuevo.");
 			} catch (IllegalArgumentException e) {
 				System.out.println("Error: " + e.getMessage());
 				System.out.println("Intentalo de nuevo.");
