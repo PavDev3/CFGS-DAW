@@ -6,14 +6,19 @@ public class cuentaBancaria {
 	private double saldo;
 	
 	// Constructor
-	public cuentaBancaria(String titular, double saldoInicial) {
-		if (saldoInicial < 0) {
-			throw new IllegalArgumentException("El saldo inicial no puede ser negativo.");
-		}
+	public cuentaBancaria(String titular, double saldoInicial) throws IllegalArgumentException, CuentaSinTitularException { 	
+			if ( titular == null || titular.trim().isEmpty()) {
+				throw new CuentaSinTitularException("El nombre del titular no puede estar vacio.");
+			}
+
+			if (saldoInicial < 0) {
+				throw new IllegalArgumentException("El saldo inicial no puede ser negativo.");
+			}
+		
 		this.titular = titular;
 		this.saldo = saldoInicial;
-	}
 	
+	}
 	// Metodo ingresar
 	public void ingresar(double cantidad) {
 		if (cantidad <= 0) {
