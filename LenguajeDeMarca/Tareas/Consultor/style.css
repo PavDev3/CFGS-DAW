@@ -26,7 +26,7 @@
 }
 
 body {
-    background-color: var(--color-secondary);
+    background-color: var(--color-primary);
     margin: 0;
     padding: 0;
     font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
@@ -108,7 +108,7 @@ nav a.active,
 
 /* Contenedor principal */
 .container {
-    background-color: var(--color-secondary);
+    background-color: var(--color-primary);
     width: 100%;
     height: 100%;
     margin: 0 auto;
@@ -149,5 +149,150 @@ header .btn {
 .btn:active {
     transform: translateY(0);
     box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2);
+}
+
+/* ============================
+   Carrusel CSS (CSS Overflow 5)
+   ============================ */
+
+.carousel-title {
+    color: var(--color-light);
+    text-align: center;
+    font-size: 1.8rem;
+    margin: var(--spacing-large) 0 var(--spacing-medium);
+    background-color: transparent;
+}
+
+.carousel {
+    position: relative;
+    max-width: 850px;
+    padding-bottom: 16px;
+    margin: 0 auto var(--spacing-large);
+    border-radius: var(--border-radius);
+    overflow: hidden;
+    background-color: var(--color-dark);
+    box-shadow: 0 8px 32px rgba(0, 0, 0, 0.4);
+}
+
+/* Lista de desplazamiento */
+.carousel-list {
+    display: flex;
+    overflow-x: auto;
+    scroll-snap-type: x mandatory;
+    scroll-behavior: smooth;
+    list-style: none;
+    margin: 0;
+    padding: 0;
+    gap: 0;
+
+    /* Ocultar barra de desplazamiento */
+    scrollbar-width: none;
+
+    /* Grupo de marcadores debajo del carrusel */
+    scroll-marker-group: after;
+}
+
+.carousel-list::-webkit-scrollbar {
+    display: none;
+}
+
+/* Cada elemento del carrusel */
+.carousel-item {
+    flex: 0 0 100%;
+    scroll-snap-align: center;
+    scroll-snap-stop: always;
+    position: relative;
+    background-color: var(--color-dark);
+}
+
+.carousel-item img {
+    display: block;
+    width: 100%;
+    height: 500px;
+    object-fit: cover;
+    background-color: var(--color-primary);
+}
+
+/* Pie de imagen */
+.carousel-caption {
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    padding: var(--spacing-medium) var(--spacing-large);
+    background: linear-gradient(transparent, rgba(0, 0, 0, 0.75));
+    color: var(--color-light);
+    font-size: 1.3rem;
+    font-weight: 600;
+    text-align: center;
+}
+
+/* ---- Botones de navegación del carrusel (en el nav) ---- */
+nav button.nav-link {
+    background-color: var(--color-primary);
+    cursor: pointer;
+    font-size: 1.2rem;
+    line-height: 1;
+    min-width: 42px;
+    text-align: center;
+}
+
+nav button.nav-link:active {
+    transform: translateY(0);
+    background-color: var(--color-accent);
+}
+
+/* ---- Marcadores de desplazamiento (::scroll-marker) ---- */
+.carousel-list::scroll-marker-group {
+    display: flex;
+    justify-content: center;
+    gap: 10px;
+    padding: var(--spacing-small) 0;
+    background-color: var(--color-dark);
+    border-top: 1px solid rgba(255, 255, 255, 0.1);
+}
+
+.carousel-item::scroll-marker {
+    content: "";
+    display: block;
+    width: 12px;
+    height: 12px;
+    border-radius: 50%;
+    border: 2px solid var(--color-light);
+    background-color: transparent;
+    cursor: pointer;
+    transition: all 0.3s ease;
+}
+
+.carousel-item::scroll-marker:hover {
+    background-color: rgba(52, 152, 219, 0.5);
+    border-color: var(--color-accent);
+}
+
+.carousel-item::scroll-marker:target-current {
+    background-color: var(--color-accent);
+    border-color: var(--color-accent);
+    transform: scale(1.2);
+}
+
+/* ---- Responsive ---- */
+@media (max-width: 768px) {
+    .carousel {
+        max-width: 100%;
+        border-radius: 0;
+    }
+
+    .carousel-item img {
+        height: 300px;
+    }
+
+    .carousel-title {
+        font-size: 1.4rem;
+    }
+
+    nav button.nav-link {
+        min-width: 36px;
+        font-size: 1rem;
+    }
 }
 

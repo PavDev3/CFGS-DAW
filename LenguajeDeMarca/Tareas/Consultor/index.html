@@ -10,11 +10,79 @@
   </head>
   <body>
     <nav class="nav">
-      <a class="nav-link" href="./components/consultar.html">Consultar</a>
-      <a class="nav-link" href="./components/crear.html">Insertar</a>
-      <a class="nav-link" href="./components/actualizar.html">Actualizar</a>
-      <a class="nav-link" href="./components/borrar.html">Borrar</a>
+      <a class="nav-link" href="#slide-inicio">Inicio</a>
+      <button
+        class="nav-link"
+        onclick="
+          document.querySelector('.carousel-list').scrollBy({
+            left: -document.querySelector('.carousel-list').clientWidth,
+            behavior: 'smooth',
+          })
+        "
+      >
+        &#10094;
+      </button>
+      <button
+        class="nav-link"
+        onclick="
+          document.querySelector('.carousel-list').scrollBy({
+            left: document.querySelector('.carousel-list').clientWidth,
+            behavior: 'smooth',
+          })
+        "
+      >
+        &#10095;
+      </button>
+      <a class="nav-link" href="#slide-final">Final</a>
     </nav>
-    <main class="content"></main>
+    <main class="content">
+      <h2 class="carousel-title">Galería de Imágenes</h2>
+      <section class="carousel" aria-label="Galería de imágenes">
+        <ul class="carousel-list">
+          <li id="slide-inicio" class="carousel-item">
+            <img
+              src="https://picsum.photos/seed/mountains/800/500"
+              alt="Paisaje de montañas"
+            />
+            <div class="carousel-caption"></div>
+          </li>
+          <li class="carousel-item">
+            <img
+              src="https://picsum.photos/seed/ocean/800/500"
+              alt="Vista del océano"
+            />
+            <div class="carousel-caption"></div>
+          </li>
+          <li class="carousel-item">
+            <img
+              src="https://picsum.photos/seed/forest/800/500"
+              alt="Bosque verde"
+            />
+            <div class="carousel-caption"></div>
+          </li>
+          <li class="carousel-item">
+            <img
+              src="https://picsum.photos/seed/city/800/500"
+              alt="Ciudad al atardecer"
+            />
+            <div class="carousel-caption"></div>
+          </li>
+          <li class="carousel-item">
+            <img
+              src="https://picsum.photos/seed/desert/800/500"
+              alt="Desierto dorado"
+            />
+            <div class="carousel-caption"></div>
+          </li>
+          <li id="slide-final" class="carousel-item">
+            <img
+              src="https://picsum.photos/seed/lake/800/500"
+              alt="Lago cristalino"
+            />
+            <div class="carousel-caption"></div>
+          </li>
+        </ul>
+      </section>
+    </main>
   </body>
 </html>
