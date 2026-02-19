@@ -1,88 +1,344 @@
-<!-- crea un index.html que tenga un header con un titulo y un nav con un listado de enlaces a las paginas de la web, con colores tipos de letras padding borders etc -->
+<!doctype html>
 <html lang="es">
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <link rel="stylesheet" href="style.css" />
+    <meta name="author" content="Pablo Nunez Fernandez" />
     <title>Pablo Nunez Fernandez</title>
-    <link rel="icon" href="./icons/favicon.png" type="image/png" />
-    <link rel="shortcut icon" href="./icons/favicon.png" type="image/png" />
+    <style>
+      :root {
+        --color-primary: #2c3e50;
+        --color-secondary: #34495e;
+        --color-accent: #3498db;
+        --color-light: #ecf0f1;
+        --color-dark: #2c3e50;
+        --color-success: #27ae60;
+        --color-danger: #e74c3c;
+        --color-warning: #f39c12;
+        --spacing-small: 0.5rem;
+        --spacing-medium: 1rem;
+        --spacing-large: 2rem;
+        --border-radius: 0.5rem;
+        --margin-header: 1rem;
+      }
+
+      * {
+        box-sizing: border-box;
+        margin: 0;
+        padding: 0;
+        background-color: var(--color-primary);
+      }
+
+      body {
+        background-color: var(--color-primary);
+        margin: 0;
+        padding: 0;
+        font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
+        color: var(--color-dark);
+        line-height: 1.6;
+      }
+
+      h1 {
+        color: var(--color-light);
+        margin: 0;
+        font-size: 2.5rem;
+        flex: 1;
+        text-align: center;
+      }
+
+      nav {
+        background-color: var(--color-primary);
+        color: var(--color-light);
+        display: flex;
+        gap: var(--spacing-small);
+        padding: var(--spacing-medium);
+        justify-content: center;
+        flex-wrap: wrap;
+      }
+
+      nav a,
+      .nav-link {
+        color: var(--color-light);
+        text-decoration: none;
+        border: 2px solid var(--color-light);
+        font-size: 1rem;
+        font-weight: bold;
+        padding: var(--spacing-small) var(--spacing-medium);
+        border-radius: var(--border-radius);
+        transition: all 0.3s ease;
+        cursor: pointer;
+      }
+
+      nav a:hover,
+      .nav-link:hover {
+        background-color: var(--color-accent);
+        color: var(--color-light);
+        transform: translateY(-2px);
+      }
+
+      nav a.active,
+      .nav-link.active {
+        background-color: var(--color-accent);
+        color: var(--color-light);
+        font-weight: bold;
+      }
+
+      .container {
+        background-color: var(--color-primary);
+        width: 100%;
+        height: 100%;
+        margin: 0 auto;
+        padding: var(--spacing-medium);
+      }
+
+      nav button.nav-link {
+        background-color: var(--color-primary);
+        font-size: 1.2rem;
+        line-height: 1;
+        min-width: 42px;
+        text-align: center;
+      }
+
+      .carousel-title {
+        color: var(--color-light);
+        text-align: center;
+        font-size: 1.8rem;
+        margin: var(--spacing-large) 0 var(--spacing-medium);
+        background-color: transparent;
+      }
+
+      /* ============================
+         Carrusel CSS Overflow 5
+         Basado en codepen.io/web-dot-dev/pen/MYWVVYN
+         ============================ */
+      .carousel {
+        position: relative;
+        max-width: 850px;
+        margin: 0 auto var(--spacing-large);
+        border-radius: var(--border-radius);
+        overflow: hidden;
+        background-color: var(--color-dark);
+        box-shadow: 0 8px 32px rgba(0, 0, 0, 0.4);
+      }
+
+      .carousel-list {
+        display: flex;
+        overflow-x: auto;
+        overscroll-behavior-x: contain;
+        scroll-snap-type: x mandatory;
+        scroll-behavior: smooth;
+        list-style: none;
+        margin: 0;
+        padding: 0;
+        gap: 0;
+        scrollbar-width: none;
+      }
+
+      .carousel-list::-webkit-scrollbar {
+        display: none;
+      }
+
+      .carousel-item {
+        flex: 0 0 100%;
+        scroll-snap-align: center;
+        scroll-snap-stop: always;
+        position: relative;
+        background-color: var(--color-dark);
+      }
+
+      .carousel-item img {
+        display: block;
+        width: 100%;
+        height: 500px;
+        object-fit: cover;
+        background-color: var(--color-primary);
+      }
+
+      .carousel-caption {
+        position: absolute;
+        bottom: 0;
+        left: 0;
+        right: 0;
+        padding: var(--spacing-medium) var(--spacing-large);
+        background: linear-gradient(transparent, rgba(0, 0, 0, 0.75));
+        color: var(--color-light);
+        font-size: 1.3rem;
+        font-weight: 600;
+        text-align: center;
+      }
+
+      /* ::scroll-marker-group — contenedor de los indicadores */
+      .carousel-list::scroll-marker-group {
+        display: flex;
+        justify-content: center;
+        gap: 10px;
+        padding: var(--spacing-small) 0;
+        background-color: var(--color-dark);
+        border-top: 1px solid rgba(255, 255, 255, 0.1);
+      }
+
+      /* ::scroll-marker — cada indicador (dot) */
+      .carousel-item::scroll-marker {
+        content: "";
+        display: block;
+        width: 12px;
+        height: 12px;
+        border-radius: 50%;
+        border: 2px solid var(--color-light);
+        background-color: transparent;
+        cursor: pointer;
+        transition: all 0.3s ease;
+      }
+
+      .carousel-item::scroll-marker:hover {
+        background-color: rgba(52, 152, 219, 0.5);
+        border-color: var(--color-accent);
+      }
+
+      .carousel-item::scroll-marker:target-current {
+        background-color: var(--color-accent);
+        border-color: var(--color-accent);
+        transform: scale(1.2);
+      }
+
+      /* Secciones de página */
+      .page-section {
+        display: none;
+      }
+
+      .page-section.active-section {
+        display: block;
+      }
+
+      /* Responsive */
+      @media (max-width: 768px) {
+        .carousel {
+          max-width: 100%;
+          border-radius: 0;
+        }
+
+        .carousel-item img {
+          height: 300px;
+        }
+
+        .carousel-title {
+          font-size: 1.4rem;
+        }
+
+        nav button.nav-link {
+          min-width: 36px;
+          font-size: 1rem;
+        }
+      }
+    </style>
   </head>
   <body>
     <nav class="nav">
-      <a class="nav-link" href="#slide-inicio">Inicio</a>
-      <button
-        class="nav-link"
-        onclick="
-          document.querySelector('.carousel-list').scrollBy({
-            left: -document.querySelector('.carousel-list').clientWidth,
-            behavior: 'smooth',
-          })
-        "
-      >
-        &#10094;
-      </button>
-      <button
-        class="nav-link"
-        onclick="
-          document.querySelector('.carousel-list').scrollBy({
-            left: document.querySelector('.carousel-list').clientWidth,
-            behavior: 'smooth',
-          })
-        "
-      >
-        &#10095;
-      </button>
-      <a class="nav-link" href="#slide-final">Final</a>
+      <button class="nav-link" onclick="scrollCarousel('inicio')">Inicio</button>
+      <button class="nav-link" onclick="scrollCarousel('prev')">&#10094;</button>
+      <button class="nav-link" onclick="scrollCarousel('next')">&#10095;</button>
+      <button class="nav-link" onclick="scrollCarousel('final')">Final</button>
     </nav>
-    <main class="content">
-      <h2 class="carousel-title">Galería de Imágenes</h2>
-      <section class="carousel" aria-label="Galería de imágenes">
-        <ul class="carousel-list">
-          <li id="slide-inicio" class="carousel-item">
-            <img
-              src="https://picsum.photos/seed/mountains/800/500"
-              alt="Paisaje de montañas"
-            />
-            <div class="carousel-caption"></div>
-          </li>
-          <li class="carousel-item">
-            <img
-              src="https://picsum.photos/seed/ocean/800/500"
-              alt="Vista del océano"
-            />
-            <div class="carousel-caption"></div>
-          </li>
-          <li class="carousel-item">
-            <img
-              src="https://picsum.photos/seed/forest/800/500"
-              alt="Bosque verde"
-            />
-            <div class="carousel-caption"></div>
-          </li>
-          <li class="carousel-item">
-            <img
-              src="https://picsum.photos/seed/city/800/500"
-              alt="Ciudad al atardecer"
-            />
-            <div class="carousel-caption"></div>
-          </li>
-          <li class="carousel-item">
-            <img
-              src="https://picsum.photos/seed/desert/800/500"
-              alt="Desierto dorado"
-            />
-            <div class="carousel-caption"></div>
-          </li>
-          <li id="slide-final" class="carousel-item">
-            <img
-              src="https://picsum.photos/seed/lake/800/500"
-              alt="Lago cristalino"
-            />
-            <div class="carousel-caption"></div>
-          </li>
-        </ul>
-      </section>
-    </main>
+
+    <!-- INICIO: Carrusel -->
+    <section id="section-inicio" class="page-section active-section">
+      <main class="content">
+        <h2 class="carousel-title">Galería de Imágenes</h2>
+        <section class="carousel" aria-label="Galería de imágenes">
+          <ul class="carousel-list">
+            <li class="carousel-item">
+              <img
+                src="https://picsum.photos/seed/mountains/800/500"
+                alt="Paisaje de montañas"
+              />
+              <div class="carousel-caption"></div>
+            </li>
+            <li class="carousel-item">
+              <img
+                src="https://picsum.photos/seed/ocean/800/500"
+                alt="Vista del océano"
+              />
+              <div class="carousel-caption"></div>
+            </li>
+            <li class="carousel-item">
+              <img
+                src="https://picsum.photos/seed/forest/800/500"
+                alt="Bosque verde"
+              />
+              <div class="carousel-caption"></div>
+            </li>
+            <li class="carousel-item">
+              <img
+                src="https://picsum.photos/seed/city/800/500"
+                alt="Ciudad al atardecer"
+              />
+              <div class="carousel-caption"></div>
+            </li>
+            <li class="carousel-item">
+              <img
+                src="https://picsum.photos/seed/desert/800/500"
+                alt="Desierto dorado"
+              />
+              <div class="carousel-caption"></div>
+            </li>
+            <li class="carousel-item">
+              <img
+                src="https://picsum.photos/seed/lake/800/500"
+                alt="Lago cristalino"
+              />
+              <div class="carousel-caption"></div>
+            </li>
+            <li class="carousel-item">
+              <img
+                src="https://picsum.photos/seed/aurora/800/500"
+                alt="Aurora boreal"
+              />
+              <div class="carousel-caption"></div>
+            </li>
+            <li class="carousel-item">
+              <img
+                src="https://picsum.photos/seed/waterfall/800/500"
+                alt="Cascada tropical"
+              />
+              <div class="carousel-caption"></div>
+            </li>
+            <li class="carousel-item">
+              <img
+                src="https://picsum.photos/seed/volcano/800/500"
+                alt="Volcán activo"
+              />
+              <div class="carousel-caption"></div>
+            </li>
+            <li class="carousel-item">
+              <img
+                src="https://picsum.photos/seed/glacier/800/500"
+                alt="Glaciar azul"
+              />
+              <div class="carousel-caption"></div>
+            </li>
+          </ul>
+        </section>
+      </main>
+    </section>
+
+    <script>
+      function scrollCarousel(action) {
+        var list = document.querySelector('.carousel-list');
+        switch (action) {
+          case 'inicio':
+            list.scrollTo({ left: 0, behavior: 'smooth' });
+            break;
+          case 'final':
+            list.scrollTo({ left: list.scrollWidth, behavior: 'smooth' });
+            break;
+          case 'prev':
+            list.scrollBy({ left: -list.clientWidth, behavior: 'smooth' });
+            break;
+          case 'next':
+            list.scrollBy({ left: list.clientWidth, behavior: 'smooth' });
+            break;
+        }
+      }
+    </script>
   </body>
 </html>

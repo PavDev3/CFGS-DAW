@@ -93,17 +93,17 @@ INSERT INTO telefono_cliente (id_cliente, telefono) VALUES
 (10, '601234567');
 
 -- 7. Insertar Películas
-INSERT INTO pelicula (titulo, año_lanzamiento, genero, clasificacion, id_proveedor) VALUES
-('Inception', 2010, 'Ciencia Ficción', 'PG-13', 1),
-('El Padrino', 1972, 'Drama', 'R', 2),
-('Pulp Fiction', 1994, 'Crimen', 'R', 3),
-('Volver', 2006, 'Drama', 'R', 4),
-('Taxi Driver', 1976, 'Drama', 'R', 5),
-('Blade Runner', 1982, 'Ciencia Ficción', 'R', 6),
-('Los Otros', 2001, 'Terror', 'PG-13', 7),
-('Arrival', 2016, 'Ciencia Ficción', 'PG-13', 8),
-('Lady Bird', 2017, 'Drama', 'R', 9),
-('Parásitos', 2019, 'Thriller', 'R', 10);
+INSERT INTO pelicula (titulo, año_lanzamiento, genero, clasificacion, id_proveedor, id_director) VALUES
+('Inception', 2010, 'Ciencia Ficción', 'PG-13', 1, 1),
+('El Padrino', 1972, 'Drama', 'R', 2, 2),
+('Pulp Fiction', 1994, 'Crimen', 'R', 3, 3),
+('Volver', 2006, 'Drama', 'R', 4, 4),
+('Taxi Driver', 1976, 'Drama', 'R', 5, 5),
+('Blade Runner', 1982, 'Ciencia Ficción', 'R', 6, 6),
+('Los Otros', 2001, 'Terror', 'PG-13', 7, 7),
+('Arrival', 2016, 'Ciencia Ficción', 'PG-13', 8, 8),
+('Lady Bird', 2017, 'Drama', 'R', 9, 9),
+('Parásitos', 2019, 'Thriller', 'R', 10, 10);
 
 -- 8. Insertar Ejemplares
 INSERT INTO ejemplar (estado, stock, id_pelicula) VALUES
