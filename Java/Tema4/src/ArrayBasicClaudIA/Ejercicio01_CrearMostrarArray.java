@@ -1,3 +1,4 @@
+package ArrayBasicClaudIA;
 /**
  * EJERCICIO 1 - NIVEL 1: Crear y mostrar un array
  * Crea un array de 5 números enteros.

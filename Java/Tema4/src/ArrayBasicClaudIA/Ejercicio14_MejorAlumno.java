@@ -1,3 +1,4 @@
+package ArrayBasicClaudIA;
 /**
  * EJERCICIO 14 - NIVEL 5: Buscar el alumno con mejor nota
  * Dado un array de Alumno, muestra el alumno con mayor nota.

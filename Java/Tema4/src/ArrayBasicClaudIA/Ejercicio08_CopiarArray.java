@@ -1,3 +1,4 @@
+package ArrayBasicClaudIA;
 /**
  * EJERCICIO 8 - NIVEL 2: Copiar un array manualmente
  * Sin usar clone() ni Arrays.copyOf(), copia un array en otro usando un for.

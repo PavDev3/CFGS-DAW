@@ -1,3 +1,4 @@
+package ArrayBasicClaudIA;
 /**
  * EJERCICIO 5 - NIVEL 2: Encontrar el mayor
  * Crea un array de 10 enteros y muestra cuál es el número mayor.
