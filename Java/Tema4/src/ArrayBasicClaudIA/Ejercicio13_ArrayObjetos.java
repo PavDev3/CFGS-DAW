@@ -1,3 +1,4 @@
+package ArrayBasicClaudIA;
 /**
  * EJERCICIO 13 - NIVEL 5: Crear array de objetos
  * Crea una clase Alumno con:

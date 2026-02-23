@@ -1,3 +1,4 @@
+package ArrayBasicClaudIA;
 /**
  * EJERCICIO 3 - NIVEL 1: Contar números positivos
  * Dado el array:

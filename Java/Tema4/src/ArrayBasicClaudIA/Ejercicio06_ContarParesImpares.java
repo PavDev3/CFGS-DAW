@@ -1,3 +1,4 @@
+package ArrayBasicClaudIA;
 /**
  * EJERCICIO 6 - NIVEL 2: Contar pares e impares
  * Dado un array de enteros, cuenta cuántos son pares y cuántos impares.
