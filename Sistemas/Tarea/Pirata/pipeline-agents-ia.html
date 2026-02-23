@@ -1,0 +1,285 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Pipelines Organizacionales con Agentes IA</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/reveal.js/4.5.0/reveal.min.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/reveal.js/4.5.0/theme/white.min.css">
+    <style>
+        :root {
+            --r-background-color: #ffffff;
+            --r-main-font: 'Segoe UI', system-ui, sans-serif;
+            --r-heading-font: 'Segoe UI', system-ui, sans-serif;
+            --r-heading-color: #1a365d;
+            --r-main-color: #2d3748;
+            --r-link-color: #3182ce;
+        }
+        .reveal h1, .reveal h2, .reveal h3 {
+            text-transform: none;
+            font-weight: 600;
+        }
+        .reveal .slides section {
+            padding: 40px;
+        }
+        .slide-title {
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            color: white !important;
+        }
+        .slide-title h1 {
+            color: white !important;
+            font-size: 2.5em;
+        }
+        .slide-title p {
+            color: rgba(255,255,255,0.9) !important;
+            font-size: 1.3em;
+        }
+        .two-columns {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 40px;
+            text-align: left;
+        }
+        .metric-box {
+            background: #f7fafc;
+            border-radius: 8px;
+            padding: 20px;
+            margin: 10px 0;
+            border-left: 4px solid #3182ce;
+        }
+        .model-card {
+            background: linear-gradient(135deg, #f5f7fa 0%, #c3cfe2 100%);
+            border-radius: 8px;
+            padding: 15px;
+            margin: 8px;
+            display: inline-block;
+            min-width: 200px;
+        }
+        .guardrail-item {
+            background: #fff5f5;
+            border-left: 4px solid #e53e3e;
+            padding: 15px;
+            margin: 10px 0;
+            text-align: left;
+        }
+        .check-item {
+            background: #f0fff4;
+            border-left: 4px solid #38a169;
+            padding: 15px;
+            margin: 10px 0;
+            text-align: left;
+        }
+        ul {
+            text-align: left;
+        }
+        .emoji {
+            font-size: 1.5em;
+            margin-right: 10px;
+        }
+    </style>
+</head>
+<body>
+    <div class="reveal">
+        <div class="slides">
+            <!-- SLIDE 1: Título -->
+            <section class="slide-title">
+                <h1>🤖 Pipelines Organizacionales</h1>
+                <p>Integración de Agentes IA en CI/CD</p>
+                <p style="font-size: 0.9em; margin-top: 60px;">Estrategia corporativa para el desarrollo asistido por IA</p>
+            </section>
+
+            <!-- SLIDE 2: Contexto Organizacional -->
+            <section>
+                <h2><span class="emoji">🏢</span>Contexto Organizacional</h2>
+                <p style="font-size: 0.8em; color: #718096; margin-bottom: 30px;">Más allá del desarrollo individual</p>
+                
+                <div class="two-columns">
+                    <div>
+                        <h4 style="color: #e53e3e;">❌ Enfoque Individual</h4>
+                        <ul>
+                            <li>Cada desarrollador usa IA a su manera</li>
+                            <li>Prompts inconsistentes</li>
+                            <li>Resultados impredecibles</li>
+                            <li>Sin trazabilidad</li>
+                            <li>Dependencia de la herramienta</li>
+                        </ul>
+                    </div>
+                    <div>
+                        <h4 style="color: #38a169;">✅ Enfoque Organizacional</h4>
+                        <ul>
+                            <li>Agentes corporativos estandarizados</li>
+                            <li>Lineamientos compartidos</li>
+                            <li>Calidad homogénea</li>
+                            <li>Auditoría completa</li>
+                            <li>Gobierno del código</li>
+                        </ul>
+                    </div>
+                </div>
+            </section>
+
+            <!-- SLIDE 3: Métricas de Calidad -->
+            <section>
+                <h2><span class="emoji">📊</span>Métricas de Calidad Automatizadas</h2>
+                <p style="font-size: 0.8em; color: #718096; margin-bottom: 30px;">Evaluación corporativa antes de revisión humana</p>
+
+                <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 20px;">
+                    <div class="metric-box">
+                        <strong>🎯 Cobertura de Tests</strong><br>
+                        <small>Umbral mínimo: 80%</small>
+                    </div>
+                    <div class="metric-box">
+                        <strong>📏 Complejidad Ciclomática</strong><br>
+                        <small>Máximo: 15 por función</small>
+                    </div>
+                    <div class="metric-box">
+                        <strong>🔒 Seguridad (SAST)</strong><br>
+                        <small>Sin vulnerabilidades críticas</small>
+                    </div>
+                    <div class="metric-box">
+                        <strong>📖 Documentación</strong><br>
+                        <small>API docs + README obligatorio</small>
+                    </div>
+                    <div class="metric-box">
+                        <strong>🏷️ Consistencia</strong><br>
+                        <small>Estándares de estilo corporativo</small>
+                    </div>
+                    <div class="metric-box">
+                        <strong>⚡ Performance</strong><br>
+                        <small>Benchmarks de tiempos de respuesta</small>
+                    </div>
+                </div>
+
+                <p style="margin-top: 30px; font-size: 0.9em; color: #4a5568;">
+                    <strong>Flujo:</strong> Commit → Agentes IA evalúan → Métricas OK → Revisión humana → Merge
+                </p>
+            </section>
+
+            <!-- SLIDE 4: Modelos Especializados -->
+            <section>
+                <h2><span class="emoji">🧠</span>Múltiples Modelos Especializados</h2>
+                <p style="font-size: 0.8em; color: #718096; margin-bottom: 30px;">Un agente para cada responsabilidad</p>
+
+                <div style="display: flex; flex-wrap: wrap; justify-content: center; gap: 15px;">
+                    <div class="model-card">
+                        <strong>💻 Agente-Código</strong><br>
+                        <small>Refactoring, optimización, pruebas</small><br>
+                        <span style="color: #3182ce;">Claude, GPT-4, Kimi</span>
+                    </div>
+                    <div class="model-card">
+                        <strong>📝 Agente-Docs</strong><br>
+                        <small>README, comentarios, ADRs</small><br>
+                        <span style="color: #3182ce;">Modelos especializados NLP</span>
+                    </div>
+                    <div class="model-card">
+                        <strong>🔍 Agente-Análisis</strong><br>
+                        <small>Arquitectura, patrones, deuda técnica</small><br>
+                        <span style="color: #3182ce;">LLM con contexto extendido</span>
+                    </div>
+                    <div class="model-card">
+                        <strong>✅ Agente-QA</strong><br>
+                        <small>Test cases edge, validación</small><br>
+                        <span style="color: #3182ce;">Modelos fine-tuning</span>
+                    </div>
+                    <div class="model-card">
+                        <strong>🔒 Agente-Security</strong><br>
+                        <small>CVEs, secrets scanning, compliance</small><br>
+                        <span style="color: #3182ce;">Modelos de análisis estático</span>
+                    </div>
+                </div>
+
+                <p style="margin-top: 30px; font-size: 0.85em; color: #4a5568;">
+                    <strong>Orquestación:</strong> Pipeline decide qué agentes ejecutar según el tipo de cambio
+                </p>
+            </section>
+
+            <!-- SLIDE 5: Guardrails de Seguridad -->
+            <section>
+                <h2><span class="emoji">🛡️</span>Guardrails de Seguridad</h2>
+                <p style="font-size: 0.8em; color: #718096; margin-bottom: 30px;">Límites claros: qué puede y qué NO puede hacer la IA</p>
+
+                <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 20px; text-align: left;">
+                    <div>
+                        <h4 style="color: #38a169; margin-bottom: 15px;">✅ Permitido</h4>
+                        <div class="check-item">
+                            Sugerir refactorizaciones<br>
+                            <small>Mejora de código manteniendo funcionalidad</small>
+                        </div>
+                        <div class="check-item">
+                            Generar tests unitarios<br>
+                            <small>Cobertura basada en casos documentados</small>
+                        </div>
+                        <div class="check-item">
+                            Documentar cambios<br>
+                            <small>Comentarios, CHANGELOG, README</small>
+                        </div>
+                        <div class="check-item">
+                            Analizar y reportar<br>
+                            <small>Deuda técnica, vulnerabilidades</small>
+                        </div>
+                    </div>
+                    <div>
+                        <h4 style="color: #e53e3e; margin-bottom: 15px;">❌ Prohibido</h4>
+                        <div class="guardrail-item">
+                            Commits automáticos sin revisión<br>
+                            <small>Todo cambio requiere aprobación humana</small>
+                        </div>
+                        <div class="guardrail-item">
+                            Acceso a secretos/credenciales<br>
+                            <small>La IA nunca ve .env, claves, tokens</small>
+                        </div>
+                        <div class="guardrail-item">
+                            Modificar infraestructura<br>
+                            <small>No toca Terraform, Kubernetes, CDK</small>
+                        </div>
+                        <div class="guardrail-item">
+                            Despliegues automáticos<br>
+                            <small>Release siempre con revisión manual</small>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+            <!-- SLIDE 6: Resumen -->
+            <section>
+                <h2><span class="emoji">🎯</span>Resumen</h2>
+                <div style="text-align: left; max-width: 800px; margin: 0 auto;">
+                    <div style="background: #f7fafc; padding: 30px; border-radius: 10px; margin: 20px 0;">
+                        <h4 style="color: #1a365d;">La IA como copiloto, no piloto</h4>
+                        <ul>
+                            <li><strong>Estandarización:</strong> Agentes corporativos, no herramientas individuales</li>
+                            <li><strong>Calidad:</strong> Métricas automáticas antes del humano</li>
+                            <li><strong>Especialización:</strong> Cada agente en lo suyo</li>
+                            <li><strong>Seguridad:</strong> Límites claros y trazables</li>
+                            <li><strong>Gobierno:</strong> Decisiones humanas, automatización de tareas</li>
+                        </ul>
+                    </div>
+                    <p style="text-align: center; color: #4a5568; font-size: 1.1em;">
+                        🤖 + 👤 = <strong>Velocidad con Control</strong>
+                    </p>
+                </div>
+            </section>
+
+            <!-- SLIDE 7: Gracias -->
+            <section class="slide-title">
+                <h1>🙏 ¿Preguntas?</h1>
+                <p>Implementando el futuro del desarrollo asistido por IA</p>
+                <p style="font-size: 0.7em; margin-top: 60px; opacity: 0.8;">
+                    marIA la maga 🧙 | Pipeline CI/CD con Agentes IA
+                </p>
+            </section>
+        </div>
+    </div>
+
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/reveal.js/4.5.0/reveal.min.js"></script>
+    <script>
+        Reveal.initialize({
+            hash: true,
+            slideNumber: true,
+            transition: 'slide',
+            center: true,
+            width: 1280,
+            height: 720
+        });
+    </script>
+</body>
+</html>
