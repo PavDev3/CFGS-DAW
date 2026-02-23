@@ -1,3 +1,4 @@
+package ArrayBasicClaudIA;
 /**
  * EJERCICIO 2 - NIVEL 1: Suma de elementos
  * Crea un array de 6 números reales.

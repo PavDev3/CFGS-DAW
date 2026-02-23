@@ -1,3 +1,4 @@
+package ArrayBasicClaudIA;
 /**
  * EJERCICIO 15 - NIVEL 5: Subir nota a todos
  * Recorre el array de alumnos y suma 1 punto a todos.
