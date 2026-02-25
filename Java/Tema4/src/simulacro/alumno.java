@@ -1,4 +1,4 @@
-package Tema4.src.simulacro;
+package simulacro;
 
 public class alumno implements Comparable<alumno> {
 	private String nombre;

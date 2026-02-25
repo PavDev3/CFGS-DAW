@@ -1,7 +1,8 @@
 {
   "permissions": {
     "allow": [
-      "Bash(cd /c/Users/Levi/Downloads && python create_ubo_template.py 2>&1)"
+      "Bash(cd /c/Users/Levi/Downloads && python create_ubo_template.py 2>&1)",
+      "Bash(grep:*)"
     ]
   }
 }
