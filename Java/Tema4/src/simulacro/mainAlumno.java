@@ -3,7 +3,7 @@ package simulacro;
 import java.util.Scanner;
 public class mainAlumno {
 
-	public static void main(String[] args) {
+	public static void main(String[] args) throws NotaInvalidaException {
 		Scanner scanner = new Scanner(System.in);
 		alumno[] alumnos = new alumno[5];
 
