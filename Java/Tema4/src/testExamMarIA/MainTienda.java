@@ -30,9 +30,11 @@ public class MainTienda {
 							System.out.print("Nombre: ");
 							String nombre = scanner.nextLine();
 							System.out.print("Precio: ");
-							double precio = Double.parseDouble(scanner.nextLine());
+							double precio = scanner.nextDouble();
+							scanner.nextLine(); // Consume el newline
 							System.out.print("Stock: ");
-							int stock = Integer.parseInt(scanner.nextLine());
+							int stock = scanner.nextInt();
+							scanner.nextLine(); // Consume el newline
 							producto = new Producto(nombre, precio, stock);
 							control.agregarProducto(producto);
 						}
