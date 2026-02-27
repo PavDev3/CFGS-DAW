@@ -20,7 +20,7 @@ public class mainTienda {
 	            System.out.println("6. Salir");
 	            System.out.print("Seleccione una opción: ");
 	            int opcion = scanner.nextInt();
-	            scanner.nextLine(); // Consume the newline
+	            scanner.nextLine(); 
 
 	            switch (opcion) {
 	                case 1:
@@ -72,7 +72,7 @@ public class mainTienda {
 	                        System.out.print("Ingrese el nombre del producto a vender: ");
 	                        String nombreVender = scanner.nextLine();
 	                        System.out.print("Ingrese la cantidad a vender: ");
-	                        int cantidadVender = scanner.nextInt(); // Use scanner.nextInt() here
+	                        int cantidadVender = scanner.nextInt(); 
 	                        control.venderProducto(nombreVender, cantidadVender);
 	                    } else {
 	                        System.out.println("Debe crear los productos primero.");
