@@ -5,7 +5,7 @@ import java.util.Scanner;
 
 public class mainAlumno {
 
-	public static void main(String[] args) {
+	public static void main(String[] args) throws NotaInvalidaException {
 		Scanner scanner = new Scanner(System.in);
 		alumno[] alumnos = new alumno[5];
 
@@ -48,25 +48,18 @@ public class mainAlumno {
 		System.out.println("Lista ordenada por nota:");
 		mostrarLista(alumnos);
 
-		// 6. Mostrar el mejor alumno (el último tras ordenar de menor a mayor)
+		// 6. Mostrar el mejor alumno (el ultimo tras ordenar de menor a mayor)
 		System.out.println("Mejor alumno");
 		alumno mejor = alumnos[alumnos.length - 1];
 		System.out.println(mejor.getNombre() + " - " + mejor.getNota());
 
 		// 7. Subir 1 punto a todos sin superar 10
 		for (alumno a : alumnos) {
-			double notaActual = a.getNota();
-			if (notaActual + 1 <= 10) {
-				notaActual = notaActual + 1;
-			} else {
-				notaActual = 10;
-			}
-			try {
-				a.setNota(notaActual);
-			} catch (NotaInvalidaException e) {
-				System.out.println("Error al subir nota: " + e.getMessage());
-			}
+			double notaActual = a.getNota() + 1;
+			if (notaActual > 10) notaActual = 10;
+			a.setNota(notaActual);
 		}
+	
 
 		// 8. Mostrar lista final
 		System.out.println("Lista final (ordenada, +1 punto):");
