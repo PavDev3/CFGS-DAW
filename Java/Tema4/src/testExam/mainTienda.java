@@ -81,6 +81,10 @@ public class mainTienda {
 	                case 6:
 	                    System.out.println("Saliendo...");
 	                    return;
+	                    
+	                case 7:
+	                	System.out.println("Ingrese el nombre del producto a eliminar: ");
+	                	String nombreEliminar = scanner.nextLine();
 	                default:
 	                    System.out.println("Opción inválida. Intente de nuevo.");
 	            }
