@@ -3,7 +3,16 @@
     "allow": [
       "Bash(cd /c/Users/Levi/Downloads && python create_ubo_template.py 2>&1)",
       "Bash(grep:*)",
-      "Bash(find:*)"
+      "Bash(find:*)",
+      "Bash(ssh lenovo:*)",
+      "WebFetch(domain:openclaw.ai)",
+      "WebFetch(domain:docs.openclaw.ai)",
+      "WebFetch(domain:siliconflow.cn)",
+      "WebFetch(domain:account.siliconflow.cn)",
+      "WebSearch",
+      "WebFetch(domain:cloud.siliconflow.com)",
+      "WebFetch(domain:account.siliconflow.com)",
+      "WebFetch(domain:docs.siliconflow.cn)"
     ]
   }
 }

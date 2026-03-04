@@ -35,6 +35,14 @@ public class alumno implements Comparable<alumno> {
 
 	@Override
 	public int compareTo(alumno otro) {	
-		return this.getNota().compareTo(otro.getNota());
+		if (this.nota < otro.getNota()) {
+			return -1;
+		}
+		else if (this.nota > otro.getNota()) {
+			return 1;
+		}
+		else {
+			return 0;
+		}
 	}
 }
