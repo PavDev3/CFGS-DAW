@@ -3,18 +3,6 @@ package examenMar;
 import java.util.Arrays;
 import java.util.Scanner;
 
-/**
- * Programa principal para gestionar productos de una tienda.
- * 
- * Funcionalidades:
- * 1. Crear array de 5 productos
- * 2. Pedir datos por teclado con validación
- * 3. Mostrar productos
- * 4. Ordenar por precio
- * 5. Mostrar el más caro
- * 6. Reducir stock en 2 unidades
- * 7. Mostrar lista final
- */
 public class MainTienda {
     
     public static void main(String[] args) {
@@ -22,7 +10,7 @@ public class MainTienda {
         Producto[] productos = new Producto[5];
         
         // 1 y 2. Crear array y pedir datos por teclado
-        System.out.println("=== GESTIÓN DE PRODUCTOS ===\n");
+        System.out.println("Productos\n");
         
         for (int i = 0; i < productos.length; i++) {
             System.out.println("--- Producto " + (i + 1) + " ---");
@@ -31,7 +19,7 @@ public class MainTienda {
             System.out.print("Nombre: ");
             String nombre = scanner.nextLine();
             
-            // Pedir precio con validación
+            // Pedir precio con validacion
             double precio = 0;
             boolean precioValido = false;
             while (!precioValido) {
@@ -40,12 +28,12 @@ public class MainTienda {
                     precio = scanner.nextDouble();
                     scanner.nextLine();  // Limpiar buffer
                     if (precio < 0) {
-                        System.out.println("Error: El precio no puede ser negativo. Inténtalo de nuevo.");
+                        System.out.println("Error: El precio no puede ser negativo. Intentalo de nuevo.");
                     } else {
                         precioValido = true;
                     }
                 } else {
-                    System.out.println("Error: Introduce un número válido.");
+                    System.out.println("Error: Introduce un numero válido.");
                     scanner.nextLine();  // Limpiar entrada incorrecta
                 }
             }
@@ -80,21 +68,21 @@ public class MainTienda {
         }
         
         // 4. Mostrar todos los productos
-        System.out.println("=== LISTA DE PRODUCTOS ===");
+        System.out.println("LISTA DE PRODUCTOS");
         mostrarProductos(productos);
         
         // 5. Ordenar los productos por precio
         Arrays.sort(productos);
-        System.out.println("\n=== PRODUCTOS ORDENADOS POR PRECIO ===");
+        System.out.println("PRODUCTOS ORDENADOS POR PRECIO");
         mostrarProductos(productos);
         
         // 6. Mostrar el producto más caro (último después de ordenar de menor a mayor)
-        System.out.println("\n=== PRODUCTO MÁS CARO ===");
+        System.out.println("PRODUCTO MÁS CARO");
         Producto masCaro = productos[productos.length - 1];
         System.out.println(masCaro);
         
         // 7. Reducir el stock de todos los productos en 2 unidades (sin bajar de 0)
-        System.out.println("\n=== REDUCIENDO STOCK EN 2 UNIDADES ===");
+        System.out.println("REDUCIENDO STOCK EN 2 UNIDADES");
         for (Producto p : productos) {
             int stockActual = p.getStock();
             int nuevoStock = stockActual - 2;
@@ -110,16 +98,13 @@ public class MainTienda {
         }
         
         // 8. Mostrar la lista final
-        System.out.println("\n=== LISTA FINAL ===");
+        System.out.println("LISTA FINAL");
         mostrarProductos(productos);
         
         scanner.close();
     }
     
-    /**
-     * Muestra todos los productos del array.
-     * @param productos Array de productos a mostrar
-     */
+    	// Creamos un metodo para mostrar los productos
     public static void mostrarProductos(Producto[] productos) {
         for (Producto p : productos) {
             System.out.println(p);
