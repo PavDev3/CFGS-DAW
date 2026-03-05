@@ -26,7 +26,6 @@
         box-sizing: border-box;
         margin: 0;
         padding: 0;
-        background-color: var(--color-primary);
       }
 
       body {
@@ -84,7 +83,6 @@
       }
 
       .container {
-        background-color: var(--color-primary);
         width: 100%;
         height: 100%;
         margin: 0 auto;
@@ -322,23 +320,78 @@
     </section>
 
     <script>
+      const carouselList = document.querySelector('.carousel-list');
+      const carouselItems = document.querySelectorAll('.carousel-item');
+
+      const backgroundColors = [
+        '#ffadad', // rojo pastel
+        '#ffd6a5', // naranja pastel
+        '#fdffb6', // amarillo pastel
+        '#caffbf', // verde pastel
+        '#9bf6ff', // azul claro pastel
+        '#a0c4ff', // azul pastel
+        '#bdb2ff', // violeta pastel
+        '#ffc6ff', // rosa pastel
+        '#e0fbfc', // azul muy claro
+        '#f1faee'  // blanco roto pastel
+      ];
+
+      let currentIndex = 0;
+
+      function actualizarBackground(index) {
+        const color = backgroundColors[index % backgroundColors.length];
+        document.body.style.backgroundColor = color;
+      }
+
       function scrollCarousel(action) {
-        var list = document.querySelector('.carousel-list');
+        const list = carouselList;
         switch (action) {
           case 'inicio':
+            currentIndex = 0;
             list.scrollTo({ left: 0, behavior: 'smooth' });
             break;
           case 'final':
+            currentIndex = carouselItems.length - 1;
             list.scrollTo({ left: list.scrollWidth, behavior: 'smooth' });
             break;
           case 'prev':
-            list.scrollBy({ left: -list.clientWidth, behavior: 'smooth' });
+            if (currentIndex > 0) {
+              currentIndex--;
+            }
+            list.scrollTo({
+              left: currentIndex * list.clientWidth,
+              behavior: 'smooth'
+            });
             break;
           case 'next':
-            list.scrollBy({ left: list.clientWidth, behavior: 'smooth' });
+            if (currentIndex < carouselItems.length - 1) {
+              currentIndex++;
+            }
+            list.scrollTo({
+              left: currentIndex * list.clientWidth,
+              behavior: 'smooth'
+            });
             break;
         }
+        actualizarBackground(currentIndex);
       }
+
+      // Cambio de fondo también al hacer scroll manual
+      carouselList.addEventListener('scroll', () => {
+        const indexAprox = Math.round(
+          carouselList.scrollLeft / carouselList.clientWidth
+        );
+        if (indexAprox !== currentIndex) {
+          currentIndex = Math.min(
+            Math.max(indexAprox, 0),
+            carouselItems.length - 1
+          );
+          actualizarBackground(currentIndex);
+        }
+      });
+
+      // Color inicial
+      actualizarBackground(currentIndex);
     </script>
   </body>
 </html>
