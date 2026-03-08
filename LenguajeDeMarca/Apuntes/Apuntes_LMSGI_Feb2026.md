@@ -12,6 +12,8 @@
 3. [Transiciones y Animaciones CSS](#3-transiciones-y-animaciones-css)
 4. [Carruseles CSS Modernos](#4-carruseles-css-modernos)
 5. [Ejercicio Práctico: Carrusel de Imágenes](#5-ejercicio-práctico-carrusel-de-imágenes)
+6. [Pseudo-clases CSS](#6-pseudo-clases-css-)
+7. [Pseudo-elementos CSS](#7-pseudo-elementos-css-)
 
 ---
 
@@ -465,6 +467,298 @@ Los marcadores son puntos indicadores de posición.
   </script>
 </body>
 </html>
+```
+
+---
+
+## 6. Pseudo-clases CSS (`:`)
+
+Las pseudo-clases seleccionan elementos según su **estado** o **posición** en el DOM.
+
+### Pseudo-clases de estado
+
+| Pseudo-clase | Qué hace | Ejemplo |
+|--------------|----------|---------|
+| `:hover` | Al pasar el ratón por encima | `button:hover { background: red; }` |
+| `:focus` | Cuando el elemento tiene el foco | `input:focus { border: 2px solid blue; }` |
+| `:active` | Mientras se hace clic | `a:active { color: green; }` |
+| `:visited` | Enlace ya visitado | `a:visited { color: purple; }` |
+| `:checked` | Checkbox/radio marcado | `input:checked { accent-color: green; }` |
+| `:disabled` | Elemento deshabilitado | `button:disabled { opacity: 0.5; }` |
+| `:enabled` | Elemento habilitado | `input:enabled { background: white; }` |
+| `:focus-visible` | Foco visible (por teclado) | `button:focus-visible { outline: 2px solid blue; }` |
+
+### Pseudo-clases de posición (estructurales)
+
+| Pseudo-clase | Qué hace | Ejemplo |
+|--------------|----------|---------|
+| `:first-child` | Primer hijo de su padre | `li:first-child { font-weight: bold; }` |
+| `:last-child` | Último hijo de su padre | `li:last-child { border: none; }` |
+| `:nth-child(n)` | Enésimo hijo | `tr:nth-child(odd) { background: #f0f0f0; }` |
+| `:nth-child(even)` | Hijos pares | `li:nth-child(even) { background: #eee; }` |
+| `:nth-child(3n)` | Cada 3 elementos | `li:nth-child(3n) { color: red; }` |
+| `:only-child` | Único hijo (sin hermanos) | `p:only-child { margin: 0; }` |
+| `:first-of-type` | Primero de su tipo | `p:first-of-type { font-size: 1.2em; }` |
+| `:last-of-type` | Último de su tipo | `p:last-of-type { margin-bottom: 0; }` |
+
+### Pseudo-clases funcionales
+
+#### `:not(selector)` - Excluye elementos
+
+Selecciona todo **excepto** lo que coincida con el selector.
+
+```css
+/* Todos los párrafos excepto los con clase 'especial' */
+p:not(.especial) {
+  color: gray;
+}
+
+/* Todos los inputs excepto checkbox y radio */
+input:not([type="checkbox"]):not([type="radio"]) {
+  width: 100%;
+}
+```
+
+#### `:is(selector1, selector2, ...)` - Agrupa selectores
+
+Agrupa múltiples selectores en uno. Útil para no repetir código.
+
+```css
+/* Sin :is() */
+h1, h2, h3, h4, h5, h6 {
+  color: blue;
+}
+
+/* Con :is() - más limpio */
+:is(h1, h2, h3, h4, h5, h6) {
+  color: blue;
+}
+
+/* Combina con otros selectores */
+article :is(h1, h2, h3) {
+  margin-top: 20px;
+}
+```
+
+#### `:has(selector)` - Tiene descendiente
+
+Selecciona un elemento si **contiene** otro elemento. Muy potente.
+
+```css
+/* Sección que tiene una imagen */
+section:has(img) {
+  padding: 20px;
+  background: #f5f5f5;
+}
+
+/* Card que tiene un badge */
+.card:has(.badge) {
+  position: relative;
+}
+
+/* Párrafo que contiene un enlace */
+p:has(a) {
+  cursor: pointer;
+}
+
+/* Formulario con campos inválidos */
+form:has(:invalid) button[type="submit"] {
+  opacity: 0.5;
+  cursor: not-allowed;
+}
+```
+
+#### `:where(selector)` - Igual que `:is()` pero sin especificidad
+
+```css
+/* :where() tiene especificidad 0, útil para estilos base */
+:where(h1, h2, h3) {
+  margin-bottom: 0.5em;
+}
+```
+
+---
+
+## 7. Pseudo-elementos CSS (`::`)
+
+Los pseudo-elementos **crean elementos virtuales** que no existen en el HTML.
+
+### Pseudo-elementos de contenido
+
+#### `::before` y `::after`
+
+Insertan contenido antes o después del elemento. **Requieren `content`**.
+
+```css
+/* Añadir icono antes */
+.aviso::before {
+  content: "⚠️ ";
+  color: orange;
+}
+
+/* Añadir texto después */
+.obligatorio::after {
+  content: " *";
+  color: red;
+}
+
+/* Añadir comillas tipográficas */
+blockquote::before {
+  content: "«";
+}
+blockquote::after {
+  content: "»";
+}
+
+/* Precio con símbolo */
+.precio::before {
+  content: "$";
+}
+```
+
+#### Ejemplo práctico: botón con flecha
+
+```css
+.boton-flecha {
+  padding: 10px 20px;
+  background: #3498db;
+  color: white;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+}
+
+.boton-flecha::after {
+  content: " →";
+  transition: transform 0.2s;
+}
+
+.boton-flecha:hover::after {
+  transform: translateX(5px);
+}
+```
+
+### Pseudo-elementos de texto
+
+#### `::first-line` - Primera línea
+
+Aplica estilos solo a la primera línea de texto.
+
+```css
+p::first-line {
+  font-weight: bold;
+  color: #333;
+}
+```
+
+#### `::first-letter` - Primera letra
+
+Útil para capitulares (letras grandes al inicio).
+
+```css
+p::first-letter {
+  font-size: 3em;
+  float: left;
+  line-height: 1;
+  margin-right: 5px;
+  color: #3498db;
+}
+```
+
+### Pseudo-elementos de formulario
+
+#### `::placeholder` - Texto placeholder
+
+```css
+input::placeholder {
+  color: #999;
+  font-style: italic;
+}
+
+input:focus::placeholder {
+  color: transparent;
+}
+```
+
+### Pseudo-elementos de selección
+
+#### `::selection` - Texto seleccionado
+
+```css
+::selection {
+  background: #3498db;
+  color: white;
+}
+
+/* Solo en párrafos específicos */
+.especial::selection {
+  background: orange;
+}
+```
+
+---
+
+## 💡 Diferencia clave: Pseudo-clase vs Pseudo-elemento
+
+```
+:Pseudo-clase     → Selecciona elementos EXISTENTES (por estado/posición)
+::Pseudo-elemento → CREA elementos virtuales NUEVOS
+```
+
+### Resumen visual
+
+| Sintaxis | Nombre | ¿Qué hace? | Ejemplos |
+|----------|--------|------------|----------|
+| `:` | Pseudo-clase | Filtra elementos existentes | `:hover`, `:first-child`, `:not()` |
+| `::` | Pseudo-elemento | Crea elementos virtuales | `::before`, `::after`, `::placeholder` |
+
+### Ejemplo combinado
+
+```css
+/* Tarjeta con pseudo-clases y pseudo-elementos */
+.tarjeta {
+  position: relative;
+  padding: 20px;
+  background: white;
+  border-radius: 8px;
+  transition: box-shadow 0.3s ease;
+}
+
+/* Pseudo-elemento: barra decorativa lateral */
+.tarjeta::before {
+  content: "";
+  position: absolute;
+  left: 0;
+  top: 0;
+  width: 4px;
+  height: 100%;
+  background: #3498db;
+  border-radius: 8px 0 0 8px;
+}
+
+/* Pseudo-clase: efecto al pasar el ratón */
+.tarjeta:hover {
+  box-shadow: 0 8px 24px rgba(0,0,0,0.15);
+}
+
+/* Pseudo-elemento: indicador en títulos dentro de tarjeta */
+.tarjeta h2::after {
+  content: "";
+  display: block;
+  width: 50px;
+  height: 3px;
+  background: #3498db;
+  margin-top: 10px;
+}
+
+/* Pseudo-clase funcional: tarjetas que tienen imagen */
+.tarjeta:has(img) {
+  padding-top: 0;
+}
+
+.tarjeta:has(img) img {
+  border-radius: 8px 8px 0 0;
+}
 ```
 
 ---
