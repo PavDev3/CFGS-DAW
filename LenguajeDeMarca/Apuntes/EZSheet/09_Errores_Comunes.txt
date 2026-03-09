@@ -1,0 +1,25 @@
+ERRORES COMUNES
+
+❌ .elemento::hover { }
+✅ .elemento:hover { }
+(hover es pseudo-clase, va con :)
+
+❌ .elemento:before { }
+✅ .elemento::before { }
+(pseudo-elemento va con ::)
+
+❌ .elemento::before { color: red; }
+✅ .elemento::before { content: ""; color: red; }
+(::before y ::after necesitan content)
+
+❌ transition: hover 0.3s;
+✅ transition: all 0.3s;
+(transition se define en el elemento base, no en :hover)
+
+❌ @keyframes { 0% { } }
+✅ @keyframes nombre { 0% { } }
+(@keyframes necesita un nombre)
+
+❌ animation: 2s;
+✅ animation: nombre 2s;
+(animation necesita el nombre del keyframes)

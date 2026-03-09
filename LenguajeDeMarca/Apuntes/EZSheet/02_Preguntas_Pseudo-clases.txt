@@ -1,0 +1,28 @@
+PREGUNTAS TÍPICAS - PSEUDO-CLASES
+
+P: ¿Qué pseudo-clase para el primer elemento?
+R: :first-child
+
+P: ¿Y si es el primero de su TIPO?
+R: :first-of-type
+(Ejemplo: primer <p> aunque haya <h1> antes)
+
+P: ¿Para elementos pares/impares?
+R: :nth-child(even) / :nth-child(odd)
+
+P: ¿Cómo excluir una clase?
+R: :not(.clase)
+
+P: ¿Seleccionar si CONTIENE algo?
+R: :has(selector)
+Ejemplo: section:has(img)
+
+P: ¿Diferencia :first-child vs :first-of-type?
+R: :first-child = primero de TODOS los hijos
+   :first-of-type = primero de su tipo (p, div, etc)
+
+P: ¿Qué hace :is()?
+R: Agrupa selectores: :is(h1,h2,h3) = h1, h2, h3
+
+P: ¿Y :where()?
+R: Igual que :is() pero con especificidad 0
