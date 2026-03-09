@@ -1,0 +1,28 @@
+PREGUNTAS TÍPICAS - ANIMACIONES
+
+P: ¿Qué es @keyframes?
+R: Define los ESTADOS de una animación.
+   0% = inicio, 100% = final, 50% = intermedio
+
+P: ¿Cómo hago que se repita siempre?
+R: animation-iteration-count: infinite;
+
+P: ¿Propiedades de animation?
+R: name, duration, timing-function, delay,
+   iteration-count, direction, fill-mode, play-state
+
+P: ¿Qué hace animation-direction: alternate?
+R: Va y vuelve (0%→100%→0%→100%...)
+
+P: ¿Y animation-fill-mode: forwards?
+R: Mantiene el estado final al terminar
+
+P: ¿Puedo pausar una animación?
+R: Sí, animation-play-state: paused;
+
+P: Escribe una animación que rebote:
+@keyframes rebote {
+  0%, 100% { transform: translateY(0); }
+  50% { transform: translateY(-20px); }
+}
+.elemento { animation: rebote 1s infinite; }

@@ -1,0 +1,36 @@
+CÓDIGO TÍPICO EXAMEN
+
+HOVER CON TRANSICIÓN:
+.boton {
+  transition: all 0.3s ease;
+}
+.boton:hover {
+  background: red;
+  transform: scale(1.1);
+}
+
+AÑADIR ICONO:
+.aviso::before {
+  content: "⚠️ ";
+}
+
+CAMPO OBLIGATORIO:
+.obligatorio::after {
+  content: " *";
+  color: red;
+}
+
+CEBRA EN TABLA:
+tr:nth-child(odd) {
+  background: #f0f0f0;
+}
+
+PRIMER PÁRRAFO DISTINTO:
+p:first-of-type {
+  font-size: 1.2em;
+}
+
+TARJETAS CON IMAGEN DISTINTAS:
+.card:has(img) {
+  padding-top: 0;
+}

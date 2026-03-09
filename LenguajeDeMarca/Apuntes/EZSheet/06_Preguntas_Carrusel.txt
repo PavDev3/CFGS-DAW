@@ -1,0 +1,29 @@
+PREGUNTAS TÍPICAS - CARRUSEL CSS
+
+P: ¿Qué propiedades CSS básicas para un carrusel?
+R: 
+- overflow-x: auto (scroll horizontal)
+- scroll-snap-type: x mandatory (snap)
+- display: flex (imágenes en línea)
+
+P: ¿Qué hace scroll-snap-type?
+R: Hace que el scroll "encaje" en cada elemento.
+
+P: ¿Y scroll-snap-align?
+R: Dónde se detiene cada elemento:
+   start, center, end
+
+P: ¿Ventajas del carrusel CSS vs JavaScript?
+R:
+- Accesibilidad incluida
+- Mejor rendimiento
+- Funciona sin JS
+- Menos código
+
+P: ¿Qué navegadores lo soportan?
+R: Chrome 135+ (2024)
+
+P: Pseudo-elementos nuevos:
+- ::scroll-button(left/right) = botones
+- ::scroll-marker = indicadores (puntos)
+- :target-current = marcador activo

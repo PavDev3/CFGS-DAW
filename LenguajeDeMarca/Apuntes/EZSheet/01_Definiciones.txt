@@ -1,0 +1,20 @@
+DEFINICIONES PARA EXAMEN
+
+PSEUDO-CLASE (:):
+Selector que elige elementos por su ESTADO o POSICIÓN en el DOM.
+No crea nada nuevo, solo FILTRA lo que ya existe.
+Ejemplos: :hover, :first-child, :not()
+
+PSEUDO-ELEMENTO (::):
+Selector que CREA elementos virtuales que no están en el HTML.
+Genera contenido nuevo o accede a partes específicas.
+Ejemplos: ::before, ::after, ::first-letter
+
+DIFERENCIA CLAVE:
+• Pseudo-clase = SELECCIONA existentes (por estado/posición)
+• Pseudo-elemento = CREA virtuales (contenido nuevo)
+
+¿POR QUÉ : Y ::?
+• : (1 dos puntos) = pseudo-clase (CSS2/3)
+• :: (2 dos puntos) = pseudo-elemento (CSS3)
+Los navegadores aceptan : para ::before pero NO es correcto.
