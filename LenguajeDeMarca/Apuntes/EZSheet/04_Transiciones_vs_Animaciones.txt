@@ -1,0 +1,28 @@
+TRANSICIONES VS ANIMACIONES
+
+TRANSICIONES:
+• Cambio SUAVE entre 2 estados
+• Necesita un trigger (:hover, :focus...)
+• Una sola ejecución por evento
+• Más simple
+
+SINTAXIS:
+transition: propiedad duración timing;
+
+ANIMACIONES:
+• Secuencia con MÚLTIPLES estados
+• No necesita trigger (puede ser automática)
+• Puede repetirse (infinite)
+• Más compleja
+
+SINTAXIS:
+@keyframes nombre { 0%{} 50%{} 100%{} }
+animation: nombre duración timing iteración;
+
+¿CUÁNDO USAR CADA UNA?
+• Transición: hover, focus, click (un cambio)
+• Animación: loading, rebote, parpadeo (secuencia)
+
+PREGUNTA TÍPICA:
+P: ¿Necesito @keyframes para un hover?
+R: NO. Usa transition.

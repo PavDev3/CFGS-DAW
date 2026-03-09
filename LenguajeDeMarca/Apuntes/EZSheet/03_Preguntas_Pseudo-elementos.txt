@@ -1,0 +1,26 @@
+PREGUNTAS TÍPICAS - PSEUDO-ELEMENTOS
+
+P: ¿Cómo añadir contenido ANTES de un elemento?
+R: elemento::before { content: "texto"; }
+
+P: ¿Y DESPUÉS?
+R: elemento::after { content: "texto"; }
+
+P: ¿Qué pasa si no pongo content?
+R: NO funciona. content es OBLIGATORIO.
+
+P: ¿Para la primera letra de un párrafo?
+R: p::first-letter { } (capitulares)
+
+P: ¿Y la primera línea?
+R: p::first-line { }
+
+P: ¿Para el placeholder de un input?
+R: input::placeholder { }
+
+P: ¿Cambiar color del texto seleccionado?
+R: ::selection { background: color; }
+
+P: ¿::before crea un elemento real en HTML?
+R: NO. Es virtual, solo existe en CSS.
+   No aparece en el DOM.

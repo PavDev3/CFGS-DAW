@@ -1,0 +1,28 @@
+TABLAS COMPARATIVAS
+
+ESTADO vs POSICIÓN:
+Estado: :hover :focus :active :visited
+Posición: :first-child :last-child :nth-child()
+
+:first-child vs :first-of-type:
+:first-child = primero de TODOS
+:first-of-type = primero de su tipo
+
+Ejemplo:
+<div>
+  <h1>Título</h1>
+  <p>Texto</p>
+</div>
+
+p:first-child = NO aplica (h1 es primero)
+p:first-of-type = SÍ aplica (primer <p>)
+
+:not vs :has:
+:not(p) = todo lo que NO sea <p>
+:has(p) = elementos que CONTIENEN un <p>
+
+::before vs ::after:
+::before = inserta ANTES del contenido
+::after = inserta DESPUÉS del contenido
+
+Ambos requieren: content

@@ -1,0 +1,32 @@
+RESUMEN FINAL EXAMEN
+
+DEFINICIONES:
+• Pseudo-clase (:) = selecciona por estado/posición
+• Pseudo-elemento (::) = crea elementos virtuales
+
+DIFERENCIA:
+: filtra EXISTENTES
+:: CREA nuevos
+
+SINTAXIS TRANSICIÓN:
+transition: propiedad duración timing;
+
+SINTAXIS ANIMACIÓN:
+@keyframes nombre { 0%{} 100%{} }
+animation: nombre duración infinite;
+
+PSEUDO-CLASES CLAVE:
+Estado: :hover :focus :active
+Posición: :first-child :nth-child()
+Funcionales: :not() :has() :is()
+
+PSEUDO-ELEMENTOS CLAVE:
+::before ::after (con content)
+::first-letter ::placeholder
+
+CARRUSEL:
+scroll-snap-type: x mandatory
+scroll-snap-align: center
+
+OBLIGATORIO:
+::before y ::after necesitan content: ""
