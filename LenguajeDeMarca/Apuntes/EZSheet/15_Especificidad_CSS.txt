@@ -1,0 +1,38 @@
+ESPECIFICIDAD CSS - TABLA COMPLETA
+
+Definición: La especificidad determina qué regla CSS "gana" cuando hay conflictos.
+A mayor puntuación, mayor prioridad.
+
+== TABLA DE PRIORIDAD (de mayor a menor) ==
+
+┌────────┬─────────────────────────┬──────────────────┬────────┐
+│ Orden  │ Selector / Método      │ Ejemplo          │ Puntos │
+├────────┼─────────────────────────┼──────────────────┼────────┤
+│   1    │ Estilo en línea        │ style="color:red"│  1000  │
+│   2    │ IDs                    │ #header, #main   │   100  │
+│   3    │ Clases                 │ .nav, .active    │    10  │
+│   3    │ Pseudoclases           │ :hover, :focus   │    10  │
+│   3    │ Atributos              │ [type="text"]    │    10  │
+│   4    │ Elementos              │ h1, div, p       │     1  │
+│   4    │ Pseudoelementos        │ ::before, ::after│     1  │
+│   5    │ Selector universal     │ *                │     0  │
+└────────┴─────────────────────────┴──────────────────┴────────┘
+
+== CÁLCULO DE ESPECIFICIDAD ==
+
+Se suman los puntos de cada selector:
+
+button:hover          → 1 (button) + 10 (:hover) = 11 puntos
+#main .nav a          → 100 (#main) + 10 (.nav) + 1 (a) = 111 puntos
+div#header p.active   → 1 (div) + 100 (#header) + 1 (p) + 10 (.active) = 112 puntos
+
+== ORDEN DE CASCADA ==
+
+Si tienen MISMA especificidad, gana la que aparece DESPUÉS en el CSS.
+
+¡IMPORTANTE: !important → rompe todo, usa con cuidado!
+
+== REGLA PRÁCTICA ==
+
+1000 > 100 > 10 > 1 > 0
+Inline > IDs > Clases > Elementos > Universal
