@@ -1,0 +1,42 @@
+PSEUDOELEMENTOS - LISTA COMPLETA
+
+Definición: Un pseudoelemento aplica estilos a PARTES específicas de un elemento.
+Sintaxis: DOS DOBLES PUNTOS (::) para diferenciarlos de pseudoclases.
+
+== PSEUDOELEMENTOS DE CONTENIDO ==
+
+::before → Crea elemento ANTES del contenido
+  - Requiere propiedad "content"
+  - Se usa para decoración, iconos
+
+::after → Crea elemento DESPUÉS del contenido
+  - Requiere propiedad "content"
+  - Se usa para decoración, limpiar floats
+
+NOTA: Solo UN ::before y UN ::after por elemento.
+
+== PSEUDOELEMENTOS DE TEXTO ==
+
+::first-letter → Primera LETRA del texto
+  - Muy usado para letras capitulares
+
+::first-line → Primera LÍNEA del texto
+  - Cambia dinámicamente si se redimensiona la ventana
+
+::selection → Texto SELECCIONADO por el usuario
+  - Solo admite: color, background
+
+== PSEUDOELEMENTOS DE FORMULARIO ==
+
+::placeholder → Texto de AYUDA dentro del input
+  - El texto gris que aparece antes de escribir
+
+::marker → MARCADOR de listas
+  - El punto (ul) o número (ol) de las listas
+
+== ESPECIFICIDAD ==
+Los pseudoelementos tienen especificidad 1 (como los elementos)
+
+== DIFERENCIA CLAVE CON PSEUDOCLASES ==
+- Pseudoclases (:) → Estados del elemento
+- Pseudoelementos (::) → Partes del elemento
