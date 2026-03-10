@@ -1,0 +1,41 @@
+PSEUDOCLASES - LISTA COMPLETA
+
+Definición: Una pseudoclase define un estado especial de un elemento. Se añade a un selector CSS para aplicar estilos cuando el elemento cumple una condición específica.
+
+== PSEUDOCLASES DE ESTADO ==
+
+:link → Enlace NO visitado (estado base)
+:visited → Enlace YA visitado (en historial)
+:hover → Ratón ENCIMA del elemento
+:active → Mientras se MANTIENE el clic
+:focus → Elemento SELECCIONADO (teclado o clic)
+
+== PSEUDOCLASES DE POSICIÓN ==
+
+:first-child → Primer hijo de su padre
+:last-child → Último hijo de su padre
+:nth-child(n) → Hijo específico:
+  - Número: :nth-child(3) → el tercero
+  - Palabras: even (pares), odd (impares)
+  - Fórmula: 2n (múltiplos de 2)
+
+== PSEUDOCLASES DE FORMULARIO ==
+
+:checked → Checkbox/radio MARCADO
+:disabled → Elemento DESHABILITADO
+:required → Campo OBLIGATORIO
+:placeholder-shown → Placeholder VISIBLE (usuario no ha escrito)
+
+== PSEUDOCLASES FUNCIONALES ==
+
+:not(selector) → Todos EXCEPTO el indicado
+  Ejemplo: li:not(:last-child) → todos los li menos el último
+
+:is(sel1, sel2, ...) → Agrupa selectores
+  Ejemplo: :is(:hover, :focus, :active) → mismo estilo para todos
+
+:has(selector) → Padre que CONTIENE al hijo
+  Ejemplo: div:has(:checked) → div que contiene un checkbox marcado
+
+== ESPECIFICIDAD ==
+Las pseudoclases tienen especificidad 10 (como las clases)
