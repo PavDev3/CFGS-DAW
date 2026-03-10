@@ -38,15 +38,47 @@ public class mainArrayAvanzada {
 			System.out.println("Media de notas: " + media);
 		}
 		
+		// Calcular las estadísticas de alumnos suspensos
+		calcularEstadisticasSuspensos(alumnos);
+		sc.close();
+		
 
 	}
 	// Método para calcular la media de un alumno
 	private static double calcularMediaAlumno(Alumno[] asignaturasAlumno) {
+		// Sumar las notas de las asignaturas del alumno
 		double sumaNotas = 0;
+		// Recorrer las asignaturas del alumno y sumar sus notas
 		for (int i = 0; i < asignaturasAlumno.length; i++) {
+			// Sumar la nota de la asignatura i del alumno
 			sumaNotas += asignaturasAlumno[i].getNota();
 		}
+		// Calcular la media dividiendo la suma de las notas entre el número de asignaturas
 		return sumaNotas / asignaturasAlumno.length;
 	}
+	
+	// Metodo para calcular la estadisticas de alumnos suspensos con 5 asignaturas, 4 , 3 , 2 , 1 y 0 asignaturas suspendidas
+	private static void calcularEstadisticasSuspensos(Alumno[][] alumnos) {
+		// Crear un array para contar el número de alumnos con 0, 1, 2, 3, 4 y 5 asignaturas suspendidas
+		int[] suspensos = new int[6]; // 0, 1, 2, 3, 4, 5 asignaturas suspendidas
+		// Contar el número de alumnos con cada cantidad de asignaturas suspendidas
+		for (int i = 0; i < alumnos.length; i++) {
+			// Contar el número de asignaturas suspendidas para el alumno i
+			int numSuspensos = 0;
+			for (int j = 0; j < alumnos[i].length; j++) {
+				// Si la nota es menor que 5, el alumno ha suspendido esa asignatura
+				if (alumnos[i][j].getNota() < 5) {
+					numSuspensos++;
+				}
+			}
+			// Incrementar el contador correspondiente en el array de suspensos
+			suspensos[numSuspensos]++;
+		}
+		System.out.println("Estadísticas de alumnos suspensos:");
+		for (int i = 0; i < suspensos.length; i++) {
+			System.out.println(i + " asignaturas suspendidas: " + suspensos[i] + " alumnos");
+		}
+	}
+	
 
 }
