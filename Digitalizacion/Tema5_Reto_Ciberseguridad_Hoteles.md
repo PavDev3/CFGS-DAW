@@ -4,7 +4,7 @@
 
 ---
 
-## 📋 FICHA 1: Ataque a MGM Resorts (2023)
+##  FICHA 1: Ataque a MGM Resorts (2023)
 
 ### Titular
 **MGM Resorts sufre ciberataque de $100 millones mediante ingeniería social**
@@ -34,7 +34,7 @@ En septiembre de 2023, MGM Resorts International sufrió un ataque masivo llevad
 
 ---
 
-## 📋 FICHA 2: Estafa masiva suplantando a Booking.com
+##  FICHA 2: Estafa masiva suplantando a Booking.com
 
 ### Titular
 **Ciberdelincuentes roban datos de reservas para estafar a clientes de Booking.com**
@@ -60,7 +60,7 @@ Los clientes confiaron porque los datos de la reserva eran correctos y reales.
 
 ---
 
-## 📋 FICHA 3: Ransomware en cadena hotelera de Baleares (2023)
+##  FICHA 3: Ransomware en cadena hotelera de Baleares (2023)
 
 ### Titular
 **Ransomware encripta base de datos de cadena hotelera balear el mismo día de la alerta de seguridad**
@@ -86,7 +86,7 @@ La cadena logró recuperar los datos gracias a **copias de seguridad** y despleg
 
 ---
 
-## 🔐 TRES RIESGOS PRINCIPALES EN EL SECTOR HOTELERO
+##  TRES RIESGOS PRINCIPALES EN EL SECTOR HOTELERO
 
 ### 1. Vulnerabilidades en IoT (Internet de las Cosas)
 Los hoteles modernos usan cientos de dispositivos conectados:
@@ -114,7 +114,7 @@ Hoteles, agencias de viajes y plataformas de reservas están interconectados.
 
 ---
 
-## 💡 ESTRATEGIAS Y SOLUCIONES GENERALES
+##  ESTRATEGIAS Y SOLUCIONES GENERALES
 
 | Medida | Descripción |
 |--------|-------------|
@@ -129,7 +129,7 @@ Hoteles, agencias de viajes y plataformas de reservas están interconectados.
 
 ---
 
-## ❓ CUESTIONES FINALES
+##  CUESTIONES FINALES
 
 ### 1. ¿Cuáles han sido las mayores dificultades para identificar y analizar los riesgos?
 
@@ -149,7 +149,7 @@ Hoteles, agencias de viajes y plataformas de reservas están interconectados.
 
 ---
 
-## 📚 FUENTES
+##  FUENTES
 
 1. Hosteltur - "Cinco casos reales de ciberataques a empresas turísticas" (2026)
 2. Asimily - "3 Cyberattacks That Devastated Hospitality in 2023 and 2024"
