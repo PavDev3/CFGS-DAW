@@ -238,6 +238,23 @@ Si el modo puente NO funciona sobre WiFi
 - En VirtualBox (segun version): prueba Promiscuous Mode = `Allow VMs`.
 - Si aun falla, documenta el problema (captura + 2 lineas) y continua con NAT + Red interna; el aprendizaje sigue siendo valido.
 
+> [!TIP] **OPCIONAL — Modo practico/visual**
+> Si el modo puente funciona correctamente, puedes demostrar de forma muy visual que la VM es un servidor real en la red:
+>
+> En Ubuntu, levanta un servidor HTTP con un solo comando:
+> ```bash
+> python3 -m http.server 8080
+> ```
+> Luego abre el navegador en el **host o en otro portatil de la clase** y entra a:
+> ```
+> http://192.168.50.X:8080
+> ```
+> (sustituye `X` por la IP puente de tu VM)
+>
+> Veras el listado de ficheros de la VM desde otro equipo. Esto demuestra exactamente por que existe el modo puente: la VM actua como un servidor real accesible en la LAN, igual que cualquier otro equipo conectado al router.
+>
+> Para cerrar el servidor: `Ctrl+C` en la terminal de Ubuntu.
+
 ### A3) Red Interna (VMs aisladas entre si, sin router)
 
 Objetivo
@@ -262,6 +279,23 @@ Comprobacion inicial
 - Windows: debe aparecer un segundo adaptador de red.
 
 > **Resultado esperado:** las maquinas virtuales se comunican entre ellas (tras asignar IPs estaticas en los pasos siguientes) pero no tienen acceso a internet ni a la red del host.
+
+> [!TIP] **OPCIONAL — Modo practico/visual** (hacer despues de completar B4 y C)
+> Una vez que Ubuntu tiene `10.10.10.10` y Windows tiene `10.10.10.20` y se hacen ping, puedes montar un **chat en tiempo real** entre las dos VMs usando solo `netcat`, sin instalar nada extra.
+>
+> En Ubuntu (modo escucha):
+> ```bash
+> nc -l -p 1234
+> ```
+> En Windows CMD (modo conexion):
+> ```bash
+> nc 10.10.10.10 1234
+> ```
+> A partir de ese momento, todo lo que escribas en una terminal aparece en la otra. Es una conexion TCP real, sin internet, sin router, solo a traves de la red interna que acabas de configurar.
+>
+> Para cerrar: `Ctrl+C` en cualquiera de los dos lados.
+>
+> Nota: en Windows puede que `nc` no este disponible por defecto. Alternativa: instalar `ncat` (incluido en Nmap para Windows) o usar PowerShell con `Test-NetConnection` para verificar el puerto.
 
 ---
 
