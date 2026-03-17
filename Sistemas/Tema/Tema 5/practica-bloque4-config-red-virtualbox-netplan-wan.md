@@ -13,6 +13,8 @@ Escenario (seguridad)
 Duracion sugerida
 - 2 a 3 horas.
 
+---
+
 ## 0) Material y requisitos
 
 Material
@@ -45,7 +47,83 @@ Evidencias (capturas) minimas
   - `ipconfig /all`
 - Pruebas: pings y/o `curl`.
 
-## 1) Preparacion del router (LAN privada por WiFi)
+---
+
+## 1) Introduccion: modos de red en VirtualBox
+
+Cuando trabajamos con maquinas virtuales en VirtualBox, es necesario definir como se conectaran a la red. VirtualBox ofrece varios modos, pero los mas utilizados son:
+
+- **NAT** - la VM accede a internet a traves del host, pero no es visible en la LAN.
+- **Adaptador Puente (Bridged Adapter)** - la VM se comporta como un equipo mas dentro de la red local.
+- **Red Interna (Internal Network)** - las VMs se comunican solo entre ellas, sin acceso al exterior.
+
+Cada modo define como la maquina virtual se comunica con internet, con el ordenador anfitrion (host) y con otros dispositivos de la red.
+
+### Modo NAT (Network Address Translation)
+
+Es el modo por defecto de VirtualBox.
+
+Funcionamiento:
+- VirtualBox actua como un router.
+- La VM recibe una IP privada creada por VirtualBox (tipicamente `10.0.2.x`).
+- Todo el trafico pasa primero por el host y despues sale a internet.
+
+Caracteristicas principales:
+- Permite acceso a internet facilmente.
+- No requiere configuracion adicional.
+- La VM **no es visible** en la red local (sin reenvio de puertos).
+
+Uso tipico:
+- Navegacion por internet dentro de la VM.
+- Pruebas basicas o laboratorios sin necesidad de comunicacion entre equipos.
+
+### Adaptador Puente (Bridged Adapter)
+
+Conecta la VM directamente a la red fisica del ordenador.
+
+Funcionamiento:
+- La tarjeta de red virtual se conecta a la tarjeta de red real del host.
+- El router le asigna una IP propia (igual que a cualquier equipo de la LAN).
+
+Ejemplo: si el host tiene `192.168.1.20`, la VM podria recibir `192.168.1.35` (o en nuestro lab, `192.168.50.x`).
+
+Caracteristicas:
+- Tiene acceso a internet.
+- Puede comunicarse con otros dispositivos de la red.
+- Otros dispositivos tambien pueden conectarse a ella.
+
+Uso tipico:
+- Pruebas de servidores.
+- Simulacion de redes reales.
+- Practicas de administracion de sistemas.
+
+### Red Interna (Internal Network)
+
+Permite que las VMs solo se comuniquen entre ellas.
+
+Caracteristicas:
+- No hay acceso a internet.
+- No hay conexion con la red del host.
+- Solo comunicacion entre VMs que comparten el mismo nombre de red interna.
+
+VirtualBox crea una red privada virtual aislada.
+
+Uso tipico:
+- Simulacion de redes empresariales.
+- Practicas de seguridad.
+- Laboratorios de red aislados.
+
+### Tabla comparativa de modos
+
+| Modo            | Internet | Visible en red local | Comunicacion entre VMs |
+|-----------------|----------|----------------------|------------------------|
+| NAT             | Si       | No                   | Limitada               |
+| Adaptador Puente| Si       | Si                   | Si                     |
+| Red Interna     | No       | No                   | Si                     |
+
+---
+
+## 2) Preparacion del router (LAN privada por WiFi)
 
 1. Entra al router y cambia credenciales de admin (si no estan cambiadas).
 2. Crea SSID: `DAW-LAB` (o similar).
@@ -61,7 +139,9 @@ Checklist rapido del router
 - [ ] LAN 192.168.50.1/24
 - [ ] DHCP en 192.168.50.100-200
 
-## 2) Preparacion del host (tu portatil)
+---
+
+## 3) Preparacion del host (tu portatil)
 
 1. Conectate al WiFi `DAW-LAB`.
 2. Verifica que recibes IP del router (debe ser `192.168.50.x`).
@@ -74,7 +154,9 @@ Si el host NO recibe IP
 - Revisa DHCP activado.
 - Reinicia WiFi del host o el router.
 
-## 3) Crear las VMs (Ubuntu + Windows)
+---
+
+## 4) Crear las VMs (Ubuntu + Windows)
 
 Recomendacion
 - Ubuntu: 2 CPU, 2-4 GB RAM, 20 GB disco.
@@ -85,7 +167,25 @@ Consejo para capturas
   - `DAW-Ubuntu-B4`
   - `DAW-Windows-B4`
 
-## 4) Parte A: VirtualBox - Modos NAT, Puente y Red interna
+### Como configurar el modo de red en VirtualBox (pasos)
+
+1. Abrir VirtualBox.
+2. Seleccionar la maquina virtual.
+3. Ir a **Configuracion**.
+4. Entrar en la seccion **Red**.
+5. En **Adaptador 1**, seleccionar el modo de red deseado (NAT / Adaptador Puente / Red Interna).
+6. Pulsar **Aceptar** y arrancar la VM.
+
+Una vez iniciada la VM, verificar la configuracion de red con:
+```bash
+ip a
+# o si esta instalado:
+ifconfig
+```
+
+---
+
+## 5) Parte A: VirtualBox - Modos NAT, Puente y Red interna
 
 Vas a repetir pruebas para observar diferencias.
 Guarda capturas de cada modo.
@@ -110,6 +210,8 @@ Comprobaciones en Ubuntu
    - `ping -c 4 192.168.50.1`
    - Puede fallar o no ser significativo: NAT crea otra red.
 
+> **Resultado esperado:** la maquina virtual tiene salida a internet (a traves del host) pero no aparece como equipo en la red local `192.168.50.0/24`.
+
 Pregunta para explicar (1-3 lineas)
 - Por que una VM en NAT no suele ser accesible directamente desde otra maquina de la LAN (sin port forwarding).
 
@@ -128,6 +230,8 @@ Comprobaciones en Ubuntu
 
 Comprobaciones desde Windows (o desde otro equipo en la WiFi)
 1. `ping 192.168.50.X` (la IP puente de Ubuntu).
+
+> **Resultado esperado:** la VM recibe una IP del router y aparece como un equipo mas en la red local. Otros equipos pueden hacerle ping.
 
 Si el modo puente NO funciona sobre WiFi
 - Confirma que has elegido la interfaz WiFi correcta.
@@ -157,7 +261,11 @@ Comprobacion inicial
 - Ubuntu: `ip a` debe mostrar una segunda interfaz (sin IP o con link up).
 - Windows: debe aparecer un segundo adaptador de red.
 
-## 5) Parte B: Ubuntu - IP estatica con Netplan (YAML)
+> **Resultado esperado:** las maquinas virtuales se comunican entre ellas (tras asignar IPs estaticas en los pasos siguientes) pero no tienen acceso a internet ni a la red del host.
+
+---
+
+## 6) Parte B: Ubuntu - IP estatica con Netplan (YAML)
 
 Objetivo
 - Mantener Adapter 1 (NAT o Puente) por DHCP.
@@ -228,7 +336,9 @@ Opcional: ifconfig
 - `ifconfig` no suele venir por defecto. Para usarlo:
   - `sudo apt update && sudo apt install -y net-tools`
 
-## 6) Parte C: Windows 10/11 - IP estatica (Red interna)
+---
+
+## 7) Parte C: Windows 10/11 - IP estatica (Red interna)
 
 Objetivo
 - Configurar el adaptador de `intnet-daw` con `10.10.10.20/24`.
@@ -252,29 +362,26 @@ Verificacion
 
 Si el ping falla
 - Comprueba que ambas VMs estan en `intnet-daw`.
-- Revisa firewall de Windows (puede bloquear ICMP). Para evidenciarlo:
+- Revisa IPs y mascara /24.
+- Firewall de Windows puede bloquear ICMP. Para evidenciarlo:
   - desactiva temporalmente solo para la prueba (documenta), o
   - usa otra prueba (por ejemplo, habilitar un servicio en Ubuntu y probar TCP).
 
-## 7) Comparativa rapida: NAT vs Puente vs Red interna (para el informe)
+---
+
+## 8) Comparativa rapida: NAT vs Puente vs Red interna (para el informe)
 
 Rellena con datos reales de tu caso.
 
-Tabla sugerida
-- NAT
-  - IP tipica: `10.0.2.x`
-  - Gateway tipico: `10.0.2.2`
-  - Visibilidad desde la LAN `192.168.50.0/24`: no (sin redireccion de puertos)
-- Puente
-  - IP tipica: `192.168.50.x`
-  - Gateway: `192.168.50.1`
-  - Visibilidad desde la LAN: si
-- Red interna
-  - IPs: `10.10.10.10` / `10.10.10.20`
-  - Gateway: no aplica
-  - Visibilidad: solo entre VMs del mismo `intnet-daw`
+| Modo         | IP tipica             | Gateway          | Visible en `192.168.50.0/24` | Comunicacion entre VMs |
+|--------------|-----------------------|------------------|------------------------------|------------------------|
+| NAT          | `10.0.2.x`            | `10.0.2.2`       | No (sin redireccion)         | Limitada               |
+| Puente       | `192.168.50.x`        | `192.168.50.1`   | Si                           | Si                     |
+| Red interna  | `10.10.10.10/.20`     | No aplica        | No                           | Si (solo entre VMs)    |
 
-## 8) WAN (teoria aplicada): DSL vs FTTH vs WiMAX
+---
+
+## 9) WAN (teoria aplicada): DSL vs FTTH vs WiMAX
 
 Entregable (10-12 lineas o una tabla)
 
@@ -296,10 +403,12 @@ WiMAX (u otras inalambricas de largo alcance)
 - Compromisos: interferencias, linea de vista, comparticion del espectro; latencia/estabilidad variables.
 - Uso tipico: rural, despliegue rapido o donde cablear es caro.
 
-Conexión con la practica
+Conexion con la practica
 - En clase has montado una LAN (router WiFi + VMs). La WAN seria el enlace del router hacia el ISP (DSL/FTTH/WiMAX).
 
-## 9) Estructura del entregable (Moodle)
+---
+
+## 10) Estructura del entregable (Moodle)
 
 Entrega recomendada: 1 PDF o 1 Markdown exportado a PDF
 
@@ -324,7 +433,9 @@ Rubrica sugerida
 - 20% Windows: IP estatica correcta + pruebas.
 - 10% WAN: comparativa clara.
 
-## 10) Troubleshooting rapido
+---
+
+## 11) Troubleshooting rapido
 
 No tengo Internet (si el router NO tiene WAN conectada)
 - Esto es normal si decidisteis una LAN cerrada. La practica no necesita Internet.
@@ -341,7 +452,9 @@ No hay ping entre VMs en Red interna
 Modo puente inestable en WiFi
 - Depende de driver/tarjeta. Documenta y continua con el resto.
 
-## 11) Checklist final (antes de entregar)
+---
+
+## 12) Checklist final (antes de entregar)
 
 - [ ] Router `DAW-LAB` configurado y host con `192.168.50.x`
 - [ ] Captura NAT + `ip a` (IP `10.0.2.x`)
