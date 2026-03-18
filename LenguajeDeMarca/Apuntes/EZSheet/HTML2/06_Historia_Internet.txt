@@ -1,0 +1,23 @@
+HISTORIA DE INTERNET
+
+LINEA TEMPORAL:
+1969: ARPANET (Dpto. Defensa EE.UU.)
+1971: Primer email (Ray Tomlinson)
+1983: TCP/IP se convierte en estandar
+1989: Tim Berners-Lee propone la WWW
+1991: Primera pagina web publica
+1993: NCSA Mosaic (1er navegador grafico)
+1998: Se funda Google
+2004: Web 2.0 y redes sociales
+
+CONCEPTOS CLAVE:
+ARPANET: red militar, precursora de Internet
+TCP/IP: protocolo estandar de comunicacion
+Paquetes de datos: info dividida en trozos
+Servidor: almacena y sirve informacion
+Cliente: accede a la info (navegador)
+
+EVOLUCION DE LA WEB:
+Web 1.0: solo lectura, paginas estaticas
+Web 2.0: escritura, redes sociales
+Web 3.0: descentralizada, blockchain, IA
