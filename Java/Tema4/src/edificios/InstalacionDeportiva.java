@@ -1,4 +1,4 @@
-package ej6;
+package edificios;
 
 public interface InstalacionDeportiva {
 	int getTipoDeInstalacion();

@@ -1,4 +1,4 @@
-package ej6;
+package edificios;
 
 public class Polideportivo implements InstalacionDeportiva, Edificio {
 	private String nombre;
