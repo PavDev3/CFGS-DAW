@@ -1,0 +1,79 @@
+ENTORNOS DE DESARROLLO - TRIMESTRE 2
+=====================================
+
+¿Qué es DBML?
+DBML (Database Markup Language) es un lenguaje de marcado de código abierto, simple y legible, diseñado para definir esquemas de bases de datos mediante código. Filosofía: "Documentación como código". Facilita el diseño visual (diagramas Entidad-Relación) antes de programar en SQL y es fácil de compartir y versionar en Git.
+
+¿Qué es Dbdiagram.io?
+Herramienta web (IDE especializado) que interpreta código DBML y lo dibuja en tiempo real. Funciones: subir archivos .sql y convertirlos a diagramas, generar código SQL para PostgreSQL/MySQL/SQL Server, y generar enlaces públicos para trabajo en equipo.
+
+¿Qué es RunSQL.com?
+Entorno web de ejecución y testeo SQL sin necesidad de servidores locales. Interfaz: izquierda → esquema y tablas / derecha → consultas y resultados. Flujo correcto: introducir primero datos dummy en el esquema para testear relaciones y sentencias antes de producción.
+
+¿Qué es QA (Quality Assurance)?
+Proceso PROACTIVO orientado al PROCESO. Previene defectos estableciendo estándares, metodologías y procedimientos sistemáticos (auditorías, formación) ANTES de crear el software. Mejora el proceso de desarrollo desde el inicio.
+
+¿Qué es QC (Quality Control)?
+Proceso REACTIVO orientado al PRODUCTO. Identifica y corrige defectos del producto ya desarrollado mediante testeo, inspección de código y seguimiento de bugs. Valida que el software cumple los requisitos antes de su entrega.
+
+¿Qué es QE (Quality Engineering)?
+Disciplina integral que combina QA y QC con metodologías modernas. Incorpora la calidad en todo el ciclo de vida del desarrollo de forma continua, apoyándose en automatización de pruebas e integración continua. La calidad es una responsabilidad compartida y escalable.
+
+Resumen QA / QC / QE
+QA → previene errores mejorando el PROCESO.
+QC → detecta errores probando el PRODUCTO.
+QE → automatiza e integra la calidad en todo el CICLO de desarrollo.
+
+¿Qué es UI (User Interface)?
+Se centra en el CÓMO y la APARIENCIA. Es la parte visual y táctil con la que el usuario interactúa directamente. Incluye botones, iconos, tipografías, colores y diseño de pantalla. Objetivo: interfaz estética y coherente con la marca. Es una PARTE de la experiencia de usuario.
+
+¿Qué es UX (User Experience)?
+Se centra en el PORQUÉ y el SENTIMIENTO del usuario. Es el proceso de crear productos con experiencias significativas. Objetivo: que el usuario encuentre solución a su problema de la forma más fácil, lógica y satisfactoria. Es el TODO: el conjunto de factores de la interacción.
+
+Diferencias UI vs UX
+UI → producto/dispositivo | look & feel | herramientas, botones, colores | estética y guía visual.
+UX → usuario/persona | feeling/sentimiento | usabilidad, análisis, lógica | efectividad y facilidad de uso.
+Nota: buena UI + mal UX = producto inútil, y viceversa.
+
+¿Qué es un Product Manager (PM)?
+"Dueño del producto" ante el mercado. Visión a LARGO PLAZO orientada al EXTERIOR (mercado y clientes). Responsabilidades: definir estrategia del producto, asegurar viabilidad económica, hablar con clientes para decidir qué funcionalidades construir.
+
+¿Qué es un Product Owner (PO)?
+Visión a CORTO/MEDIO plazo orientada al INTERIOR (equipo de desarrollo). Rol específico dentro de Scrum. Responsabilidades: traducir la visión del PM en Historias de Usuario, gestionar y priorizar el Product Backlog, maximizar el valor del trabajo técnico.
+
+¿Qué es Scrum?
+Framework ágil y ligero para desarrollo y mantenimiento de productos. Se basa en desarrollo iterativo e incremental en ciclos cortos llamados Sprints. Tres roles clave: Product Owner, Scrum Master y Developer Team.
+
+Roles de Scrum
+PRODUCT OWNER → enlace con el cliente, valida peticiones, crea y gestiona el Product Backlog.
+SCRUM MASTER → organizador, moderador y facilitador. Asegura las reglas del Scrum, controla el proceso y ayuda a definir el Scrum Backlog.
+DEVELOPER TEAM → ejecuta los Sprints (analistas, diseñadores, programadores y testers).
+
+Documentos de Scrum
+PRODUCT BACKLOG → lista completa y fija de funcionalidades y requisitos del cliente. Inventario de todo lo que el producto podría necesitar.
+SCRUM BACKLOG → subconjunto de tareas del Product Backlog que el equipo se compromete a hacer en un Sprint concreto.
+
+Fases de un Sprint
+1. SPRINT PLANNING → planificación de soluciones y recogida de requisitos basándose en el Scrum Backlog.
+2. DAILY MEETING → reunión breve diaria para planificar tareas y analizar el progreso.
+3. SPRINT REVIEW → al finalizar el Sprint con el cliente: qué se hizo y qué no, para validar y planificar nuevas prioridades.
+4. SPRINT RETROSPECTIVE → reunión interna de feedback para mejorar el proceso en el siguiente ciclo. Deja compromisos escritos de mejora.
+
+¿Qué son las Pruebas Regresivas?
+Objetivo: ESTABILIDAD. Se realizan tras un cambio o actualización para asegurar que no se ha roto nada de lo que ya funcionaba antes.
+
+¿Qué son las Pruebas de Caja Blanca?
+Se centran en el CÓDIGO FUENTE ("cómo se hace"). Requieren conocer la programación para hacer debugging: variables, sintaxis y lógica.
+
+¿Qué son las Pruebas de Caja Negra?
+Se centran en la APLICACIÓN ("qué hace"), ignorando el código. Se prueban casos de uso y datos incorrectos desde la interfaz. Si detecta un fallo, se recurre a la caja blanca para arreglarlo.
+
+Tipos de Caja Blanca
+DE CUBRIMIENTO → cada línea de código se ejecuta al menos una vez.
+DE CONDICIONES → se prueban todos los resultados posibles (verdadero/falso) de cada condicional.
+DE BUCLES → se prueban los límites: valor máximo, máximo+1 y máximo-1 para evitar bucles infinitos o errores de rango.
+
+Tipos de Caja Negra
+DE CLASES DE EQUIVALENCIA → clasifica datos en válidos e inválidos (ej. contraseña que cumple o no los requisitos de longitud).
+DE VALORES LÍMITES → introduce datos extremos (ej. edad 150 vs 25) para ver cómo reacciona el sistema.
+DE INTERFACES → evalúa la GUI y su usabilidad: atajos de teclado, ventanas emergentes y navegación general.
