@@ -1,0 +1,27 @@
+TRANSICIONES CSS
+17 febrero y 13 marzo
+
+Cambio de estilo gradual, no instantaneo
+Se activa con un evento (hover, focus...)
+
+PROPIEDADES:
+transition-property: que propiedad animar
+transition-duration: cuanto dura
+transition-timing-function: velocidad
+transition-delay: espera antes de empezar
+
+TIMING FUNCTIONS:
+linear: velocidad constante
+ease: lento > rapido > lento (defecto)
+ease-in: empieza lento
+ease-out: termina lento
+ease-in-out: empieza y termina lento
+
+COMO ACTIVARLA:
+Se activa dentro de pseudoclases:
+:hover, :active, :focus, :checked
+
+VARIAS PROPIEDADES:
+Separar con comas:
+transition: width 2s, height 4s, background 3s;
+Cada propiedad puede tener duracion distinta

@@ -1,0 +1,27 @@
+DISEÑO DE SITIO WEB CSS
+10 de febrero
+
+Un sitio web se divide en 4 partes:
+1. Encabezado
+2. Menu de navegacion
+3. Contenido principal
+4. Pie de pagina
+
+ENCABEZADO
+Parte superior de la pagina
+Contiene logotipo o nombre del sitio
+
+MENU DE NAVEGACION
+Lista de enlaces
+Ayuda al visitante a moverse por la web
+
+CONTENIDO PRINCIPAL
+Depende del dispositivo del usuario:
+- 1 columna: moviles
+- 2 columnas: tablets y portatiles
+- 3 columnas: PC de escritorio
+
+PIE DE PAGINA
+Al final de la pagina
+Contiene info del autor y contacto
+Puede ser fijo (siempre visible abajo)

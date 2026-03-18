@@ -1,0 +1,28 @@
+LA WORLD WIDE WEB
+
+Creada por Tim Berners-Lee en 1989
+Lugar: CERN (Suiza)
+
+LOS 3 PILARES DE LA WWW:
+1. HTML: estructura el contenido
+2. URL: direccion unica de cada recurso
+3. HTTP: protocolo de transferencia de datos
+
+HTML:
+HyperText Markup Language
+Define titulos, parrafos, enlaces, imagenes
+
+URL:
+Uniform Resource Locator
+Partes: protocolo + dominio + ruta
+Ejemplo: https://www.ejemplo.com/pagina.html
+
+HTTP vs HTTPS:
+HTTP: protocolo de comunicacion base
+HTTPS: version segura con cifrado SSL/TLS
+Hoy casi todo usa HTTPS
+
+VERSIONES DE LA WEB:
+Web 1.0: 1990-2004, solo lectura
+Web 2.0: 2004-hoy, lectura y escritura
+Web 3.0: en desarrollo, descentralizada

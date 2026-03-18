@@ -1,0 +1,30 @@
+ANIMACIONES CSS
+
+Animan HTML sin JavaScript
+Elemento cambia gradualmente de estilo
+Se definen con @keyframes
+
+PROPIEDADES:
+animation-name: nombre del keyframe
+animation-duration: duracion total
+  (0s por defecto = no anima)
+animation-iteration-count: repeticiones
+animation-direction: normal/reverse/alternate
+animation-fill-mode: estado al terminar
+
+KEYFRAMES - SINTAXIS:
+@keyframes nombre {
+  from { color: red; }
+  to   { color: yellow; }
+}
+from = 0% (inicio)
+to   = 100% (fin)
+
+CON PORCENTAJES:
+0%  { background: red; }
+50% { background: blue; }
+100%{ background: yellow; }
+Permite cambios en momentos exactos
+
+VINCULAR AL ELEMENTO:
+div { animation: nombre 4s; }

@@ -1,0 +1,30 @@
+NOVEDADES CSS
+12 de febrero
+
+CSS evoluciona para reemplazar JavaScript:
+- Codigo mas simple
+- Mejor rendimiento
+- Menos dependencias de JS
+- Interfaces mas accesibles
+
+1) CARRUSELES SIN JS
+scroll-snap: desliza imagenes
+overflow: navega entre elementos
+scroll-behavior: animaciones suaves
+
+2) ATRIBUTO POPOVER
+Elementos emergentes sin JS:
+- Menus, tooltips, ventanas flotantes
+Tooltip: mensaje breve al pasar el raton
+
+3) MODAL CON dialog
+Se abre con showModal()
+Control de foco automatico
+Accesibilidad integrada
+
+4) SELECT PERSONALIZADOS
+Antes imposibles de estilizar
+Nuevas APIs: estilos propios + accesibilidad
+
+5) INTEGRACION HTML + CSS
+Menos codigo, componentes accesibles

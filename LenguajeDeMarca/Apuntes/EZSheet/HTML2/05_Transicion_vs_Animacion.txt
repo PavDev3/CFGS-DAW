@@ -1,0 +1,24 @@
+TRANSICION VS ANIMACION
+
+INICIO:
+Transicion: necesita que cambie una propiedad
+Animacion: puede ejecutarse automaticamente
+
+COMPLEJIDAD:
+Transicion: simple
+Animacion: mas compleja
+
+ESTADOS:
+Transicion: inicio a fin (2 estados)
+Animacion: multiples pasos
+
+CUANDO USAR CADA UNA:
+Transicion: para reaccionar a un evento
+Animacion: para movimiento continuo o auto
+
+USOS COMUNES (ambas):
+- Efectos hover en botones
+- Menus desplegables
+- Elementos que aparecen en pantalla
+- Loaders / indicadores de carga
+- Micro-interacciones en interfaces

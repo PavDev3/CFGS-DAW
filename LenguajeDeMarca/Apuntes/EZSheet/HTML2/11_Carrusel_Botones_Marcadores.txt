@@ -1,0 +1,29 @@
+CARRUSEL: BOTONES Y MARCADORES CSS
+
+BOTONES DE NAVEGACION (solo CSS):
+::scroll-button(left)
+::scroll-button(right)
+Ejemplo:
+  &::scroll-button(left) {
+    content: "Atras";
+    left: 10px;
+  }
+
+MARCADORES (puntos de posicion):
+scroll-marker-group: after
+Activa los marcadores en el contenedor
+
+Cada item tiene su marcador:
+  li::scroll-marker {
+    content: ' ';
+    width: 10px;
+    height: 10px;
+    border-radius: 50%;
+    background: #ccc;
+  }
+
+PUNTO ACTIVO:
+  li::scroll-marker:target-current {
+    background: #3498db;
+  }
+

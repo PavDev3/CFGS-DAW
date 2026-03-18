@@ -1,0 +1,30 @@
+PSEUDO-CLASES CSS (:)
+
+Seleccionan elementos por ESTADO o POSICION
+Usan : (un punto)
+No crean nada, solo filtran
+
+ESTADO:
+:hover     - al pasar el raton
+:focus     - cuando tiene el foco
+:active    - mientras se hace clic
+:visited   - enlace ya visitado
+:checked   - checkbox marcado
+:disabled  - elemento deshabilitado
+:enabled   - elemento habilitado
+
+POSICION:
+:first-child    - primer hijo
+:last-child     - ultimo hijo
+:nth-child(n)   - el enésimo hijo
+:nth-child(odd) - hijos impares
+:nth-child(even)- hijos pares
+:first-of-type  - primero de su tipo
+:last-of-type   - ultimo de su tipo
+:only-child     - unico hijo (sin hermanos)
+
+FUNCIONALES:
+:not(.clase)      - excluye esa clase
+:is(h1, h2, h3)   - agrupa selectores
+:where(h1, h2)    - igual pero especificidad 0
+:has(img)         - si contiene ese elemento
