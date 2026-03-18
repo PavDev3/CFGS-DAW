@@ -1,0 +1,30 @@
+PSEUDO-ELEMENTOS CSS (::)
+
+Crean elementos virtuales (no existen en HTML)
+Diferencia: :: crea / : selecciona
+
+CONTENIDO (requieren "content"):
+::before  - inserta ANTES del elemento
+::after   - inserta DESPUES del elemento
+Ejemplo: .aviso::before { content: "!"; }
+content puede ser: "", "texto", emoji
+
+TEXTO:
+::first-line   - solo la primera linea
+::first-letter - solo la primera letra
+
+FORMULARIO:
+::placeholder - estiliza el texto de ayuda
+Ejemplo: input::placeholder { color: gray; }
+
+SELECCION:
+::selection - texto seleccionado por usuario
+Ejemplo: ::selection { background: blue; }
+
+SCROLL MODERNO:
+::scroll-button() - botones en carrusel CSS
+::scroll-marker   - puntos de posicion
+:target-current   - punto activo
+
+REGLA CLAVE:
+before y after SIEMPRE necesitan content

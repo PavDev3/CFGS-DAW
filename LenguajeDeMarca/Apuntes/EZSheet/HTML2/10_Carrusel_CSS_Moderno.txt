@@ -1,0 +1,27 @@
+CARRUSEL CSS MODERNO
+(Chrome 135+, sin JavaScript)
+
+PROPIEDADES CLAVE:
+overflow-x: auto
+scroll-snap-type: x mandatory
+scroll-snap-align: center
+
+CONTENEDOR:
+display: flex
+overflow-x: auto
+scroll-snap-type: x mandatory
+
+ITEMS:
+flex: 0 0 auto (no estira, no encoge)
+scroll-snap-align: center
+
+SNAP TYPE:
+x = horizontal
+mandatory = siempre encaja
+proximity = solo si esta cerca
+
+VENTAJAS VS JAVASCRIPT:
+Accesibilidad automatica
+Mejor rendimiento
+Menos codigo
+Touch-friendly incluido
