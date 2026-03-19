@@ -228,6 +228,7 @@ Usan : (un punto)
 No crean nada, solo filtran
 
 ESTADO:
+:link       - enlace no visitado
 :hover      - al pasar el raton
 :focus      - cuando tiene el foco
 :active     - mientras se hace clic
@@ -278,6 +279,10 @@ SELECCION:
 ::selection - texto seleccionado por usuario
 Ejemplo: ::selection { background: blue; }
 
+LISTAS Y CONTROLES:
+::marker          - viñetas/numeros de lista
+::file-selector-button - boton input file
+
 SCROLL MODERNO:
 ::scroll-button() - botones en carrusel CSS
 ::scroll-marker   - puntos de posicion
@@ -315,6 +320,7 @@ VENTAJAS VS JAVASCRIPT:
 Accesibilidad automatica
 Mejor rendimiento
 Menos codigo
+Menos errores
 Touch-friendly incluido
 
 
