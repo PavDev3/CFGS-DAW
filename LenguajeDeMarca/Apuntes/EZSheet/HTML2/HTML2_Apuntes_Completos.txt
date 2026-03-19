@@ -1,0 +1,354 @@
+╔══════════════════════════════════════════════════════════════════╗
+║              HTML2 — APUNTES COMPLETOS                          ║
+║              Lenguaje de Marcas · CFGS DAW                      ║
+╚══════════════════════════════════════════════════════════════════╝
+
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+01 · DISEÑO DE SITIO WEB CSS
+    10 de febrero
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+
+Un sitio web se divide en 4 partes:
+1. Encabezado
+2. Menu de navegacion
+3. Contenido principal
+4. Pie de pagina
+
+ENCABEZADO
+Parte superior de la pagina
+Contiene logotipo o nombre del sitio
+
+MENU DE NAVEGACION
+Lista de enlaces
+Ayuda al visitante a moverse por la web
+
+CONTENIDO PRINCIPAL
+Depende del dispositivo del usuario:
+- 1 columna: moviles
+- 2 columnas: tablets y portatiles
+- 3 columnas: PC de escritorio
+
+PIE DE PAGINA
+Al final de la pagina
+Contiene info del autor y contacto
+Puede ser fijo (siempre visible abajo)
+
+
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+02 · NOVEDADES CSS
+    12 de febrero
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+
+CSS evoluciona para reemplazar JavaScript:
+- Codigo mas simple
+- Mejor rendimiento
+- Menos dependencias de JS
+- Interfaces mas accesibles
+
+1) CARRUSELES SIN JS
+scroll-snap: desliza imagenes
+overflow: navega entre elementos
+scroll-behavior: animaciones suaves
+
+2) ATRIBUTO POPOVER
+Elementos emergentes sin JS:
+- Menus, tooltips, ventanas flotantes
+Tooltip: mensaje breve al pasar el raton
+
+3) MODAL CON dialog
+Se abre con showModal()
+Control de foco automatico
+Accesibilidad integrada
+
+4) SELECT PERSONALIZADOS
+Antes imposibles de estilizar
+Nuevas APIs: estilos propios + accesibilidad
+
+5) INTEGRACION HTML + CSS
+Menos codigo, componentes accesibles
+
+
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+03 · TRANSICIONES CSS
+    17 febrero y 13 marzo
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+
+Cambio de estilo gradual, no instantaneo
+Se activa con un evento (hover, focus...)
+
+PROPIEDADES:
+transition-property:       que propiedad animar
+transition-duration:       cuanto dura
+transition-timing-function: velocidad
+transition-delay:          espera antes de empezar
+
+TIMING FUNCTIONS:
+linear:      velocidad constante
+ease:        lento > rapido > lento (defecto)
+ease-in:     empieza lento
+ease-out:    termina lento
+ease-in-out: empieza y termina lento
+
+COMO ACTIVARLA:
+Se activa dentro de pseudoclases:
+:hover, :active, :focus, :checked
+
+VARIAS PROPIEDADES:
+Separar con comas:
+transition: width 2s, height 4s, background 3s;
+Cada propiedad puede tener duracion distinta
+
+
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+04 · ANIMACIONES CSS
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+
+Animan HTML sin JavaScript
+Elemento cambia gradualmente de estilo
+Se definen con @keyframes
+
+PROPIEDADES:
+animation-name:            nombre del keyframe
+animation-duration:        duracion total (0s por defecto = no anima)
+animation-iteration-count: repeticiones
+animation-direction:       normal / reverse / alternate
+animation-fill-mode:       estado al terminar
+
+KEYFRAMES - SINTAXIS:
+@keyframes nombre {
+  from { color: red; }
+  to   { color: yellow; }
+}
+from = 0% (inicio)
+to   = 100% (fin)
+
+CON PORCENTAJES:
+0%  { background: red; }
+50% { background: blue; }
+100%{ background: yellow; }
+Permite cambios en momentos exactos
+
+VINCULAR AL ELEMENTO:
+div { animation: nombre 4s; }
+
+
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+05 · TRANSICION VS ANIMACION
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+
+INICIO:
+Transicion: necesita que cambie una propiedad
+Animacion: puede ejecutarse automaticamente
+
+COMPLEJIDAD:
+Transicion: simple
+Animacion: mas compleja
+
+ESTADOS:
+Transicion: inicio a fin (2 estados)
+Animacion: multiples pasos
+
+CUANDO USAR CADA UNA:
+Transicion: para reaccionar a un evento
+Animacion: para movimiento continuo o auto
+
+USOS COMUNES (ambas):
+- Efectos hover en botones
+- Menus desplegables
+- Elementos que aparecen en pantalla
+- Loaders / indicadores de carga
+- Micro-interacciones en interfaces
+
+
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+06 · HISTORIA DE INTERNET
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+
+LINEA TEMPORAL:
+1969: ARPANET (Dpto. Defensa EE.UU.)
+1971: Primer email (Ray Tomlinson)
+1983: TCP/IP se convierte en estandar
+1989: Tim Berners-Lee propone la WWW
+1991: Primera pagina web publica
+1993: NCSA Mosaic (1er navegador grafico)
+1998: Se funda Google
+2004: Web 2.0 y redes sociales
+
+CONCEPTOS CLAVE:
+ARPANET:          red militar, precursora de Internet
+TCP/IP:           protocolo estandar de comunicacion
+Paquetes de datos: info dividida en trozos
+Servidor:         almacena y sirve informacion
+Cliente:          accede a la info (navegador)
+
+EVOLUCION DE LA WEB:
+Web 1.0: solo lectura, paginas estaticas
+Web 2.0: escritura, redes sociales
+Web 3.0: descentralizada, blockchain, IA
+
+
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+07 · LA WORLD WIDE WEB
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+
+Creada por Tim Berners-Lee en 1989
+Lugar: CERN (Suiza)
+
+LOS 3 PILARES DE LA WWW:
+1. HTML:  estructura el contenido
+2. URL:   direccion unica de cada recurso
+3. HTTP:  protocolo de transferencia de datos
+
+HTML:
+HyperText Markup Language
+Define titulos, parrafos, enlaces, imagenes
+
+URL:
+Uniform Resource Locator
+Partes: protocolo + dominio + ruta
+Ejemplo: https://www.ejemplo.com/pagina.html
+
+HTTP vs HTTPS:
+HTTP:  protocolo de comunicacion base
+HTTPS: version segura con cifrado SSL/TLS
+Hoy casi todo usa HTTPS
+
+VERSIONES DE LA WEB:
+Web 1.0: 1990-2004, solo lectura
+Web 2.0: 2004-hoy, lectura y escritura
+Web 3.0: en desarrollo, descentralizada
+
+
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+08 · PSEUDO-CLASES CSS  (:)
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+
+Seleccionan elementos por ESTADO o POSICION
+Usan : (un punto)
+No crean nada, solo filtran
+
+ESTADO:
+:hover      - al pasar el raton
+:focus      - cuando tiene el foco
+:active     - mientras se hace clic
+:visited    - enlace ya visitado
+:checked    - checkbox marcado
+:disabled   - elemento deshabilitado
+:enabled    - elemento habilitado
+
+POSICION:
+:first-child      - primer hijo
+:last-child       - ultimo hijo
+:nth-child(n)     - el enésimo hijo
+:nth-child(odd)   - hijos impares
+:nth-child(even)  - hijos pares
+:first-of-type    - primero de su tipo
+:last-of-type     - ultimo de su tipo
+:only-child       - unico hijo (sin hermanos)
+
+FUNCIONALES:
+:not(.clase)       - excluye esa clase
+:is(h1, h2, h3)   - agrupa selectores
+:where(h1, h2)    - igual pero especificidad 0
+:has(img)         - si contiene ese elemento
+
+
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+09 · PSEUDO-ELEMENTOS CSS  (::)
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+
+Crean elementos virtuales (no existen en HTML)
+Diferencia: :: crea / : selecciona
+
+CONTENIDO (requieren "content"):
+::before  - inserta ANTES del elemento
+::after   - inserta DESPUES del elemento
+Ejemplo: .aviso::before { content: "!"; }
+content puede ser: "", "texto", emoji
+
+TEXTO:
+::first-line   - solo la primera linea
+::first-letter - solo la primera letra
+
+FORMULARIO:
+::placeholder - estiliza el texto de ayuda
+Ejemplo: input::placeholder { color: gray; }
+
+SELECCION:
+::selection - texto seleccionado por usuario
+Ejemplo: ::selection { background: blue; }
+
+SCROLL MODERNO:
+::scroll-button() - botones en carrusel CSS
+::scroll-marker   - puntos de posicion
+:target-current   - punto activo
+
+REGLA CLAVE:
+before y after SIEMPRE necesitan content
+
+
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+10 · CARRUSEL CSS MODERNO
+    (Chrome 135+, sin JavaScript)
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+
+PROPIEDADES CLAVE:
+overflow-x: auto
+scroll-snap-type: x mandatory
+scroll-snap-align: center
+
+CONTENEDOR:
+display: flex
+overflow-x: auto
+scroll-snap-type: x mandatory
+
+ITEMS:
+flex: 0 0 auto  (no estira, no encoge)
+scroll-snap-align: center
+
+SNAP TYPE:
+x         = horizontal
+mandatory = siempre encaja
+proximity = solo si esta cerca
+
+VENTAJAS VS JAVASCRIPT:
+Accesibilidad automatica
+Mejor rendimiento
+Menos codigo
+Touch-friendly incluido
+
+
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+11 · CARRUSEL: BOTONES Y MARCADORES CSS
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+
+BOTONES DE NAVEGACION (solo CSS):
+::scroll-button(left)
+::scroll-button(right)
+
+Ejemplo:
+  &::scroll-button(left) {
+    content: "Atras";
+    left: 10px;
+  }
+
+MARCADORES (puntos de posicion):
+scroll-marker-group: after
+Activa los marcadores en el contenedor
+
+Cada item tiene su marcador:
+  li::scroll-marker {
+    content: ' ';
+    width: 10px;
+    height: 10px;
+    border-radius: 50%;
+    background: #ccc;
+  }
+
+PUNTO ACTIVO:
+  li::scroll-marker:target-current {
+    background: #3498db;
+  }
+
+
+╚══════════════════════════════════════════════════════════════════╝
