@@ -18,7 +18,26 @@
       "WebFetch(domain:ollama.com)",
       "WebFetch(domain:docs.ollama.com)",
       "Bash(cd:*)",
-      "Bash(javac:*)"
+      "Bash(javac:*)",
+      "Bash(for f in \"D:/clases/CFGS-DAW/LenguajeDeMarca/Apuntes/EZSheet/HTML2/\"*.txt)",
+      "Bash(do echo \"=== $f ===\")",
+      "Read(//d/clases/CFGS-DAW/**)",
+      "Bash(done)",
+      "Bash(winget:*)",
+      "Bash(choco install:*)",
+      "Bash(curl:*)",
+      "Read(//c/Users/Levi/**)",
+      "Bash(unzip -o poppler.zip -d poppler)",
+      "Bash(export:*)",
+      "Bash(\"/c/Users/Levi/poppler/poppler-24.08.0/Library/bin/pdftoppm.exe\":*)",
+      "Bash(powershell.exe:*)",
+      "Bash(PATH=\"$PATH:/c/Users/Levi/poppler/poppler-24.08.0/Library/bin\" pdftoppm:*)",
+      "Bash(~/.ssh/config:*)",
+      "Bash(sshpass:*)",
+      "Bash(ls:*)",
+      "Bash(ssh imac:*)",
+      "Bash(ssh-keyscan:*)",
+      "Bash(ssh:*)"
     ]
   }
 }
