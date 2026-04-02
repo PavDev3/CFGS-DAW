@@ -1,5 +1,19 @@
-Esta es su nueva *bóveda*.
+# Bienvenido a la Vault de CFGS-DAW
 
-Cree una nota de algo, [[cree un enlace]], o pruebe [el Importador](https://help.obsidian.md/Plugins/Importer)!
+Esta bóveda contiene los apuntes y recursos de todas las asignaturas del ciclo.
 
-Cuando esté listo, borre esta nota y aprópiese de la bóveda
+---
+
+## Asignaturas
+
+| Asignatura | Índice |
+|---|---|
+| 🗄️ Bases de Datos | [[BBDD/BBDD]] |
+| 💻 Programación & Java | [[Programacion/Programacion]] |
+| 🌐 Lenguaje de Marca | [[LenguajeDeMarca/LenguajeDeMarca]] |
+| 🖥️ Sistemas | [[Sistemas/Sistemas]] |
+| 🔒 Ciberseguridad | [[Ciberseguridad/Ciberseguridad]] |
+| 📱 Digitalización | [[Digitalizacion/Digitalizacion]] |
+| 📋 ENDES | [[ENDES/ENDES]] |
+| 💼 IPE | [[IPE/IPE]] |
+| 🌱 Sostenibilidad | [[Sostenibilidad/Sostenibilidad]] |
