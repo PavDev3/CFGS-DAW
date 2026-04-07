@@ -498,3 +498,27 @@ Modo puente inestable en WiFi
 - [ ] Windows: IP estatica `10.10.10.20/24`
 - [ ] Ping `10.10.10.10` <-> `10.10.10.20`
 - [ ] WAN: DSL vs FTTH vs WiMAX
+
+
+## Preguntas para examen
+
+TEST:
+1. ¿Qué modo VirtualBox asigna IP 10.0.2.x sin ser visible en LAN?
+a) Adaptador Puente  c) NAT ✓
+b) Red Interna       d) Host-Only
+
+2. ¿Qué comando aplica Netplan definitivamente?
+a) netplan restart   c) netplan apply ✓
+b) netplan try       d) systemctl reload network
+
+3. ¿Dónde está el fichero de configuración de Netplan?
+a) /etc/network/interfaces   c) /etc/network/netplan/
+b) /etc/netplan/ ✓           d) /usr/share/netplan/
+
+4. ¿Qué tecnología WAN usa fibra hasta el domicilio?
+a) DSL      c) FTTH ✓
+b) WiMAX    d) ADSL
+
+5. ¿Qué comando muestra las rutas en Linux?
+a) route -a       c) ip r ✓ 
+b) netstat -r     d) ifconfig -r

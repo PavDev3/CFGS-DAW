@@ -5,3 +5,6 @@
 /bin/
 .project
 .cursorignore
+.obsidian
+.sfdx
+Obsidian/.obsidian
