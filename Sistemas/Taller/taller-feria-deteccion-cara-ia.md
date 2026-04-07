@@ -3,7 +3,7 @@
 
 **Público objetivo:** Alumnos de 16 años (4º ESO / 1º Bachillerato)
 **Duración:** 10–15 minutos por turno
-**Dificultad para el visitante:** Ninguna — solo observan e interactúan
+**Dificultad para el visitante:** Ninguna — solo interactúan con la cámara
 
 ---
 
@@ -11,114 +11,106 @@
 
 Demostrar en tiempo real cómo una aplicación web puede detectar caras, gestos y expresiones usando la cámara del ordenador, **sin instalar nada**, directamente en el navegador.
 
-El visitante ve su propia cara siendo analizada por IA en tiempo real. El impacto es inmediato y genera preguntas. El mensaje de fondo: *"Esto lo aprenderás a hacer tú en 1º de DAW."*
+El visitante ve su propia cara siendo analizada por IA en tiempo real, puede jugar con filtros AR y competir en minijuegos. El mensaje de fondo: *"Esto lo aprenderás a hacer tú en 1º de DAW."*
+
+---
+
+## Qué hace la aplicación
+
+### Detección facial base
+- **468 puntos faciales** en tiempo real (MediaPipe FaceMesh)
+- Hasta 4 caras simultáneas
+- Detección de pestañeos (algoritmo EAR — Eye Aspect Ratio)
+- Detección de sonrisa (ratio de elevación de comisuras)
+- Detección de boca abierta (MAR — Mouth Aspect Ratio)
+- Detección de guiños (ojo izquierdo / derecho independientes)
+- Badge de emoción automático: 😂 Carcajada / 😮 Sorprendido / 😄 Sonriendo
+
+### Filtros AR (activables individualmente)
+
+| Filtro | Descripción |
+|---|---|
+| 🕸️ Malla | 468 puntos de la malla facial con colores por zona |
+| 🕶️ Gafas | Gafas de sol AR ajustadas a los iris (posición dinámica) |
+| 🎩 Sombrero | Sombrero de copa proporcional al tamaño de la cara |
+| 😄 Sonrisa | Detector con indicador visual |
+| 😮 Boca | Detector de boca abierta con indicador |
+| 🌈 Fondo | Fondo cambia de color según el número de caras detectadas |
+
+### Minijuegos (panel lateral)
+
+#### 🎯 Simón Dice
+Te pide un gesto aleatorio. Tienes 3.5 segundos para hacerlo. La barra de tiempo cambia de verde a rojo. Puntuación acumulada por gestos correctos.
+
+Gestos posibles:
+- 😄 Sonríe
+- 😮 Abre la boca
+- 😉 Guiña el ojo izquierdo
+- 😉 Guiña el ojo derecho
+- 😑 Cierra los dos ojos
+
+#### 🧊 No te muevas
+Fija tu posición al pulsar Iniciar. Tienes 100 puntos que van bajando según cuánto te muevas. Barra visual verde → rojo. Game Over al llegar a 0.
+
+#### 👁️ Sin pestañear
+Cronómetro que mide cuántos segundos aguantas sin pestañear. Se reinicia automáticamente al detectar un pestañeo. Guarda el récord de la sesión.
+
+#### ⚔️ Duelo 2P
+Dos personas frente a la cámara. 30 segundos de cuenta atrás. Contador independiente de pestañeos por cara. Quien más pestañee... **pierde**. Declara ganador y perdedor al terminar.
+
+---
+
+## Layout de la interfaz
+
+```
+┌─────────────────────────┬──────────────────────┐
+│                         │  ⚡ JUEGOS            │
+│     CÁMARA EN VIVO      │  ─────────────────── │
+│     (560×420 px)        │  ⏹ Sin juego         │
+│                         │  🎯 Simón Dice  ◀    │
+│  [filtros AR activos]   │  🧊 No te muevas     │
+│                         │  👁️ Sin pestañear    │
+├─────────────────────────│  ⚔️ Duelo 2P         │
+│ 🕸️ 🕶️ 🎩 😄 😮 🌈    │  ─────────────────── │
+├─────────────────────────│  [contenido del      │
+│ CARAS PESTAÑEOS 😄 😮   │   juego activo]      │
+└─────────────────────────┴──────────────────────┘
+```
 
 ---
 
 ## Concepto técnico
 
-La demo usa **MediaPipe Face Mesh** (Google), una biblioteca de IA que funciona en el navegador con JavaScript. Detecta hasta 468 puntos del rostro en tiempo real a través de la webcam.
-
-No requiere backend, no sube datos a ningún servidor. Todo ocurre en local, en el navegador.
+La demo usa **MediaPipe FaceMesh** (Google), una biblioteca de IA que funciona 100% en el navegador con JavaScript. No requiere backend ni sube datos a ningún servidor.
 
 ### Tecnologías usadas
 
 | Tecnología | Rol |
 |---|---|
 | HTML5 + CSS | Estructura y diseño de la página |
-| JavaScript (vanilla) | Lógica de la aplicación |
-| MediaPipe FaceMesh | Modelo de IA para detección facial |
-| Canvas API | Dibujo de los puntos sobre el vídeo |
-| Webcam (getUserMedia) | Captura de vídeo en tiempo real |
+| JavaScript (vanilla) | Lógica AR, algoritmos EAR/MAR, juegos |
+| MediaPipe FaceMesh | Modelo de IA para detección facial (CDN) |
+| Canvas API | Dibujo de puntos y filtros AR sobre el vídeo |
+| getUserMedia | Captura de vídeo en tiempo real |
 
----
+### Algoritmos clave
 
-## Demo: funcionamiento
+**EAR (Eye Aspect Ratio)** — Detecta pestañeos y guiños:
+```
+EAR = (dist_vertical_1 + dist_vertical_2) / (2 × dist_horizontal)
+Si EAR < 0.22 durante ≥ 2 frames → ojo cerrado
+```
 
-1. La página abre la cámara del ordenador
-2. MediaPipe analiza cada fotograma en tiempo real
-3. Se dibujan los 468 puntos del mapa facial sobre la imagen
-4. Efectos adicionales opcionales:
-   - Cambio de color de fondo según la emoción detectada
-   - Contador de parpadeos
-   - Dibujo de máscara o filtro encima de la cara
+**MAR (Mouth Aspect Ratio)** — Detecta boca abierta:
+```
+MAR = dist(labio_superior, labio_inferior) / dist(comisura_izq, comisura_dcha)
+Si MAR > 0.5 → boca abierta
+```
 
-### Código base (HTML + JS)
-
-```html
-<!DOCTYPE html>
-<html lang="es">
-<head>
-  <meta charset="UTF-8">
-  <title>Hackea tu cara con IA</title>
-  <style>
-    body { margin: 0; background: #111; display: flex; justify-content: center; align-items: center; height: 100vh; flex-direction: column; }
-    h1 { color: #00ff88; font-family: monospace; font-size: 1.5rem; margin-bottom: 1rem; }
-    .container { position: relative; }
-    video { display: block; transform: scaleX(-1); border-radius: 12px; }
-    canvas { position: absolute; top: 0; left: 0; transform: scaleX(-1); }
-    p { color: #aaa; font-family: monospace; margin-top: 0.5rem; text-align: center; font-size: 0.9rem; }
-  </style>
-</head>
-<body>
-  <h1>🎭 Hackea tu cara con IA</h1>
-  <div class="container">
-    <video id="video" width="640" height="480" autoplay playsinline></video>
-    <canvas id="canvas" width="640" height="480"></canvas>
-  </div>
-  <p>468 puntos · tiempo real · solo con JavaScript · hecho en DAW</p>
-
-  <!-- MediaPipe desde CDN, sin instalación -->
-  <script src="https://cdn.jsdelivr.net/npm/@mediapipe/camera_utils/camera_utils.js"></script>
-  <script src="https://cdn.jsdelivr.net/npm/@mediapipe/drawing_utils/drawing_utils.js"></script>
-  <script src="https://cdn.jsdelivr.net/npm/@mediapipe/face_mesh/face_mesh.js"></script>
-
-  <script>
-    const video = document.getElementById('video');
-    const canvas = document.getElementById('canvas');
-    const ctx = canvas.getContext('2d');
-
-    const faceMesh = new FaceMesh({
-      locateFile: (file) => `https://cdn.jsdelivr.net/npm/@mediapipe/face_mesh/${file}`
-    });
-
-    faceMesh.setOptions({
-      maxNumFaces: 2,
-      refineLandmarks: true,
-      minDetectionConfidence: 0.5,
-      minTrackingConfidence: 0.5
-    });
-
-    faceMesh.onResults((results) => {
-      ctx.clearRect(0, 0, canvas.width, canvas.height);
-
-      if (results.multiFaceLandmarks) {
-        for (const landmarks of results.multiFaceLandmarks) {
-          // Dibuja los puntos del mapa facial
-          drawConnectors(ctx, landmarks, FACEMESH_TESSELATION,
-            { color: '#00FF8855', lineWidth: 1 });
-          drawConnectors(ctx, landmarks, FACEMESH_RIGHT_EYE,
-            { color: '#FF3030', lineWidth: 2 });
-          drawConnectors(ctx, landmarks, FACEMESH_LEFT_EYE,
-            { color: '#30FF30', lineWidth: 2 });
-          drawConnectors(ctx, landmarks, FACEMESH_LIPS,
-            { color: '#E0E0FF', lineWidth: 2 });
-        }
-      }
-    });
-
-    const camera = new Camera(video, {
-      onFrame: async () => {
-        await faceMesh.send({ image: video });
-      },
-      width: 640,
-      height: 480
-    });
-
-    camera.start();
-  </script>
-</body>
-</html>
+**Smile Ratio** — Detecta sonrisa:
+```
+Mide la elevación de las comisuras de la boca relativa al centro de la cara
+Si ratio > 0.04 → sonrisa detectada
 ```
 
 ---
@@ -129,65 +121,55 @@ No requiere backend, no sube datos a ningún servidor. Todo ocurre en local, en 
 
 | Elemento | Observaciones |
 |---|---|
-| Portátil o iMac con webcam | Con Chrome o Edge actualizado |
-| Monitor externo grande (opcional) | Para que se vea desde lejos — efecto llamada |
-| Cartel impreso o pantalla secundaria | Con el QR y el mensaje del taller |
-| Conexión a Internet | Solo para cargar las librerías de CDN la primera vez |
+| Portátil o iMac con webcam | Chrome o Edge actualizado |
+| Monitor externo grande (opcional) | Para efecto llamada desde lejos |
+| Conexión a Internet | Solo para cargar MediaPipe desde CDN la 1ª vez |
 
-> **Sin Internet:** Descargar los archivos de MediaPipe y servirlos en local con `python3 -m http.server 8080`.
+> **Sin Internet:** Descargar archivos de MediaPipe localmente y servirlos con `python3 -m http.server 8080`.
 
 ### Preparación previa
 
-1. Abrir el archivo `index.html` en Chrome/Edge
+1. Abrir `index.html` en Chrome/Edge
 2. Aceptar permisos de cámara
-3. Verificar que los puntos se dibujan correctamente
-4. (Opcional) Conectar monitor externo en modo espejo para pantalla grande
+3. Verificar que los puntos faciales se dibujan correctamente
+4. Dejar activos todos los filtros AR (estado por defecto)
 
 ---
 
-## Guion del monitor (cómo explicarlo)
+## Guion del monitor
 
 **[Al acercarse alguien]**
-> "¿Has visto alguna vez cómo funciona el filtro de Snapchat o Instagram? Esto es exactamente lo mismo, pero hecho por nosotros con JavaScript. Mira — ponte delante."
+> "¿Has visto los filtros de Instagram o Snapchat? Esto es exactamente lo mismo, pero hecho por nosotros con JavaScript. Mira — ponte delante."
 
 **[Mientras ven la demo]**
-> "Está detectando 468 puntos de tu cara en tiempo real. Todo esto corre en el navegador, sin ninguna app instalada. Nosotros aprendemos a hacer esto en el primer año del grado."
+> "Está detectando 468 puntos de tu cara en tiempo real. Las gafas y el sombrero se ajustan solos a donde están tus ojos y tu cabeza. También cuenta los pestañeos — mira, pestañea."
+
+**[Para engancharlo más]**
+> "¿Quieres jugar? Tenemos un juego de Simón Dice que te pide gestos, uno de aguantar sin pestañear, y un duelo con otro visitante."
 
 **[Para cerrar]**
-> "Si te gusta crear cosas que la gente pueda usar desde el móvil, la web o cualquier pantalla, eso es exactamente lo que hacemos en Desarrollo de Aplicaciones Web."
+> "Si te gusta crear cosas así — webs, apps, juegos — eso es exactamente lo que hacemos en Desarrollo de Aplicaciones Web. En el primer año ya trabajas con esto."
 
 ---
 
-## Variantes y ampliaciones
+## Estructura de archivos
 
-| Variante | Dificultad de implementación | Impacto visual |
+```
+Sistemas/Taller/
+├── index.html                        ← Aplicación completa (abrir en Chrome)
+└── taller-feria-deteccion-cara-ia.md ← Esta documentación
+```
+
+---
+
+## Variantes avanzadas (futuras ampliaciones)
+
+| Idea | Dificultad | Descripción |
 |---|---|---|
-| Contar parpadeos en tiempo real | Media | Alto |
-| Aplicar filtro/máscara (gafas, bigote) | Media-Alta | Muy alto |
-| Detección de manos (MediaPipe Hands) | Baja (mismo stack) | Alto |
-| Cambio de color de fondo por emoción | Alta (requiere modelo adicional) | Alto |
-| Múltiples caras a la vez | Ya incluido (maxNumFaces: 2) | Medio |
-
----
-
-## Mensaje para el visitante
-
-> **"En DAW aprendes a construir esto."**
->
-> No solo a usarlo. A programarlo, modificarlo, desplegarlo y publicarlo en Internet.
-> El grado dura 2 años. En el primero ya trabajas con JavaScript, Java, bases de datos y redes.
-> En el segundo haces prácticas en empresa.
-
----
-
-## Archivos del proyecto
-
-```
-taller-feria-ia/
-├── index.html          ← Demo principal (código en este documento)
-├── README.md           ← Este archivo
-└── offline/            ← (Opcional) librerías MediaPipe descargadas para usar sin Internet
-```
+| Esquivar objetos con la cabeza | Media | La posición de la nariz controla un personaje |
+| Detección de manos | Baja | MediaPipe Hands, mismo stack |
+| Emociones reales (CNN) | Alta | Modelo de clasificación sobre los puntos |
+| Multijugador en red | Alta | Socket.io + dos navegadores |
 
 ---
 
