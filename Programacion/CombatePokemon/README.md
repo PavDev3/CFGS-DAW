@@ -19,7 +19,7 @@ Pantalla del juego
        |
   [Captura de pantalla - mss/pyautogui]
        |
-  [Capa de Vision - Qwen2.5-VL 14B via Ollama]
+  [Capa de Vision - Qwen2.5-VL 32B via Ollama]
   Extrae el estado: HP, Pokemon en juego, movimientos disponibles
        |
   [Capa de Conocimiento - PokeAPI / Base de datos local]
@@ -101,7 +101,7 @@ CombatePokemon/
 ## Plan de desarrollo por fases
 
 ### Fase 1 — Fundamentos (1-2 dias)
-- [ ] Configurar Ollama con Qwen2.5-VL 14B
+- [ ] Configurar Ollama con Qwen2.5-VL 32B
 - [ ] Script de captura de pantalla del juego
 - [ ] Enviar screenshot al modelo y recibir descripcion del estado
 - [ ] Simular pulsaciones de teclas basicas
@@ -159,7 +159,7 @@ CombatePokemon/
 ## Requisitos previos
 
 - Python 3.11+
-- Ollama instalado con modelo `qwen2.5vl:14b`
+- Ollama instalado con modelo `qwen2.5vl:32b`
 - Pokemon Anil instalado en PC
 - RTX 4090 con drivers actualizados
 
@@ -168,7 +168,7 @@ CombatePokemon/
 pip install -r requirements.txt
 
 # Descargar modelo
-ollama pull qwen2.5-vl:14b
+ollama pull qwen2.5-vl:32b
 
 # Ejecutar la IA
 python src/main.py
