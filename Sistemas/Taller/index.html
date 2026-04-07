@@ -16,204 +16,172 @@
       align-items: center;
       min-height: 100vh;
       padding: 1.2rem 1rem;
-      transition: background 0.4s;
+      transition: background 0.5s;
     }
 
-    header {
-      text-align: center;
-      margin-bottom: 1rem;
-    }
-
+    header { text-align: center; margin-bottom: 0.8rem; }
     header h1 {
-      font-size: 1.9rem;
+      font-size: 1.8rem;
       color: #00ff88;
       text-shadow: 0 0 20px #00ff8866;
       letter-spacing: 2px;
     }
+    header p { color: #555; font-size: 0.78rem; margin-top: 0.2rem; }
 
-    header p { color: #666; font-size: 0.8rem; margin-top: 0.3rem; }
-
+    /* ── Video ── */
     .container {
       position: relative;
-      border-radius: 16px;
+      border-radius: 14px;
       overflow: hidden;
       box-shadow: 0 0 40px #00ff8833;
       border: 1px solid #00ff8844;
     }
-
-    video {
-      display: block;
-      transform: scaleX(-1);
-      width: 640px;
-      max-width: 100%;
-    }
-
-    canvas {
-      position: absolute;
-      top: 0; left: 0;
-      transform: scaleX(-1);
-      width: 100%; height: 100%;
-    }
+    video { display: block; transform: scaleX(-1); width: 640px; max-width: 100%; }
+    canvas { position: absolute; top:0; left:0; transform: scaleX(-1); width:100%; height:100%; }
 
     .overlay-text {
-      position: absolute;
-      bottom: 10px; left: 50%;
-      transform: translateX(-50%);
-      background: #00000088;
-      color: #00ff88;
-      font-size: 0.7rem;
-      padding: 3px 12px;
-      border-radius: 20px;
-      letter-spacing: 1px;
-      white-space: nowrap;
+      position: absolute; bottom: 10px; left: 50%; transform: translateX(-50%);
+      background: #00000088; color: #00ff88;
+      font-size: 0.7rem; padding: 3px 12px; border-radius: 20px;
+      letter-spacing: 1px; white-space: nowrap; pointer-events: none;
     }
 
     .blink-flash {
-      position: absolute;
-      inset: 0;
-      pointer-events: none;
-      border: 3px solid #00ff88;
-      border-radius: 16px;
-      opacity: 0;
+      position: absolute; inset: 0; pointer-events: none;
+      border: 3px solid #00ff88; border-radius: 14px; opacity: 0;
     }
     .blink-flash.active { opacity: 1; transition: none; }
     .blink-flash.fade   { opacity: 0; transition: opacity 0.15s; }
 
-    /* ── Controls ── */
+    /* ── AR toggles ── */
     .controls {
-      margin-top: 0.9rem;
-      display: flex;
-      gap: 0.5rem;
-      flex-wrap: wrap;
-      justify-content: center;
+      margin-top: 0.7rem;
+      display: flex; gap: 0.4rem; flex-wrap: wrap; justify-content: center;
     }
-
     .ctrl-btn {
-      background: #111;
-      border: 1px solid #333;
-      color: #666;
-      font-family: 'Courier New', monospace;
-      font-size: 0.75rem;
-      padding: 5px 12px;
-      border-radius: 20px;
-      cursor: pointer;
-      letter-spacing: 0.5px;
-      transition: all 0.2s;
-      user-select: none;
+      background: #111; border: 1px solid #333; color: #555;
+      font-family: 'Courier New', monospace; font-size: 0.72rem;
+      padding: 4px 11px; border-radius: 20px; cursor: pointer;
+      transition: all 0.2s; user-select: none;
     }
+    .ctrl-btn.on { border-color: #00ff8866; color: #00ff88; background: #00ff8811; }
 
-    .ctrl-btn.on {
-      border-color: #00ff8866;
-      color: #00ff88;
-      background: #00ff8811;
-    }
-
-    .ctrl-btn:hover { opacity: 0.8; }
-
-    /* ── Stats grid ── */
+    /* ── Stats ── */
     .stats-grid {
-      margin-top: 0.9rem;
-      display: grid;
-      grid-template-columns: repeat(4, auto);
-      gap: 0.8rem;
-      justify-content: center;
+      margin-top: 0.8rem;
+      display: flex; gap: 0.6rem; flex-wrap: wrap; justify-content: center;
     }
-
     .stat-box {
-      background: #111;
-      border: 1px solid #00ff8822;
-      border-radius: 10px;
-      padding: 0.5rem 1rem;
-      text-align: center;
-      min-width: 80px;
+      background: #111; border: 1px solid #00ff8822;
+      border-radius: 10px; padding: 0.45rem 0.9rem;
+      text-align: center; min-width: 72px;
     }
-
-    .stat-box .val {
-      font-size: 1.6rem;
-      color: #00ff88;
-      line-height: 1;
-    }
-
-    .stat-box .lbl {
-      font-size: 0.6rem;
-      color: #444;
-      letter-spacing: 1px;
-      margin-top: 2px;
-    }
-
-    .stat-box.alert .val { color: #ff4466; text-shadow: 0 0 10px #ff446688; }
+    .stat-box .val { font-size: 1.5rem; color: #00ff88; line-height: 1; }
+    .stat-box .lbl { font-size: 0.58rem; color: #444; letter-spacing: 1px; margin-top: 2px; }
     .stat-box.warn  .val { color: #ffaa00; }
+    .stat-box.alert .val { color: #ff4466; }
 
-    /* ── Blink reset ── */
-    .blink-row {
-      margin-top: 0.6rem;
-      display: flex;
-      align-items: center;
-      gap: 1rem;
-    }
-
+    .blink-row { margin-top: 0.5rem; display: flex; gap: 0.8rem; align-items: center; }
     .reset-btn {
-      background: transparent;
-      border: 1px solid #00ff8844;
-      color: #00ff8888;
-      font-family: 'Courier New', monospace;
-      font-size: 0.75rem;
-      padding: 4px 14px;
-      border-radius: 8px;
-      cursor: pointer;
-      transition: all 0.2s;
+      background: transparent; border: 1px solid #00ff8844; color: #00ff8888;
+      font-family: 'Courier New', monospace; font-size: 0.72rem;
+      padding: 3px 12px; border-radius: 8px; cursor: pointer; transition: all 0.2s;
     }
+    .reset-btn:hover { background: #00ff8822; color: #00ff88; }
 
-    .reset-btn:hover {
-      background: #00ff8822;
-      color: #00ff88;
-    }
+    #emotionBadge { margin-top: 0.5rem; font-size: 1.1rem; min-height: 1.4rem; color: #00ff88; text-align: center; }
+    #status { margin-top: 0.3rem; font-size: 0.72rem; color: #444; min-height: 1em; }
 
-    /* ── Status / emotion badge ── */
-    #emotionBadge {
-      margin-top: 0.6rem;
-      font-size: 1.2rem;
-      min-height: 1.6rem;
-      letter-spacing: 1px;
-      color: #00ff88;
-      text-align: center;
-    }
-
-    #status {
-      margin-top: 0.4rem;
-      font-size: 0.75rem;
-      color: #444;
-      min-height: 1em;
-    }
-
-    /* ── Feature tags ── */
-    .features {
+    /* ── Game section ── */
+    .game-section {
       margin-top: 1rem;
-      display: flex;
-      gap: 0.5rem;
-      flex-wrap: wrap;
-      justify-content: center;
-      max-width: 640px;
+      width: 640px; max-width: 100%;
+      background: #0d0d14;
+      border: 1px solid #00ff8833;
+      border-radius: 14px;
+      padding: 1rem;
     }
 
-    .ftag {
-      background: #111;
-      border: 1px solid #00ff8818;
-      color: #00ff8877;
-      font-size: 0.68rem;
-      padding: 2px 9px;
-      border-radius: 20px;
+    .game-title {
+      color: #00ff8899; font-size: 0.7rem; letter-spacing: 2px;
+      text-transform: uppercase; margin-bottom: 0.7rem; text-align: center;
     }
+
+    .game-modes {
+      display: flex; gap: 0.4rem; flex-wrap: wrap; justify-content: center;
+      margin-bottom: 0.8rem;
+    }
+
+    .mode-btn {
+      background: #111; border: 1px solid #333; color: #555;
+      font-family: 'Courier New', monospace; font-size: 0.72rem;
+      padding: 5px 13px; border-radius: 8px; cursor: pointer; transition: all 0.2s;
+    }
+    .mode-btn.active { border-color: #00ff88; color: #00ff88; background: #00ff8815; }
+    .mode-btn:hover  { opacity: 0.8; }
+
+    /* ── Simon Says ── */
+    #simonPanel { display: none; text-align: center; }
+    .simon-challenge {
+      font-size: 1.8rem; font-weight: bold; letter-spacing: 2px;
+      color: #fff; min-height: 2.4rem; margin: 0.4rem 0;
+      text-shadow: 0 0 20px #ffffff44;
+    }
+    .simon-timer-bar {
+      width: 100%; height: 8px; background: #222;
+      border-radius: 4px; overflow: hidden; margin: 0.4rem 0;
+    }
+    .simon-timer-fill {
+      height: 100%; background: #00ff88;
+      transition: width 0.1s linear;
+      border-radius: 4px;
+    }
+    .simon-score { font-size: 2.5rem; color: #00ff88; margin: 0.2rem 0; }
+    .simon-result { font-size: 1rem; min-height: 1.4rem; color: #ffaa00; }
+    .game-start-btn {
+      margin-top: 0.6rem;
+      background: #00ff8822; border: 1px solid #00ff88; color: #00ff88;
+      font-family: 'Courier New', monospace; font-size: 0.85rem;
+      padding: 7px 24px; border-radius: 8px; cursor: pointer;
+      letter-spacing: 1px; transition: all 0.2s;
+    }
+    .game-start-btn:hover { background: #00ff8844; }
+
+    /* ── No te muevas ── */
+    #movePanel { display: none; text-align: center; }
+    .move-score { font-size: 2.5rem; color: #00ff88; margin: 0.3rem 0; }
+    .move-status { font-size: 1.2rem; min-height: 1.6rem; }
+    .move-bar-wrap { width: 100%; height: 12px; background: #222; border-radius: 6px; overflow: hidden; margin: 0.5rem 0; }
+    .move-bar-fill { height: 100%; border-radius: 6px; transition: width 0.1s, background 0.3s; }
+
+    /* ── No pestañees ── */
+    #noBlinkPanel { display: none; text-align: center; }
+    .noblink-timer { font-size: 3rem; color: #00ff88; text-shadow: 0 0 20px #00ff8888; }
+    .noblink-record { font-size: 0.85rem; color: #555; margin-top: 0.3rem; }
+
+    /* ── Duelo 2P ── */
+    #duelPanel { display: none; }
+    .duel-grid {
+      display: grid; grid-template-columns: 1fr 1fr; gap: 1rem;
+      margin: 0.5rem 0;
+    }
+    .duel-player {
+      background: #111; border-radius: 10px; padding: 0.8rem;
+      text-align: center; border: 1px solid #333;
+    }
+    .duel-player.winner { border-color: #00ff88; background: #00ff8811; }
+    .duel-player.loser  { border-color: #ff4466; background: #ff446611; }
+    .duel-player .pname { font-size: 0.7rem; color: #555; letter-spacing: 1px; margin-bottom: 0.3rem; }
+    .duel-player .pblinks { font-size: 2.8rem; color: #00ff88; }
+    .duel-timer-wrap { text-align: center; }
+    .duel-timer { font-size: 2rem; color: #ffaa00; }
+    .duel-result { text-align: center; font-size: 1.1rem; color: #00ff88; min-height: 1.5rem; margin-top: 0.4rem; }
 
     footer {
-      margin-top: 1.2rem;
-      text-align: center;
-      color: #2a2a2a;
-      font-size: 0.7rem;
-      line-height: 1.9;
+      margin-top: 1.2rem; text-align: center;
+      color: #222; font-size: 0.68rem; line-height: 1.9;
     }
-
-    footer strong { color: #00ff8855; }
+    footer strong { color: #00ff8844; }
   </style>
 </head>
 <body>
@@ -223,41 +191,29 @@
     <p>Detección facial en tiempo real · Solo con JavaScript · Sin instalar nada</p>
   </header>
 
-  <div class="container" id="videoContainer">
+  <div class="container">
     <video id="video" width="640" height="480" autoplay playsinline></video>
     <canvas id="canvas" width="640" height="480"></canvas>
     <div class="overlay-text">468 puntos · tiempo real</div>
     <div class="blink-flash" id="blinkFlash"></div>
   </div>
 
-  <!-- Toggles -->
+  <!-- AR Toggles -->
   <div class="controls">
-    <button class="ctrl-btn on"  id="btnMesh"     onclick="toggle('mesh')">🕸️ Malla</button>
-    <button class="ctrl-btn on"  id="btnGlasses"  onclick="toggle('glasses')">🕶️ Gafas</button>
-    <button class="ctrl-btn on"  id="btnHat"      onclick="toggle('hat')">🎩 Sombrero</button>
-    <button class="ctrl-btn on"  id="btnSmile"    onclick="toggle('smile')">😄 Sonrisa</button>
-    <button class="ctrl-btn on"  id="btnMouth"    onclick="toggle('mouth')">😮 Boca</button>
-    <button class="ctrl-btn on"  id="btnBg"       onclick="toggle('bg')">🌈 Fondo</button>
+    <button class="ctrl-btn on" id="btnMesh"    onclick="toggle('mesh')">🕸️ Malla</button>
+    <button class="ctrl-btn on" id="btnGlasses" onclick="toggle('glasses')">🕶️ Gafas</button>
+    <button class="ctrl-btn on" id="btnHat"     onclick="toggle('hat')">🎩 Sombrero</button>
+    <button class="ctrl-btn on" id="btnSmile"   onclick="toggle('smile')">😄 Sonrisa</button>
+    <button class="ctrl-btn on" id="btnMouth"   onclick="toggle('mouth')">😮 Boca</button>
+    <button class="ctrl-btn on" id="btnBg"      onclick="toggle('bg')">🌈 Fondo</button>
   </div>
 
   <!-- Stats -->
   <div class="stats-grid">
-    <div class="stat-box">
-      <div class="val" id="faceCount">0</div>
-      <div class="lbl">CARAS</div>
-    </div>
-    <div class="stat-box" id="boxBlinks">
-      <div class="val" id="blinkCount">0</div>
-      <div class="lbl">PESTAÑEOS</div>
-    </div>
-    <div class="stat-box" id="boxSmile">
-      <div class="val" id="smileVal">-</div>
-      <div class="lbl">SONRISA</div>
-    </div>
-    <div class="stat-box" id="boxMouth">
-      <div class="val" id="mouthVal">-</div>
-      <div class="lbl">BOCA</div>
-    </div>
+    <div class="stat-box"><div class="val" id="faceCount">0</div><div class="lbl">CARAS</div></div>
+    <div class="stat-box"><div class="val" id="blinkCount">0</div><div class="lbl">PESTAÑEOS</div></div>
+    <div class="stat-box" id="boxSmile"><div class="val" id="smileVal">-</div><div class="lbl">SONRISA</div></div>
+    <div class="stat-box" id="boxMouth"><div class="val" id="mouthVal">-</div><div class="lbl">BOCA</div></div>
   </div>
 
   <div class="blink-row">
@@ -267,13 +223,66 @@
   <div id="emotionBadge"></div>
   <div id="status">Iniciando cámara...</div>
 
-  <div class="features">
-    <span class="ftag">👁️ EAR blink detection</span>
-    <span class="ftag">😄 Smile ratio</span>
-    <span class="ftag">😮 Mouth open (MAR)</span>
-    <span class="ftag">🕶️ AR glasses</span>
-    <span class="ftag">🎩 AR hat</span>
-    <span class="ftag">🌈 Dynamic bg</span>
+  <!-- ═══════════════════════════════════════════════════════ JUEGOS -->
+  <div class="game-section">
+    <div class="game-title">⚡ Juegos con tu cara</div>
+
+    <div class="game-modes">
+      <button class="mode-btn" id="modeOff"     onclick="setMode('off')">⏹ Apagar</button>
+      <button class="mode-btn" id="modeSimon"   onclick="setMode('simon')">🎯 Simón Dice</button>
+      <button class="mode-btn" id="modeMove"    onclick="setMode('move')">🧊 No te muevas</button>
+      <button class="mode-btn" id="modeNoBlink" onclick="setMode('noblink')">👁️ Sin pestañear</button>
+      <button class="mode-btn" id="modeDuel"    onclick="setMode('duel')">⚔️ Duelo 2P</button>
+    </div>
+
+    <!-- Simón Dice -->
+    <div id="simonPanel">
+      <div class="simon-result" id="simonResult">Pulsa Iniciar cuando estés listo</div>
+      <div class="simon-challenge" id="simonChallenge">—</div>
+      <div class="simon-timer-bar"><div class="simon-timer-fill" id="simonTimerFill" style="width:100%"></div></div>
+      <div>Puntuación: <span class="simon-score" id="simonScore">0</span></div>
+      <button class="game-start-btn" id="simonStartBtn" onclick="simonStart()">▶ Iniciar</button>
+    </div>
+
+    <!-- No te muevas -->
+    <div id="movePanel">
+      <div class="move-status" id="moveStatus">Pulsa Iniciar para fijar tu posición</div>
+      <div class="move-bar-wrap"><div class="move-bar-fill" id="moveBarFill" style="width:0%;background:#00ff88"></div></div>
+      <div>Puntos: <span class="move-score" id="moveScore">100</span></div>
+      <button class="game-start-btn" id="moveStartBtn" onclick="moveStart()">▶ Iniciar</button>
+    </div>
+
+    <!-- Sin pestañear -->
+    <div id="noBlinkPanel">
+      <div style="color:#555;font-size:0.8rem;margin-bottom:0.4rem">¿Cuánto aguantas sin pestañear?</div>
+      <div class="noblink-timer" id="noBlinkTimer">0.0 s</div>
+      <div class="noblink-record" id="noBlinkRecord">Récord: 0.0 s</div>
+      <button class="game-start-btn" onclick="noBlinkReset()">↺ Reiniciar récord</button>
+    </div>
+
+    <!-- Duelo 2P -->
+    <div id="duelPanel">
+      <div style="color:#555;font-size:0.8rem;text-align:center;margin-bottom:0.5rem">
+        Necesitáis 2 caras en cámara. Quien más pestañee en 30s... ¡pierde!
+      </div>
+      <div class="duel-grid">
+        <div class="duel-player" id="duelP1">
+          <div class="pname">CARA 1</div>
+          <div class="pblinks" id="duelBlinks1">0</div>
+        </div>
+        <div class="duel-player" id="duelP2">
+          <div class="pname">CARA 2</div>
+          <div class="pblinks" id="duelBlinks2">0</div>
+        </div>
+      </div>
+      <div class="duel-timer-wrap">
+        <div class="duel-timer" id="duelTimer">30</div>
+      </div>
+      <div class="duel-result" id="duelResult"></div>
+      <div style="text-align:center">
+        <button class="game-start-btn" id="duelStartBtn" onclick="duelStart()">▶ Iniciar Duelo</button>
+      </div>
+    </div>
   </div>
 
   <footer>
@@ -285,291 +294,411 @@
   <script src="https://cdn.jsdelivr.net/npm/@mediapipe/camera_utils/camera_utils.js" crossorigin="anonymous"></script>
   <script src="https://cdn.jsdelivr.net/npm/@mediapipe/drawing_utils/drawing_utils.js" crossorigin="anonymous"></script>
   <script src="https://cdn.jsdelivr.net/npm/@mediapipe/face_mesh/face_mesh.js" crossorigin="anonymous"></script>
-
   <script>
-    // ── DOM refs ──────────────────────────────────────────────────────
-    const video         = document.getElementById('video');
-    const canvas        = document.getElementById('canvas');
-    const ctx           = canvas.getContext('2d');
-    const faceCountEl   = document.getElementById('faceCount');
-    const blinkCountEl  = document.getElementById('blinkCount');
-    const smileValEl    = document.getElementById('smileVal');
-    const mouthValEl    = document.getElementById('mouthVal');
-    const statusEl      = document.getElementById('status');
-    const blinkFlash    = document.getElementById('blinkFlash');
-    const emotionBadge  = document.getElementById('emotionBadge');
-    const boxSmile      = document.getElementById('boxSmile');
-    const boxMouth      = document.getElementById('boxMouth');
+  // ══════════════════════════════════════════════════════════════════
+  //  DOM
+  // ══════════════════════════════════════════════════════════════════
+  const video        = document.getElementById('video');
+  const canvas       = document.getElementById('canvas');
+  const ctx          = canvas.getContext('2d');
+  const faceCountEl  = document.getElementById('faceCount');
+  const blinkCountEl = document.getElementById('blinkCount');
+  const smileValEl   = document.getElementById('smileVal');
+  const mouthValEl   = document.getElementById('mouthVal');
+  const statusEl     = document.getElementById('status');
+  const blinkFlash   = document.getElementById('blinkFlash');
+  const emotionBadge = document.getElementById('emotionBadge');
+  const boxSmile     = document.getElementById('boxSmile');
+  const boxMouth     = document.getElementById('boxMouth');
 
-    // ── Feature flags ─────────────────────────────────────────────────
-    const feats = { mesh: true, glasses: true, hat: true, smile: true, mouth: true, bg: true };
+  // ══════════════════════════════════════════════════════════════════
+  //  AR feature flags
+  // ══════════════════════════════════════════════════════════════════
+  const feats = { mesh:true, glasses:true, hat:true, smile:true, mouth:true, bg:true };
+  function toggle(key) {
+    feats[key] = !feats[key];
+    document.getElementById('btn'+key[0].toUpperCase()+key.slice(1))
+            .classList.toggle('on', feats[key]);
+    if (key==='bg' && !feats.bg) document.body.style.background = '#0a0a0f';
+  }
 
-    function toggle(key) {
-      feats[key] = !feats[key];
-      document.getElementById('btn' + key.charAt(0).toUpperCase() + key.slice(1))
-              .classList.toggle('on', feats[key]);
-      if (key === 'bg' && !feats.bg) document.body.style.background = '#0a0a0f';
+  // ══════════════════════════════════════════════════════════════════
+  //  Math helpers
+  // ══════════════════════════════════════════════════════════════════
+  const dist   = (a,b) => Math.hypot(a.x-b.x, a.y-b.y);
+  const px     = (lm)  => ({ x: lm.x*canvas.width, y: lm.y*canvas.height });
+
+  function ear(lm, pts) {
+    const v1 = dist(lm[pts[1]], lm[pts[5]]);
+    const v2 = dist(lm[pts[2]], lm[pts[4]]);
+    return (v1+v2) / (2*dist(lm[pts[0]], lm[pts[3]]));
+  }
+  const L_EYE  = [362,385,387,263,373,380];
+  const R_EYE  = [33, 160,158,133,153,144];
+  const EAR_TH = 0.22;
+
+  const mar = lm => dist(lm[13],lm[14]) / (dist(lm[61],lm[291])||0.001);
+
+  function smileRatio(lm) {
+    const fh = dist(lm[1],lm[152]) || 0.001;
+    const my = (lm[1].y + lm[152].y)/2;
+    return ((my-lm[61].y) + (my-lm[291].y)) / 2 / fh;
+  }
+
+  // ══════════════════════════════════════════════════════════════════
+  //  Global face state (updated each frame, shared by all modules)
+  // ══════════════════════════════════════════════════════════════════
+  let faceState = {
+    count: 0,
+    earL: 1, earR: 1,          // primary face
+    isSmiling: false,
+    mouthOpen: false,
+    winkLeft: false,            // left eye closed, right open
+    winkRight: false,           // right eye closed, left open
+    eyesClosed: false,
+    nosePos: null,              // {x,y} normalized nose tip
+    landmarks: []               // all faces landmarks
+  };
+
+  // ══════════════════════════════════════════════════════════════════
+  //  Blink detection (primary face)
+  // ══════════════════════════════════════════════════════════════════
+  let blinkCount   = 0;
+  let eyesClosed   = false;
+  let closedFrames = 0;
+  const EAR_FRAMES = 2;
+
+  // Per-face blink tracking (for duel)
+  let faceBlinkState = [{closed:false,frames:0,count:0},{closed:false,frames:0,count:0}];
+
+  function resetBlinks() { blinkCount=0; blinkCountEl.textContent='0'; }
+
+  function checkBlink(earAvg, state) {
+    let blinked = false;
+    if (earAvg < EAR_TH) {
+      state.frames++;
+    } else {
+      if (state.frames >= EAR_FRAMES && state.closed) blinked = true;
+      state.frames = 0;
+      state.closed  = false;
     }
+    if (state.frames >= EAR_FRAMES) state.closed = true;
+    return blinked;
+  }
 
-    // ── Blink state ───────────────────────────────────────────────────
-    let blinkCount   = 0;
-    let eyesClosed   = false;
-    let closedFrames = 0;
-    const EAR_THRESH = 0.22;
-    const EAR_FRAMES = 2;
-
-    function resetBlinks() { blinkCount = 0; blinkCountEl.textContent = '0'; }
-
-    // ── Helpers ───────────────────────────────────────────────────────
-    const dist = (a, b) => Math.hypot(a.x - b.x, a.y - b.y);
-
-    function ear(lm, pts) {
-      const v1 = dist(lm[pts[1]], lm[pts[5]]);
-      const v2 = dist(lm[pts[2]], lm[pts[4]]);
-      const h  = dist(lm[pts[0]], lm[pts[3]]);
-      return (v1 + v2) / (2 * h);
+  function triggerBlink(isP1=true) {
+    blinkCount++;
+    blinkCountEl.textContent = blinkCount;
+    blinkFlash.className = 'blink-flash active';
+    setTimeout(()=>blinkFlash.className='blink-flash fade', 80);
+    setTimeout(()=>blinkFlash.className='blink-flash', 250);
+    // game callbacks
+    if (gameMode==='noblink') noBlinkOnBlink();
+    if (gameMode==='simon')   simonOnBlink();
+    if (gameMode==='duel' && duelRunning) {
+      if (isP1) { faceBlinkState[0].count++; document.getElementById('duelBlinks1').textContent=faceBlinkState[0].count; }
+      else      { faceBlinkState[1].count++; document.getElementById('duelBlinks2').textContent=faceBlinkState[1].count; }
     }
+  }
 
-    // 6-point EAR indices
-    const L_EYE = [362, 385, 387, 263, 373, 380];
-    const R_EYE = [33,  160, 158, 133, 153, 144];
+  // ══════════════════════════════════════════════════════════════════
+  //  AR draw
+  // ══════════════════════════════════════════════════════════════════
+  function drawGlasses(lm) {
+    const ri   = px(lm[468]), li = px(lm[473]);
+    const eyeW = dist(lm[33],lm[133])*canvas.width*0.6;
+    ctx.save(); ctx.globalAlpha=0.82;
+    ctx.fillStyle='#000033';
+    [ri,li].forEach(c=>{ctx.beginPath();ctx.ellipse(c.x,c.y,eyeW,eyeW*0.65,0,0,Math.PI*2);ctx.fill();});
+    ctx.strokeStyle='#00ccff'; ctx.lineWidth=2; ctx.globalAlpha=1;
+    [ri,li].forEach(c=>{ctx.beginPath();ctx.ellipse(c.x,c.y,eyeW,eyeW*0.65,0,0,Math.PI*2);ctx.stroke();});
+    ctx.beginPath();ctx.moveTo(ri.x+eyeW,ri.y);ctx.lineTo(li.x-eyeW,li.y);ctx.stroke();
+    const lEar=px(lm[234]),rEar=px(lm[454]);
+    ctx.beginPath();ctx.moveTo(li.x+eyeW,li.y);ctx.lineTo(lEar.x,lEar.y);ctx.stroke();
+    ctx.beginPath();ctx.moveTo(ri.x-eyeW,ri.y);ctx.lineTo(rEar.x,rEar.y);ctx.stroke();
+    ctx.restore();
+  }
 
-    // Mouth: top=13, bottom=14, left=61, right=291, corners height: 61,291 vs center 0
-    function mouthAspectRatio(lm) {
-      const v = dist(lm[13], lm[14]);
-      const h = dist(lm[61], lm[291]);
-      return v / h;
-    }
+  function drawHat(lm) {
+    const top=px(lm[10]),lT=px(lm[234]),rT=px(lm[454]);
+    const fW=Math.abs(rT.x-lT.x), brimW=fW*1.15, brimH=fW*0.12;
+    const hatH=fW*0.65, hatW=fW*0.72, cx=top.x, brimY=top.y-fW*0.05;
+    ctx.save();
+    ctx.fillStyle='#111'; ctx.strokeStyle='#00ff88'; ctx.lineWidth=2;
+    ctx.beginPath();ctx.ellipse(cx,brimY,brimW/2,brimH/2,0,0,Math.PI*2);ctx.fill();ctx.stroke();
+    ctx.fillRect(cx-hatW/2,brimY-hatH,hatW,hatH);ctx.strokeRect(cx-hatW/2,brimY-hatH,hatW,hatH);
+    ctx.fillStyle='#00ff8833';ctx.fillRect(cx-hatW/2,brimY-hatH*0.2,hatW,hatH*0.15);
+    ctx.restore();
+  }
 
-    // Smile: ratio of how much the mouth corners are raised relative to chin
-    // Use vertical distance of corners (61,291) from the nose tip (1)
-    function smileRatio(lm) {
-      const noseTip = lm[1];
-      const chin    = lm[152];
-      const faceH   = dist(noseTip, chin) || 0.001;
-      const lCorner = lm[61];
-      const rCorner = lm[291];
-      // lower y = higher on screen; corners raised when y < midpoint
-      const midY    = (noseTip.y + chin.y) / 2;
-      const raisedL = midY - lCorner.y;
-      const raisedR = midY - rCorner.y;
-      return ((raisedL + raisedR) / 2) / faceH;
-    }
+  const bgColors=['#0a0a0f','#0a0f18','#0f180a','#180a18','#18100a'];
 
-    // Canvas px from normalized landmark
-    function px(lm) {
-      return { x: lm.x * canvas.width, y: lm.y * canvas.height };
-    }
+  // ══════════════════════════════════════════════════════════════════
+  //  GAME MODE
+  // ══════════════════════════════════════════════════════════════════
+  let gameMode = 'off';
 
-    // ── Draw sunglasses ───────────────────────────────────────────────
-    function drawGlasses(lm) {
-      // Iris centers (refineLandmarks: right=468, left=473)
-      const ri = px(lm[468]);
-      const li = px(lm[473]);
-
-      const eyeW = dist(lm[33], lm[133]) * canvas.width * 0.6;
-
-      ctx.save();
-      ctx.globalAlpha = 0.82;
-
-      // Lens fill
-      ctx.fillStyle = '#000033';
-
-      // Right lens
-      ctx.beginPath();
-      ctx.ellipse(ri.x, ri.y, eyeW, eyeW * 0.65, 0, 0, Math.PI * 2);
-      ctx.fill();
-
-      // Left lens
-      ctx.beginPath();
-      ctx.ellipse(li.x, li.y, eyeW, eyeW * 0.65, 0, 0, Math.PI * 2);
-      ctx.fill();
-
-      // Lens rims
-      ctx.strokeStyle = '#00ccff';
-      ctx.lineWidth   = 2;
-      ctx.globalAlpha = 1;
-
-      ctx.beginPath();
-      ctx.ellipse(ri.x, ri.y, eyeW, eyeW * 0.65, 0, 0, Math.PI * 2);
-      ctx.stroke();
-
-      ctx.beginPath();
-      ctx.ellipse(li.x, li.y, eyeW, eyeW * 0.65, 0, 0, Math.PI * 2);
-      ctx.stroke();
-
-      // Bridge
-      ctx.beginPath();
-      ctx.moveTo(ri.x + eyeW, ri.y);
-      ctx.lineTo(li.x - eyeW, li.y);
-      ctx.stroke();
-
-      // Left arm (toward ear)
-      const lEar = px(lm[234]);
-      ctx.beginPath();
-      ctx.moveTo(li.x + eyeW, li.y);
-      ctx.lineTo(lEar.x, lEar.y);
-      ctx.stroke();
-
-      // Right arm (toward ear)
-      const rEar = px(lm[454]);
-      ctx.beginPath();
-      ctx.moveTo(ri.x - eyeW, ri.y);
-      ctx.lineTo(rEar.x, rEar.y);
-      ctx.stroke();
-
-      ctx.restore();
-    }
-
-    // ── Draw top hat ──────────────────────────────────────────────────
-    function drawHat(lm) {
-      // Forehead top: 10, temples: 234 (left), 454 (right)
-      const top    = px(lm[10]);
-      const leftT  = px(lm[234]);
-      const rightT = px(lm[454]);
-      const faceW  = Math.abs(rightT.x - leftT.x);
-      const brimW  = faceW * 1.15;
-      const brimH  = faceW * 0.12;
-      const hatH   = faceW * 0.65;
-      const hatW   = faceW * 0.72;
-      const cx     = top.x;
-      const brimY  = top.y - faceW * 0.05;
-
-      ctx.save();
-      ctx.fillStyle   = '#111';
-      ctx.strokeStyle = '#00ff88';
-      ctx.lineWidth   = 2;
-
-      // Brim
-      ctx.beginPath();
-      ctx.ellipse(cx, brimY, brimW / 2, brimH / 2, 0, 0, Math.PI * 2);
-      ctx.fill();
-      ctx.stroke();
-
-      // Crown
-      ctx.fillRect(cx - hatW / 2, brimY - hatH, hatW, hatH);
-      ctx.strokeRect(cx - hatW / 2, brimY - hatH, hatW, hatH);
-
-      // Hat band
-      ctx.fillStyle = '#00ff8833';
-      ctx.fillRect(cx - hatW / 2, brimY - hatH * 0.2, hatW, hatH * 0.15);
-
-      ctx.restore();
-    }
-
-    // ── Background colors per face count ─────────────────────────────
-    const bgColors = ['#0a0a0f', '#0a0f18', '#0f180a', '#180a18', '#18100a'];
-
-    // ── Blink flash ───────────────────────────────────────────────────
-    function triggerBlink() {
-      blinkCount++;
-      blinkCountEl.textContent = blinkCount;
-      blinkFlash.className = 'blink-flash active';
-      setTimeout(() => blinkFlash.className = 'blink-flash fade', 80);
-      setTimeout(() => blinkFlash.className = 'blink-flash', 250);
-    }
-
-    // ── FaceMesh ──────────────────────────────────────────────────────
-    const faceMesh = new FaceMesh({
-      locateFile: (f) => `https://cdn.jsdelivr.net/npm/@mediapipe/face_mesh/${f}`
+  function setMode(m) {
+    gameMode = m;
+    ['simon','move','noblink','duel'].forEach(id=>{
+      document.getElementById(id+'Panel').style.display = (id===m) ? 'block' : 'none';
     });
+    document.querySelectorAll('.mode-btn').forEach(b=>b.classList.remove('active'));
+    document.getElementById('mode'+m[0].toUpperCase()+m.slice(1)).classList.add('active');
+    if (m==='noblink') noBlinkStart();
+    if (m==='duel')    duelReset();
+  }
 
-    faceMesh.setOptions({
-      maxNumFaces: 4,
-      refineLandmarks: true,   // enables iris landmarks 468-477
-      minDetectionConfidence: 0.5,
-      minTrackingConfidence:  0.5
-    });
+  // ──────────────────────────────────────────────────────────────────
+  //  SIMÓN DICE
+  // ──────────────────────────────────────────────────────────────────
+  const SIMON_CHALLENGES = [
+    { text:'😄 SONRÍE',          check: ()=>faceState.isSmiling },
+    { text:'😮 ABRE LA BOCA',    check: ()=>faceState.mouthOpen },
+    { text:'😉 GUIÑA OJO IZQDO', check: ()=>faceState.winkLeft  },
+    { text:'😉 GUIÑA OJO DCHO',  check: ()=>faceState.winkRight },
+    { text:'😑 CIERRA LOS OJOS', check: ()=>faceState.eyesClosed },
+  ];
 
-    faceMesh.onResults((results) => {
-      ctx.clearRect(0, 0, canvas.width, canvas.height);
+  let simonRunning=false, simonScore=0, simonCurrent=null, simonDeadline=0, simonInterval=null;
 
-      const faces = results.multiFaceLandmarks || [];
-      faceCountEl.textContent = faces.length;
+  function simonStart() {
+    simonScore=0; simonRunning=true;
+    document.getElementById('simonScore').textContent='0';
+    document.getElementById('simonStartBtn').style.display='none';
+    simonNext();
+  }
 
-      // Dynamic background
-      if (feats.bg) {
-        document.body.style.background = bgColors[Math.min(faces.length, bgColors.length - 1)];
+  function simonNext() {
+    simonCurrent = SIMON_CHALLENGES[Math.floor(Math.random()*SIMON_CHALLENGES.length)];
+    document.getElementById('simonChallenge').textContent = simonCurrent.text;
+    document.getElementById('simonResult').textContent='';
+    simonDeadline = Date.now()+3500;
+    clearInterval(simonInterval);
+    simonInterval = setInterval(simonTick, 50);
+  }
+
+  function simonTick() {
+    if (!simonRunning) return;
+    const left = simonDeadline - Date.now();
+    const pct  = Math.max(0, left/3500*100);
+    document.getElementById('simonTimerFill').style.width = pct+'%';
+    document.getElementById('simonTimerFill').style.background = pct>40 ? '#00ff88' : pct>20 ? '#ffaa00' : '#ff4466';
+
+    if (simonCurrent.check()) {
+      simonScore++;
+      document.getElementById('simonScore').textContent=simonScore;
+      document.getElementById('simonResult').textContent='✅ ¡Bien!';
+      clearInterval(simonInterval);
+      setTimeout(simonNext, 700);
+    } else if (left<=0) {
+      document.getElementById('simonResult').textContent='❌ ¡Tiempo!';
+      document.getElementById('simonChallenge').textContent='—';
+      clearInterval(simonInterval);
+      simonRunning=false;
+      document.getElementById('simonStartBtn').style.display='inline-block';
+    }
+  }
+
+  function simonOnBlink() {
+    // blink also triggers "cierra ojos" check implicitly via faceState
+  }
+
+  // ──────────────────────────────────────────────────────────────────
+  //  NO TE MUEVAS
+  // ──────────────────────────────────────────────────────────────────
+  let moveRunning=false, moveRef=null, moveScore=100, moveInterval=null;
+
+  function moveStart() {
+    moveRef = faceState.nosePos ? {...faceState.nosePos} : null;
+    if (!moveRef) { document.getElementById('moveStatus').textContent='⚠️ Pon tu cara en cámara primero'; return; }
+    moveScore=100; moveRunning=true;
+    document.getElementById('moveScore').textContent='100';
+    document.getElementById('moveStartBtn').style.display='none';
+    document.getElementById('moveStatus').textContent='🧊 ¡No te muevas!';
+    clearInterval(moveInterval);
+    moveInterval = setInterval(moveTick, 100);
+  }
+
+  function moveTick() {
+    if (!moveRunning || !faceState.nosePos || !moveRef) return;
+    const d = Math.hypot(faceState.nosePos.x-moveRef.x, faceState.nosePos.y-moveRef.y);
+    const pct = Math.min(d/0.15, 1);  // 0.15 normalized = ~96px
+    const penalty = pct * 3;
+    moveScore = Math.max(0, moveScore - penalty);
+    document.getElementById('moveScore').textContent = Math.round(moveScore);
+    const fill = document.getElementById('moveBarFill');
+    fill.style.width = pct*100+'%';
+    fill.style.background = pct<0.3 ? '#00ff88' : pct<0.6 ? '#ffaa00' : '#ff4466';
+    const msgs = ['🧊 ¡Perfecto!','⚠️ Casi…','🔥 ¡Te estás moviendo!'];
+    document.getElementById('moveStatus').textContent = msgs[Math.min(Math.floor(pct/0.34), 2)];
+    if (moveScore<=0) {
+      clearInterval(moveInterval);
+      document.getElementById('moveStatus').textContent='💀 ¡Game Over!';
+      document.getElementById('moveStartBtn').style.display='inline-block';
+      moveRunning=false;
+    }
+  }
+
+  // ──────────────────────────────────────────────────────────────────
+  //  SIN PESTAÑEAR
+  // ──────────────────────────────────────────────────────────────────
+  let noBlinkStart_t=0, noBlinkRecord=0, noBlinkActive=false, noBlinkInterval=null;
+
+  function noBlinkStart() {
+    noBlinkActive=true; noBlinkStart_t=Date.now();
+    clearInterval(noBlinkInterval);
+    noBlinkInterval=setInterval(()=>{
+      if (!noBlinkActive) return;
+      const s=(Date.now()-noBlinkStart_t)/1000;
+      document.getElementById('noBlinkTimer').textContent=s.toFixed(1)+' s';
+      if (s>noBlinkRecord) {
+        noBlinkRecord=s;
+        document.getElementById('noBlinkRecord').textContent='Récord: '+s.toFixed(1)+' s';
       }
+    },100);
+  }
 
-      if (faces.length === 0) {
-        smileValEl.textContent = '-';
-        mouthValEl.textContent = '-';
-        emotionBadge.textContent = '';
-        closedFrames = 0;
-        eyesClosed   = false;
-        return;
-      }
+  function noBlinkOnBlink() {
+    noBlinkActive=false;
+    clearInterval(noBlinkInterval);
+    setTimeout(()=>{ noBlinkActive=true; noBlinkStart_t=Date.now(); noBlinkStart(); }, 800);
+  }
 
-      const lm = faces[0];   // primary face for analytics
+  function noBlinkReset() {
+    noBlinkRecord=0;
+    document.getElementById('noBlinkRecord').textContent='Récord: 0.0 s';
+    noBlinkStart();
+  }
 
-      // ── EAR blink ──
-      const earL = ear(lm, L_EYE);
-      const earR = ear(lm, R_EYE);
-      const earAvg = (earL + earR) / 2;
+  // ──────────────────────────────────────────────────────────────────
+  //  DUELO 2P
+  // ──────────────────────────────────────────────────────────────────
+  let duelRunning=false, duelTimer=30, duelInterval=null;
 
-      if (earAvg < EAR_THRESH) {
-        closedFrames++;
-      } else {
-        if (closedFrames >= EAR_FRAMES && eyesClosed) triggerBlink();
-        closedFrames = 0;
-        eyesClosed   = false;
-      }
-      if (closedFrames >= EAR_FRAMES) eyesClosed = true;
+  function duelReset() {
+    duelRunning=false; duelTimer=30;
+    faceBlinkState=[{closed:false,frames:0,count:0},{closed:false,frames:0,count:0}];
+    document.getElementById('duelBlinks1').textContent='0';
+    document.getElementById('duelBlinks2').textContent='0';
+    document.getElementById('duelTimer').textContent='30';
+    document.getElementById('duelResult').textContent='';
+    document.getElementById('duelP1').className='duel-player';
+    document.getElementById('duelP2').className='duel-player';
+    document.getElementById('duelStartBtn').style.display='inline-block';
+    clearInterval(duelInterval);
+  }
 
-      // ── Smile ──
-      const smile = smileRatio(lm);
-      const isSmiling = smile > 0.04;
-      if (feats.smile) {
-        smileValEl.textContent = isSmiling ? '😄' : '😐';
-        boxSmile.className = 'stat-box' + (isSmiling ? ' warn' : '');
-      } else {
-        smileValEl.textContent = '-';
-        boxSmile.className = 'stat-box';
-      }
-
-      // ── Mouth ──
-      const mar = mouthAspectRatio(lm);
-      const mouthOpen = mar > 0.5;
-      if (feats.mouth) {
-        mouthValEl.textContent = mouthOpen ? '😮' : '😶';
-        boxMouth.className = 'stat-box' + (mouthOpen ? ' alert' : '');
-      } else {
-        mouthValEl.textContent = '-';
-        boxMouth.className = 'stat-box';
-      }
-
-      // ── Emotion badge ──
-      if (mouthOpen && isSmiling)   emotionBadge.textContent = '😂 ¡Carcajada!';
-      else if (mouthOpen)            emotionBadge.textContent = '😮 ¡Sorprendido!';
-      else if (isSmiling)            emotionBadge.textContent = '😄 ¡Sonriendo!';
-      else                           emotionBadge.textContent = '';
-
-      // ── Draw overlays for all faces ──
-      for (const landmarks of faces) {
-        if (feats.mesh) {
-          drawConnectors(ctx, landmarks, FACEMESH_TESSELATION,   { color: '#00FF8818', lineWidth: 1 });
-          drawConnectors(ctx, landmarks, FACEMESH_RIGHT_EYE,     { color: '#FF4444BB', lineWidth: 2 });
-          drawConnectors(ctx, landmarks, FACEMESH_LEFT_EYE,      { color: '#44FF44BB', lineWidth: 2 });
-          drawConnectors(ctx, landmarks, FACEMESH_RIGHT_EYEBROW, { color: '#FF8800BB', lineWidth: 1.5 });
-          drawConnectors(ctx, landmarks, FACEMESH_LEFT_EYEBROW,  { color: '#FF8800BB', lineWidth: 1.5 });
-          drawConnectors(ctx, landmarks, FACEMESH_LIPS,          { color: '#AAAAFFBB', lineWidth: 2 });
-          drawConnectors(ctx, landmarks, FACEMESH_FACE_OVAL,     { color: '#00FF8866', lineWidth: 2 });
+  function duelStart() {
+    if (faceState.count < 2) { document.getElementById('duelResult').textContent='⚠️ Necesitáis 2 caras en cámara'; return; }
+    duelReset();
+    duelRunning=true;
+    document.getElementById('duelStartBtn').style.display='none';
+    duelInterval=setInterval(()=>{
+      duelTimer--;
+      document.getElementById('duelTimer').textContent=duelTimer;
+      if (duelTimer<=0) {
+        clearInterval(duelInterval);
+        duelRunning=false;
+        const b1=faceBlinkState[0].count, b2=faceBlinkState[1].count;
+        if (b1===b2) {
+          document.getElementById('duelResult').textContent='🤝 ¡Empate!';
+        } else {
+          const loser = b1>b2 ? 1 : 2;
+          document.getElementById('duelResult').textContent=`💀 ¡Pierde Cara ${loser}! (${b1>b2?b1:b2} pestañeos)`;
+          document.getElementById('duelP'+loser).className='duel-player loser';
+          document.getElementById('duelP'+(loser===1?2:1)).className='duel-player winner';
         }
-        if (feats.glasses) drawGlasses(landmarks);
-        if (feats.hat)     drawHat(landmarks);
+        document.getElementById('duelStartBtn').style.display='inline-block';
       }
-    });
+    },1000);
+  }
 
-    const camera = new Camera(video, {
-      onFrame: async () => { await faceMesh.send({ image: video }); },
-      width: 640, height: 480
-    });
+  // ══════════════════════════════════════════════════════════════════
+  //  FACEMESH
+  // ══════════════════════════════════════════════════════════════════
+  const faceMesh = new FaceMesh({
+    locateFile: f=>`https://cdn.jsdelivr.net/npm/@mediapipe/face_mesh/${f}`
+  });
+  faceMesh.setOptions({ maxNumFaces:4, refineLandmarks:true,
+    minDetectionConfidence:0.5, minTrackingConfidence:0.5 });
 
-    camera.start()
-      .then(() => { statusEl.textContent = '✅ Cámara activa — ¡pestañea, sonríe, abre la boca!'; })
-      .catch((e) => { statusEl.textContent = '❌ Cámara no disponible: ' + e.message; });
+  faceMesh.onResults((results)=>{
+    ctx.clearRect(0,0,canvas.width,canvas.height);
+    const faces = results.multiFaceLandmarks||[];
+    faceCountEl.textContent = faces.length;
+    faceState.count = faces.length;
+    faceState.landmarks = faces;
+
+    if (feats.bg) document.body.style.background=bgColors[Math.min(faces.length,4)];
+
+    if (faces.length===0) {
+      smileValEl.textContent='-'; mouthValEl.textContent='-';
+      emotionBadge.textContent='';
+      closedFrames=0; eyesClosed=false;
+      faceState.nosePos=null; return;
+    }
+
+    // ── Primary face analytics ──
+    const lm = faces[0];
+    const earL=ear(lm,L_EYE), earR=ear(lm,R_EYE);
+    const earAvg=(earL+earR)/2;
+
+    faceState.earL=earL; faceState.earR=earR;
+    faceState.isSmiling  = smileRatio(lm)>0.04;
+    faceState.mouthOpen  = mar(lm)>0.5;
+    faceState.winkLeft   = earL<EAR_TH && earR>EAR_TH+0.05;
+    faceState.winkRight  = earR<EAR_TH && earL>EAR_TH+0.05;
+    faceState.eyesClosed = earAvg<EAR_TH;
+    faceState.nosePos    = { x:lm[1].x, y:lm[1].y };
+
+    // ── Blink primary ──
+    if (checkBlink(earAvg, {
+      get closed(){return eyesClosed}, set closed(v){eyesClosed=v},
+      get frames(){return closedFrames}, set frames(v){closedFrames=v}
+    })) triggerBlink(true);
+
+    // ── Blink face[1] (duel) ──
+    if (faces.length>=2) {
+      const lm2=faces[1];
+      const e2=(ear(lm2,L_EYE)+ear(lm2,R_EYE))/2;
+      if (checkBlink(e2, faceBlinkState[1])) triggerBlink(false);
+    }
+
+    // ── Stats display ──
+    if (feats.smile) { smileValEl.textContent=faceState.isSmiling?'😄':'😐'; boxSmile.className='stat-box'+(faceState.isSmiling?' warn':''); }
+    else             { smileValEl.textContent='-'; boxSmile.className='stat-box'; }
+    if (feats.mouth) { mouthValEl.textContent=faceState.mouthOpen?'😮':'😶'; boxMouth.className='stat-box'+(faceState.mouthOpen?' alert':''); }
+    else             { mouthValEl.textContent='-'; boxMouth.className='stat-box'; }
+
+    emotionBadge.textContent =
+      (faceState.mouthOpen&&faceState.isSmiling) ? '😂 ¡Carcajada!' :
+      faceState.mouthOpen                         ? '😮 ¡Sorprendido!' :
+      faceState.isSmiling                          ? '😄 ¡Sonriendo!' : '';
+
+    // ── Draw ──
+    for (const landmarks of faces) {
+      if (feats.mesh) {
+        drawConnectors(ctx,landmarks,FACEMESH_TESSELATION,  {color:'#00FF8818',lineWidth:1});
+        drawConnectors(ctx,landmarks,FACEMESH_RIGHT_EYE,    {color:'#FF4444BB',lineWidth:2});
+        drawConnectors(ctx,landmarks,FACEMESH_LEFT_EYE,     {color:'#44FF44BB',lineWidth:2});
+        drawConnectors(ctx,landmarks,FACEMESH_RIGHT_EYEBROW,{color:'#FF8800BB',lineWidth:1.5});
+        drawConnectors(ctx,landmarks,FACEMESH_LEFT_EYEBROW, {color:'#FF8800BB',lineWidth:1.5});
+        drawConnectors(ctx,landmarks,FACEMESH_LIPS,         {color:'#AAAAFFBB',lineWidth:2});
+        drawConnectors(ctx,landmarks,FACEMESH_FACE_OVAL,    {color:'#00FF8866',lineWidth:2});
+      }
+      if (feats.glasses) drawGlasses(landmarks);
+      if (feats.hat)     drawHat(landmarks);
+    }
+  });
+
+  const camera = new Camera(video, {
+    onFrame: async()=>{ await faceMesh.send({image:video}); },
+    width:640, height:480
+  });
+  camera.start()
+    .then(()=>{ statusEl.textContent='✅ Cámara activa · Activa un juego abajo ↓'; })
+    .catch(e=>{ statusEl.textContent='❌ Cámara no disponible: '+e.message; });
   </script>
-
 </body>
 </html>
