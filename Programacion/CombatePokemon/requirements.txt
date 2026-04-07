@@ -1,0 +1,7 @@
+mss==9.0.1
+Pillow==10.3.0
+pyautogui==0.9.54
+pynput==1.7.7
+requests==2.31.0
+python-pathfinding==1.0.1
+ollama==0.2.1
