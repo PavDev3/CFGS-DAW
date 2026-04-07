@@ -14,14 +14,13 @@
       display: flex;
       flex-direction: column;
       align-items: center;
-      justify-content: center;
       min-height: 100vh;
-      padding: 1rem;
+      padding: 1.5rem 1rem;
     }
 
     header {
       text-align: center;
-      margin-bottom: 1.5rem;
+      margin-bottom: 1.2rem;
     }
 
     header h1 {
@@ -54,11 +53,9 @@
 
     canvas {
       position: absolute;
-      top: 0;
-      left: 0;
+      top: 0; left: 0;
       transform: scaleX(-1);
-      width: 100%;
-      height: 100%;
+      width: 100%; height: 100%;
     }
 
     .overlay-text {
@@ -75,23 +72,22 @@
       white-space: nowrap;
     }
 
+    /* Stats bar */
     .stats {
       display: flex;
-      gap: 1.5rem;
+      gap: 2rem;
       margin-top: 1rem;
-      font-size: 0.8rem;
+      font-size: 0.85rem;
       color: #555;
+      align-items: center;
+      flex-wrap: wrap;
+      justify-content: center;
     }
 
-    .stats span {
-      display: flex;
-      align-items: center;
-      gap: 0.4rem;
-    }
+    .stats span { display: flex; align-items: center; gap: 0.4rem; }
 
     .dot {
-      width: 8px;
-      height: 8px;
+      width: 8px; height: 8px;
       border-radius: 50%;
       background: #00ff88;
       animation: pulse 1.5s infinite;
@@ -102,18 +98,68 @@
       50% { opacity: 0.2; }
     }
 
-    footer {
-      margin-top: 2rem;
+    /* Blink counter panel */
+    .blink-panel {
+      margin-top: 1rem;
+      background: #111;
+      border: 1px solid #00ff8833;
+      border-radius: 12px;
+      padding: 0.8rem 2rem;
+      display: flex;
+      align-items: center;
+      gap: 2rem;
+    }
+
+    .blink-count {
       text-align: center;
-      color: #333;
+    }
+
+    .blink-count .number {
+      font-size: 3rem;
+      color: #00ff88;
+      text-shadow: 0 0 20px #00ff8888;
+      line-height: 1;
+    }
+
+    .blink-count .label {
+      color: #555;
       font-size: 0.75rem;
-      line-height: 1.8;
+      letter-spacing: 1px;
+      margin-top: 0.2rem;
     }
 
-    footer strong {
-      color: #00ff8877;
+    .blink-panel button {
+      background: transparent;
+      border: 1px solid #00ff8866;
+      color: #00ff88;
+      font-family: 'Courier New', monospace;
+      font-size: 0.8rem;
+      padding: 0.5rem 1.2rem;
+      border-radius: 8px;
+      cursor: pointer;
+      letter-spacing: 1px;
+      transition: background 0.2s, box-shadow 0.2s;
     }
 
+    .blink-panel button:hover {
+      background: #00ff8822;
+      box-shadow: 0 0 10px #00ff8844;
+    }
+
+    /* Flash effect on blink */
+    .blink-flash {
+      position: absolute;
+      top: 0; left: 0; right: 0; bottom: 0;
+      pointer-events: none;
+      border-radius: 16px;
+      border: 3px solid #00ff88;
+      opacity: 0;
+      transition: opacity 0.05s;
+    }
+
+    .blink-flash.active { opacity: 1; }
+
+    /* Status */
     #status {
       margin-top: 0.8rem;
       font-size: 0.8rem;
@@ -121,10 +167,37 @@
       min-height: 1.2em;
     }
 
-    #faceCount {
-      color: #00ff88;
-      font-weight: bold;
+    /* Features info */
+    .features {
+      margin-top: 1.2rem;
+      display: flex;
+      gap: 0.6rem;
+      flex-wrap: wrap;
+      justify-content: center;
+      max-width: 640px;
     }
+
+    .feature-tag {
+      background: #111;
+      border: 1px solid #00ff8822;
+      color: #00ff8899;
+      font-size: 0.7rem;
+      padding: 3px 10px;
+      border-radius: 20px;
+      letter-spacing: 0.5px;
+    }
+
+    footer {
+      margin-top: 1.5rem;
+      text-align: center;
+      color: #333;
+      font-size: 0.75rem;
+      line-height: 1.8;
+    }
+
+    footer strong { color: #00ff8877; }
+
+    #faceCount, #blinkCount { color: #00ff88; font-weight: bold; }
   </style>
 </head>
 <body>
@@ -134,18 +207,37 @@
     <p>Detección facial en tiempo real · Solo con JavaScript · Sin instalar nada</p>
   </header>
 
-  <div class="container">
+  <div class="container" id="videoContainer">
     <video id="video" width="640" height="480" autoplay playsinline></video>
     <canvas id="canvas" width="640" height="480"></canvas>
     <div class="overlay-text">468 puntos · tiempo real</div>
+    <div class="blink-flash" id="blinkFlash"></div>
   </div>
 
   <div class="stats">
     <span><div class="dot"></div> EN VIVO</span>
-    <span>Caras detectadas: <span id="faceCount">0</span></span>
+    <span>Caras: <span id="faceCount">0</span></span>
+    <span>EAR izq: <span id="earLeft">-</span></span>
+    <span>EAR der: <span id="earRight">-</span></span>
+  </div>
+
+  <div class="blink-panel">
+    <div class="blink-count">
+      <div class="number" id="blinkCount">0</div>
+      <div class="label">PESTAÑEOS</div>
+    </div>
+    <button onclick="resetBlinks()">↺ REINICIAR</button>
   </div>
 
   <div id="status">Iniciando cámara...</div>
+
+  <div class="features">
+    <span class="feature-tag">👁️ Detección de pestañeos (EAR)</span>
+    <span class="feature-tag">🎯 468 puntos faciales</span>
+    <span class="feature-tag">👥 Hasta 4 caras</span>
+    <span class="feature-tag">⚡ Tiempo real</span>
+    <span class="feature-tag">🔒 Sin subir datos</span>
+  </div>
 
   <footer>
     Esto lo aprenderás a hacer en <strong>1º de DAW</strong><br>
@@ -153,17 +245,55 @@
     <strong>CFGS Desarrollo de Aplicaciones Web — IES Kursaal, Algeciras</strong>
   </footer>
 
-  <!-- MediaPipe desde CDN — no requiere instalación -->
   <script src="https://cdn.jsdelivr.net/npm/@mediapipe/camera_utils/camera_utils.js" crossorigin="anonymous"></script>
   <script src="https://cdn.jsdelivr.net/npm/@mediapipe/drawing_utils/drawing_utils.js" crossorigin="anonymous"></script>
   <script src="https://cdn.jsdelivr.net/npm/@mediapipe/face_mesh/face_mesh.js" crossorigin="anonymous"></script>
 
   <script>
-    const video = document.getElementById('video');
-    const canvas = document.getElementById('canvas');
-    const ctx = canvas.getContext('2d');
+    const video       = document.getElementById('video');
+    const canvas      = document.getElementById('canvas');
+    const ctx         = canvas.getContext('2d');
     const faceCountEl = document.getElementById('faceCount');
-    const statusEl = document.getElementById('status');
+    const blinkCountEl= document.getElementById('blinkCount');
+    const earLeftEl   = document.getElementById('earLeft');
+    const earRightEl  = document.getElementById('earRight');
+    const statusEl    = document.getElementById('status');
+    const blinkFlash  = document.getElementById('blinkFlash');
+
+    let blinkCount = 0;
+    let eyesClosed  = false;
+    const EAR_THRESHOLD = 0.22;   // por debajo → ojo cerrado
+    const EAR_FRAMES    = 2;      // frames consecutivos para confirmar pestañeo
+    let closedFrames    = 0;
+
+    function resetBlinks() {
+      blinkCount = 0;
+      blinkCountEl.textContent = '0';
+    }
+
+    // Eye Aspect Ratio — distancia vertical / horizontal del ojo
+    // Landmarks (FaceMesh): puntos normalizados 0-1
+    function eyeAspectRatio(landmarks, pts) {
+      const p = (i) => landmarks[i];
+      const dist = (a, b) => Math.hypot(a.x - b.x, a.y - b.y);
+
+      const vertical1 = dist(p(pts[1]), p(pts[5]));
+      const vertical2 = dist(p(pts[2]), p(pts[4]));
+      const horizontal = dist(p(pts[0]), p(pts[3]));
+
+      return (vertical1 + vertical2) / (2.0 * horizontal);
+    }
+
+    // FaceMesh landmark indices for each eye (standard 6-point EAR)
+    const LEFT_EYE_PTS  = [362, 385, 387, 263, 373, 380];
+    const RIGHT_EYE_PTS = [33,  160, 158, 133, 153, 144];
+
+    function triggerBlink() {
+      blinkCount++;
+      blinkCountEl.textContent = blinkCount;
+      blinkFlash.classList.add('active');
+      setTimeout(() => blinkFlash.classList.remove('active'), 80);
+    }
 
     const faceMesh = new FaceMesh({
       locateFile: (file) =>
@@ -183,9 +313,42 @@
       const faces = results.multiFaceLandmarks || [];
       faceCountEl.textContent = faces.length;
 
+      if (faces.length === 0) {
+        earLeftEl.textContent  = '-';
+        earRightEl.textContent = '-';
+        closedFrames = 0;
+        eyesClosed   = false;
+        return;
+      }
+
+      // Procesa solo la primera cara para pestañeos
+      const lm = faces[0];
+
+      const earL = eyeAspectRatio(lm, LEFT_EYE_PTS);
+      const earR = eyeAspectRatio(lm, RIGHT_EYE_PTS);
+      const ear  = (earL + earR) / 2;
+
+      earLeftEl.textContent  = earL.toFixed(2);
+      earRightEl.textContent = earR.toFixed(2);
+
+      if (ear < EAR_THRESHOLD) {
+        closedFrames++;
+      } else {
+        if (closedFrames >= EAR_FRAMES && eyesClosed) {
+          triggerBlink();
+        }
+        closedFrames = 0;
+        eyesClosed   = false;
+      }
+
+      if (closedFrames >= EAR_FRAMES) {
+        eyesClosed = true;
+      }
+
+      // Dibuja malla facial para todas las caras
       for (const landmarks of faces) {
         drawConnectors(ctx, landmarks, FACEMESH_TESSELATION,
-          { color: '#00FF8833', lineWidth: 1 });
+          { color: '#00FF8822', lineWidth: 1 });
         drawConnectors(ctx, landmarks, FACEMESH_RIGHT_EYE,
           { color: '#FF4444CC', lineWidth: 2 });
         drawConnectors(ctx, landmarks, FACEMESH_LEFT_EYE,
@@ -202,22 +365,15 @@
     });
 
     const camera = new Camera(video, {
-      onFrame: async () => {
-        await faceMesh.send({ image: video });
-      },
+      onFrame: async () => { await faceMesh.send({ image: video }); },
       width: 640,
       height: 480
     });
 
     camera.start()
-      .then(() => {
-        statusEl.textContent = '✅ Cámara activa — ¡ponte delante!';
-      })
-      .catch((err) => {
-        statusEl.textContent = '❌ No se pudo acceder a la cámara: ' + err.message;
-      });
+      .then(() => { statusEl.textContent = '✅ Cámara activa — ¡ponte delante y pestañea!'; })
+      .catch((err) => { statusEl.textContent = '❌ Cámara no disponible: ' + err.message; });
   </script>
 
 </body>
 </html>
-<!-- deploy trigger Tue Apr  7 17:44:15 CEST 2026 -->
