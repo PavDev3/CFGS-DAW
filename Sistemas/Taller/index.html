@@ -15,26 +15,23 @@
       flex-direction: column;
       align-items: center;
       min-height: 100vh;
-      padding: 1.5rem 1rem;
+      padding: 1.2rem 1rem;
+      transition: background 0.4s;
     }
 
     header {
       text-align: center;
-      margin-bottom: 1.2rem;
+      margin-bottom: 1rem;
     }
 
     header h1 {
-      font-size: 2rem;
+      font-size: 1.9rem;
       color: #00ff88;
       text-shadow: 0 0 20px #00ff8866;
       letter-spacing: 2px;
     }
 
-    header p {
-      color: #888;
-      font-size: 0.85rem;
-      margin-top: 0.4rem;
-    }
+    header p { color: #666; font-size: 0.8rem; margin-top: 0.3rem; }
 
     .container {
       position: relative;
@@ -60,144 +57,163 @@
 
     .overlay-text {
       position: absolute;
-      bottom: 12px;
-      left: 50%;
+      bottom: 10px; left: 50%;
       transform: translateX(-50%);
       background: #00000088;
       color: #00ff88;
-      font-size: 0.75rem;
-      padding: 4px 14px;
+      font-size: 0.7rem;
+      padding: 3px 12px;
       border-radius: 20px;
       letter-spacing: 1px;
       white-space: nowrap;
     }
 
-    /* Stats bar */
-    .stats {
+    .blink-flash {
+      position: absolute;
+      inset: 0;
+      pointer-events: none;
+      border: 3px solid #00ff88;
+      border-radius: 16px;
+      opacity: 0;
+    }
+    .blink-flash.active { opacity: 1; transition: none; }
+    .blink-flash.fade   { opacity: 0; transition: opacity 0.15s; }
+
+    /* ── Controls ── */
+    .controls {
+      margin-top: 0.9rem;
       display: flex;
-      gap: 2rem;
-      margin-top: 1rem;
-      font-size: 0.85rem;
-      color: #555;
-      align-items: center;
+      gap: 0.5rem;
       flex-wrap: wrap;
       justify-content: center;
     }
 
-    .stats span { display: flex; align-items: center; gap: 0.4rem; }
-
-    .dot {
-      width: 8px; height: 8px;
-      border-radius: 50%;
-      background: #00ff88;
-      animation: pulse 1.5s infinite;
-    }
-
-    @keyframes pulse {
-      0%, 100% { opacity: 1; }
-      50% { opacity: 0.2; }
-    }
-
-    /* Blink counter panel */
-    .blink-panel {
-      margin-top: 1rem;
+    .ctrl-btn {
       background: #111;
-      border: 1px solid #00ff8833;
-      border-radius: 12px;
-      padding: 0.8rem 2rem;
-      display: flex;
-      align-items: center;
-      gap: 2rem;
+      border: 1px solid #333;
+      color: #666;
+      font-family: 'Courier New', monospace;
+      font-size: 0.75rem;
+      padding: 5px 12px;
+      border-radius: 20px;
+      cursor: pointer;
+      letter-spacing: 0.5px;
+      transition: all 0.2s;
+      user-select: none;
     }
 
-    .blink-count {
-      text-align: center;
-    }
-
-    .blink-count .number {
-      font-size: 3rem;
+    .ctrl-btn.on {
+      border-color: #00ff8866;
       color: #00ff88;
-      text-shadow: 0 0 20px #00ff8888;
+      background: #00ff8811;
+    }
+
+    .ctrl-btn:hover { opacity: 0.8; }
+
+    /* ── Stats grid ── */
+    .stats-grid {
+      margin-top: 0.9rem;
+      display: grid;
+      grid-template-columns: repeat(4, auto);
+      gap: 0.8rem;
+      justify-content: center;
+    }
+
+    .stat-box {
+      background: #111;
+      border: 1px solid #00ff8822;
+      border-radius: 10px;
+      padding: 0.5rem 1rem;
+      text-align: center;
+      min-width: 80px;
+    }
+
+    .stat-box .val {
+      font-size: 1.6rem;
+      color: #00ff88;
       line-height: 1;
     }
 
-    .blink-count .label {
-      color: #555;
-      font-size: 0.75rem;
+    .stat-box .lbl {
+      font-size: 0.6rem;
+      color: #444;
       letter-spacing: 1px;
-      margin-top: 0.2rem;
+      margin-top: 2px;
     }
 
-    .blink-panel button {
+    .stat-box.alert .val { color: #ff4466; text-shadow: 0 0 10px #ff446688; }
+    .stat-box.warn  .val { color: #ffaa00; }
+
+    /* ── Blink reset ── */
+    .blink-row {
+      margin-top: 0.6rem;
+      display: flex;
+      align-items: center;
+      gap: 1rem;
+    }
+
+    .reset-btn {
       background: transparent;
-      border: 1px solid #00ff8866;
-      color: #00ff88;
+      border: 1px solid #00ff8844;
+      color: #00ff8888;
       font-family: 'Courier New', monospace;
-      font-size: 0.8rem;
-      padding: 0.5rem 1.2rem;
+      font-size: 0.75rem;
+      padding: 4px 14px;
       border-radius: 8px;
       cursor: pointer;
-      letter-spacing: 1px;
-      transition: background 0.2s, box-shadow 0.2s;
+      transition: all 0.2s;
     }
 
-    .blink-panel button:hover {
+    .reset-btn:hover {
       background: #00ff8822;
-      box-shadow: 0 0 10px #00ff8844;
+      color: #00ff88;
     }
 
-    /* Flash effect on blink */
-    .blink-flash {
-      position: absolute;
-      top: 0; left: 0; right: 0; bottom: 0;
-      pointer-events: none;
-      border-radius: 16px;
-      border: 3px solid #00ff88;
-      opacity: 0;
-      transition: opacity 0.05s;
+    /* ── Status / emotion badge ── */
+    #emotionBadge {
+      margin-top: 0.6rem;
+      font-size: 1.2rem;
+      min-height: 1.6rem;
+      letter-spacing: 1px;
+      color: #00ff88;
+      text-align: center;
     }
 
-    .blink-flash.active { opacity: 1; }
-
-    /* Status */
     #status {
-      margin-top: 0.8rem;
-      font-size: 0.8rem;
-      color: #555;
-      min-height: 1.2em;
+      margin-top: 0.4rem;
+      font-size: 0.75rem;
+      color: #444;
+      min-height: 1em;
     }
 
-    /* Features info */
+    /* ── Feature tags ── */
     .features {
-      margin-top: 1.2rem;
+      margin-top: 1rem;
       display: flex;
-      gap: 0.6rem;
+      gap: 0.5rem;
       flex-wrap: wrap;
       justify-content: center;
       max-width: 640px;
     }
 
-    .feature-tag {
+    .ftag {
       background: #111;
-      border: 1px solid #00ff8822;
-      color: #00ff8899;
-      font-size: 0.7rem;
-      padding: 3px 10px;
+      border: 1px solid #00ff8818;
+      color: #00ff8877;
+      font-size: 0.68rem;
+      padding: 2px 9px;
       border-radius: 20px;
-      letter-spacing: 0.5px;
     }
 
     footer {
-      margin-top: 1.5rem;
+      margin-top: 1.2rem;
       text-align: center;
-      color: #333;
-      font-size: 0.75rem;
-      line-height: 1.8;
+      color: #2a2a2a;
+      font-size: 0.7rem;
+      line-height: 1.9;
     }
 
-    footer strong { color: #00ff8877; }
-
-    #faceCount, #blinkCount { color: #00ff88; font-weight: bold; }
+    footer strong { color: #00ff8855; }
   </style>
 </head>
 <body>
@@ -214,29 +230,50 @@
     <div class="blink-flash" id="blinkFlash"></div>
   </div>
 
-  <div class="stats">
-    <span><div class="dot"></div> EN VIVO</span>
-    <span>Caras: <span id="faceCount">0</span></span>
-    <span>EAR izq: <span id="earLeft">-</span></span>
-    <span>EAR der: <span id="earRight">-</span></span>
+  <!-- Toggles -->
+  <div class="controls">
+    <button class="ctrl-btn on"  id="btnMesh"     onclick="toggle('mesh')">🕸️ Malla</button>
+    <button class="ctrl-btn on"  id="btnGlasses"  onclick="toggle('glasses')">🕶️ Gafas</button>
+    <button class="ctrl-btn on"  id="btnHat"      onclick="toggle('hat')">🎩 Sombrero</button>
+    <button class="ctrl-btn on"  id="btnSmile"    onclick="toggle('smile')">😄 Sonrisa</button>
+    <button class="ctrl-btn on"  id="btnMouth"    onclick="toggle('mouth')">😮 Boca</button>
+    <button class="ctrl-btn on"  id="btnBg"       onclick="toggle('bg')">🌈 Fondo</button>
   </div>
 
-  <div class="blink-panel">
-    <div class="blink-count">
-      <div class="number" id="blinkCount">0</div>
-      <div class="label">PESTAÑEOS</div>
+  <!-- Stats -->
+  <div class="stats-grid">
+    <div class="stat-box">
+      <div class="val" id="faceCount">0</div>
+      <div class="lbl">CARAS</div>
     </div>
-    <button onclick="resetBlinks()">↺ REINICIAR</button>
+    <div class="stat-box" id="boxBlinks">
+      <div class="val" id="blinkCount">0</div>
+      <div class="lbl">PESTAÑEOS</div>
+    </div>
+    <div class="stat-box" id="boxSmile">
+      <div class="val" id="smileVal">-</div>
+      <div class="lbl">SONRISA</div>
+    </div>
+    <div class="stat-box" id="boxMouth">
+      <div class="val" id="mouthVal">-</div>
+      <div class="lbl">BOCA</div>
+    </div>
   </div>
 
+  <div class="blink-row">
+    <button class="reset-btn" onclick="resetBlinks()">↺ Reiniciar pestañeos</button>
+  </div>
+
+  <div id="emotionBadge"></div>
   <div id="status">Iniciando cámara...</div>
 
   <div class="features">
-    <span class="feature-tag">👁️ Detección de pestañeos (EAR)</span>
-    <span class="feature-tag">🎯 468 puntos faciales</span>
-    <span class="feature-tag">👥 Hasta 4 caras</span>
-    <span class="feature-tag">⚡ Tiempo real</span>
-    <span class="feature-tag">🔒 Sin subir datos</span>
+    <span class="ftag">👁️ EAR blink detection</span>
+    <span class="ftag">😄 Smile ratio</span>
+    <span class="ftag">😮 Mouth open (MAR)</span>
+    <span class="ftag">🕶️ AR glasses</span>
+    <span class="ftag">🎩 AR hat</span>
+    <span class="ftag">🌈 Dynamic bg</span>
   </div>
 
   <footer>
@@ -250,61 +287,198 @@
   <script src="https://cdn.jsdelivr.net/npm/@mediapipe/face_mesh/face_mesh.js" crossorigin="anonymous"></script>
 
   <script>
-    const video       = document.getElementById('video');
-    const canvas      = document.getElementById('canvas');
-    const ctx         = canvas.getContext('2d');
-    const faceCountEl = document.getElementById('faceCount');
-    const blinkCountEl= document.getElementById('blinkCount');
-    const earLeftEl   = document.getElementById('earLeft');
-    const earRightEl  = document.getElementById('earRight');
-    const statusEl    = document.getElementById('status');
-    const blinkFlash  = document.getElementById('blinkFlash');
+    // ── DOM refs ──────────────────────────────────────────────────────
+    const video         = document.getElementById('video');
+    const canvas        = document.getElementById('canvas');
+    const ctx           = canvas.getContext('2d');
+    const faceCountEl   = document.getElementById('faceCount');
+    const blinkCountEl  = document.getElementById('blinkCount');
+    const smileValEl    = document.getElementById('smileVal');
+    const mouthValEl    = document.getElementById('mouthVal');
+    const statusEl      = document.getElementById('status');
+    const blinkFlash    = document.getElementById('blinkFlash');
+    const emotionBadge  = document.getElementById('emotionBadge');
+    const boxSmile      = document.getElementById('boxSmile');
+    const boxMouth      = document.getElementById('boxMouth');
 
-    let blinkCount = 0;
-    let eyesClosed  = false;
-    const EAR_THRESHOLD = 0.22;   // por debajo → ojo cerrado
-    const EAR_FRAMES    = 2;      // frames consecutivos para confirmar pestañeo
-    let closedFrames    = 0;
+    // ── Feature flags ─────────────────────────────────────────────────
+    const feats = { mesh: true, glasses: true, hat: true, smile: true, mouth: true, bg: true };
 
-    function resetBlinks() {
-      blinkCount = 0;
-      blinkCountEl.textContent = '0';
+    function toggle(key) {
+      feats[key] = !feats[key];
+      document.getElementById('btn' + key.charAt(0).toUpperCase() + key.slice(1))
+              .classList.toggle('on', feats[key]);
+      if (key === 'bg' && !feats.bg) document.body.style.background = '#0a0a0f';
     }
 
-    // Eye Aspect Ratio — distancia vertical / horizontal del ojo
-    // Landmarks (FaceMesh): puntos normalizados 0-1
-    function eyeAspectRatio(landmarks, pts) {
-      const p = (i) => landmarks[i];
-      const dist = (a, b) => Math.hypot(a.x - b.x, a.y - b.y);
+    // ── Blink state ───────────────────────────────────────────────────
+    let blinkCount   = 0;
+    let eyesClosed   = false;
+    let closedFrames = 0;
+    const EAR_THRESH = 0.22;
+    const EAR_FRAMES = 2;
 
-      const vertical1 = dist(p(pts[1]), p(pts[5]));
-      const vertical2 = dist(p(pts[2]), p(pts[4]));
-      const horizontal = dist(p(pts[0]), p(pts[3]));
+    function resetBlinks() { blinkCount = 0; blinkCountEl.textContent = '0'; }
 
-      return (vertical1 + vertical2) / (2.0 * horizontal);
+    // ── Helpers ───────────────────────────────────────────────────────
+    const dist = (a, b) => Math.hypot(a.x - b.x, a.y - b.y);
+
+    function ear(lm, pts) {
+      const v1 = dist(lm[pts[1]], lm[pts[5]]);
+      const v2 = dist(lm[pts[2]], lm[pts[4]]);
+      const h  = dist(lm[pts[0]], lm[pts[3]]);
+      return (v1 + v2) / (2 * h);
     }
 
-    // FaceMesh landmark indices for each eye (standard 6-point EAR)
-    const LEFT_EYE_PTS  = [362, 385, 387, 263, 373, 380];
-    const RIGHT_EYE_PTS = [33,  160, 158, 133, 153, 144];
+    // 6-point EAR indices
+    const L_EYE = [362, 385, 387, 263, 373, 380];
+    const R_EYE = [33,  160, 158, 133, 153, 144];
 
+    // Mouth: top=13, bottom=14, left=61, right=291, corners height: 61,291 vs center 0
+    function mouthAspectRatio(lm) {
+      const v = dist(lm[13], lm[14]);
+      const h = dist(lm[61], lm[291]);
+      return v / h;
+    }
+
+    // Smile: ratio of how much the mouth corners are raised relative to chin
+    // Use vertical distance of corners (61,291) from the nose tip (1)
+    function smileRatio(lm) {
+      const noseTip = lm[1];
+      const chin    = lm[152];
+      const faceH   = dist(noseTip, chin) || 0.001;
+      const lCorner = lm[61];
+      const rCorner = lm[291];
+      // lower y = higher on screen; corners raised when y < midpoint
+      const midY    = (noseTip.y + chin.y) / 2;
+      const raisedL = midY - lCorner.y;
+      const raisedR = midY - rCorner.y;
+      return ((raisedL + raisedR) / 2) / faceH;
+    }
+
+    // Canvas px from normalized landmark
+    function px(lm) {
+      return { x: lm.x * canvas.width, y: lm.y * canvas.height };
+    }
+
+    // ── Draw sunglasses ───────────────────────────────────────────────
+    function drawGlasses(lm) {
+      // Iris centers (refineLandmarks: right=468, left=473)
+      const ri = px(lm[468]);
+      const li = px(lm[473]);
+
+      const eyeW = dist(lm[33], lm[133]) * canvas.width * 0.6;
+
+      ctx.save();
+      ctx.globalAlpha = 0.82;
+
+      // Lens fill
+      ctx.fillStyle = '#000033';
+
+      // Right lens
+      ctx.beginPath();
+      ctx.ellipse(ri.x, ri.y, eyeW, eyeW * 0.65, 0, 0, Math.PI * 2);
+      ctx.fill();
+
+      // Left lens
+      ctx.beginPath();
+      ctx.ellipse(li.x, li.y, eyeW, eyeW * 0.65, 0, 0, Math.PI * 2);
+      ctx.fill();
+
+      // Lens rims
+      ctx.strokeStyle = '#00ccff';
+      ctx.lineWidth   = 2;
+      ctx.globalAlpha = 1;
+
+      ctx.beginPath();
+      ctx.ellipse(ri.x, ri.y, eyeW, eyeW * 0.65, 0, 0, Math.PI * 2);
+      ctx.stroke();
+
+      ctx.beginPath();
+      ctx.ellipse(li.x, li.y, eyeW, eyeW * 0.65, 0, 0, Math.PI * 2);
+      ctx.stroke();
+
+      // Bridge
+      ctx.beginPath();
+      ctx.moveTo(ri.x + eyeW, ri.y);
+      ctx.lineTo(li.x - eyeW, li.y);
+      ctx.stroke();
+
+      // Left arm (toward ear)
+      const lEar = px(lm[234]);
+      ctx.beginPath();
+      ctx.moveTo(li.x + eyeW, li.y);
+      ctx.lineTo(lEar.x, lEar.y);
+      ctx.stroke();
+
+      // Right arm (toward ear)
+      const rEar = px(lm[454]);
+      ctx.beginPath();
+      ctx.moveTo(ri.x - eyeW, ri.y);
+      ctx.lineTo(rEar.x, rEar.y);
+      ctx.stroke();
+
+      ctx.restore();
+    }
+
+    // ── Draw top hat ──────────────────────────────────────────────────
+    function drawHat(lm) {
+      // Forehead top: 10, temples: 234 (left), 454 (right)
+      const top    = px(lm[10]);
+      const leftT  = px(lm[234]);
+      const rightT = px(lm[454]);
+      const faceW  = Math.abs(rightT.x - leftT.x);
+      const brimW  = faceW * 1.15;
+      const brimH  = faceW * 0.12;
+      const hatH   = faceW * 0.65;
+      const hatW   = faceW * 0.72;
+      const cx     = top.x;
+      const brimY  = top.y - faceW * 0.05;
+
+      ctx.save();
+      ctx.fillStyle   = '#111';
+      ctx.strokeStyle = '#00ff88';
+      ctx.lineWidth   = 2;
+
+      // Brim
+      ctx.beginPath();
+      ctx.ellipse(cx, brimY, brimW / 2, brimH / 2, 0, 0, Math.PI * 2);
+      ctx.fill();
+      ctx.stroke();
+
+      // Crown
+      ctx.fillRect(cx - hatW / 2, brimY - hatH, hatW, hatH);
+      ctx.strokeRect(cx - hatW / 2, brimY - hatH, hatW, hatH);
+
+      // Hat band
+      ctx.fillStyle = '#00ff8833';
+      ctx.fillRect(cx - hatW / 2, brimY - hatH * 0.2, hatW, hatH * 0.15);
+
+      ctx.restore();
+    }
+
+    // ── Background colors per face count ─────────────────────────────
+    const bgColors = ['#0a0a0f', '#0a0f18', '#0f180a', '#180a18', '#18100a'];
+
+    // ── Blink flash ───────────────────────────────────────────────────
     function triggerBlink() {
       blinkCount++;
       blinkCountEl.textContent = blinkCount;
-      blinkFlash.classList.add('active');
-      setTimeout(() => blinkFlash.classList.remove('active'), 80);
+      blinkFlash.className = 'blink-flash active';
+      setTimeout(() => blinkFlash.className = 'blink-flash fade', 80);
+      setTimeout(() => blinkFlash.className = 'blink-flash', 250);
     }
 
+    // ── FaceMesh ──────────────────────────────────────────────────────
     const faceMesh = new FaceMesh({
-      locateFile: (file) =>
-        `https://cdn.jsdelivr.net/npm/@mediapipe/face_mesh/${file}`
+      locateFile: (f) => `https://cdn.jsdelivr.net/npm/@mediapipe/face_mesh/${f}`
     });
 
     faceMesh.setOptions({
       maxNumFaces: 4,
-      refineLandmarks: true,
+      refineLandmarks: true,   // enables iris landmarks 468-477
       minDetectionConfidence: 0.5,
-      minTrackingConfidence: 0.5
+      minTrackingConfidence:  0.5
     });
 
     faceMesh.onResults((results) => {
@@ -313,66 +487,88 @@
       const faces = results.multiFaceLandmarks || [];
       faceCountEl.textContent = faces.length;
 
+      // Dynamic background
+      if (feats.bg) {
+        document.body.style.background = bgColors[Math.min(faces.length, bgColors.length - 1)];
+      }
+
       if (faces.length === 0) {
-        earLeftEl.textContent  = '-';
-        earRightEl.textContent = '-';
+        smileValEl.textContent = '-';
+        mouthValEl.textContent = '-';
+        emotionBadge.textContent = '';
         closedFrames = 0;
         eyesClosed   = false;
         return;
       }
 
-      // Procesa solo la primera cara para pestañeos
-      const lm = faces[0];
+      const lm = faces[0];   // primary face for analytics
 
-      const earL = eyeAspectRatio(lm, LEFT_EYE_PTS);
-      const earR = eyeAspectRatio(lm, RIGHT_EYE_PTS);
-      const ear  = (earL + earR) / 2;
+      // ── EAR blink ──
+      const earL = ear(lm, L_EYE);
+      const earR = ear(lm, R_EYE);
+      const earAvg = (earL + earR) / 2;
 
-      earLeftEl.textContent  = earL.toFixed(2);
-      earRightEl.textContent = earR.toFixed(2);
-
-      if (ear < EAR_THRESHOLD) {
+      if (earAvg < EAR_THRESH) {
         closedFrames++;
       } else {
-        if (closedFrames >= EAR_FRAMES && eyesClosed) {
-          triggerBlink();
-        }
+        if (closedFrames >= EAR_FRAMES && eyesClosed) triggerBlink();
         closedFrames = 0;
         eyesClosed   = false;
       }
+      if (closedFrames >= EAR_FRAMES) eyesClosed = true;
 
-      if (closedFrames >= EAR_FRAMES) {
-        eyesClosed = true;
+      // ── Smile ──
+      const smile = smileRatio(lm);
+      const isSmiling = smile > 0.04;
+      if (feats.smile) {
+        smileValEl.textContent = isSmiling ? '😄' : '😐';
+        boxSmile.className = 'stat-box' + (isSmiling ? ' warn' : '');
+      } else {
+        smileValEl.textContent = '-';
+        boxSmile.className = 'stat-box';
       }
 
-      // Dibuja malla facial para todas las caras
+      // ── Mouth ──
+      const mar = mouthAspectRatio(lm);
+      const mouthOpen = mar > 0.5;
+      if (feats.mouth) {
+        mouthValEl.textContent = mouthOpen ? '😮' : '😶';
+        boxMouth.className = 'stat-box' + (mouthOpen ? ' alert' : '');
+      } else {
+        mouthValEl.textContent = '-';
+        boxMouth.className = 'stat-box';
+      }
+
+      // ── Emotion badge ──
+      if (mouthOpen && isSmiling)   emotionBadge.textContent = '😂 ¡Carcajada!';
+      else if (mouthOpen)            emotionBadge.textContent = '😮 ¡Sorprendido!';
+      else if (isSmiling)            emotionBadge.textContent = '😄 ¡Sonriendo!';
+      else                           emotionBadge.textContent = '';
+
+      // ── Draw overlays for all faces ──
       for (const landmarks of faces) {
-        drawConnectors(ctx, landmarks, FACEMESH_TESSELATION,
-          { color: '#00FF8822', lineWidth: 1 });
-        drawConnectors(ctx, landmarks, FACEMESH_RIGHT_EYE,
-          { color: '#FF4444CC', lineWidth: 2 });
-        drawConnectors(ctx, landmarks, FACEMESH_LEFT_EYE,
-          { color: '#44FF44CC', lineWidth: 2 });
-        drawConnectors(ctx, landmarks, FACEMESH_RIGHT_EYEBROW,
-          { color: '#FF8800CC', lineWidth: 1.5 });
-        drawConnectors(ctx, landmarks, FACEMESH_LEFT_EYEBROW,
-          { color: '#FF8800CC', lineWidth: 1.5 });
-        drawConnectors(ctx, landmarks, FACEMESH_LIPS,
-          { color: '#AAAAFF', lineWidth: 2 });
-        drawConnectors(ctx, landmarks, FACEMESH_FACE_OVAL,
-          { color: '#00FF8888', lineWidth: 2 });
+        if (feats.mesh) {
+          drawConnectors(ctx, landmarks, FACEMESH_TESSELATION,   { color: '#00FF8818', lineWidth: 1 });
+          drawConnectors(ctx, landmarks, FACEMESH_RIGHT_EYE,     { color: '#FF4444BB', lineWidth: 2 });
+          drawConnectors(ctx, landmarks, FACEMESH_LEFT_EYE,      { color: '#44FF44BB', lineWidth: 2 });
+          drawConnectors(ctx, landmarks, FACEMESH_RIGHT_EYEBROW, { color: '#FF8800BB', lineWidth: 1.5 });
+          drawConnectors(ctx, landmarks, FACEMESH_LEFT_EYEBROW,  { color: '#FF8800BB', lineWidth: 1.5 });
+          drawConnectors(ctx, landmarks, FACEMESH_LIPS,          { color: '#AAAAFFBB', lineWidth: 2 });
+          drawConnectors(ctx, landmarks, FACEMESH_FACE_OVAL,     { color: '#00FF8866', lineWidth: 2 });
+        }
+        if (feats.glasses) drawGlasses(landmarks);
+        if (feats.hat)     drawHat(landmarks);
       }
     });
 
     const camera = new Camera(video, {
       onFrame: async () => { await faceMesh.send({ image: video }); },
-      width: 640,
-      height: 480
+      width: 640, height: 480
     });
 
     camera.start()
-      .then(() => { statusEl.textContent = '✅ Cámara activa — ¡ponte delante y pestañea!'; })
-      .catch((err) => { statusEl.textContent = '❌ Cámara no disponible: ' + err.message; });
+      .then(() => { statusEl.textContent = '✅ Cámara activa — ¡pestañea, sonríe, abre la boca!'; })
+      .catch((e) => { statusEl.textContent = '❌ Cámara no disponible: ' + e.message; });
   </script>
 
 </body>
