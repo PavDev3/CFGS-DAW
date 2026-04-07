@@ -1,4 +1,4 @@
-# Tema 5 — Configuración de Red y Acceso WAN
+## Tema 5 — Configuración de Red y Acceso WAN
 
 ← [[Sistemas-Tema4]] | [[Sistemas]]
 
