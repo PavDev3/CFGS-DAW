@@ -1,0 +1,1 @@
+docker exec -it 3b6b4578d7e7 mariadb -u root -p  
