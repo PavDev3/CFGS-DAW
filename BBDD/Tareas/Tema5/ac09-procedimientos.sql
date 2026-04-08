@@ -89,7 +89,7 @@ DROP PROCEDURE IF EXISTS ac09upsertHabilidad;
 DELIMITER //
 CREATE PROCEDURE ac09upsertHabilidad(IN cod VARCHAR(10), IN des VARCHAR(30))
 BEGIN
-    IF CHAR_LENGTH(TRIM(cod)) = 5 THEN
+    IF CHAR_LENGTH(cod) = 5 THEN
         IF EXISTS (SELECT 1 FROM habilidad WHERE CodHab = cod) THEN
             UPDATE habilidad SET DesHab = des WHERE CodHab = cod;
         ELSE
