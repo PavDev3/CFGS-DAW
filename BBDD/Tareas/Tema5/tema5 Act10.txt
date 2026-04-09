@@ -1,0 +1,20 @@
+En la base de datos empresa  crea: 
+
+Las funciones ac10contarEmpleados y ac1009contarEmpleadosDpto reescribiendo los 
+procedimientos ac10contarEmpleados y ac1003contarEmpleadosDpto de la actividad ACT 07.
+
+La función ac10presupuestoCentro que, a partir del código de un centro, 
+devuelva su presupuesto (calculado como la suma de los presupuestos de sus departamentos).
+
+La función ac10totalHabilidadesEmpleado que, a partir de un código de un empleado, devuelva cuantas habilidades tiene.
+
+La función ac10totalEmpleadosHabilidad que, a partir de un código de una habilidad, devuelva cuantos empleados la tienen.
+
+La función ac10directorCentro que, a partir del código de un centro, devuelva el nombre de su director.
+
+La función ac10emailEmpleado que, a partir de un código de empleado, 
+devuelva su email con la siguiente nomenclatura: CodEmp@CodDep.CodCen.com
+La función ac10validaHijosEmpleados que a partir de un código de un empleado, 
+compruebe si la cantidad de hijos de la tabla empleado coinciden con los de la tabla hijo.
+
+Comprueba las funciones existentes en la base de datos empresa.
