@@ -8,11 +8,11 @@
 
 ### Tabla comparativa
 
-| Modo | Internet | Visible en LAN | Comunicación entre VMs |
-|------|----------|----------------|------------------------|
-| **NAT** | Sí | No | Limitada |
-| **Adaptador Puente** | Sí | Sí | Sí |
-| **Red Interna** | No | No | Sí |
+| Modo                 | Internet | Visible en LAN | Comunicación entre VMs |
+| -------------------- | -------- | -------------- | ---------------------- |
+| **NAT**              | Sí       | No             | Limitada               |
+| **Adaptador Puente** | Sí       | Sí             | Sí                     |
+| **Red Interna**      | No       | No             | Sí                     |
 
 ### NAT (Network Address Translation)
 - La VM recibe IP privada de VirtualBox (típico: `10.0.2.x`)
