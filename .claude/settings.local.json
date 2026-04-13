@@ -37,7 +37,8 @@
       "Bash(ls:*)",
       "Bash(ssh imac:*)",
       "Bash(ssh-keyscan:*)",
-      "Bash(ssh:*)"
+      "Bash(ssh:*)",
+      "Bash(java:*)"
     ]
   }
 }
