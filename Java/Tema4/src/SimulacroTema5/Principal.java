@@ -4,120 +4,300 @@ public class Principal {
 
     public static void main(String[] args) {
 
-        // ── a) Array de Empleado con polimorfismo ──────────────────────────
-        Empleado[] empleados = new Empleado[4];
+        // --- a) Crear array polimorfico ---
 
-        double[][] horas1 = {
-            {4, 3},
-            {4, 4},
+        CentroOperativo[] centros = new CentroOperativo[6];
+
+        // Responsables
+        Responsable r1 = new Responsable("11111111A", "Ana Garcia", 12);
+        Responsable r2 = new Responsable("22222222B", "Luis Lopez", 5);
+        Responsable r3 = new Responsable("33333333C", "Maria Ruiz", 15);
+        Responsable r4 = new Responsable("44444444D", "Pedro Sanchez", 3);
+        Responsable r5 = new Responsable("55555555E", "Laura Perez", 8);
+        Responsable r6 = new Responsable("66666666F", "Carlos Gomez", 11);
+
+        // Matrices de operaciones e incidencias para cada centro
+        // [dia][turno] -> turno 0 = manana, turno 1 = tarde
+
+        int[][] ops1 = {
+            {10, 9},
+            {8, 10},
+            {11, 9},
+            {10, 8},
+            {9, 10}
+        };
+        int[][] inc1 = {
+            {1, 2},
+            {0, 1},
+            {2, 1},
+            {1, 0},
+            {1, 1}
+        };
+
+        int[][] ops2 = {
+            {5, 6},
+            {7, 5},
+            {6, 4},
+            {8, 7},
+            {5, 6}
+        };
+        int[][] inc2 = {
+            {2, 3},
+            {1, 2},
+            {3, 2},
+            {1, 1},
+            {2, 3}
+        };
+
+        int[][] ops3 = {
+            {12, 11},
+            {10, 13},
+            {11, 10},
+            {12, 11},
+            {13, 12}
+        };
+        int[][] inc3 = {
+            {0, 1},
+            {1, 0},
+            {0, 0},
+            {1, 1},
+            {0, 1}
+        };
+
+        int[][] ops4 = {
+            {9, 8},
+            {10, 9},
+            {8, 9},
+            {11, 10},
+            {9, 8}
+        };
+        int[][] inc4 = {
+            {1, 0},
+            {2, 1},
+            {0, 1},
+            {1, 2},
+            {0, 1}
+        };
+
+        int[][] ops5 = {
+            {3, 4},
             {5, 3},
             {4, 4},
+            {3, 5},
+            {4, 3}
+        };
+        int[][] inc5 = {
+            {1, 2},
+            {0, 1},
+            {2, 1},
+            {1, 1},
             {3, 2}
         };
 
-        double[][] horas2 = {
-            {5, 4},
-            {5, 5},
-            {4, 4},
-            {5, 3},
-            {4, 4}
+        int[][] ops6 = {
+            {8, 9},
+            {9, 8},
+            {10, 9},
+            {8, 10},
+            {9, 8}
+        };
+        int[][] inc6 = {
+            {0, 0},
+            {1, 0},
+            {0, 1},
+            {0, 0},
+            {1, 0}
         };
 
-        double[][] horas3 = {
-            {3, 3},
-            {4, 3},
-            {4, 4},
-            {3, 3},
-            {4, 3}
-        };
+        centros[0] = new CentroDistribucion("CD-001", Zona.NORTE, r1, ops1, inc1, 20);
+        centros[1] = new CentroDistribucion("CD-002", Zona.SUR, r2, ops2, inc2, 10);
+        centros[2] = new CentroDistribucion("CD-003", Zona.CENTRAL, r3, ops3, inc3, 35);
+        centros[3] = new CentroSeguridad("CS-001", Zona.ESTE, r4, ops4, inc4, 5);
+        centros[4] = new CentroSeguridad("CS-002", Zona.OESTE, r5, ops5, inc5, 2);
+        centros[5] = new CentroSeguridad("CS-003", Zona.NORTE, r6, ops6, inc6, 8);
 
-        double[][] horas4 = {
-            {5, 5},
-            {4, 4},
-            {5, 5},
-            {4, 3},
-            {5, 4}
-        };
+        // --- b) Mostrar toda la informacion ---
 
-        empleados[0] = new Programador("P001", "Ana Garcia",    Departamento.INFORMATICA,   horas1, 8);
-        empleados[1] = new Programador("P002", "Luis Martinez", Departamento.INFORMATICA,   horas2, 3);
-        empleados[2] = new Administrativo("A001", "Maria Lopez",  Departamento.ADMINISTRACION, horas3, 12);
-        empleados[3] = new Administrativo("A002", "Carlos Ruiz",  Departamento.RRHH,           horas4, 20);
+        System.out.println("============================================================");
+        System.out.println("          INFORMACION DE TODOS LOS CENTROS");
+        System.out.println("============================================================");
 
-        // ── c) Mostrar datos de cada empleado ──────────────────────────────
-        System.out.println("========================================");
-        System.out.println("       GESTION DE PRODUCTIVIDAD         ");
-        System.out.println("========================================\n");
-
-        for (Empleado e : empleados) {
-            System.out.println("----------------------------------------");
-            System.out.println(e);
-            System.out.println();
-            e.mostrarHorario();
-            System.out.printf("Horas totales semana : %.1f h%n", e.calcularHorasTotalesSemana());
-            System.out.printf("Productividad        : %.1f%n", e.calcularProductividad());
-            System.out.println("Merece reconocimiento: " + (e.mereceReconocimiento() ? "SÍ" : "NO"));
-            System.out.println();
+        for (int i = 0; i < centros.length; i++) {
+            System.out.println("\n" + centros[i].toString());
+            System.out.println("Responsable: " + centros[i].getResponsable().toString());
+            centros[i].mostrarResumenSemanal();
+            System.out.println("Total operaciones: " + centros[i].calcularTotalOperaciones());
+            System.out.println("Total incidencias: " + centros[i].calcularTotalIncidencias());
+            System.out.printf("Tasa de incidencias: %.2f%%%n", centros[i].calcularTasaIncidencias());
+            System.out.printf("Indice de eficiencia: %.2f%n", centros[i].calcularIndiceEficiencia());
+            System.out.println("Necesita auditoria: " + centros[i].necesitaAuditoria());
         }
 
-        // ── d) Empleado con mayor productividad + conteo por tipo ──────────
-        System.out.println("========================================");
-        System.out.println("          ESTADISTICAS GLOBALES         ");
-        System.out.println("========================================\n");
+        // --- c) Centro con mayor indice de eficiencia ---
 
-        Empleado mejorEmpleado = empleados[0];
-        int numProgramadores  = 0;
-        int numAdministrativos = 0;
+        System.out.println("\n============================================================");
+        System.out.println("     CENTRO CON MAYOR INDICE DE EFICIENCIA");
+        System.out.println("============================================================");
 
-        for (Empleado e : empleados) {
-            if (e.calcularProductividad() > mejorEmpleado.calcularProductividad()) {
-                mejorEmpleado = e;
+        CentroOperativo mejorCentro = centros[0];
+        for (int i = 1; i < centros.length; i++) {
+            if (centros[i].calcularIndiceEficiencia() > mejorCentro.calcularIndiceEficiencia()) {
+                mejorCentro = centros[i];
             }
-            if (e instanceof Programador)    numProgramadores++;
-            if (e instanceof Administrativo) numAdministrativos++;
         }
 
-        System.out.println("Empleado con mayor productividad: " + mejorEmpleado.getNombre() +
-                           " (" + String.format("%.1f", mejorEmpleado.calcularProductividad()) + ")");
-        System.out.println("Numero de Programadores  : " + numProgramadores);
-        System.out.println("Numero de Administrativos: " + numAdministrativos);
-        System.out.println();
+        System.out.println("Codigo: " + mejorCentro.getCodigo());
+        System.out.println("Tipo: " + mejorCentro.getClass().getSimpleName());
+        System.out.println("Responsable: " + mejorCentro.getResponsable().getNombre());
+        System.out.printf("Indice de eficiencia: %.2f%n", mejorCentro.calcularIndiceEficiencia());
 
-        // ── e) Media de horas por turno ───────────────────────────────────
-        double totalManana = 0;
-        double totalTarde  = 0;
+        // --- d) Centro con peor tasa de incidencias ---
 
-        for (Empleado e : empleados) {
+        System.out.println("\n============================================================");
+        System.out.println("     CENTRO CON PEOR TASA DE INCIDENCIAS");
+        System.out.println("============================================================");
+
+        CentroOperativo peorCentro = centros[0];
+        for (int i = 1; i < centros.length; i++) {
+            if (centros[i].calcularTasaIncidencias() > peorCentro.calcularTasaIncidencias()) {
+                peorCentro = centros[i];
+            }
+        }
+
+        System.out.println("Codigo: " + peorCentro.getCodigo());
+        System.out.printf("Tasa de incidencias: %.2f%%%n", peorCentro.calcularTasaIncidencias());
+        System.out.println("Tipo: " + peorCentro.getClass().getSimpleName());
+
+        // --- e) Contar tipos con instanceof ---
+
+        System.out.println("\n============================================================");
+        System.out.println("     CONTEO DE TIPOS");
+        System.out.println("============================================================");
+
+        int numDistribucion = 0;
+        int numSeguridad = 0;
+
+        for (int i = 0; i < centros.length; i++) {
+            if (centros[i] instanceof CentroDistribucion) {
+                numDistribucion++;
+            } else if (centros[i] instanceof CentroSeguridad) {
+                numSeguridad++;
+            }
+        }
+
+        System.out.println("Centros de distribucion: " + numDistribucion);
+        System.out.println("Centros de seguridad: " + numSeguridad);
+
+        // --- f) Calcular medias globales por turno ---
+
+        System.out.println("\n============================================================");
+        System.out.println("     MEDIAS GLOBALES POR TURNO");
+        System.out.println("============================================================");
+
+        int totalOpManana = 0;
+        int totalOpTarde = 0;
+        int totalIncManana = 0;
+        int totalIncTarde = 0;
+        int totalCeldas = centros.length * 5; // 6 centros x 5 dias
+
+        for (int i = 0; i < centros.length; i++) {
             for (int dia = 0; dia < 5; dia++) {
-                totalManana += e.getHorasTrabajadas()[dia][0];
-                totalTarde  += e.getHorasTrabajadas()[dia][1];
+                totalOpManana  += centros[i].getOperaciones()[dia][0];
+                totalOpTarde   += centros[i].getOperaciones()[dia][1];
+                totalIncManana += centros[i].getIncidencias()[dia][0];
+                totalIncTarde  += centros[i].getIncidencias()[dia][1];
             }
         }
 
-        int totalDias = empleados.length * 5;
-        System.out.printf("Media horas turno mañana: %.2f h%n", totalManana / totalDias);
-        System.out.printf("Media horas turno tarde : %.2f h%n", totalTarde  / totalDias);
-        System.out.println();
+        System.out.printf("Media operaciones turno manana: %.2f%n", (double) totalOpManana / totalCeldas);
+        System.out.printf("Media operaciones turno tarde:  %.2f%n", (double) totalOpTarde / totalCeldas);
+        System.out.printf("Media incidencias turno manana: %.2f%n", (double) totalIncManana / totalCeldas);
+        System.out.printf("Media incidencias turno tarde:  %.2f%n", (double) totalIncTarde / totalCeldas);
 
-        // ── f) Empleado que ha trabajado más horas en un solo día ─────────
-        Empleado empleadoMaxDia = empleados[0];
-        int      diaMaximo      = 0;
-        double   maxHorasDia    = empleados[0].calcularHorasDia(0);
+        // --- g) Buscar el dia mas problematico ---
 
-        for (Empleado e : empleados) {
+        System.out.println("\n============================================================");
+        System.out.println("     DIA MAS PROBLEMATICO");
+        System.out.println("============================================================");
+
+        String[] diasSemana = {"Lunes", "Martes", "Miercoles", "Jueves", "Viernes"};
+        int[] incidenciasPorDia = new int[5];
+
+        for (int i = 0; i < centros.length; i++) {
             for (int dia = 0; dia < 5; dia++) {
-                double horas = e.calcularHorasDia(dia);
-                if (horas > maxHorasDia) {
-                    maxHorasDia    = horas;
-                    empleadoMaxDia = e;
-                    diaMaximo      = dia;
-                }
+                incidenciasPorDia[dia] += centros[i].calcularIncidenciasDia(dia);
             }
         }
 
-        String[] nombresDias = {"Lunes", "Martes", "Miercoles", "Jueves", "Viernes"};
-        System.out.println("Empleado con mas horas en un dia: " + empleadoMaxDia.getNombre() +
-                           " el " + nombresDias[diaMaximo] +
-                           " con " + maxHorasDia + " h");
+        int diaMasProblematico = 0;
+        for (int dia = 1; dia < 5; dia++) {
+            if (incidenciasPorDia[dia] > incidenciasPorDia[diaMasProblematico]) {
+                diaMasProblematico = dia;
+            }
+        }
+
+        System.out.println("Dia mas problematico: " + diasSemana[diaMasProblematico]);
+        System.out.println("Total incidencias ese dia: " + incidenciasPorDia[diaMasProblematico]);
+
+        // --- h) Centro mas equilibrado ---
+
+        System.out.println("\n============================================================");
+        System.out.println("     CENTRO MAS EQUILIBRADO");
+        System.out.println("============================================================");
+
+        CentroOperativo centroEquilibrado = centros[0];
+        int menorDiferencia = Math.abs(centros[0].calcularTotalOperaciones() - centros[0].calcularTotalIncidencias());
+
+        for (int i = 1; i < centros.length; i++) {
+            int diferencia = Math.abs(centros[i].calcularTotalOperaciones() - centros[i].calcularTotalIncidencias());
+            if (diferencia < menorDiferencia) {
+                menorDiferencia = diferencia;
+                centroEquilibrado = centros[i];
+            }
+        }
+
+        System.out.println("Codigo: " + centroEquilibrado.getCodigo());
+        System.out.println("Diferencia absoluta: " + menorDiferencia);
+        System.out.println("Tipo: " + centroEquilibrado.getClass().getSimpleName());
+
+        // --- i) Centros con responsable con antiguedad > 10 anios ---
+
+        System.out.println("\n============================================================");
+        System.out.println("     CENTROS CON RESPONSABLE DE MAS DE 10 ANIOS");
+        System.out.println("============================================================");
+
+        boolean hayAlguno = false;
+        for (int i = 0; i < centros.length; i++) {
+            if (centros[i].getResponsable().getAntiguedad() > 10) {
+                System.out.println("Codigo: " + centros[i].getCodigo());
+                System.out.println("Responsable: " + centros[i].getResponsable().getNombre());
+                System.out.println("Antiguedad: " + centros[i].getResponsable().getAntiguedad() + " anios");
+                System.out.println("Tipo: " + centros[i].getClass().getSimpleName());
+                System.out.println("---");
+                hayAlguno = true;
+            }
+        }
+        if (!hayAlguno) {
+            System.out.println("No hay centros con responsable de mas de 10 anios.");
+        }
+
+        // --- j) Centros con >40 operaciones, <10 incidencias y sin auditoria ---
+
+        System.out.println("\n============================================================");
+        System.out.println("     CENTROS CON MAS DE 40 OP, MENOS DE 10 INC Y SIN AUDITORIA");
+        System.out.println("============================================================");
+
+        boolean encontrado = false;
+        for (int i = 0; i < centros.length; i++) {
+            if (centros[i].calcularTotalOperaciones() > 40
+                    && centros[i].calcularTotalIncidencias() < 10
+                    && !centros[i].necesitaAuditoria()) {
+                System.out.println(centros[i].toString());
+                encontrado = true;
+            }
+        }
+        if (!encontrado) {
+            System.out.println("Ningun centro cumple esas condiciones.");
+        }
     }
 }
