@@ -1,9 +1,6 @@
 package simulacroFinal;
 
-import SimulacroTema5.Administrativo;
-import SimulacroTema5.Departamento;
-import SimulacroTema5.Empleado;
-import SimulacroTema5.Programador;
+
 
 public class MainSimulacroFinal {
 
