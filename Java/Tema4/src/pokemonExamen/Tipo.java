@@ -1,4 +1,4 @@
-package ExamenTema6;
+package pokemonExamen;
 
 public enum Tipo {
     fuego, planta, agua

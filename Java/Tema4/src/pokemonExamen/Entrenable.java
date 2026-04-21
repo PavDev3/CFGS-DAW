@@ -1,4 +1,4 @@
-package ExamenTema6;
+package pokemonExamen;
 
 public interface Entrenable {
     boolean necesitaMejorar();
