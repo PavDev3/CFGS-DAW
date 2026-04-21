@@ -1,0 +1,154 @@
+<!doctype html>
+<html>
+  <head>
+    <style>
+      h2 {
+        text-align: center;
+      }
+      p {
+        text-align: center;
+      }
+      .dropbtn {
+        background-color: #4caf50;
+        color: white;
+        padding: 16px;
+        font-size: 16px;
+        border: none;
+        cursor: pointer;
+      }
+
+      .dropdown {
+        position: relative;
+      }
+
+      .dropdown-row {
+        display: flex;
+        justify-content: center;
+        gap: 1rem;
+        margin-top: 16px;
+      }
+
+      .dropdown-content {
+        display: none;
+        position: absolute;
+        background-color: #3e8e41;
+        left: 0;
+
+        min-width: 162px;
+        box-shadow: 0px 8px 16px 0px rgba(0, 0, 0, 0.2);
+        z-index: 1;
+      }
+
+      .dropdown-content a {
+        color: white;
+        padding: 12px 16px;
+        text-decoration: none;
+        display: block;
+      }
+
+      .dropdown-content a:hover {
+        background-color: #8cd7b2e4;
+      }
+
+      .dropdown:hover .dropdown-content {
+        display: block;
+      }
+
+      .dropdown:hover .dropbtn {
+        background-color: #3e8e41;
+      }
+
+      @media (orientation: portrait) {
+        .dropdown-row {
+          flex-direction: column;
+          align-items: center;
+          gap: 0.75rem;
+        }
+
+        .dropdown {
+          width: 90%;
+          max-width: 320px;
+        }
+
+        .dropbtn {
+          width: 100%;
+        }
+
+        .dropdown-content {
+          left: 0;
+          right: auto;
+          width: 100%;
+          min-width: unset;
+        }
+      }
+
+      @media (max-width: 600px) {
+        body {
+          margin: 12px;
+        }
+
+        h2,
+        p {
+          text-align: center;
+        }
+
+        .dropdown-row {
+          flex-direction: column;
+          align-items: center;
+          gap: 0.5rem;
+        }
+
+        .dropdown {
+          width: 100%;
+          max-width: 320px;
+        }
+
+        .dropbtn {
+          width: 100%;
+          padding: 14px;
+          font-size: 15px;
+        }
+
+        .dropdown-content {
+          left: 0;
+          right: auto;
+          width: 100%;
+          min-width: unset;
+        }
+      }
+    </style>
+  </head>
+  <body>
+    <h2>Menu desplegeibol</h2>
+    <p>Mueve el raton sobre los botones para abrir el menu desplegable</p>
+
+    <div class="dropdown-row">
+      <div class="dropdown">
+        <button class="dropbtn">DNI</button>
+        <div class="dropdown-content">
+          <a href="#">Link 1</a>
+          <a href="#">Link 2</a>
+          <a href="#">Link 3</a>
+        </div>
+      </div>
+
+      <div class="dropdown">
+        <button class="dropbtn">Direccion</button>
+        <div class="dropdown-content">
+          <a href="#">Urb La Rosaleda</a>
+          <a href="#">Puente Mayorga</a>
+          <a href="#">Cadiz</a>
+        </div>
+      </div>
+
+      <div class="dropdown">
+        <button class="dropbtn">Nombre Completo</button>
+        <div class="dropdown-content">
+          <a href="#">Pablo</a>
+          <a href="#">Nunez</a>
+          <a href="#">Fernandez</a>
+        </div>
+      </div>
+    </div>
+  </body>
+</html>
