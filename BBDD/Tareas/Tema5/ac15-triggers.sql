@@ -13,3 +13,24 @@ begin
 end //
 delimiter ;
 
+-- create table for log of email changes
+create table logCambiosEmail (
+    id int auto_increment primary key,
+    idAlumno int,
+    fechaHora datetime,
+    oldEmail varchar(255),
+    newEmail varchar(255)
+);
+
+delimiter //
+create or replace trigger trg_alumnado_after_update
+after update on alumnado
+for each row
+begin
+    if old.email != new.email then
+        insert into logCambiosEmail (idAlumno, fechaHora, oldEmail, newEmail)
+        values (new.id, now(), old.email, new.email);
+    end if;
+end //
+delimiter ; 
+
