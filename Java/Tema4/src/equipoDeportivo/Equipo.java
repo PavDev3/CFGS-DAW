@@ -13,17 +13,17 @@ public class Equipo {
     }
 
     // annadir alumno — excepcion si ya existe
-    public void annadirAlumno(Alumno a) throws Exception {
+    public void annadirAlumno(Alumno a) throws EquipoException {
         if (alumnos.contains(a)) {
-            throw new Exception("El alumno " + a.getNombre() + " ya esta en el equipo.");
+            throw new EquipoException("El alumno " + a.getNombre() + " ya esta en el equipo.");
         }
         alumnos.add(a);
     }
 
     // borrar alumno — excepcion si no existe
-    public void borrarAlumno(Alumno a) throws Exception {
+    public void borrarAlumno(Alumno a) throws EquipoException {
         if (!alumnos.contains(a)) {
-            throw new Exception("El alumno " + a.getNombre() + " no esta en el equipo.");
+            throw new EquipoException("El alumno " + a.getNombre() + " no esta en el equipo.");
         }
         alumnos.remove(a);
     }
