@@ -38,7 +38,8 @@
       "Bash(ssh imac:*)",
       "Bash(ssh-keyscan:*)",
       "Bash(ssh:*)",
-      "Bash(java:*)"
+      "Bash(java:*)",
+      "Bash(git check-ignore *)"
     ]
   }
 }
