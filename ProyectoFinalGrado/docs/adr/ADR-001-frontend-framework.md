@@ -21,7 +21,7 @@ Se evaluaron tres opciones: Angular, React y Vue.
 
 ## Decisión
 
-Se elige **Angular 17** como framework de frontend.
+Se elige **Angular (última versión estable)** como framework de frontend.
 
 ---
 
