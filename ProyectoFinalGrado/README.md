@@ -39,7 +39,7 @@ ProyectoFinalGrado/
 
 | Capa | Tecnología |
 |---|---|
-| Frontend | Angular 17 + Angular Material |
+| Frontend | Angular (última versión estable) + Angular Material |
 | Backend | Node.js + Express |
 | Base de datos | MariaDB |
 | Tiempo real | Socket.io (WebSocket) |
