@@ -7,7 +7,7 @@ El sistema sigue una arquitectura de tres capas con un componente IoT adicional:
 ```
 ┌─────────────────────────────────────────────────────────────────┐
 │                        CAPA DE PRESENTACIÓN                      │
-│                    Angular 17 (SPA)                              │
+│                    Angular (última versión) (SPA)                              │
 │         Dashboard │ Alertas │ Historial │ Informes               │
 └───────────────────────────┬─────────────────────────────────────┘
                             │ HTTP (REST) + WebSocket
@@ -31,7 +31,7 @@ El sistema sigue una arquitectura de tres capas con un componente IoT adicional:
 
 ## Componentes
 
-### 1. Frontend — Angular 17
+### 1. Frontend — Angular (última versión)
 
 **Responsabilidades:**
 - Interfaz de usuario SPA (Single Page Application).
