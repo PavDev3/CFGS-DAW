@@ -39,7 +39,9 @@
       "Bash(ssh-keyscan:*)",
       "Bash(ssh:*)",
       "Bash(java:*)",
-      "Bash(git check-ignore *)"
+      "Bash(git check-ignore *)",
+      "Bash(sed 's/\\\\t/    /g' /Users/pablo/clases/BBDD/Tareas/ExamenTema5/soluciones.sql)",
+      "Bash(mv /tmp/soluciones_spaces.sql /Users/pablo/clases/BBDD/Tareas/ExamenTema5/soluciones.sql)"
     ]
   }
 }
