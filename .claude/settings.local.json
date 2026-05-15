@@ -41,7 +41,8 @@
       "Bash(java:*)",
       "Bash(git check-ignore *)",
       "Bash(sed 's/\\\\t/    /g' /Users/pablo/clases/BBDD/Tareas/ExamenTema5/soluciones.sql)",
-      "Bash(mv /tmp/soluciones_spaces.sql /Users/pablo/clases/BBDD/Tareas/ExamenTema5/soluciones.sql)"
+      "Bash(mv /tmp/soluciones_spaces.sql /Users/pablo/clases/BBDD/Tareas/ExamenTema5/soluciones.sql)",
+      "WebFetch(domain:www.w3schools.com)"
     ]
   }
 }
