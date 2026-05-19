@@ -43,7 +43,12 @@
       "Bash(Get-ChildItem -Path \"D:\\\\clases\\\\CFGS-DAW\\\\Programacion\\\\ProyectoFinal\" -Recurse -File)",
       "Bash(Select-Object -ExpandProperty FullName)",
       "PowerShell(Get-ChildItem -Path \"D:\\\\clases\\\\CFGS-DAW\\\\Programacion\\\\ProyectoFinal\" -Recurse | Where-Object {$_.PSIsContainer -eq $false} | Select-Object -ExpandProperty FullName)",
-      "PowerShell(Get-ChildItem -Path \"D:\\\\clases\\\\CFGS-DAW\\\\Programacion\\\\ProyectoFinal\" -Recurse | Where-Object {$_.PSIsContainer -eq $true} | Select-Object -ExpandProperty FullName)"
+      "PowerShell(Get-ChildItem -Path \"D:\\\\clases\\\\CFGS-DAW\\\\Programacion\\\\ProyectoFinal\" -Recurse | Where-Object {$_.PSIsContainer -eq $true} | Select-Object -ExpandProperty FullName)",
+      "Bash(sed 's/\\\\t/    /g' /Users/pablo/clases/BBDD/Tareas/ExamenTema5/soluciones.sql)",
+      "Bash(mv /tmp/soluciones_spaces.sql /Users/pablo/clases/BBDD/Tareas/ExamenTema5/soluciones.sql)",
+      "WebFetch(domain:www.w3schools.com)",
+      "Bash(git add *)",
+      "Bash(git commit -m ' *)"
     ]
   }
 }
