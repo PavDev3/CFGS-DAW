@@ -105,6 +105,10 @@ body {
     border-radius: 1rem;
     box-shadow: 0 8px 32px rgba(0, 0, 0, 0.1);
     margin: 2rem 0;
+    animation-name: slideIn;
+    animation-duration: 0.9s;
+    animation-timing-function: ease-out;
+    animation-fill-mode: both;
 }
 
 .flex-item {
@@ -151,4 +155,30 @@ body {
     background-color: var(--color-accent);
     color: var(--color-secondary);
     padding: 0.5rem 1rem;
+}
+
+/* ===== Animaciones (W3Schools - css3_animations) ===== */
+
+/* Animación 1: Fade-in con deslizamiento — el título aparece subiendo desde abajo (ejemplo from/to) */
+@keyframes fadeInSlide {
+    from {
+        opacity: 0;
+        transform: translateY(40px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+.content h1 {
+    animation-name: fadeInSlide;
+    animation-duration: 1.2s;
+    animation-timing-function: ease-out;
+}
+
+/* Animación 2: Slide-in desde la izquierda — el contenedor entra deslizándose al cargar la página */
+@keyframes slideIn {
+    0%   { transform: translateX(-100%); opacity: 0; }
+    100% { transform: translateX(0);     opacity: 1; }
 }
