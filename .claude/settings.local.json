@@ -39,7 +39,11 @@
       "Bash(ssh-keyscan:*)",
       "Bash(ssh:*)",
       "Bash(java:*)",
-      "Bash(git check-ignore *)"
+      "Bash(git check-ignore *)",
+      "Bash(Get-ChildItem -Path \"D:\\\\clases\\\\CFGS-DAW\\\\Programacion\\\\ProyectoFinal\" -Recurse -File)",
+      "Bash(Select-Object -ExpandProperty FullName)",
+      "PowerShell(Get-ChildItem -Path \"D:\\\\clases\\\\CFGS-DAW\\\\Programacion\\\\ProyectoFinal\" -Recurse | Where-Object {$_.PSIsContainer -eq $false} | Select-Object -ExpandProperty FullName)",
+      "PowerShell(Get-ChildItem -Path \"D:\\\\clases\\\\CFGS-DAW\\\\Programacion\\\\ProyectoFinal\" -Recurse | Where-Object {$_.PSIsContainer -eq $true} | Select-Object -ExpandProperty FullName)"
     ]
   }
 }
