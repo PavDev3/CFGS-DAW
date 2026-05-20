@@ -1,182 +1,123 @@
-# Combate Pokemon: IA vs Humano
+# Pokémon Añil — Editor de Partida
 
-Proyecto de clase DAW — Torneo interno + enfrentamiento final contra una IA que ha completado el juego Pokemon Anil desde cero.
-
----
-
-## Concepto
-
-1. Los alumnos del grado superior de DAW compiten en un torneo de Pokemon Anil
-2. El ganador humano se enfrenta a una IA que tambien ha jugado desde el inicio
-3. Objetivo: determinar si la IA o el humano es mas fuerte
+Editor de saves para **Pokémon Añil 4.0** (Pokemon Essentials v21, RPG Maker XP / mkxp-z).
 
 ---
 
-## Arquitectura del sistema
+## Requisitos
+
+- Python 3.8 o superior
+
+---
+
+## Estructura de carpetas
 
 ```
-Pantalla del juego
-       |
-  [Captura de pantalla - mss/pyautogui]
-       |
-  [Capa de Vision - Qwen2.5-VL 32B via Ollama]
-  Extrae el estado: HP, Pokemon en juego, movimientos disponibles
-       |
-  [Capa de Conocimiento - PokeAPI / Base de datos local]
-  Tipos, debilidades, stats, movimientos
-       |
-  [Capa de Decision - LLM estrategico]
-  Razona que accion tomar
-       |
-  [Capa de Control - pyautogui / pynput]
-  Simula pulsaciones de teclado
-       |
-  Juego recibe la accion
+saveEditor/
+├── save_editor.py    ← script principal
+├── PBS/
+│   ├── pokemon.txt   ← datos de especies
+│   └── moves.txt     ← datos de movimientos
+├── saves/            ← PEGA AQUÍ el .rxdata del juego
+└── savesGen/         ← el save modificado aparece aquí
 ```
 
 ---
 
-## Niveles de automatizacion
+## Uso rápido
 
-### Nivel 1 — Automatico (sin consultar la IA)
-- Movimiento por el mapa → pathfinding A*
-- Avanzar dialogos → pulsar A automaticamente
-- Recoger objetos del suelo → automatico
-- Guardar la partida periodicamente
+1. Copia tu archivo de partida (normalmente `Partida 1.rxdata`) desde:
+   ```
+   %APPDATA%\Pokemon Anil\
+   ```
+   y pégalo en la carpeta `saves/`.
 
-### Nivel 2 — Decision de la IA (puntos clave)
-- A que ciudad/gimnasio ir ahora
-- Cada turno de combate: que movimiento usar
-- Que Pokemon capturar y entrenar
-- Cuando usar objetos curativos
-- Cuando cambiar de Pokemon en combate
+2. Ejecuta el editor:
+   ```
+   python save_editor.py
+   ```
 
----
+3. Elige una opción del menú, realiza los cambios y pulsa **0** para guardar.
 
-## Stack tecnologico
+4. Copia el archivo resultante de `savesGen/` de vuelta a `%APPDATA%\Pokemon Anil\`  
+   (sobreescribiendo el original).
 
-| Componente | Tecnologia |
-|---|---|
-| Modelo de vision | Qwen2.5-VL 14B (Ollama) |
-| Hardware | NVIDIA RTX 4090 (24GB VRAM) |
-| Captura de pantalla | `mss` + `Pillow` |
-| Control del juego | `pyautogui` / `pynput` |
-| Conocimiento Pokemon | PokeAPI o JSON local |
-| Pathfinding | `python-pathfinding` (A*) |
-| Orquestacion | Python 3.11+ |
-| Juego | Pokemon Anil (RPG Maker, PC) |
+5. Lanza el juego — la partida cargará con los cambios aplicados.
 
 ---
 
-## Estructura del proyecto
+## Opciones del menú
 
-```
-CombatePokemon/
-├── README.md                  # Este archivo
-├── docs/
-│   ├── arquitectura.md        # Detalle tecnico completo
-│   ├── plan_desarrollo.md     # Fases y tareas
-│   └── pokemon_knowledge.md   # Logica de tipos y combate
-├── src/
-│   ├── main.py                # Punto de entrada
-│   ├── vision/
-│   │   ├── screen_capture.py  # Captura de pantalla
-│   │   └── game_state.py      # Interpreta el estado del juego
-│   ├── knowledge/
-│   │   ├── pokedex.py         # Consulta tipos, stats, movimientos
-│   │   └── data/              # JSONs con datos Pokemon locales
-│   ├── decision/
-│   │   ├── battle_agent.py    # Logica de combate
-│   │   └── exploration_agent.py # Logica de exploracion
-│   └── control/
-│       ├── input_handler.py   # Simula teclas
-│       └── pathfinder.py      # Navegacion por mapas
-├── tests/
-│   └── test_battle_logic.py
-└── requirements.txt
-```
+| Opción | Descripción |
+|--------|-------------|
+| 1 | Cambiar dinero (Pokédólares) |
+| 2 | Cambiar nivel de un Pokémon del equipo (recalcula stats) |
+| 3 | Cambiar medallas obtenidas |
+| 4 | Agregar ítem a la bolsa |
+| 5 | Ver todos los atributos de un Pokémon |
+| 6 | Modificar atributo específico de un Pokémon (número) |
+| 7 | Agregar Pokémon al equipo (manual o aleatorio) |
+| 8 | Eliminar Pokémon del equipo |
+| 9 | Randomizar naturaleza, IVs y habilidad de un Pokémon |
+| **10** | **Generar equipo de torneo** (ver más abajo) |
+| 0 | Guardar y salir |
+| Q | Salir sin guardar |
 
 ---
 
-## Plan de desarrollo por fases
+## Opción 10 — Equipo de Torneo
 
-### Fase 1 — Fundamentos (1-2 dias)
-- [ ] Configurar Ollama con Qwen2.5-VL 32B
-- [ ] Script de captura de pantalla del juego
-- [ ] Enviar screenshot al modelo y recibir descripcion del estado
-- [ ] Simular pulsaciones de teclas basicas
+Genera automáticamente un equipo de **6 Pokémon aleatorios** con configuración competitiva:
 
-### Fase 2 — Vision del juego (2-3 dias)
-- [ ] Parsear el estado de combate desde la imagen (HP, nombres, movimientos)
-- [ ] Detectar cuando hay combate vs cuando se esta explorando
-- [ ] Distinguir dialogos, menus, y pantallas de combate
+- Nivel 100, 31 IVs en todos los stats
+- EVs: 252 en stat ofensiva principal + 252 en Velocidad + 4 en HP
+- Naturaleza aleatoria
+- Habilidad aleatoria (incluye habilidad oculta)
+- 4 movimientos aleatorios del learnset (nivel-up + tutor)
+- Solo Pokémon completamente evolucionados
+- **Sin legendarios ni pseudo-legendarios** (lista abajo)
 
-### Fase 3 — Conocimiento Pokemon (2-3 dias)
-- [ ] Base de datos local con los 151+ Pokemon (tipos, stats, movimientos)
-- [ ] Calculadora de efectividad de tipos
-- [ ] Sistema de puntuacion de movimientos segun contexto
+> **Nota sobre el nivel:** el juego puede mostrar los stats bloqueados al nivel máximo
+> permitido por la historia. El nivel 100 está guardado correctamente en el save,
+> pero el juego aplica su propio límite en pantalla.
 
-### Fase 4 — Agente de combate (3-4 dias)
-- [ ] Logica de decision por turno
-- [ ] Gestion de PP (puntos de poder) de los movimientos
-- [ ] Decidir cuando cambiar de Pokemon
-- [ ] Usar objetos curativos
+### Pokémon baneados
 
-### Fase 5 — Agente de exploracion (3-4 dias)
-- [ ] Navegar por ciudades y caminos
-- [ ] Ir al siguiente gimnasio segun el progreso
-- [ ] Capturar y entrenar Pokemon
+#### Legendarios (71)
+Articuno, Azelf, Calyrex, Chi-Yu, Chien-Pao, Cobalion, Cosmoem, Cosmog, Cresselia,
+Código Cero, Dialga, Enamorus, Entei, Eternatus, Fezandipiti, Giratina, Glastrier,
+Groudon, Heatran, Ho-Oh, Koraidon, Kubfu, Kyogre, Kyurem, Landorus, Latias, Latios,
+Lugia, Lunala, Mesprit, Mewtwo, Miraidon, Moltres, Munkidori, Necrozma, Ogerpon,
+Okidogi, Palkia, Raikou, Rayquaza, Regice, Regidrago, Regieleki, Regigigas, Regirock,
+Registeel, Reshiram, Silvally, Solgaleo, Spectrier, Suicune, Tapu Bulu, Tapu Fini,
+Tapu Koko, Tapu Lele, Terapagos, Terrakion, Thundurus, Ting-Lu, Tornadus, Urshifu,
+Uxie, Virizion, Wo-Chien, Xerneas, Yveltal, Zacian, Zamazenta, Zapdos, Zekrom, Zygarde
 
-### Fase 6 — Integracion y pruebas (2-3 dias)
-- [ ] Bucle principal de juego
-- [ ] Sistema de guardado y recuperacion de estado
-- [ ] Logs de decisiones para analisis posterior
+#### Míticos (23)
+Arceus, Celebi, Darkrai, Deoxys, Diancie, Genesect, Hoopa, Jirachi, Keldeo, Magearna,
+Manaphy, Marshadow, Melmetal, Meloetta, Meltan, Mew, Pecharunt, Phione, Shaymin,
+Victini, Volcanion, Zarude, Zeraora
 
----
-
-## Estimacion de tiempo de ejecucion
-
-| Tarea | Tiempo estimado |
-|---|---|
-| Cada decision de combate | 2-5 segundos |
-| Combate de 5 turnos | ~25 segundos |
-| Un gimnasio completo | 15-45 minutos |
-| 8 gimnasios + historia | 4-12 horas |
-
-> Nota: con la velocidad del juego al maximo (Shift en RPG Maker) el tiempo de desplazamiento se reduce drasticamente.
-
----
-
-## Consideraciones para el torneo
-
-- La IA parte exactamente desde el mismo punto que los humanos (inicio del juego)
-- Se documentan todas las decisiones de la IA (logs) para transparencia
-- El equipo final de la IA se revelara el dia del combate
-- El combate final sera transmitido en directo para la clase
-
----
-
-## Requisitos previos
-
-- Python 3.11+
-- Ollama instalado con modelo `qwen2.5vl:32b`
-- Pokemon Anil instalado en PC
-- RTX 4090 con drivers actualizados
-
-```bash
-# Instalar dependencias
-pip install -r requirements.txt
-
-# Descargar modelo
-ollama pull qwen2.5-vl:32b
-
-# Ejecutar la IA
-python src/main.py
-```
-
----
-
-## Creditos
-
-- Juego original: Pokemon Anil por Eric Lostie (lostiefangames.blogspot.com)
-- Proyecto academico: IES Kursaal — Grado Superior DAW
+#### Pseudo-legendarios y excepcionales (BST ≥ 580, 20 en total)
+| Pokémon | BST |
+|---------|-----|
+| Slaking | 670 |
+| Archaludon | 600 |
+| Baxcalibur | 600 |
+| Dragapult | 600 |
+| Dragonite | 600 |
+| Garchomp | 600 |
+| Goodra | 600 |
+| Hydreigon | 600 |
+| Kommo-o | 600 |
+| Metagross | 600 |
+| Salamence | 600 |
+| Tyranitar | 600 |
+| Bramaluna / Roaring Moon | 590 |
+| Electrofuria / Raging Bolt | 590 |
+| Ferromole / Iron Boulder | 590 |
+| Ferropaladín / Iron Valiant | 590 |
+| Ferrotesta / Iron Crown | 590 |
+| Ferroverdor / Iron Leaves | 590 |
+| Flamariete / Gouging Fire | 590 |
+| Ondulagua / Walking Wake | 590 |
