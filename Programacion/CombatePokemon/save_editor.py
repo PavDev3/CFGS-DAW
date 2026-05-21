@@ -1294,10 +1294,8 @@ def randomize_pokemon_stats(poke, player=None):
 
 # ─── Equipo de torneo ────────────────────────────────────────────────────────
 
-_TOURNAMENT_BST_LIMIT = 580  # BST >= este valor → pseudo-legendario o superior
-
 def get_eligible_tournament_pokemon():
-    """Especies aptas: completamente evolucionadas, sin legendarios ni pseudo."""
+    """Especies aptas: completamente evolucionadas, sin legendarios ni míticos."""
     db = _load_pbs(PBS_PATH)
     eligible = []
     for species, data in db.items():
@@ -1306,11 +1304,7 @@ def get_eligible_tournament_pokemon():
         flags = data.get('Flags', '').lower()
         if 'legendary' in flags or 'mythical' in flags:
             continue
-        try:
-            bst = sum(int(x) for x in data.get('BaseStats', '').split(','))
-        except ValueError:
-            continue
-        if bst >= _TOURNAMENT_BST_LIMIT or not data.get('BaseStats', '').strip():
+        if not data.get('BaseStats', '').strip():
             continue
         eligible.append(species)
     return eligible

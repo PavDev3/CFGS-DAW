@@ -75,7 +75,7 @@ Genera automáticamente un equipo de **6 Pokémon aleatorios** con configuració
 - Habilidad aleatoria (incluye habilidad oculta)
 - 4 movimientos aleatorios del learnset (nivel-up + tutor)
 - Solo Pokémon completamente evolucionados
-- **Sin legendarios ni pseudo-legendarios** (lista abajo)
+- **Sin legendarios ni míticos** (pseudo-legendarios permitidos)
 
 > **Nota sobre el nivel:** el juego puede mostrar los stats bloqueados al nivel máximo
 > permitido por la historia. El nivel 100 está guardado correctamente en el save,
@@ -98,26 +98,7 @@ Arceus, Celebi, Darkrai, Deoxys, Diancie, Genesect, Hoopa, Jirachi, Keldeo, Mage
 Manaphy, Marshadow, Melmetal, Meloetta, Meltan, Mew, Pecharunt, Phione, Shaymin,
 Victini, Volcanion, Zarude, Zeraora
 
-#### Pseudo-legendarios y excepcionales (BST ≥ 580, 20 en total)
-| Pokémon | BST |
-|---------|-----|
-| Slaking | 670 |
-| Archaludon | 600 |
-| Baxcalibur | 600 |
-| Dragapult | 600 |
-| Dragonite | 600 |
-| Garchomp | 600 |
-| Goodra | 600 |
-| Hydreigon | 600 |
-| Kommo-o | 600 |
-| Metagross | 600 |
-| Salamence | 600 |
-| Tyranitar | 600 |
-| Bramaluna / Roaring Moon | 590 |
-| Electrofuria / Raging Bolt | 590 |
-| Ferromole / Iron Boulder | 590 |
-| Ferropaladín / Iron Valiant | 590 |
-| Ferrotesta / Iron Crown | 590 |
-| Ferroverdor / Iron Leaves | 590 |
-| Flamariete / Gouging Fire | 590 |
-| Ondulagua / Walking Wake | 590 |
+#### Pseudo-legendarios — **PERMITIDOS**
+Dragonite, Tyranitar, Salamence, Metagross, Garchomp, Hydreigon, Goodra, Kommo-o,
+Dragapult, Baxcalibur, Archaludon, Slaking y formas paradoja (BST ≥ 580) pueden
+aparecer en el equipo de torneo.
