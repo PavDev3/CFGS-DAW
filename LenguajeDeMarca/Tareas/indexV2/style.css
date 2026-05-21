@@ -1,16 +1,30 @@
+/* =====================================================
+   Reseteo global
+   Aplica la fuente definida en base.css a todos los
+   elementos, sobreescribiendo la fuente por defecto
+   del navegador.
+   ===================================================== */
 * {
     font-family: var(--font-family);
 }
 
-/* body para el cuerpo de la pagina */
+/* =====================================================
+   Body
+   Elimina el margen y padding que añaden los
+   navegadores por defecto (user-agent stylesheet).
+   ===================================================== */
 body {
     margin: 0;
     padding: 0;
-    background-color: var(--color-light)
+    background-color: var(--color-light);
 }
 
 
-/* header para el encabezado de la pagina */
+/* =====================================================
+   Header
+   Barra superior fija: flex para alinear el nav
+   a la derecha (justify-content: flex-end).
+   ===================================================== */
 .header {
     display: flex;
     width: 100%;
@@ -20,6 +34,12 @@ body {
     color: var(--color-light);
 }
 
+/* =====================================================
+   Nav
+   Contenedor de los enlaces de navegación.
+   display: flex coloca los enlaces en fila con
+   separación uniforme mediante gap.
+   ===================================================== */
 .nav {
     background-color: var(--color-primary);
     color: var(--color-light);
@@ -29,31 +49,42 @@ body {
     cursor: pointer;
 }
 
-/* nav para el menu de la pagina */
+/* Enlaces del nav
+   clamp(min, preferido, max): el tamaño escala con el
+   viewport (1.5vw) sin bajar de 0.75rem ni superar 1.2rem.
+   transition suaviza el cambio de color al hacer hover. */
 .nav a {
     color: var(--color-light);
     text-decoration: none;
     border: 1px solid var(--color-light);
-    font-size: 1.2rem;
+    font-size: clamp(0.75rem, 1.5vw, 1.2rem);
     font-weight: bold;
     padding: 0.5rem 1rem;
     border-radius: 0.5rem;
     transition: all 0.3s ease;
 }
 
+/* Estado hover: cambia fondo y color para indicar
+   que el enlace es interactivo. */
 .nav a:hover {
     background-color: var(--color-accent);
     color: var(--color-secondary);
     padding: 0.5rem 1rem;
 }
 
+/* Clase .active: marca visualmente la página actual. */
 .nav a.active {
     background-color: var(--color-accent);
     color: var(--color-secondary);
     font-weight: bold;
 }
+f
 
-/* container para el contenido de la pagina */
+/* =====================================================
+   Container
+   Centra el contenido principal vertical y
+   horizontalmente. Se usa como envoltorio genérico.
+   ===================================================== */
 .container {
     display: flex;
     flex-direction: column;
@@ -64,7 +95,13 @@ body {
     background-color: var(--color-light);
 }
 
-/* footer para el pie de pagina de la pagina */
+
+/* =====================================================
+   Footer
+   position: fixed lo ancla al fondo de la ventana
+   aunque el usuario haga scroll. z-index alto para
+   que quede siempre por encima del contenido.
+   ===================================================== */
 .footer {
     position: fixed;
     bottom: 0;
@@ -81,21 +118,37 @@ body {
     z-index: 1000;
 }
 
-/* Estilos para el ejemplo de flexbox */
+
+/* =====================================================
+   Área de contenido principal (.content)
+   max-width limita la anchura en pantallas grandes.
+   margin: 0 auto centra el bloque horizontalmente.
+   margin-bottom deja espacio para que el footer fijo
+   no tape el último elemento de la página.
+   ===================================================== */
 .content {
     padding: 2rem;
     max-width: 1200px;
     margin: 0 auto;
-    margin-bottom: 6rem; /* Espacio para el footer fijo */
+    margin-bottom: 6rem;
 }
 
+/* Título principal: clamp escala entre 1.5rem (móvil)
+   y 2.5rem (escritorio) según el ancho del viewport. */
 .content h1 {
     text-align: center;
     color: var(--color-primary);
     margin-bottom: 2rem;
-    font-size: 2.5rem;
+    font-size: clamp(1.5rem, 5vw, 2.5rem);
 }
 
+
+/* =====================================================
+   Flex container
+   Distribuye las tarjetas hijas en fila con gap
+   uniforme. La animación slideIn hace que el bloque
+   aparezca deslizándose desde la izquierda al cargar.
+   ===================================================== */
 .flex-container {
     display: flex;
     gap: 2rem;
@@ -108,9 +161,11 @@ body {
     animation-name: slideIn;
     animation-duration: 0.9s;
     animation-timing-function: ease-out;
-    animation-fill-mode: both;
+    animation-fill-mode: both; /* mantiene el estado final al terminar */
 }
 
+/* Tarjeta hija: flex: 1 hace que todas ocupen el
+   mismo ancho sin importar su contenido. */
 .flex-item {
     flex: 1;
     background-color: var(--color-light);
@@ -121,16 +176,19 @@ body {
     transition: transform 0.3s ease, box-shadow 0.3s ease;
 }
 
+/* Efecto hover: sube la tarjeta 5px y refuerza la sombra
+   para dar sensación de profundidad. */
 .flex-item:hover {
     transform: translateY(-5px);
     box-shadow: 0 8px 24px rgba(0, 0, 0, 0.15);
 }
 
+/* Título de cada tarjeta con tamaño fluido. */
 .flex-item h3 {
     color: var(--color-primary);
     margin-top: 0;
     margin-bottom: 1rem;
-    font-size: 1.5rem;
+    font-size: clamp(1rem, 2.5vw, 1.5rem);
     text-align: center;
 }
 
@@ -141,6 +199,10 @@ body {
     margin: 0;
 }
 
+
+/* =====================================================
+   Botón genérico
+   ===================================================== */
 .btn {
     background-color: var(--color-primary);
     color: var(--color-light);
@@ -157,9 +219,14 @@ body {
     padding: 0.5rem 1rem;
 }
 
-/* ===== Animaciones (W3Schools - css3_animations) ===== */
 
-/* Animación 1: Fade-in con deslizamiento — el título aparece subiendo desde abajo (ejemplo from/to) */
+/* =====================================================
+   Animaciones
+   ===================================================== */
+
+/* fadeInSlide: el título sube desde 40px más abajo
+   mientras aparece (opacity 0 → 1). Usa from/to como
+   alternativa a porcentajes cuando solo hay dos pasos. */
 @keyframes fadeInSlide {
     from {
         opacity: 0;
@@ -177,8 +244,51 @@ body {
     animation-timing-function: ease-out;
 }
 
-/* Animación 2: Slide-in desde la izquierda — el contenedor entra deslizándose al cargar la página */
+/* slideIn: el flex-container entra desde la izquierda.
+   translateX(-100%) lo saca completamente de pantalla;
+   llega a translateX(0) al completarse. */
 @keyframes slideIn {
     0%   { transform: translateX(-100%); opacity: 0; }
     100% { transform: translateX(0);     opacity: 1; }
+}
+
+
+/* =====================================================
+   Spinner — @property + conic-gradient
+
+   @property registra --angulo como tipo <angle>.
+   Esto le indica al navegador que puede interpolarlo
+   en animaciones. Sin @property, --angulo sería una
+   cadena de texto y @keyframes no podría animarlo.
+   ===================================================== */
+@property --angulo {
+    syntax: '<angle>';   /* tipo de valor: ángulo */
+    inherits: false;     /* no se hereda a los hijos */
+    initial-value: 0deg;
+}
+
+/* Mueve --angulo de 0deg a 360deg en cada ciclo. */
+@keyframes girar-angulo {
+    to { --angulo: 360deg; }
+}
+
+/* conic-gradient pinta un arco que va del color primario
+   al acento y termina en transparente. El punto de inicio
+   (from var(--angulo)) rota gracias a la animación.
+   La máscara radial recorta el centro y crea el efecto donut. */
+.anillo-spin {
+    width: 80px;
+    height: 80px;
+    border-radius: 50%;
+    background: conic-gradient(
+        from var(--angulo),
+        var(--color-primary) 0%,
+        var(--color-accent)  40%,
+        transparent          60%
+    );
+    animation: girar-angulo 1.2s linear infinite;
+    /* La máscara radial crea un círculo transparente en el centro,
+       dejando solo el anillo visible. */
+    mask: radial-gradient(farthest-side, transparent 62%, #000 63%);
+    -webkit-mask: radial-gradient(farthest-side, transparent 62%, #000 63%);
 }
