@@ -1,0 +1,32 @@
+package examen4;
+
+public class Producto {
+	// Atributos
+	private String nombre;
+	private int stock;
+	private double precio;
+	
+	
+	private Producto(String nombre, double precio, int stock) {
+		this.nombre = nombre;
+		this.precio = precio;
+		this.stock = stock;
+	}
+	
+	// getter and setter 
+	
+	public int getStock() {
+		return stock;	
+	}
+	
+	public double getPrecio() {
+		return precio;
+	}
+	
+	public String getNombre() {
+		return nombre;
+	}
+	
+	
+
+}

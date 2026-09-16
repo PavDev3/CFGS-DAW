@@ -1,0 +1,93 @@
+🟢 NIVEL 1 — Básicos (declaración y
+recorrido)
+
+1️⃣ Crear y mostrar un array
+Crea un array de 5 números enteros.​
+Asigna valores manualmente y muéstralos por pantalla usando:
+●​ a) for tradicional​
+●​ b) foreach​
+
+2️⃣ Suma de elementos
+Crea un array de 6 números reales.​
+Calcula y muestra:
+●​ La suma total​
+●​ La media​
+
+3️⃣ Contar números positivos
+Dado el array:
+int[] numeros = {4, -3, 7, 0, -2, 8};
+
+Cuenta cuántos números son positivos.
+
+4️⃣ Buscar un número
+Dado un array de enteros, pide un número por teclado y:
+
+●​ Indica si está en el array​
+●​ Indica en qué posición aparece (si aparece)​
+
+🟡 NIVEL 2 — Manipulación básica
+5️⃣ Encontrar el mayor
+Crea un array de 10 enteros y muestra cuál es el número mayor.
+
+6️⃣ Contar pares e impares
+Dado un array de enteros, cuenta cuántos son pares y cuántos impares.
+
+7️⃣ Invertir el array
+Dado:
+int[] numeros = {1,2,3,4,5};
+
+Crea otro array con el orden invertido.
+Resultado esperado:
+5 4 3 2 1
+
+8️⃣ Copiar un array manualmente
+Sin usar clone() ni Arrays.copyOf(), copia un array en otro usando un for.
+
+🟠 NIVEL 3 — Comparaciones y
+utilidades
+
+9️⃣ Comparar arrays
+Crea dos arrays de enteros y:
+●​ Comprueba si son iguales usando equals​
+●​ Comprueba si son iguales usando Arrays.equals​
+●​ Explica la diferencia​
+
+🔟 Probar clone()
+Crea un array, clónalo y modifica el original.
+Muestra ambos arrays y explica qué ocurre.
+
+🔵 NIVEL 4 — Arrays como parámetros
+1️⃣1️⃣ Método que modifica el array
+Crea un método:
+public static void multiplicarPorDos(int[] array)
+
+Que multiplique todos los valores por 2.
+Comprueba que el array original cambia.
+
+1️⃣2️⃣ Método que NO modifica
+Crea un método que recorra el array con foreach y multiplique cada elemento por 2.
+¿Cambia el array?​
+Explica por qué.
+
+🟣 NIVEL 5 — Arrays de objetos
+1️⃣3️⃣ Crear array de objetos
+Crea una clase Alumno con:
+●​ nombre​
+●​ nota​
+
+Crea un array de 3 alumnos.
+Inicialízalos correctamente (evita null).
+Muestra sus datos.
+
+1️⃣4️⃣ Buscar el alumno con mejor nota
+Dado un array de Alumno, muestra el alumno con mayor nota.
+
+1️⃣5️⃣ Subir nota a todos
+Recorre el array de alumnos y suma 1 punto a todos.
+
+1️⃣6️⃣ Ordenar alumnos por nota
+Haz que Alumno implemente Comparable<Alumno> y ordena el array por nota usando:
+
+Arrays.sort(alumnos);
+
+

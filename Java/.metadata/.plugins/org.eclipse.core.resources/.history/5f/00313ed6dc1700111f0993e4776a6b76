@@ -1,0 +1,16 @@
+package examen4;
+
+public class Producto {
+	// Atributos
+	private String nombre;
+	private int stock;
+	private double precio;
+	
+	
+	private Producto(String nombre, double precio, int stock) {
+		this.nombre = nombre;
+		this.precio = precio;
+		
+	}
+
+}
