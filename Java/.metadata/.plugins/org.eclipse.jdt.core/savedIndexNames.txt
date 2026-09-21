@@ -1,4 +1,0 @@
-INDEX VERSION 1.134+/Users/pablo/clases/Java/.metadata/.plugins/org.eclipse.jdt.core
-1865797976.index
-2601422426.index
-3529465286.index
