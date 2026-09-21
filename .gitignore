@@ -21,3 +21,4 @@ skills-lock.json
 .settings/
 .launches/
 *.launch
+.classpath
