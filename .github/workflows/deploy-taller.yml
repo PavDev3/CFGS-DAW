@@ -5,7 +5,7 @@ on:
     branches:
       - main
     paths:
-      - 'Sistemas/Taller/**'
+      - '1DAW/Sistemas/Taller/**'
   workflow_dispatch:
 
 permissions:
@@ -34,7 +34,7 @@ jobs:
       - name: Upload only Taller folder
         uses: actions/upload-pages-artifact@v3
         with:
-          path: Sistemas/Taller
+          path: 1DAW/Sistemas/Taller
 
       - name: Deploy to GitHub Pages
         id: deployment
