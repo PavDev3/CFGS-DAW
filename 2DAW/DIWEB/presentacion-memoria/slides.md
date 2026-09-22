@@ -14,7 +14,7 @@ mdc: true
 Jerarquía, caché, memoria virtual y gestión por el sistema operativo
 
 <div class="pt-12 text-sm opacity-60">
-Basado en resumen_introduccion.pdf — arquitectura de computadores y sistemas operativos
+Fuente: P. de Miguel Anasagasti y F. Pérez Costoya, <i>Sistemas operativos</i> — capítulos 1 y 2
 </div>
 
 ---
@@ -38,6 +38,8 @@ La memoria rápida es cara y de poco tamaño, así que el ordenador organiza la 
 - Disco magnético
 
 </v-clicks>
+
+<div class="pt-8 text-xs opacity-50">Fuente: §1.5 "Jerarquía de memoria", p. 18</div>
 
 ---
 
@@ -63,6 +65,8 @@ La información se va <b>moviendo</b> entre niveles según se necesita — de lo
 </div>
 
 </v-click>
+
+<div class="pt-4 text-xs opacity-50">Fuente: Tabla 1.1 y Figura 1.11, p. 18</div>
 
 ---
 layout: two-cols
@@ -94,6 +98,8 @@ Lo hace el hardware/SO sin que el programa se entere
 
 </v-click>
 
+<div class="pt-16 text-xs opacity-50">Fuente: §1.5.1, p. 18</div>
+
 ---
 transition: fade
 ---
@@ -109,6 +115,8 @@ transition: fade
 - Si la caché no tiene el dato pedido: **fallo de caché** → hay que ir a buscarlo a memoria principal
 
 </v-clicks>
+
+<div class="pt-8 text-xs opacity-50">Fuente: §1.5.1 "Memoria cache y memoria virtual", pp. 18–19</div>
 
 ---
 
@@ -138,6 +146,8 @@ Además de la RAM usa una parte del disco como memoria de respaldo (**swap**), a
 
 </div>
 
+<div class="pt-8 text-xs opacity-50">Fuente: "La memoria virtual versus memoria real", p. 19</div>
+
 ---
 
 # Memoria virtual — piezas del puzle
@@ -150,6 +160,8 @@ Además de la RAM usa una parte del disco como memoria de respaldo (**swap**), a
 - **Tabla de páginas**: guarda en qué marco de RAM (o en qué página de swap) está cada página virtual
 
 </v-clicks>
+
+<div class="pt-8 text-xs opacity-50">Fuente: Figura 1.13 "Fundamento de la memoria virtual", p. 19</div>
 
 ---
 layout: center
@@ -176,6 +188,8 @@ La **TLB** (*Translation Look-aside Buffer*) es una caché de traducciones pági
 
 </v-click>
 
+<div class="pt-8 text-xs opacity-50">Fuente: p. 19</div>
+
 ---
 
 # 4. Gestión de memoria por el SO
@@ -191,6 +205,8 @@ El **gestor de memoria** del sistema operativo se encarga de:
 - Gestionar la jerarquía de memoria y resolver los fallos de página
 
 </v-clicks>
+
+<div class="pt-8 text-xs opacity-50">Fuente: §2.5.2 "Gestión de memoria", p. 45</div>
 
 ---
 
@@ -230,6 +246,8 @@ Crear/liberar regiones compartidas entre procesos, usadas como mecanismo de comu
 
 </div>
 
+<div class="pt-4 text-xs opacity-50">Fuente: "Servicios" del gestor de memoria, §2.5.2, p. 45</div>
+
 ---
 
 # 5. Relación con los procesos
@@ -242,6 +260,8 @@ Crear/liberar regiones compartidas entre procesos, usadas como mecanismo de comu
 - Existe mientras el proceso se ejecuta y desaparece cuando termina
 
 </v-clicks>
+
+<div class="pt-8 text-xs opacity-50">Fuente: §2.5.1 "Gestión de procesos" y Figura 2.14, p. 44</div>
 
 ---
 layout: center
@@ -258,3 +278,29 @@ class: text-center
 - El **SO** asigna, libera, protege y comparte memoria entre procesos
 
 </v-clicks>
+
+---
+layout: center
+class: text-center
+---
+
+# Fuentes
+
+<div class="text-left max-w-lg mx-auto pt-4">
+
+De Miguel Anasagasti, P. y Pérez Costoya, F. — <i>Sistemas operativos</i>
+
+<div class="text-sm opacity-70 pt-4">
+
+- §1.5 Jerarquía de memoria — p. 18
+- §1.5.1 Memoria caché y memoria virtual — pp. 18–19
+- §2.5.1 Gestión de procesos (imagen de memoria, BCP) — p. 44
+- §2.5.2 Gestión de memoria — p. 45
+
+</div>
+
+<div class="text-xs opacity-50 pt-6">
+Extracto disponible en <code>resumen_introduccion.pdf</code>, dentro de este repositorio (2DAW/DIWEB).
+</div>
+
+</div>
