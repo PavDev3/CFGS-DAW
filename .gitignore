@@ -15,3 +15,12 @@ Obsidian/.obsidian
 .agents
 
 skills-lock.json
+
+# Eclipse workspace metadata (nunca debe subirse, es estado local del IDE)
+.metadata/
+.settings/
+.launches/
+*.launch
+# Compilados y ficheros de Eclipse
+*.class
+.classpath
