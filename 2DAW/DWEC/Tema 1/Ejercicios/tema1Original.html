@@ -1,0 +1,148 @@
+<!doctype html>
+<html lang="es">
+  <head>
+    <meta charset="UTF-8" />
+    <title>Práctica: Consumo de CPU/RAM en Cliente</title>
+    <style>
+      body {
+        font-family: Arial, sans-serif;
+        margin: 30px;
+        line-height: 1.5;
+      }
+      .panel {
+        max-width: 600px;
+        padding: 20px;
+        border: 1px solid #ccc;
+        border-radius: 6px;
+        background-color: #f9f9f9;
+      }
+      button {
+        padding: 10px 15px;
+        margin-right: 10px;
+        margin-bottom: 10px;
+        cursor: pointer;
+        font-weight: bold;
+        background-color: #0056b3;
+        color: white;
+        border: none;
+        border-radius: 4px;
+      }
+      button:hover {
+        background-color: #003d80;
+      }
+      #consolaVisual {
+        margin-top: 15px;
+        padding: 12px;
+        background: #222;
+        color: #00ff66;
+        font-family: "Courier New", Courier, monospace;
+        font-size: 13px;
+        border-radius: 4px;
+        min-height: 80px;
+        white-space: pre-line;
+      }
+    </style>
+  </head>
+  <body>
+    <div class="panel">
+      <h2>Auditoría de Rendimiento en el Cliente (Front-end)</h2>
+      <p>
+        Pulsa los botones y abre las
+        <strong>Herramientas de Desarrollador (F12)</strong> para ver las
+        etiquetas temporales de la CPU del navegador.
+      </p>
+
+      <button id="btnGenerar">1. Generar 150.000 Productos</button>
+      <button id="btnOrdenar">2. Ordenar por Precio</button>
+      <button id="btnFiltrar">3. Filtrar Informática</button>
+
+      <div id="consolaVisual">Esperando interacción del usuario...</div>
+    </div>
+
+    <script>
+      // Variable global en el ámbito de cliente para retener la carga en memoria RAM
+      let catalogoProductos = [];
+
+      const categoriasDisponibles = [
+        "Informática",
+        "Telefonía",
+        "Hogar",
+        "Audio",
+        "Oficina",
+      ];
+      const salida = document.getElementById("consolaVisual");
+
+      // 1. GENERACIÓN DE DATOS (Carga en memoria RAM del dispositivo cliente)
+      document.getElementById("btnGenerar").addEventListener("click", () => {
+        salida.textContent =
+          "Generando 150.000 registros en la RAM del cliente...";
+
+        // Iniciamos el cronómetro de la consola
+        console.time("Tiempo de generación en RAM");
+
+        catalogoProductos = [];
+        const TOTAL_REGISTROS = 150000;
+
+        for (let i = 1; i <= TOTAL_REGISTROS; i++) {
+          catalogoProductos.push({
+            id: i,
+            nombre: `Producto ${i}`,
+            precio: parseFloat((Math.random() * 900 + 10).toFixed(2)),
+            categoria:
+              categoriasDisponibles[
+                Math.floor(Math.random() * categoriasDisponibles.length)
+              ],
+          });
+        }
+
+        // Detenemos el cronómetro
+        console.timeEnd("Tiempo de generación en RAM");
+
+        salida.textContent = `Generados ${TOTAL_REGISTROS.toLocaleString()} productos en memoria RAM local.\nRevisa la consola (F12) para ver el tiempo exacto.`;
+      });
+
+      // 2. ORDENACIÓN EN CLIENTE (Consumo intensivo de CPU local)
+      document.getElementById("btnOrdenar").addEventListener("click", () => {
+        if (catalogoProductos.length === 0) {
+          salida.textContent = "Primero genera los productos.";
+          return;
+        }
+
+        salida.textContent =
+          "Ordenando catálogo por precio mediante la CPU del navegador...";
+
+        // Medición con timer
+        console.time("Tiempo de ordenación (CPU Cliente)");
+
+        // Algoritmo de ordenación con predicado
+        // Ordenar de menor a mayor precio
+        catalogoProductos.sort((a, b) => a.precio - b.precio);
+
+        console.timeEnd("Tiempo de ordenación (CPU Cliente)");
+
+        salida.textContent = `Ordenación completada.\n- Producto más barato: ${catalogoProductos[0].precio} €\n- Producto más caro: ${catalogoProductos[catalogoProductos.length - 1].precio} €\n(Consumo de cómputo transferido con éxito del servidor al cliente).`;
+      });
+
+      // 3. FILTRADO DECLARATIVO (Procesamiento y asignación de nueva memoria)
+      document.getElementById("btnFiltrar").addEventListener("click", () => {
+        if (catalogoProductos.length === 0) {
+          salida.textContent = "Primero genera los productos.";
+          return;
+        }
+
+        salida.textContent =
+          "Filtrando productos de la categoría 'Informática'...";
+
+        console.time("Tiempo de filtrado (.filter)");
+
+        const productosFiltrados = catalogoProductos.filter(
+          (prod) => prod.categoria === "Informática",
+        );
+
+        console.timeEnd("Tiempo de filtrado (.filter)");
+
+        salida.textContent = `Filtrado completado con éxito.\n- Registros encontrados: ${productosFiltrados.length.toLocaleString()}\nEl servidor no ha tenido que ejecutar ninguna consulta SQL ni consumir hilos de procesamiento.`;
+      });
+    </script>
+  </body>
+</html>
