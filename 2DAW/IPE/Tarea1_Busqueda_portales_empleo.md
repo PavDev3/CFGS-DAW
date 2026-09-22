@@ -11,6 +11,8 @@ Ofertas buscadas en Tecnoempleo (agregador que incluye Infojobs, LinkedIn, etc.)
 
 ### Oferta 1: Desarrollador/a Angular Senior (Plus: Java) — Arelance
 
+Enlace: https://www.tecnoempleo.com/desarrollador-angular-senior-plus-java-arelance/typescript-rxjs/rf-339d1050f2bc9307d641
+
 | Campo | Detalle |
 |---|---|
 | **Título del puesto** | Desarrollador/a Angular Senior (Plus: Java) |
@@ -22,6 +24,8 @@ Ofertas buscadas en Tecnoempleo (agregador que incluye Infojobs, LinkedIn, etc.)
 
 ### Oferta 2: Frontend Developer Cells — Baoss
 
+Enlace: https://www.tecnoempleo.com/frontend-developer-cells-baoss/ether/rf-bad31f7842d323b30647
+
 | Campo | Detalle |
 |---|---|
 | **Título del puesto** | Frontend Developer Cells |
@@ -32,6 +36,8 @@ Ofertas buscadas en Tecnoempleo (agregador que incluye Infojobs, LinkedIn, etc.)
 | **Información sobre la empresa y su proyecto** | Baoss es una consultora IT centrada en banca; este puesto da soporte a una iniciativa estratégica bancaria con continuidad prevista a varios años |
 
 ### Oferta 3: PHP/WordPress Developer — FeverUp
+
+Enlace: https://www.tecnoempleo.com/php-wordpress-developer-feverup/mysql-jira/rf-aa081b8c622c43bd7e47
 
 | Campo | Detalle |
 |---|---|
