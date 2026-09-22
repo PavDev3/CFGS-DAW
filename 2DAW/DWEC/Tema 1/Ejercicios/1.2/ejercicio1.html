@@ -1,0 +1,62 @@
+<!doctype html>
+<html>
+  <body>
+    <h1 id="h1">Modificando el código HTML</h1>
+    <p id="prueba">Modificando el contenido.</p>
+    <!-- Al hacer clic, document.getElementById localiza el nodo y cambia su texto interno -->
+    <button
+      type="button"
+      onclick="
+        document.getElementById('prueba').innerHTML = 'CAMBIANDO el contenido!'
+      "
+    >
+      ¡Dale!
+    </button>
+    <button
+      type="button"
+      onclick="document.getElementById('h1').innerHTML = 'Titulo cambiado.'"
+    >
+      ¡Atrás!
+    </button>
+    <button type="button" label="consola" onclick="console.log('Cotilla!')">
+      Mira la consola
+    </button>
+    <br />
+    <button type="button" label="alerta" onclick="alert('¡Alerta!')">
+      ¡Alerta!
+    </button>
+    <br />
+
+    <p id="saludo">Elige un idioma.</p>
+    <button
+      type="button"
+      label="idioma"
+      onclick="
+        document.getElementById('saludo').innerHTML = '¡Hola!';
+        document.getElementById('saludo').style.color = 'red';
+      "
+    >
+      Español
+    </button>
+    <button
+      type="button"
+      label="idioma"
+      onclick="
+        document.getElementById('saludo').innerHTML = 'Привет!';
+        document.getElementById('saludo').style.color = 'blue';
+      "
+    >
+      Ruso
+    </button>
+    <button
+      type="button"
+      label="idioma"
+      onclick="
+        document.getElementById('saludo').innerHTML = 'Hello!';
+        document.getElementById('saludo').style.color = 'green';
+      "
+    >
+      Inglés
+    </button>
+  </body>
+</html>
