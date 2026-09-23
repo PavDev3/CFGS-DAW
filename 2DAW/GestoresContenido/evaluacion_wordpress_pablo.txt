@@ -1,0 +1,130 @@
+EVALUACIÓN INICIAL - MÓDULO OPTATIVO DE WORDPRESS
+=======================================================
+
+Nombre: pablo
+Email: pnunfer014@g.educaand.es
+Fecha: 2026-09-23
+
+RESPUESTAS:
+===========
+
+1. ¿Qué es WordPress y para qué se utiliza principalmente?
+CMS , gestor de contenido 
+
+2. Explica la diferencia entre WordPress.com y WordPress.org.
+.org es el software y .com es donde se hospeda el proyecto?
+
+3. ¿Qué es un CMS y por qué WordPress es considerado uno de los más populares?
+cms es un gestor de contenido , y no se porque es popular si es un dolor de muelas, imagino que por su flexibilidad y curva de aprendizaje
+
+4. Nombra al menos tres tipos de contenidos que se pueden gestionar en WordPress.
+ni idea 
+
+5. ¿Qué ventajas ofrece WordPress frente a desarrollar un sitio web desde cero?
+Facil de aprender, pocos conocimientos y apenas el codigo
+
+6. ¿Cuáles son los requisitos mínimos para instalar WordPress?
+No lo se
+
+7. Explica brevemente el proceso de instalación de WordPress.
+Tampoco , nunca lo he usado
+
+8. ¿Qué información se necesita para conectar WordPress a una base de datos?
+Entiendo que un endpoint
+
+9. ¿Qué es el archivo wp-config.php y para qué se utiliza?
+sera donde esta configurado la web, sus dependencias, endpoints, path...
+
+10. Menciona tres ajustes importantes que deberías configurar después de instalar WordPress.
+No lo se.
+
+11. Explica la diferencia entre entradas (posts) y páginas (pages) en WordPress.
+entiendo que post son contenido dentro de la pagina como articulos y pages sera contenido mas estaticos?
+
+12. ¿Qué son las categorías y etiquetas en WordPress y cómo se utilizan?
+No lo se
+
+13. Describe el proceso para crear y publicar una nueva entrada en WordPress.
+Desconozco el proceso
+
+14. ¿Qué es el editor Gutenberg y en qué se diferencia del editor clásico?
+Es el editor por bloques de wordpress
+
+15. ¿Cómo se gestionan los comentarios en WordPress y por qué es importante moderarlos?
+No lo se
+
+16. ¿Qué es un tema de WordPress y qué funcionalidades proporciona?
+un tema es un conjunto de estilos, fuentes, colores, o diseno visual en su totalidad
+
+17. Explica cómo instalar y activar un nuevo tema en WordPress.
+no lo se
+
+18. ¿Qué es un tema hijo (child theme) y por qué se utiliza?
+Pues un tema hijo, sera la herencia de un tema padre o global, que tendra cosas modificadas o anadidas que no le viene de la herencia
+
+19. Menciona tres elementos que se pueden personalizar generalmente desde el personalizador de WordPress.
+tipografia, estilo, accesibilidad
+
+20. ¿Qué consideraciones deberías tener al elegir un tema para un sitio web?
+La accesibilidad como principal y peso mas importante.
+
+21. ¿Qué es un plugin de WordPress y para qué se utiliza?
+funcionalidades ya predeterminadas creada por la comunidad?
+
+22. Explica cómo instalar y activar un plugin en WordPress.
+No lo se
+
+23. Menciona tres tipos de funcionalidades que se pueden añadir mediante plugins.
+oauth tal vez, eshop...
+
+24. ¿Qué precauciones se deben tomar al instalar plugins de terceros?
+seguridad y compatiblidad con las versiones
+
+25. Nombra tres plugins populares de WordPress y describe brevemente su función.
+No lo se`
+
+26. ¿Qué son los shortcodes en WordPress y para qué se utilizan?
+Desconozco
+
+27. Explica qué es y para qué sirve el archivo functions.php de un tema.
+Las funciones creadas en algun componente
+
+28. ¿Qué son los Custom Post Types y cuándo deberías utilizarlos?
+no lo se
+
+29. Describe brevemente cómo se crea un menú personalizado en WordPress.
+no lo se
+
+30. ¿Qué es el Loop de WordPress y para qué se utiliza?
+bucles para busquedas de entradas
+
+31. Menciona tres medidas básicas de seguridad para un sitio WordPress.
+Desconozco
+
+32. ¿Por qué es importante mantener WordPress, temas y plugins actualizados?
+Por brechas de seguridad y compatibiliaddes con los navegadores
+
+33. Explica la importancia de realizar copias de seguridad periódicas.
+Si existe algun cambio poder hacer un rolback
+
+34. ¿Qué hacer si olvidas la contraseña de administrador de WordPress?
+Pues pegarte un tiro 
+
+35. ¿Cómo puedes mejorar el rendimiento de un sitio WordPress?
+desconozco
+
+36. ¿Qué es el SEO y por qué es importante para un sitio web?
+el posicionamiento en los motores de busquedas para su visibilidad
+
+37. Menciona tres prácticas básicas de SEO que se pueden implementar en WordPress.
+optimizacion de velocidad de carga, diseno responsive , accesibilidad
+
+38. ¿Qué plugins recomendarías para mejorar el SEO de un sitio WordPress?
+desconozco
+
+39. Explica la importancia de los permalinks en WordPress para el SEO.
+Los motores de busquedas suelen cachear las urls, un permalinks o link que no cambia, hace que su visilibidad aguante
+
+40. ¿Qué es la optimización para móviles y por qué es crucial para el SEO actual?
+Pues el responsive o disenos mobile first puntua o mejora la puntuacion SEO
+
