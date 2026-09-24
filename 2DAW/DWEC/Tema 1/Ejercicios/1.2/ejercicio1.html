@@ -21,11 +21,10 @@
     <button type="button" label="consola" onclick="console.log('Cotilla!')">
       Mira la consola
     </button>
-    <br />
+
     <button type="button" label="alerta" onclick="alert('¡Alerta!')">
       ¡Alerta!
     </button>
-    <br />
 
     <p id="saludo">Elige un idioma.</p>
     <button
@@ -58,5 +57,119 @@
     >
       Inglés
     </button>
+    <p id="consola">Saludo en la consola</p>
+    <button type="button" label="idioma" onclick="console.log('¡Hola!')" ;>
+      Español
+    </button>
+    <button type="button" label="idioma" onclick="console.log('Привет!')" ;>
+      Ruso
+    </button>
+    <button type="button" label="idioma" onclick="console.log('Hello!')" ;>
+      Inglés
+    </button>
+
+    <p id="escritura">Saludo escrito en el flujo de la página.</p>
+    <button
+      type="button"
+      label="idioma"
+      onclick="document.write('¡Hola!')"
+    >
+      Español
+    </button>
+    <button
+      type="button"
+      label="idioma"
+      onclick="document.write('Привет!')"
+    >
+      Ruso
+    </button>
+    <button
+      type="button"
+      label="idioma"
+      onclick="document.write('Hello!')"
+    >
+      Inglés
+    </button>
+
+    <h1 id="h1-estado">Panel de control del sistema</h1>
+    <p id="estado">Sistema en espera</p>
+    <button
+      type="button"
+      label="consola"
+      onclick="console.log('Hora del sistema: ' + new Date().toLocaleTimeString())"
+    >
+      Consola
+    </button>
+    <button
+      type="button"
+      label="estilo"
+      onclick="
+        document.getElementById('estado').innerHTML = 'Sistema Activo';
+        document.getElementById('estado').style.backgroundColor = 'green';
+      "
+    >
+      Estilo
+    </button>
+    <button type="button" label="alerta" onclick="alert('El proceso ha concluido.')">
+      Alerta
+    </button>
+
+    <h2>Test de Verdadero / Falso</h2>
+    <p id="pregunta1">1. HTML es un lenguaje de programación.</p>
+    <button type="button" onclick="evaluarPregunta('pregunta1', false)">Verdadero</button>
+    <button type="button" onclick="evaluarPregunta('pregunta1', true)">Falso</button>
+
+    <p id="pregunta2">2. CSS se usa para dar estilo a las páginas web.</p>
+    <button type="button" onclick="evaluarPregunta('pregunta2', true)">Verdadero</button>
+    <button type="button" onclick="evaluarPregunta('pregunta2', false)">Falso</button>
+
+    <p id="pregunta3">3. JavaScript es un lenguaje compilado.</p>
+    <button type="button" onclick="evaluarPregunta('pregunta3', false)">Verdadero</button>
+    <button type="button" onclick="evaluarPregunta('pregunta3', true)">Falso</button>
+
+    <p id="pregunta4">4. El DOM representa la estructura de un documento HTML.</p>
+    <button type="button" onclick="evaluarPregunta('pregunta4', true)">Verdadero</button>
+    <button type="button" onclick="evaluarPregunta('pregunta4', false)">Falso</button>
+
+    <p id="pregunta5">5. La etiqueta &lt;p&gt; se usa para crear enlaces.</p>
+    <button type="button" onclick="evaluarPregunta('pregunta5', false)">Verdadero</button>
+    <button type="button" onclick="evaluarPregunta('pregunta5', true)">Falso</button>
+
+    <p id="pregunta6">6. console.log() muestra información en la consola del navegador.</p>
+    <button type="button" onclick="evaluarPregunta('pregunta6', true)">Verdadero</button>
+    <button type="button" onclick="evaluarPregunta('pregunta6', false)">Falso</button>
+
+    <p id="pregunta7">7. document.write() añade texto al final del archivo CSS.</p>
+    <button type="button" onclick="evaluarPregunta('pregunta7', false)">Verdadero</button>
+    <button type="button" onclick="evaluarPregunta('pregunta7', true)">Falso</button>
+
+    <h2>Secuencia de fotogramas</h2>
+    <img
+      id="fotograma"
+      src="assets/frame1.svg"
+      alt="Fotograma de la secuencia"
+      width="200"
+      height="200"
+      onclick="siguienteFotograma()"
+    />
+
+    <script>
+      function evaluarPregunta(id, esCorrecta) {
+        document.getElementById(id).style.color = esCorrecta ? 'green' : 'red';
+      }
+
+      const fotogramas = [
+        'assets/frame1.svg',
+        'assets/frame2.svg',
+        'assets/frame3.svg',
+        'assets/frame4.svg',
+      ];
+      let fotogramaActual = 0;
+
+      function siguienteFotograma() {
+        fotogramaActual = (fotogramaActual + 1) % fotogramas.length;
+        document.getElementById('fotograma').src = fotogramas[fotogramaActual];
+      }
+    </script>
   </body>
 </html>
