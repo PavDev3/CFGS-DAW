@@ -172,14 +172,17 @@
     </button>
 
     <h2>Secuencia de fotogramas</h2>
+    <button type="button" onclick="atrasFotograma()">Atras</button>
+
     <img
       id="fotograma"
       src="assets/frame1.svg"
       alt="Fotograma de la secuencia"
       width="200"
       height="200"
-      onclick="siguienteFotograma()"
     />
+
+    <button type="button" onclick="siguienteFotograma()">Siguiente</button>
 
     <script>
       const evaluarPregunta = (id, esCorrecta) => {
@@ -194,6 +197,11 @@
       ];
       let fotogramaActual = 0;
 
+      const atrasFotograma = () => {
+        fotogramaActual =
+          (fotogramaActual - 1 + fotogramas.length) % fotogramas.length;
+        document.getElementById("fotograma").src = fotogramas[fotogramaActual];
+      };
       const siguienteFotograma = () => {
         fotogramaActual = (fotogramaActual + 1) % fotogramas.length;
         document.getElementById("fotograma").src = fotogramas[fotogramaActual];
