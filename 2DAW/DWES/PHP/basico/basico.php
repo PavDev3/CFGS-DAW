@@ -61,9 +61,33 @@
         </div>
        </div>
 
-          <div class="tab-pane fade" id="ejercicio-2"></div>
+          <div class="tab-pane fade" id="ejercicio-2">
+            <div class="mt-4">
+              <h2 class="h4">Emoticono aleatorio:</h2>
+              <p class="fs-1 text-primary">
+                <?php
+                  // Elegir un carácter Unicode entre U+1F600 y U+1F64A
+                  $codigoUnicode = rand(128512, 128586);
+                  echo '&#' . $codigoUnicode . ';';
+                ?>
+              </p>
+            </div>
+          </div>
+          
 
-          <div class="tab-pane fade" id="ejercicio-3"></div>
+          <div class="tab-pane fade" id="ejercicio-3">
+            <div class="mt-4">
+              <h2 class="h4">Contar la letra "t" en una frase</h2>
+              <?php
+                $frase = "This is a test";
+                $letrasTMinusculas = substr_count($frase, "t");
+                $todasLasLetrasT = substr_count(strtolower($frase), "t");
+              ?>
+              <p>Frase: <strong><?= htmlspecialchars($frase, ENT_QUOTES, 'UTF-8') ?></strong></p>
+              <p>Veces que aparece la letra "t" minúscula: <strong><?= $letrasTMinusculas ?></strong></p>
+              <p>Para contar todas las "t", incluidas las mayúsculas, convertimos la frase a minúsculas con <code>strtolower()</code> antes de usar <code>substr_count()</code>. Total: <strong><?= $todasLasLetrasT ?></strong></p>
+            </div>
+          </div>
         </div>
 
       </div>
