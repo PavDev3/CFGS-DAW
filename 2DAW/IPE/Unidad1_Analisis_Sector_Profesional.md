@@ -63,4 +63,72 @@ Si en vez de cocina le interesara más la parte de sala/servicio, la alternativa
 
 ---
 
+## Actividad Evaluable — Supuesto práctico 3: "La guía para nuevos estudiantes"
+
+**Caso:** En tu centro van a recibir a estudiantes de 4.º de ESO que quieren entrar en un ciclo formativo. Os han pedido elaborar una guía breve para explicarles qué van a aprender y para qué les servirá.
+
+**Ciclo elegido:** Grado Superior en Desarrollo de Aplicaciones Web (DAW).
+
+### 1. Dos cosas que aprenderás a hacer propias de esta profesión
+
+- **Programar aplicaciones web, tanto en el cliente como en el servidor** (ej. JavaScript/Angular, PHP). *Ejemplo de aplicación en el trabajo:* desarrollar el formulario de contacto de la web de una empresa y conectarlo con su base de datos para que las solicitudes lleguen automáticamente al departamento comercial.
+- **Diseñar y gestionar bases de datos.** *Ejemplo:* crear la estructura de tablas necesaria para que una tienda online guarde usuarios, productos y pedidos sin duplicar ni perder información.
+
+### 2. Dos cosas que aprenderás a ser o a comportarte, útiles en cualquier trabajo
+
+- **Trabajo en equipo y coordinación.** *Ejemplo en el día a día:* usar Git para repartirte el código con tus compañeros sin pisar el trabajo de los demás y revisar los cambios antes de subirlos.
+- **Resolución de problemas y paciencia ante los errores (depuración).** *Ejemplo en el día a día:* cuando algo falla en producción, mantener la calma y seguir un proceso lógico (revisar logs, aislar el fallo) en vez de bloquearte o entrar en pánico.
+
+### 3. Por qué son importantes ambos tipos de aprendizaje
+
+Los conocimientos técnicos te permiten **hacer** el trabajo (programar, diseñar una base de datos); las competencias de comportamiento te permiten **hacerlo bien y con otras personas**. Si solo tuvieras uno de los dos:
+
+- **Solo técnica, sin comportamiento:** puedes ser un programador brillante, pero si no sabes trabajar en equipo ni comunicarte, generas conflictos, no cumples plazos y el resto del equipo evita depender de ti. Ejemplo: alguien que programa muy bien pero se niega a documentar su código o a explicar sus decisiones — el equipo pierde tiempo cada vez que él falta.
+- **Solo comportamiento, sin técnica:** puedes ser una persona estupenda en equipo, pero si no sabes programar, no puedes producir el trabajo real que la empresa necesita — no aportas valor técnico por muy buena actitud que tengas.
+
+Por eso el ciclo enseña las dos cosas a la vez: no basta con una sola.
+
+### 4. ¿Dónde busco información fiable para elegir mi ciclo?
+
+**Fuente:** [todofp.es](https://www.todofp.es) — portal oficial de Formación Profesional del Ministerio de Educación, Formación Profesional y Deportes.
+
+**Por qué es fiable:** es una fuente oficial y pública, no un blog ni la web comercial de una academia privada. Recoge el catálogo real y actualizado de todos los ciclos formativos (currículo oficial, duración, requisitos de acceso y salidas profesionales), sin intereses comerciales que puedan sesgar la información.
+
+---
+
+## Actividad Evaluable — Supuesto práctico 5: "Diseña tu equipo de trabajo"
+
+**Caso:** Vas a montar una pequeña empresa de servicios. Necesitas contratar a 3 personas para tu equipo.
+
+**Empresa elegida:** una academia de refuerzo escolar y programación para adolescentes.
+
+### 1. Sector productivo y justificación
+
+**Sector terciario.** La academia no fabrica ni extrae nada: presta un servicio (enseñanza) a cambio de un pago. Toda actividad educativa, igual que el comercio o el transporte, se clasifica como servicio.
+
+### 2. Los 3 puestos: tareas técnicas y formas de comportarse
+
+| Puesto | Tareas técnicas | Formas de ser/comportarse |
+|---|---|---|
+| **Profesor/a de refuerzo** | Dominar la materia que imparte y saber explicarla a distintos niveles · Diseñar y corregir ejercicios/exámenes adaptados a cada alumno | Paciencia con quien no entiende a la primera · Empatía para detectar cuándo un alumno está desmotivado y adaptar el trato |
+| **Recepción/administración** | Manejar el software de matrículas y cobros · Organizar horarios y calendario de clases sin solapamientos | Atención al cliente amable y resolutiva por teléfono/email · Organización para gestionar varias tareas a la vez sin perder el hilo |
+| **Community manager / marketing** | Manejar redes sociales y herramientas de diseño (ej. Canva) para anuncios · Analizar métricas de campañas para saber qué funciona | Creatividad para generar contenido atractivo · Constancia para publicar de forma regular aunque no haya resultados inmediatos |
+
+### 3. Por qué estos requisitos y no otros
+
+Pensando en el día a día real de la academia:
+
+- El **profesor** necesita paciencia porque trata directamente con adolescentes que se frustran fácilmente; sin dominio de la materia no puede enseñar, y sin paciencia los alumnos se acaban yendo a otra academia.
+- **Recepción** es la primera imagen de la academia ante los padres que llaman a preguntar precios — si no es amable y resolutiva, se pierden clientes antes incluso de matricularse.
+- El **community manager** necesita constancia porque las redes sociales requieren publicar de forma continua para generar resultados; una campaña puntual no sirve de nada.
+
+### 4. Requisitos propios de cada puesto vs. comunes a los tres
+
+- **Propios de cada puesto** (tareas técnicas): dominar la materia (profesor), gestionar matrículas (recepción), manejar redes y diseño (community manager) — son tareas específicas de cada rol, nadie más las necesita para hacer su trabajo.
+- **Comunes a los tres:** comunicación y coordinación entre ellos (el profesor avisa a recepción de un cambio de horario, el community manager necesita fotos o testimonios que le facilita el profesor) y compromiso con la imagen de la academia de cara al cliente — los tres representan la marca aunque solo uno gestione las redes.
+
+**Ejemplo de qué pasaría con solo los requisitos técnicos, sin los de comportamiento:** un profesor que domina perfectamente la materia pero es impaciente y regaña a los alumnos cuando no entienden algo a la primera. Técnicamente es el mejor de la plantilla, pero los alumnos dejan de apuntarse a sus clases por incomodidad — la academia pierde matrículas aunque el profesor "sepa mucho", porque el requisito técnico por sí solo no basta para retener clientes.
+
+---
+
 *Fuentes: [todofp.es](https://www.todofp.es) (Ministerio de Educación, Formación Profesional y Deportes) y material teórico de la unidad IPE - Análisis del sector profesional.*
