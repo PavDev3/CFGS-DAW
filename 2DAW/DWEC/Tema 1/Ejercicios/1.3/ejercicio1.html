@@ -1,0 +1,67 @@
+<!doctype html>
+<html lang="es">
+  <head>
+    <meta charset="UTF-8" />
+    <title>1.3 - Funciones en JavaScript</title>
+  </head>
+  <body>
+    <h1>Modificando el contenido con funciones</h1>
+
+    <!-- A. Declaración tradicional (function declaration): disfruta de hoisting -->
+    <h2>A. Declaración tradicional</h2>
+    <p id="tradicional">Sin modificar.</p>
+    <button type="button" onclick="cambiarTextoTradicional()">¡Dale!</button>
+
+    <!-- B. Expresión de función: asignada a una constante, no se puede usar antes de definirla -->
+    <h2>B. Expresión de función</h2>
+    <p id="expresion">Sin modificar.</p>
+    <button type="button" onclick="cambiarTextoExpresion()">¡Dale!</button>
+
+    <!-- C. Función flecha (ES6): sintaxis compacta -->
+    <h2>C. Función flecha</h2>
+    <p id="flecha">Sin modificar.</p>
+    <button type="button" onclick="cambiarTextoFlecha()">¡Dale!</button>
+
+    <h2>Saludo por idioma (con función flecha y parámetros)</h2>
+    <p id="saludo">Elige un idioma.</p>
+    <button type="button" onclick="saludar('es')">Español</button>
+    <button type="button" onclick="saludar('en')">Inglés</button>
+    <button type="button" onclick="saludar('ru')">Ruso</button>
+
+    <h2>Suma con función flecha de retorno implícito</h2>
+    <p id="suma">Resultado: -</p>
+    <button type="button" onclick="mostrarSuma(3, 4)">Sumar 3 + 4</button>
+
+    <script>
+      // A. Function Declaration
+      function cambiarTextoTradicional() {
+        document.getElementById("tradicional").innerHTML =
+          "Cambiado con declaración tradicional (function saludar() {...}).";
+      }
+
+      // B. Function Expression
+      const cambiarTextoExpresion = function () {
+        document.getElementById("expresion").innerHTML =
+          "Cambiado con expresión de función (const x = function() {...}).";
+      };
+
+      // C. Arrow Function
+      const cambiarTextoFlecha = () => {
+        document.getElementById("flecha").innerHTML =
+          "Cambiado con función flecha (const x = () => {...}).";
+      };
+
+      // Función flecha con parámetro
+      const saludos = { es: "¡Hola!", en: "Hello!", ru: "Привет!" };
+      const saludar = (idioma) => {
+        document.getElementById("saludo").innerHTML = saludos[idioma];
+      };
+
+      // Función flecha de retorno implícito (una sola línea, sin return ni llaves)
+      const sumar = (a, b) => a + b;
+      const mostrarSuma = (a, b) => {
+        document.getElementById("suma").innerHTML = "Resultado: " + sumar(a, b);
+      };
+    </script>
+  </body>
+</html>
