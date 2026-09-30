@@ -15,8 +15,8 @@
         <h1 class="display-5 mb-4">Ejercicio avanzado PHP</h1>
 
         <div class="d-grid gap-2 col-6 mx-auto mb-4">
-          <a class="btn btn-primary" href="matematicas.php?num1=5&num2=2&num3=3">Operaciones matemáticas</a>
-          <a class="btn btn-primary" href="cadena.php?cadena1=pepe&cadena2=Vaya%20%C3%B1apa%20que%20me%20ha%20hecho%20pepe">Operaciones con cadenas</a>
+          <a class="btn btn-primary" href="matematicas.php?num1=5&amp;num2=2&amp;num3=3">Operaciones matemáticas</a>
+          <a class="btn btn-primary" href="cadena.php?cadena1=pepe&amp;cadena2=Vaya%20%C3%B1apa%20que%20me%20ha%20hecho%20pepe">Operaciones con cadenas</a>
           <a class="btn btn-primary" href="infoServidor.php">Información del servidor</a>
         </div>
 
