@@ -3,10 +3,33 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <script src="ejercicio.js"></script>
     <title>Ejercicio Fecha</title>
   </head>
   <body>
-    <h2>Ejercicio Fecha</h2>
+    <h2>Ejercicio 1: Predecir Fecha</h2>
+    <ol>
+      <li>
+        const fechaA = new Date(2026, 0, 10) =>
+        <em> 2026-01-09T23:00:00.000Z</em>
+      </li>
+      <li>
+        const fechaB = new Date(2026, 12, 1) =>
+        <em> 2026-12-31T23:00:00.000Z</em>
+      </li>
+      <li>
+        const fechaC = new Date(2026) => <em> 1970-01-01T00:00:02.026Z</em>
+      </li>
+      <li>
+        const fechaD = new Date("2026-02-28"); =>
+        <em> 2026-02-28T00:00:00.000Z</em>
+      </li>
+      <li>
+        const fechaE = new Date("2026/02/28"); =>
+        <em> 2026-02-27T23:00:00.000Z</em>
+      </li>
+    </ol>
+    <h2>Ejercicio 2: Fecha</h2>
     <label
       >Fecha inicio:
       <input
@@ -24,7 +47,7 @@
     </button>
     <p id="resultadoDiferencia">Resultado: -</p>
 
-    <h2>Ejercicio: Calcular dias del mes</h2>
+    <h2>Ejercicio 3: Calcular días del mes</h2>
     <label
       >Año: <input type="number" name="anio" value="2026" id="anio" min="1900"
     /></label>
@@ -33,31 +56,11 @@
     /></label>
     <button type="button" onclick="calcularDiasMes()">Calcular Dias</button>
     <p id="resultadoDiasMes">Resultado: -</p>
+    <h2>Ejercicio 4: Formateo Fecha</h2>
+    <button type="button" onclick="generarFechaRandom()">
+      Generar fecha aleatoria
+    </button>
+    <p id="resultadoFechaGenerada">Resultado: -</p>
+    <p id="resultadoFechaParseada">Resultado: -</p>
   </body>
-
-  <script>
-    const calcularDiferencia = () => {
-      const fechaInicio = new Date(
-        document.getElementById("fecha_inicio").value,
-      );
-      const fechaFin = new Date(document.getElementById("fecha_fin").value);
-
-      const diferenciaEnMilisegundos = fechaFin - fechaInicio;
-      const diferenciaEnDias = diferenciaEnMilisegundos / (1000 * 60 * 60 * 24);
-
-      document.getElementById("resultadoDiferencia").textContent =
-        `Resultado: ${diferenciaEnDias} días`;
-    };
-
-    const calcularDiasMes = () => {
-      const anio = parseInt(document.getElementById("anio").value, 10);
-      const mes = parseInt(document.getElementById("mes").value, 10);
-
-      // Crear una fecha con el primer día del mes siguiente y restar un día
-      const ultimoDia = new Date(anio, mes, 0).getDate();
-
-      document.getElementById("resultadoDiasMes").textContent =
-        `Resultado: El mes ${mes}/${anio} tiene ${ultimoDia} días`;
-    };
-  </script>
 </html>

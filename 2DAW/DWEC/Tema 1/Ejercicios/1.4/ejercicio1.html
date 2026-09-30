@@ -2,20 +2,29 @@
 <html lang="es">
   <head>
     <meta charset="UTF-8" />
+    <script src="ejercicio1.js"></script>
+    <script src="calculo.js"></script>
     <title>1.4 - El objeto Date en JavaScript</title>
   </head>
   <body>
     <h1>Ejercicios prácticos con Date</h1>
 
     <h2>Ejercicio 2: Diferencia en días entre dos fechas</h2>
-    <label>Fecha inicio: <input type="date" id="fechaInicio" value="2026-01-01" /></label>
-    <label>Fecha fin: <input type="date" id="fechaFin" value="2026-09-29" /></label>
+    <label
+      >Fecha inicio: <input type="date" id="fechaInicio" value="2026-01-01"
+    /></label>
+    <label
+      >Fecha fin: <input type="date" id="fechaFin" value="2026-09-29"
+    /></label>
     <button type="button" onclick="mostrarDiferencia()">Calcular</button>
     <p id="resultadoDiferencia">Resultado: -</p>
 
     <h2>Ejercicio 3: Último día de un mes</h2>
     <label>Año: <input type="number" id="anioMes" value="2026" /></label>
-    <label>Mes (1-12): <input type="number" id="mesHumano" value="2" min="1" max="12" /></label>
+    <label
+      >Mes (1-12):
+      <input type="number" id="mesHumano" value="2" min="1" max="12"
+    /></label>
     <button type="button" onclick="mostrarUltimoDia()">Calcular</button>
     <p id="resultadoUltimoDia">Resultado: -</p>
 
@@ -24,54 +33,5 @@
       Formatear fecha y hora actual
     </button>
     <p id="resultadoFormateado">Resultado: -</p>
-
-    <script>
-      // Ejercicio 2: calcularDiasDiferencia(fechaInicio, fechaFin)
-      function calcularDiasDiferencia(fechaInicio, fechaFin) {
-        const inicio = new Date(fechaInicio);
-        const fin = new Date(fechaFin);
-        const msPorDia = 1000 * 60 * 60 * 24;
-        return Math.round((fin.getTime() - inicio.getTime()) / msPorDia);
-      }
-
-      function mostrarDiferencia() {
-        const inicio = document.getElementById("fechaInicio").value;
-        const fin = document.getElementById("fechaFin").value;
-        const dias = calcularDiasDiferencia(inicio, fin);
-        document.getElementById("resultadoDiferencia").innerHTML =
-          "Resultado: " + dias + " días";
-      }
-
-      // Ejercicio 3: obtenerUltimoDiaMes(año, mes) - mes en formato humano (1 = enero)
-      function obtenerUltimoDiaMes(anio, mes) {
-        // Al pasar "mes" (humano) como índice de mes de JS (base 0), ya apunta
-        // al mes siguiente; el día 0 de ese mes es el último día del mes buscado.
-        const fecha = new Date(anio, mes, 0);
-        return fecha.getDate();
-      }
-
-      function mostrarUltimoDia() {
-        const anio = Number(document.getElementById("anioMes").value);
-        const mes = Number(document.getElementById("mesHumano").value);
-        const ultimoDia = obtenerUltimoDiaMes(anio, mes);
-        document.getElementById("resultadoUltimoDia").innerHTML =
-          "Resultado: el mes " + mes + "/" + anio + " tiene " + ultimoDia + " días";
-      }
-
-      // Ejercicio 4: formatearFechaEspanola(fecha) -> DD/MM/YYYY HH:mm
-      function formatearFechaEspanola(fecha) {
-        const dia = String(fecha.getDate()).padStart(2, "0");
-        const mes = String(fecha.getMonth() + 1).padStart(2, "0");
-        const anio = fecha.getFullYear();
-        const horas = String(fecha.getHours()).padStart(2, "0");
-        const minutos = String(fecha.getMinutes()).padStart(2, "0");
-        return `${dia}/${mes}/${anio} ${horas}:${minutos}`;
-      }
-
-      function mostrarFechaFormateada() {
-        document.getElementById("resultadoFormateado").innerHTML =
-          "Resultado: " + formatearFechaEspanola(new Date());
-      }
-    </script>
   </body>
 </html>
