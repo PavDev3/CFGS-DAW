@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <title>1.5 - Integración de JavaScript en HTML</title>
+    <link rel="stylesheet" href="./css/estilos.css">
+    <!-- Ficheros separados (apartado B) + atributo defer (apartado D):
+         el navegador descarga logica.js en segundo plano sin bloquear el
+         parseo del HTML, y no lo ejecuta hasta tener todo el DOM listo. -->
+    <script defer src="./js/logica.js"></script>
+</head>
+<body>
+    <h1>Práctica de Laboratorio Guiada (apartado 1.5.E)</h1>
+    <p id="prueba">Pulsa el botón para comprobar que el script externo funciona.</p>
+
+    <button type="button" id="btnCambiar">¡Dale!</button>
+
+    <!--
+        Actividad 1 (ficheros separados, con script SIN defer al final del body):
+            <script src="script.js"></script>
+            donde script.js solo contiene:
+            function diAlgo() { alert("hola"); }
+            diAlgo();
+        Al abrir index.html en el navegador aparece el alert "hola" nada más
+        cargar la página.
+
+        Actividad 2 (código embebido, apartado 1.5.C):
+            <script>
+                function diAlgo() { alert("Hola"); }
+            </script>
+            ...
+            <script> diAlgo(); </script>
+        Mismo resultado visual que la Actividad 1, pero si el primer <script>
+        se coloca en el <head> sin defer, el navegador detiene el parseo del
+        HTML hasta ejecutar el script antes de seguir leyendo el <body>.
+    -->
+</body>
+</html>
