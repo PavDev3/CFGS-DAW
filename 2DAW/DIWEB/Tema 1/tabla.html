@@ -1,0 +1,57 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <style>
+      .table {
+        border-collapse: collapse;
+        width: 50%;
+        background-color: grey;
+      }
+      .th,
+      .td {
+        border: 1px solid black;
+        padding: 8px;
+        text-align: left;
+      }
+      .th1 {
+        background-color: lightblue;
+      }
+    </style>
+    <meta charset="UTF-8" />
+    <title>Tablas</title>
+  </head>
+  <body>
+    <table class="table">
+      <tr>
+        <th class="th1">H1</th>
+        <th class="th" colspan="2">H2</th>
+        <th class="th" colspan="3">H3</th>
+        <!-- <th class="th">H4</th> -->
+        <!-- <th class="th">H5</th> -->
+        <!-- <th class="th">H6</th> -->
+      </tr>
+      <tr>
+        <td class="td">A</td>
+        <td class="td">B</td>
+        <td class="td">C</td>
+        <td class="td" rowspan="2">D</td>
+        <td class="td">E</td>
+        <td class="td" rowspan="3">F</td>
+      </tr>
+      <tr>
+        <td class="td">G</td>
+        <td class="td" rowspan="2">H</td>
+        <td class="td">I</td>
+        <!-- <td class="td">J</td> -->
+        <td class="td">J</td>
+        <!-- <td class="td">G</td> -->
+      </tr>
+      <tr>
+        <td class="td">K</td>
+        <td class="td" colspan="2">L</td>
+        <!-- <td class="td">I</td> -->
+        <td class="td">M</td>
+      </tr>
+    </table>
+  </body>
+</html>

@@ -1,0 +1,65 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <title>Formularios</title>
+  </head>
+  <style>
+    .input {
+      display: block;
+      margin: 10px;
+    }
+    .title {
+      font-weight: bold;
+      margin-left: 10px;
+    }
+    .input[type="text"] {
+      width: 200px;
+    }
+    .checkbox {
+      margin: 5px 10px;
+    }
+    .datalist {
+      width: 200px;
+      margin: 10px;
+    }
+  </style>
+  <body>
+    <form>
+      <fieldset>
+        <legend>Clases</legend>
+
+        <label class="title">Asignatura:</label>
+        <br />
+        <input type="text" id="nombre" name="nombre" required />
+        <br />
+        <label class="input" type="text">Horario:</label>
+        <label class="select" type="select">
+          <select name="hora" id="hora">
+            <option value="primera">Primera</option>
+            <option value="segunda">Segunda</option>
+            <option value="tercera">Tercera</option>
+            <option value="cuarta">Cuarta</option>
+            <option value="quinta">Quinta</option>
+            <option value="sexta">Sexta</option>
+          </select>
+        </label>
+        <br />
+        <label class="input">Curso: </label>
+        <input type="checkbox" value="25/26" class="checkbox" /> 25/26
+        <input type="checkbox" value="26/27" class="checkbox" /> 26/27
+
+        <label class="input" for="asignaturas">Seleciona Asignatura: </label>
+        <input id="asignaturas" list="asignatura" />
+        <datalist id="asignatura">
+          <option value="DIWEB"></option>
+          <option value="Despliegue"></option>
+          <option value="DWEC"></option>
+          <option value="DWES"></option>
+          <option value="IPE"></option>
+          <option value="Wordpress"></option></datalist
+        ><br /><br />
+      </fieldset>
+    </form>
+  </body>
+</html>
