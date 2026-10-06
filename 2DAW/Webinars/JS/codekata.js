@@ -1,8 +1,4 @@
-let hasPizza = true;
+let mapeo = new Map([["Hola", "Mundo"]]);
 
-if (hasPizza == true){
-    print("I have pizza!");
-}
-else {
-    print("I don't have pizza.");
-}
+mapeo.set("Adios", "Mundo");
+console.log(mapeo)
