@@ -1,0 +1,76 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <style>
+      .legend {
+        flex-direction: row;
+        text-align: center;
+      }
+      .submit {
+        text-align: right;
+        flex-direction: row;
+        margin: 10px;
+      }
+      .input {
+        display: block;
+        margin: 10px;
+      }
+      select {
+        margin: 10px;
+      }
+      .radio {
+        margin: 5px 10px;
+      }
+    </style>
+    <title>Formularios 2</title>
+  </head>
+  <body>
+    <legend class="legend">Formulario 2</legend>
+    <fieldset>
+      <form id="formulario2">
+        <label class="input" for="asignaturas">Seleciona Asignatura: </label>
+        <input list="asignaturas" id="asignaturas" name="asignaturas" />
+        <datalist id="asignaturas">
+          <option value="DIWEB"></option>
+          <option value="Despliegue"></option>
+          <option value="DWEC"></option>
+        </datalist>
+        <br />
+        <label class="input" for="turno">Selecciona turno:</label>
+        <div>
+          <input
+            type="radio"
+            id="manana"
+            name="turno"
+            value="mañana"
+            class="radio"
+          />
+          <label for="manana">Mañana</label>
+          <br />
+          <input
+            type="radio"
+            id="tarde"
+            name="turno"
+            value="tarde"
+            class="radio"
+          />
+          <label for="tarde">Tarde</label>
+          <br />
+        </div>
+        <br />
+        <label class="input" for="curso">Selecciona curso:</label>
+        <select name="curso" id="curso">
+          <option value="primero">Primero DAW</option>
+          <option value="segundo" selected>Segundo DAW</option>
+        </select>
+        <br />
+        <label class="input" for="numero">Introduce contraseña:</label>
+        <input type="password" id="numero" required maxlength="6" />
+        <br />
+        <input type="submit" value="Enviar" class="submit" />
+      </form>
+    </fieldset>
+    <br />
+  </body>
+</html>
