@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <title>Laboratorio: Tipos y Operadores en JavaScript</title>
+  <style>
+    body { font-family: monospace; margin: 30px; background-color: #1e1e1e; color: #d4d4d4; }
+    .panel { max-width: 650px; background: #252526; padding: 25px; border-radius: 8px; border: 1px solid #3c3c3c; }
+    h2 { color: #4ec9b0; margin-top: 0; }
+    .fila { margin-bottom: 15px; }
+    label { display: block; margin-bottom: 5px; color: #9cdcfe; }
+    input[type="text"] { width: 95%; padding: 8px; background: #3c3c3c; border: 1px solid #555; color: #ce9178; font-size: 14px; }
+    button { padding: 8px 16px; background: #0e639c; color: white; border: none; cursor: pointer; border-radius: 4px; }
+    button:hover { background: #1177bb; }
+    .salida { margin-top: 20px; padding: 15px; background: #181818; border-left: 4px solid #4ec9b0; font-size: 13px; line-height: 1.6; }
+    .resaltado { color: #dcdcaa; font-weight: bold; }
+  </style>
+</head>
+<body>
+
+  <div class="panel">
+    <h2>Laboratorio CE 2.b: Comprobador de Expresiones</h2>
+
+    <div class="fila">
+      <label for="campoValor1">Operando A (ej. 0, "0", false, null):</label>
+      <input type="text" id="campoValor1" value="0">
+    </div>
+
+    <div class="fila">
+      <label for="campoValor2">Operando B (ej. false, "", undefined, "0"):</label>
+      <input type="text" id="campoValor2" value="false">
+    </div>
+
+    <button id="btnEvaluar">Evaluar Expresiones y Comparaciones</button>
+
+    <div id="pantallaSalida" class="salida">Pulsa el botón para procesar...</div>
+  </div>
+
+  <script src="laboratorio_operadores.js"></script>
+</body>
+</html>
