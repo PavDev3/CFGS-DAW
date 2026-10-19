@@ -1,24 +1,98 @@
 <!doctype html>
-<html lang="en">
+<html lang="es">
   <head>
     <meta charset="UTF-8" />
-
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>El Puerto</title>
+    <style>
+      body {
+        font-family: Arial, sans-serif;
+        background-color: #eef3f8;
+        color: #1b2a3a;
+        margin: 0;
+      }
+      header,
+      footer {
+        background-color: #1f4e79;
+        color: white;
+        padding: 20px;
+        text-align: center;
+      }
+      nav {
+        background-color: #163a5a;
+        padding: 10px;
+        text-align: center;
+      }
+      nav a {
+        color: white;
+        text-decoration: none;
+        font-weight: bold;
+      }
+      nav a:hover {
+        text-decoration: underline;
+      }
+      main {
+        max-width: 700px;
+        margin: 20px auto;
+        padding: 0 20px;
+      }
+      section {
+        background-color: white;
+        border-radius: 8px;
+        padding: 15px 20px;
+        margin-bottom: 20px;
+        box-shadow: 0 2px 6px rgba(0, 0, 0, 0.15);
+      }
+      h2 {
+        color: #1f4e79;
+        border-bottom: 2px solid #1f4e79;
+        padding-bottom: 5px;
+      }
+      img,
+      iframe {
+        max-width: 100%;
+        border: 2px solid #1f4e79;
+        border-radius: 6px;
+      }
+    </style>
   </head>
   <body>
-    <a href="https://es.wikipedia.org/wiki/Puerto_de_Algeciras" target="_blank"
-      >Puerto de Algeciras</a
-    >
-    <p>
-      El Puerto de Algeciras es un puerto marítimo situado en :
+    <header>
+      <h1>Puerto de Algeciras</h1>
+    </header>
 
-      <br />
+    <nav>
+      <a href="ejercicio3.3.1.html" target="_blank">Abrir la página multimedia</a>
+    </nav>
 
-      <a href="ejercicio3.3.1.html">Vista del puerto</a>
-      <br />
-      <a href="https://maps.app.goo.gl/zgjPW2i2CwqrPASXA" target="_blank"
-        >Ver en Google Maps</a
-      >
-    </p>
+    <main>
+      <p>
+        El Puerto de Algeciras es un puerto marítimo situado en la bahía de
+        Algeciras.
+      </p>
+
+      <section>
+        <h2>img</h2>
+        <img
+          src="https://upload.wikimedia.org/wikipedia/commons/4/46/Vista_A%C3%A9rea_del_Puerto_de_Algeciras.jpg"
+          alt="Vista aérea del Puerto de Algeciras"
+          width="600"
+        />
+      </section>
+
+      <section>
+        <h2>iframe</h2>
+        <iframe
+          src="https://es.wikipedia.org/wiki/Puerto_de_Algeciras"
+          title="Puerto de Algeciras en Wikipedia"
+          width="600"
+          height="300"
+        ></iframe>
+      </section>
+    </main>
+
+    <footer>
+      <p>Ejercicio 3.3 - Contenido incrustado</p>
+    </footer>
   </body>
 </html>
