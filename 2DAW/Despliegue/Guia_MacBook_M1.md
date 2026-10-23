@@ -25,7 +25,7 @@ brew services start httpd
 ```
 Esto deja Apache arrancado en segundo plano de forma permanente (se reinicia solo si reinicias el Mac). Para pararlo: `brew services stop httpd`.
 
-> ⚠️ **Puerto por defecto**: el Apache de Homebrew escucha en el puerto **8080**, no en el 80 (para no necesitar permisos de administrador). Accederás en `http://localhost:8080`, no en `http://localhost`. Es normal en instalaciones vía Homebrew en Mac — coméntalo así en tu documento.
+> **Puerto por defecto**: el Apache de Homebrew escucha en el puerto **8080**, no en el 80 (para no necesitar permisos de administrador). Accederás en `http://localhost:8080`, no en `http://localhost`. Es normal en instalaciones vía Homebrew en Mac — coméntalo así en tu documento.
 
 ### Paso 3: Verificar que funciona
 ```bash
@@ -36,8 +36,8 @@ El primer comando muestra la versión instalada (equivalente al `java -version` 
 
 Después, abre el navegador y entra en `http://localhost:8080` — deberías ver la página "It works!" de Apache.
 
-📸 **Captura 1:** terminal mostrando la salida de `apachectl -v`.
-📸 **Captura 2:** navegador mostrando "It works!" en `http://localhost:8080`.
+**Captura 1:** terminal mostrando la salida de `apachectl -v`.
+**Captura 2:** navegador mostrando "It works!" en `http://localhost:8080`.
 
 ### Paso 4 (opcional pero recomendable): página propia
 La carpeta donde Apache sirve los archivos (DocumentRoot) en Homebrew suele ser:
@@ -55,7 +55,7 @@ echo "<h1>Apache funcionando - Pablo Núñez</h1>" > /opt/homebrew/var/www/index
 
 **Entregable pedido:** PDF `Apellido_nombre_tarea2.pdf` con 3 capturas (ver enunciado oficial en `2DAW/Despliegue/Enunciado_Practica_Tomcat.pdf`).
 
-> ⚠️ **Ojo con el puerto**: Tomcat también usa el 8080 por defecto, igual que el Apache de Homebrew. Si tienes `brew services start httpd` activo, detenlo antes de arrancar Tomcat para evitar el choque:
+> **Ojo con el puerto**: Tomcat también usa el 8080 por defecto, igual que el Apache de Homebrew. Si tienes `brew services start httpd` activo, detenlo antes de arrancar Tomcat para evitar el choque:
 > ```bash
 > brew services stop httpd
 > ```
@@ -70,7 +70,7 @@ Al terminar, Homebrew muestra en terminal un comando para enlazarlo al sistema (
 java -version
 ```
 
-📸 **Captura 1:** terminal con el resultado de `java -version`.
+**Captura 1:** terminal con el resultado de `java -version`.
 
 ### Paso 2: Descargar y arrancar Tomcat
 Descarga el `.tar.gz` (Core) desde [tomcat.apache.org](https://tomcat.apache.org/) — es el mismo paquete para cualquier sistema operativo, Tomcat es Java puro y no depende de la arquitectura del chip.
@@ -86,7 +86,7 @@ El `chmod +x` es importante: en Mac/Linux los scripts descargados no suelen tene
 ```
 Abre el navegador en `http://localhost:8080` — deberías ver la página de bienvenida de Tomcat con el gato.
 
-📸 **Captura 2:** navegador mostrando la página de bienvenida de Tomcat (el gato) en `http://localhost:8080`.
+**Captura 2:** navegador mostrando la página de bienvenida de Tomcat (el gato) en `http://localhost:8080`.
 
 ### Paso 3: Página de bienvenida personalizada
 Dentro de la carpeta donde descomprimiste Tomcat, busca:
@@ -110,7 +110,7 @@ Crea ahí `inicio.html`:
 ```
 Guarda y entra en `http://localhost:8080/inicio.html`.
 
-📸 **Captura 3:** navegador mostrando tu página personalizada en `http://localhost:8080/inicio.html`.
+**Captura 3:** navegador mostrando tu página personalizada en `http://localhost:8080/inicio.html`.
 
 ### Paso 4: Parar Tomcat al terminar
 ```bash
