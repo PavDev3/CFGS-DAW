@@ -57,7 +57,11 @@ En cuanto a mis habilidades emprendedoras, destaco por ser una persona social y 
 
 ---
 
-**Nota para Pablo:** esta tarea se entrega a través del botón "Agregar entrega" en Moodle
-(actividad "Entrega de documentación descrita en tarea 1", curso Proyecto Intermodular,
-cierre martes 27/10 17:00). El contenido ya estaba resuelto desde el 13 de octubre; solo falta
-subir el archivo (puedes usar este mismo texto o el PDF de IPE/Plan_de_Empresa) desde Moodle.
+**Nota para Pablo (corregida 26/10):** esta tarea ("Tarea 1: El equipo emprendedor", dentro de
+"Mi proyecto de empresa", cruzada con IPE II) **ya está entregada** — la subiste el 13/10
+(`tarea1_equipo_emprendedor.pdf`), estado "Enviado para calificar". Cerró el 17/10, nada pendiente aquí.
+
+Ojo: **no es la misma tarea** que "Entrega de documentación descrita en tarea 1" (cierra el
+martes 27/10 17:00) — esa pide "Conocer y analizar un entorno empresarial real" (competencia,
+mercado, legal, RGPD), y el documento que le corresponde es `Informe_Mercado_Oposia.pdf`
+de esta misma carpeta, no este. Ver nota en ese curso/actividad por separado.
