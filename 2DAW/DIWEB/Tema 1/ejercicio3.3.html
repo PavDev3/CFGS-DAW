@@ -49,7 +49,9 @@
         padding-bottom: 5px;
       }
       img,
-      iframe {
+      iframe,
+      object,
+      embed {
         max-width: 100%;
         border: 2px solid #1f4e79;
         border-radius: 6px;
@@ -62,7 +64,9 @@
     </header>
 
     <nav>
-      <a href="ejercicio3.3.1.html" target="_blank">Abrir la página multimedia</a>
+      <a href="ejercicio3.3.1.html" target="_blank"
+        >Abrir la página multimedia</a
+      >
     </nav>
 
     <main>
@@ -72,7 +76,7 @@
       </p>
 
       <section>
-        <h2>img</h2>
+        <h2 style="flex-direction: row">img</h2>
         <img
           src="https://upload.wikimedia.org/wikipedia/commons/4/46/Vista_A%C3%A9rea_del_Puerto_de_Algeciras.jpg"
           alt="Vista aérea del Puerto de Algeciras"
@@ -88,6 +92,24 @@
           width="600"
           height="300"
         ></iframe>
+      </section>
+
+      <section>
+        <h2>object y embed</h2>
+        <object
+          data="https://upload.wikimedia.org/wikipedia/commons/4/46/Vista_A%C3%A9rea_del_Puerto_de_Algeciras.jpg"
+          type="image/jpeg"
+          width="600"
+          height="300"
+        >
+          Vista aérea del Puerto de Algeciras
+        </object>
+        <embed
+          src="Arquitectura_UI_y_Accesibilidad_Digital_clean.pdf"
+          type="application/pdf"
+          width="600"
+          height="300"
+        />
       </section>
     </main>
 
