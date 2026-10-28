@@ -1,25 +1,42 @@
-<!DOCTYPE html>
+<!doctype html>
 <html lang="es">
-<head>
-<meta charset="UTF-8"/>
-<title>Mi perfil - Vídeo de presentación</title>
-<style>
-  body{font-family:system-ui;margin:1rem;text-align:center}
-  video{max-width:100%;border:1px solid #ccc;border-radius:4px}
-</style>
-</head>
-<body>
-  <h1>Vídeo de presentación de Pablo Núñez Fernández</h1>
-  <p>Estudiante de 2º DAW - IES Kursaal</p>
+  <head>
+    <meta charset="UTF-8" />
+    <title>Mi perfil - Vídeo de presentación</title>
+    <style>
+      body {
+        font-family: system-ui;
+        margin: 1rem;
+        text-align: center;
+      }
+      video {
+        max-width: 100%;
+        border: 1px solid #ccc;
+        border-radius: 4px;
+      }
+    </style>
+  </head>
+  <body>
+    <h1>Vídeo de presentación de Pablo Núñez Fernández</h1>
+    <p>Estudiante de 2º DAW - IES Kursaal</p>
 
-  <video controls poster="poster.jpg">
-    <!-- Usa tu propio vídeo -->
-    <source src="perfil.mp4" type="video/mp4">
-    <track src="sub-es.vtt" kind="subtitles" srclang="es" label="Español" default>
-    <track src="sub-en.vtt" kind="subtitles" srclang="en" label="English">
-    Tu navegador no soporta vídeo HTML5.
-  </video>
+    <video controls poster="poster.jpg">
+      <!-- Usa tu propio vídeo -->
+      <source
+        src="https://www.w3schools.com/html/mov_bbb.mp4"
+        type="video/mp4"
+      />
+      <track
+        src="sub-es.vtt"
+        kind="subtitles"
+        srclang="es"
+        label="Español"
+        default
+      />
+      <track src="sub-en.vtt" kind="subtitles" srclang="en" label="English" />
+      Tu navegador no soporta vídeo HTML5.
+    </video>
 
-  <p><a href="index.html">Volver al índice</a></p>
-</body>
+    <p><a href="index.html">Volver al índice</a></p>
+  </body>
 </html>

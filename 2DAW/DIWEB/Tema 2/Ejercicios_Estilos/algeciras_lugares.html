@@ -1,57 +1,109 @@
-<!DOCTYPE html>
+<!doctype html>
 <html lang="es">
-<head>
-  <meta charset="UTF-8" />
-  <title>Algeciras - Reserva de ruta turística</title>
-  <style>
-    body{font-family:system-ui;margin:1rem;max-width:600px}
-    fieldset{border:1px solid #ccc;padding:1rem}
-    label{display:block;margin-top:.7rem}
-    input[type=range]{width:100%}
-  </style>
-</head>
-<body>
-  <h1>Reserva tu ruta por los lugares de interés de Algeciras</h1>
+  <head>
+    <meta charset="UTF-8" />
+    <title>Algeciras - Reserva de ruta turística</title>
+    <style>
+      body {
+        font-family: system-ui;
+        margin: 1rem;
+        max-width: 600px;
+      }
+      fieldset {
+        border: 1px solid #ccc;
+        padding: 1rem;
+      }
+      label {
+        display: block;
+        margin-top: 0.7rem;
+      }
+      input[type="range"] {
+        width: 100%;
+      }
+    </style>
+  </head>
+  <body>
+    <h1>Reserva tu ruta por los lugares de interés de Algeciras</h1>
 
-  <form action="#" aria-describedby="ayuda-personas">
-    <fieldset>
-      <legend>Datos de reserva</legend>
+    <form
+      action="#"
+      aria-describedby="ayuda-personas"
+      style="border: 12px solid"
+    >
+      <fieldset>
+        <legend>Datos de reserva</legend>
 
-      <label>Nombre
-        <input type="text" name="nombre" required />
-      </label>
+        <label
+          >Nombre
+          <input type="text" name="nombre" required />
+        </label>
 
-      <label>E‑mail
-        <input type="email" name="email" required />
-      </label>
+        <label
+          >E‑mail
+          <input type="email" name="email" required />
+        </label>
 
-      <label>Fecha
-        <input type="date" name="fecha" required />
-      </label>
+        <label
+          >Fecha
+          <input type="date" name="fecha" required />
+        </label>
 
-      <p>Turno</p>
-      <label><input type="radio" name="turno" value="mañana" required /> Mañana</label>
-      <label><input type="radio" name="turno" value="tarde"  required /> Tarde</label>
+        <p>Turno</p>
+        <label
+          ><input type="radio" name="turno" value="mañana" required />
+          Mañana</label
+        >
+        <label
+          ><input type="radio" name="turno" value="tarde" required />
+          Tarde</label
+        >
 
-      <p>Lugar a visitar</p>
-      <label><input type="radio" name="lugar" value="plaza-alta" required /> Plaza Alta</label>
-      <label><input type="radio" name="lugar" value="parque-maria-cristina" required /> Parque María Cristina</label>
-      <label><input type="radio" name="lugar" value="mercado-torroja" required /> Mercado Ingeniero Torroja</label>
-      <label><input type="radio" name="lugar" value="puerto" required /> Puerto de Algeciras</label>
+        <p>Lugar a visitar</p>
+        <label
+          ><input type="radio" name="lugar" value="plaza-alta" required /> Plaza
+          Alta</label
+        >
+        <label
+          ><input
+            type="radio"
+            name="lugar"
+            value="parque-maria-cristina"
+            required
+          />
+          Parque María Cristina</label
+        >
+        <label
+          ><input type="radio" name="lugar" value="mercado-torroja" required />
+          Mercado Ingeniero Torroja</label
+        >
+        <label
+          ><input type="radio" name="lugar" value="puerto" required /> Puerto de
+          Algeciras</label
+        >
 
-      <label>Número de personas (1 – 10)
-        <input type="range" name="personas" min="1" max="10" value="2" aria-describedby="ayuda-personas" />
-      </label>
-      <small id="ayuda-personas">Indica cuántas personas harán la visita.</small>
+        <label
+          >Número de personas (1 – 10)
+          <input
+            type="range"
+            name="personas"
+            min="1"
+            max="10"
+            value="2"
+            aria-describedby="ayuda-personas"
+          />
+        </label>
+        <small id="ayuda-personas"
+          >Indica cuántas personas harán la visita.</small
+        >
 
-      <label>
-        <input type="checkbox" name="guia" /> Contratar guía turístico
-      </label>
-    </fieldset>
+        <label>
+          <input type="checkbox" name="guia" /> Contratar guía turístico
+        </label>
+      </fieldset>
 
-    <button type="submit">Reservar</button>
-  </form>
+      <button type="submit">Reservar</button>
+    </form>
 
-  <p><a href="index.html">Volver al índice</a></p>
-</body>
+    <p><a href="index.html">Volver al índice</a></p>
+  </body>
 </html>
