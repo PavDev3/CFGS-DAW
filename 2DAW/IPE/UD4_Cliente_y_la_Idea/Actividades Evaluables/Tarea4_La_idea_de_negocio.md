@@ -2,8 +2,7 @@
 
 **Itinerario Personal para la Empleabilidad II - Unidad Didáctica 4: El cliente y la idea**
 
-> Se pasa a mano a la libreta física, no se sube a Moodle. Este archivo es un borrador
-> para que Pablo lo pueda copiar o repasar antes de escribirlo en la libreta.
+> Entregada en Moodle como PDF (`Tarea4_La_idea_de_negocio.pdf`, en esta misma carpeta).
 
 ## 3. Cuestiones sobre el texto propuesto
 
