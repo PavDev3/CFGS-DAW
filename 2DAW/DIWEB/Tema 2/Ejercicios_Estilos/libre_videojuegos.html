@@ -1,47 +1,35 @@
 <!DOCTYPE html>
 <html lang="es">
 <head>
-<meta charset="UTF-8">
+<meta charset="UTF-8"/>
 <title>Mis videojuegos favoritos</title>
 <style>
-  body {
-    font-family: 'Trebuchet MS', sans-serif;
-    background-color: #10002b;
-    color: #e0aaff;
-    padding: 30px;
-  }
-  h1 {
-    color: #c77dff;
-  }
-  .juego {
-    background-color: #240046;
-    border-radius: 8px;
-    padding: 14px 18px;
-    margin-bottom: 14px;
-  }
-  .juego h3 {
-    color: #e0aaff;
-  }
+  body{font-family:system-ui;margin:1rem;display:grid;gap:1rem;
+       grid-template-columns:repeat(auto-fit,minmax(220px,1fr))}
+  .card{border:2px solid;padding:1rem;border-radius:6px}
+  [data-category="aventura"]  {border-color:#4078f2}
+  [data-category="acción"]    {border-color:#d97706}
+  [data-category="simulación"]{border-color:#059669}
+  .valoracion{font-weight:700}
 </style>
 </head>
 <body>
-  <h1>Mis videojuegos favoritos</h1>
-
-  <div class="juego">
-    <h3>The Legend of Zelda: Breath of the Wild</h3>
+  <article class="card" data-category="aventura">
+    <h2>The Legend of Zelda: Breath of the Wild</h2>
+    <p class="valoracion">9/10</p>
     <p>Mundo abierto con muchísima libertad para explorar y resolver puzles.</p>
-  </div>
+  </article>
 
-  <div class="juego">
-    <h3>Counter-Strike 2</h3>
+  <article class="card" data-category="acción">
+    <h2>Counter-Strike 2</h2>
+    <p class="valoracion">8/10</p>
     <p>Shooter competitivo por equipos, uno de los más jugados a nivel mundial.</p>
-  </div>
+  </article>
 
-  <div class="juego">
-    <h3>Stardew Valley</h3>
+  <article class="card" data-category="simulación">
+    <h2>Stardew Valley</h2>
+    <p class="valoracion">9/10</p>
     <p>Simulador de granja tranquilo, ideal para desconectar.</p>
-  </div>
-
-  <p><a href="index.html" style="color:#c77dff;">Volver al índice</a></p>
+  </article>
 </body>
 </html>

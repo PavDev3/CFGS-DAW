@@ -1,42 +1,46 @@
 <!DOCTYPE html>
 <html lang="es">
 <head>
-<meta charset="UTF-8">
-<title>Algeciras - Presentación</title>
-<style>
-  body {
-    font-family: 'Trebuchet MS', sans-serif;
-    background-color: #eaf4fb;
-  }
-  h1 {
-    color: #0b5394;
-    border-bottom: 3px solid #0b5394;
-  }
-  .ficha {
-    background-color: #ffffff;
-    border-left: 5px solid #0b5394;
-    padding: 15px 20px;
-    border-radius: 6px;
-  }
-</style>
+  <meta charset="UTF-8" />
+  <title>Algeciras - Presentación</title>
+  <style>
+    body {font-family: system-ui; margin: 0 1rem;}
+    header, main, footer {max-width: 800px; margin: auto;}
+    nav a {margin-right: .8rem;}
+    aside {background:#f5f5f5; padding:.8rem; border-left:4px solid #999;}
+  </style>
 </head>
 <body>
-  <h1>Algeciras</h1>
-  <p>Algeciras es una ciudad de la provincia de Cádiz, situada en el extremo sur de la península ibérica,
-     frente al estrecho de Gibraltar. Es la ciudad más poblada de la comarca del Campo de Gibraltar.</p>
+  <header>
+    <h1>Algeciras</h1>
+    <time datetime="2026-10-28">28 de octubre de 2026</time>
+    <nav>
+      <a href="index.html">Inicio</a>
+      <a href="algeciras_gastronomia.html">Gastronomía</a>
+      <a href="algeciras_lugares.html">Lugares</a>
+    </nav>
+  </header>
 
-  <div class="ficha">
-    <h2>Datos básicos</h2>
-    <p><strong>Provincia:</strong> Cádiz</p>
-    <p><strong>Comunidad Autónoma:</strong> Andalucía</p>
-    <p><strong>Población aproximada:</strong> más de 120.000 habitantes</p>
-    <p><strong>Puerto:</strong> uno de los puertos de mayor tráfico de pasajeros de Europa,
-       con conexión directa a Tánger (Marruecos) y Ceuta.</p>
-  </div>
+  <main>
+    <article>
+      <p>Algeciras es una ciudad de la provincia de Cádiz, situada en el extremo sur de la península ibérica,
+         frente al estrecho de Gibraltar. Es la ciudad más poblada de la comarca del Campo de Gibraltar.</p>
+      <p>Gracias a su puerto y a su situación geográfica, Algeciras ha sido históricamente un punto clave
+         de comunicación entre Europa y África.</p>
+    </article>
 
-  <p>Gracias a su puerto y a su situación geográfica, Algeciras ha sido históricamente un punto clave
-     de comunicación entre Europa y África.</p>
+    <aside>
+      <h2>Datos básicos</h2>
+      <p><strong>Provincia:</strong> Cádiz</p>
+      <p><strong>Comunidad Autónoma:</strong> Andalucía</p>
+      <p><strong>Población aproximada:</strong> más de 120.000 habitantes</p>
+      <p><strong>Puerto:</strong> uno de los puertos de mayor tráfico de pasajeros de Europa,
+         con conexión directa a Tánger (Marruecos) y Ceuta.</p>
+    </aside>
+  </main>
 
-  <p><a href="index.html">Volver al índice</a></p>
+  <footer>
+    &copy; 2026 Pablo Núñez Fernández
+  </footer>
 </body>
 </html>

@@ -1,51 +1,56 @@
 <!DOCTYPE html>
 <html lang="es">
 <head>
-<meta charset="UTF-8">
-<title>Algeciras - Lugares de interés</title>
-<style>
-  body {
-    font-family: Verdana, sans-serif;
-    background-color: #f0f7f4;
-  }
-  h1 {
-    color: #14532d;
-  }
-  .tarjeta {
-    display: inline-block;
-    width: 250px;
-    border: 1px solid #a6d8b5;
-    border-radius: 10px;
-    padding: 15px;
-  }
-  .tarjeta h3 {
-    color: #14532d;
-  }
-</style>
+  <meta charset="UTF-8" />
+  <title>Algeciras - Reserva de ruta turística</title>
+  <style>
+    body{font-family:system-ui;margin:1rem;max-width:600px}
+    fieldset{border:1px solid #ccc;padding:1rem}
+    label{display:block;margin-top:.7rem}
+    input[type=range]{width:100%}
+  </style>
 </head>
 <body>
-  <h1>Lugares de interés en Algeciras</h1>
+  <h1>Reserva tu ruta por los lugares de interés de Algeciras</h1>
 
-  <div class="tarjeta">
-    <h3>Plaza Alta</h3>
-    <p>Plaza histórica del centro de la ciudad, con la Iglesia de Nuestra Señora de la Palma
-       y la Iglesia de Nuestra Señora de Europa.</p>
-  </div>
+  <form action="#" aria-describedby="ayuda-personas">
+    <fieldset>
+      <legend>Datos de reserva</legend>
 
-  <div class="tarjeta">
-    <h3>Parque María Cristina</h3>
-    <p>Jardín público con vegetación tropical y un pequeño estanque, muy cerca del centro histórico.</p>
-  </div>
+      <label>Nombre
+        <input type="text" name="nombre" required />
+      </label>
 
-  <div class="tarjeta">
-    <h3>Mercado Ingeniero Torroja</h3>
-    <p>Mercado de abastos cubierto, diseñado por Eduardo Torroja, con una cúpula de hormigón muy singular.</p>
-  </div>
+      <label>E‑mail
+        <input type="email" name="email" required />
+      </label>
 
-  <div class="tarjeta">
-    <h3>Puerto de Algeciras</h3>
-    <p>Uno de los puertos con más tráfico marítimo de Europa, puerta de entrada y salida hacia África.</p>
-  </div>
+      <label>Fecha
+        <input type="date" name="fecha" required />
+      </label>
+
+      <p>Turno</p>
+      <label><input type="radio" name="turno" value="mañana" required /> Mañana</label>
+      <label><input type="radio" name="turno" value="tarde"  required /> Tarde</label>
+
+      <p>Lugar a visitar</p>
+      <label><input type="radio" name="lugar" value="plaza-alta" required /> Plaza Alta</label>
+      <label><input type="radio" name="lugar" value="parque-maria-cristina" required /> Parque María Cristina</label>
+      <label><input type="radio" name="lugar" value="mercado-torroja" required /> Mercado Ingeniero Torroja</label>
+      <label><input type="radio" name="lugar" value="puerto" required /> Puerto de Algeciras</label>
+
+      <label>Número de personas (1 – 10)
+        <input type="range" name="personas" min="1" max="10" value="2" aria-describedby="ayuda-personas" />
+      </label>
+      <small id="ayuda-personas">Indica cuántas personas harán la visita.</small>
+
+      <label>
+        <input type="checkbox" name="guia" /> Contratar guía turístico
+      </label>
+    </fieldset>
+
+    <button type="submit">Reservar</button>
+  </form>
 
   <p><a href="index.html">Volver al índice</a></p>
 </body>

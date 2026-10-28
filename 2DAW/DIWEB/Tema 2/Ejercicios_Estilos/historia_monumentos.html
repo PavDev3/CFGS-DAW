@@ -1,36 +1,41 @@
 <!DOCTYPE html>
 <html lang="es">
 <head>
-<meta charset="UTF-8">
-<title>Monumentos históricos</title>
+<meta charset="UTF-8"/>
+<title>Monumentos históricos del mundo</title>
 <style>
-  body {
-    font-family: Arial, sans-serif;
-    background-color: #222222;
-    color: #f5f5f5;
+  body{font-family:system-ui;margin:1rem}
+  .grid{
+    display:grid;
+    gap:1rem;
+    grid-template-columns:repeat(auto-fit,minmax(280px,1fr));
   }
-  h1 {
-    color: #e9c46a;
-  }
-  ul {
-    list-style-type: square;
-  }
-  li {
-    margin-bottom: 12px;
-  }
-  strong {
-    color: #e9c46a;
-  }
+  figure{margin:0;border:1px solid #ddd;padding:.5rem;border-radius:4px}
+  figcaption{text-align:center;margin-top:.4rem;font-size:.9rem;color:#555}
 </style>
 </head>
 <body>
   <h1>Monumentos históricos del mundo</h1>
-  <ul>
-    <li><strong>Coliseo de Roma</strong> (Italia): anfiteatro construido en el siglo I, usado para espectáculos de gladiadores.</li>
-    <li><strong>Gran Muralla China</strong>: serie de fortificaciones construidas a lo largo de siglos para proteger el norte de China.</li>
-    <li><strong>Pirámides de Giza</strong> (Egipto): tumbas monumentales construidas hace más de 4.500 años.</li>
-    <li><strong>Machu Picchu</strong> (Perú): ciudadela inca situada en los Andes, construida en el siglo XV.</li>
-  </ul>
-  <p style="text-align:center;"><a href="index.html" style="color:#e9c46a;">Volver al índice</a></p>
+  <section class="grid">
+    <!-- Reemplaza las URLs si quieres imágenes propias -->
+    <figure>
+      <img src="https://picsum.photos/seed/coliseo/600/400" alt="Coliseo de Roma" width="100%" />
+      <figcaption>Coliseo de Roma (Italia): anfiteatro del siglo I usado para espectáculos de gladiadores.</figcaption>
+    </figure>
+    <figure>
+      <img src="https://picsum.photos/seed/muralla/600/400" alt="Gran Muralla China" />
+      <figcaption>Gran Muralla China: fortificaciones construidas a lo largo de siglos para proteger el norte de China.</figcaption>
+    </figure>
+    <figure>
+      <img src="https://picsum.photos/seed/piramides/600/400" alt="Pirámides de Giza" />
+      <figcaption>Pirámides de Giza (Egipto): tumbas monumentales de más de 4.500 años.</figcaption>
+    </figure>
+    <figure>
+      <img src="https://picsum.photos/seed/machupicchu/600/400" alt="Machu Picchu" />
+      <figcaption>Machu Picchu (Perú): ciudadela inca situada en los Andes, construida en el siglo XV.</figcaption>
+    </figure>
+  </section>
+
+  <p style="text-align:center;"><a href="index.html">Volver al índice</a></p>
 </body>
 </html>

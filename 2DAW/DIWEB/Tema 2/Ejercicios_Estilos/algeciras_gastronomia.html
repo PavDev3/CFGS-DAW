@@ -1,38 +1,40 @@
 <!DOCTYPE html>
 <html lang="es">
 <head>
-<meta charset="UTF-8">
-<title>Algeciras - Gastronomía</title>
-<style>
-  body {
-    font-family: Georgia, serif;
-    background-color: #fdf6ec;
-  }
-  h1 {
-    color: #a0522d;
-  }
-  table {
-    border-collapse: collapse;
-  }
-  th, td {
-    border: 1px solid #c9a876;
-    padding: 10px;
-  }
-  th {
-    background-color: #a0522d;
-    color: white;
-  }
-</style>
+  <meta charset="UTF-8" />
+  <title>Algeciras - Gastronomía</title>
+  <style>
+    table{border-collapse:collapse;width:100%;font-family:system-ui}
+    th,td{border:1px solid #555;padding:.4rem;text-align:center}
+    thead th{background:#eee}
+    tfoot td{background:#fafafa;font-weight:600}
+  </style>
 </head>
 <body>
-  <h1>Gastronomía de Algeciras</h1>
   <table>
-    <tr><th>Plato</th><th>Descripción</th></tr>
-    <tr><td>Pescaíto frito</td><td>Variedad de pescados pequeños fritos en aceite de oliva, típico de toda la costa gaditana.</td></tr>
-    <tr><td>Chicharrones</td><td>Carne de cerdo prensada, muy popular en el Campo de Gibraltar.</td></tr>
-    <tr><td>Urta a la roteña</td><td>Pescado local guisado con tomate, pimiento y cebolla.</td></tr>
-    <tr><td>Tortillitas de camarones</td><td>Fritura típica andaluza elaborada con camarones pequeños.</td></tr>
+    <caption>Gastronomía típica de Algeciras</caption>
+
+    <thead>
+      <tr>
+        <th>Categoría</th>
+        <th>Plato</th>
+        <th>Descripción</th>
+      </tr>
+    </thead>
+
+    <tbody>
+      <tr><td rowspan="3">Pescados</td><td>Pescaíto frito</td><td>Variedad de pescados pequeños fritos en aceite de oliva, típico de toda la costa gaditana.</td></tr>
+      <tr><td>Urta a la roteña</td><td>Pescado local guisado con tomate, pimiento y cebolla.</td></tr>
+      <tr><td>Tortillitas de camarones</td><td>Fritura típica andaluza elaborada con camarones pequeños.</td></tr>
+
+      <tr><td>Carnes</td><td>Chicharrones</td><td>Carne de cerdo prensada, muy popular en el Campo de Gibraltar.</td></tr>
+    </tbody>
+
+    <tfoot>
+      <tr><td colspan="3">Platos disponibles según temporada y establecimiento</td></tr>
+    </tfoot>
   </table>
+
   <p style="text-align:center;"><a href="index.html">Volver al índice</a></p>
 </body>
 </html>
