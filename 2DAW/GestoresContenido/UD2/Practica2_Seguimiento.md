@@ -42,3 +42,21 @@ Documento en construcción, se va ampliando tarea a tarea. Capturas en `capturas
 - **Atajos de teclado** (del propio material de la unidad, coinciden con el enunciado): `Shift+Alt+C` abre directamente el formulario para añadir un comentario nuevo, `Shift+Alt+M` abre la subida de un medio nuevo, y `Shift+Alt+P` abre el formulario para añadir una página nueva. Son atajos pensados para crear contenido rápido sin navegar por el menú.
 
 ![Escritorio personalizado: widget oculto, 2 columnas, esquema Océano](capturas/tarea3_escritorio_personalizado.jpg)
+
+## Tarea 4. Gestión de usuarios y roles
+
+Creé un equipo ficticio de 5 usuarios con el patrón `rol.nombre`, contraseñas de 12+ caracteres (mayúsculas, minúsculas, números y símbolos), nombre público configurado en todos (no el login) y biografía rellenada al menos en Editor y Autor:
+
+| Rol | Usuario | Nombre mostrado | Justificación del rol |
+|---|---|---|---|
+| Administrador | admin.pablo | Pablo Núñez | Responsable técnico del sitio (junto a la cuenta de acceso original del hosting). |
+| Editor | editor.maria | María López | Responsable de contenidos: revisa y publica lo que suben los demás. |
+| Autor | autor.carlos | Carlos Ruiz | Redactor de sección: publica sus propias entradas. |
+| Colaborador | colaborador.laura | Laura Gómez | Colaboradora esporádica: escribe pero necesita aprobación para publicar. |
+| Suscriptor | suscriptor.ana | Ana Torres | Lectora registrada, solo puede comentar. |
+
+(Las contraseñas no se incluyen en este documento por motivos de seguridad.)
+
+![Lista de usuarios con los 5 roles creados](capturas/tarea4_usuarios_creados.png)
+
+![Biografía rellenada en el perfil de la Editora](capturas/tarea4_biografia_editor.png)
