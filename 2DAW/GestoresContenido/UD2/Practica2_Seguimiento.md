@@ -33,3 +33,12 @@ Documento en construcción, se va ampliando tarea a tarea. Capturas en `capturas
 - "Pedir a los motores de búsqueda que no indexen este sitio" se dejó **desmarcada**: es importante en un entorno real porque, si estuviera marcada, Google y el resto de buscadores no indexarían el sitio y nadie lo encontraría por búsqueda orgánica — solo tiene sentido activarla en sitios de pruebas/desarrollo, nunca en producción.
 
 ![Ajustes de lectura guardados](capturas/tarea2_lectura_guardado.png)
+
+## Tarea 3. Personalización del escritorio
+
+- **Widget oculto**: desde "Opciones de pantalla" (Escritorio), oculté el widget "Eventos y noticias de WordPress" (menos útil para el día a día que "De un vistazo" o "Actividad").
+- **Esquema de color**: cambiado de "Por defecto" a "Océano" (Usuarios → Tu perfil). Se nota en el color de la barra superior y el menú lateral, que pasan de gris oscuro a un azul verdoso.
+- **2 columnas**: en esta versión de WordPress ya no existe un selector explícito de "número de columnas" (ni en Opciones de pantalla del Escritorio ni en Tu perfil); el propio escritorio organiza los widgets en 2 columnas por defecto según el ancho de pantalla, como se ve en la captura.
+- **Atajos de teclado** (del propio material de la unidad, coinciden con el enunciado): `Shift+Alt+C` abre directamente el formulario para añadir un comentario nuevo, `Shift+Alt+M` abre la subida de un medio nuevo, y `Shift+Alt+P` abre el formulario para añadir una página nueva. Son atajos pensados para crear contenido rápido sin navegar por el menú.
+
+![Escritorio personalizado: widget oculto, 2 columnas, esquema Océano](capturas/tarea3_escritorio_personalizado.jpg)
