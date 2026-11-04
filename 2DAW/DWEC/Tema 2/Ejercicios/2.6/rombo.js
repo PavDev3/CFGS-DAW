@@ -1,6 +1,6 @@
 // Actividad 2: "El Algoritmo del Rombo"
 
-function dibujarRombo(filas) {
+const dibujarRombo = (filas) => {
     // Parte superior (incluye la fila central más ancha)
     for (let i = 0; i < filas; i++) {
         let espacios = "";
