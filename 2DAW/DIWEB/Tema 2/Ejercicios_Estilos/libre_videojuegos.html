@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8"/>
+<title>Mis videojuegos favoritos</title>
+<style>
+  body{font-family:system-ui;margin:1rem;display:grid;gap:1rem;
+       grid-template-columns:repeat(auto-fit,minmax(220px,1fr))}
+  .card{border:2px solid;padding:1rem;border-radius:6px}
+  [data-category="aventura"]  {border-color:#4078f2}
+  [data-category="acción"]    {border-color:#d97706}
+  [data-category="simulación"]{border-color:#059669}
+  .valoracion{font-weight:700}
+</style>
+</head>
+<body>
+  <article class="card" data-category="aventura">
+    <h2>The Legend of Zelda: Breath of the Wild</h2>
+    <p class="valoracion">9/10</p>
+    <p>Mundo abierto con muchísima libertad para explorar y resolver puzles.</p>
+  </article>
+
+  <article class="card" data-category="acción">
+    <h2>Counter-Strike 2</h2>
+    <p class="valoracion">8/10</p>
+    <p>Shooter competitivo por equipos, uno de los más jugados a nivel mundial.</p>
+  </article>
+
+  <article class="card" data-category="simulación">
+    <h2>Stardew Valley</h2>
+    <p class="valoracion">9/10</p>
+    <p>Simulador de granja tranquilo, ideal para desconectar.</p>
+  </article>
+</body>
+</html>

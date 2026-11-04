@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8"/>
+<title>404 – Personaje no encontrado</title>
+<style>
+  @keyframes flotar{
+    0%{transform:translateY(0);opacity:0}
+    50%{opacity:1}
+    100%{transform:translateY(-8px);opacity:0}
+  }
+  body{display:flex;flex-direction:column;justify-content:center;align-items:center;
+       min-height:100vh;font-family:system-ui;background:#fdfdfd;margin:0}
+  h1{font-size:4rem;margin:0;animation:flotar 1.5s ease-out forwards}
+  a{margin-top:1.5rem;font-size:1.2rem;text-decoration:none;border:1px solid #333;
+     padding:.6rem 1.2rem;border-radius:4px;color:#333;transition:background .3s}
+  a:hover,a:focus{background:#333;color:#fff}
+</style>
+</head>
+<body>
+  <h1>404</h1>
+  <p>Este personaje histórico no se encuentra en nuestros archivos</p>
+  <a href="index.html">Volver al índice</a>
+</body>
+</html>

@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8"/>
+<title>Próximamente</title>
+<link rel="preconnect" href="https://fonts.gstatic.com" />
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600&display=swap" rel="stylesheet" />
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css" crossorigin="anonymous" referrerpolicy="no-referrer">
+<style>
+  :root{--prim:#2b5bff}
+  *{box-sizing:border-box}
+  body{font-family:'Inter',sans-serif;display:flex;flex-direction:column;
+       align-items:center;justify-content:center;text-align:center;height:100vh;margin:0;padding:1rem}
+  h1{font-size:3rem;margin:.5rem 0}
+  p{font-size:1.25rem;color:#555;margin:0 0 1.5rem}
+  button{display:flex;align-items:center;gap:.6rem;padding:.8rem 1.6rem;
+         font-size:1rem;border:none;border-radius:8px;background:var(--prim);color:#fff;
+         cursor:pointer;transition:transform .3s}
+  button:hover,button:focus{transform:scale(1.05)}
+  @media (prefers-reduced-motion: reduce){
+    button{transition:none}
+  }
+</style>
+</head>
+<body>
+  <h1>Más hitos de la historia de Internet, próximamente</h1>
+  <p>Déjanos avisarte cuando publiquemos la segunda parte&nbsp;🚀</p>
+  <button>
+    <i class="fa-regular fa-bell"></i>
+    Avísame
+  </button>
+</body>
+</html>
