@@ -58,6 +58,6 @@
 
 ## 5. Preguntas finales
 
-- **Actitud estratégica**: forma en que una empresa se enfrenta a los cambios del entorno; puede ser **activa** (se anticipa a los cambios) o **pasiva** (reacciona solo cuando ya han ocurrido).
+- **Actitud estratégica**: actitud de anticipación con la que una empresa diseña una estrategia para adelantarse a los cambios del entorno y sacar ventaja frente a sus competidores; según Schumpeter, son los innovadores, los primeros en ofrecer un bien o servicio al mercado, quienes consiguen esa ventaja frente a los imitadores que llegan después.
 - **Benchmarking**: técnica que consiste en comparar los procesos o productos de la propia empresa con los de las empresas líderes del sector, para aprender de ellas y mejorar.
 - **Registro Mercantil**: permite consultar información oficial de las empresas (cuentas anuales, administradores, datos legales...); sirve, por ejemplo, para conocer a la competencia o comprobar la fiabilidad de una empresa.
