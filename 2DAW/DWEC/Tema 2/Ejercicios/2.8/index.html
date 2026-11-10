@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <title>Laboratorio CE 2.h: Herramientas y Depuración Integral</title>
+  <link rel="stylesheet" href="estilos.css">
+</head>
+<body>
+  <div class="panel">
+    <h2>Laboratorio Integral de Depuración de Código</h2>
+    <p>Abre las DevTools (F12) en las pestañas <strong>Sources</strong> y <strong>Elements</strong> antes de interactuar.</p>
+
+    <div class="fila">
+      <label for="campoUnidades">Unidades a procesar (ej: 5):</label>
+      <input type="text" id="campoUnidades" value="5">
+    </div>
+
+    <div class="fila">
+      <label for="campoPrecio">Precio unitario base (€):</label>
+      <input type="text" id="campoPrecio" value="20">
+    </div>
+
+    <div class="botones-accion">
+      <button id="btnEjecutar">1. Ejecutar y Depurar Algoritmo</button>
+      <button id="btnModificarDOM">2. Provocar Mutación DOM</button>
+    </div>
+
+    <div id="pantallaSalida" class="visor">Esperando orden de ejecución...</div>
+
+    <div id="zonaMonitorizada" class="contenedor-dinamico">
+      <span id="nodoObjetivo">Nodo base pendiente de modificación</span>
+    </div>
+  </div>
+  <script src="depurador_lab.js"></script>
+</body>
+</html>

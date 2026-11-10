@@ -1,0 +1,37 @@
+body {
+  font-family: monospace;
+  margin: 30px;
+  background-color: #0f172a;
+  color: #f8fafc;
+}
+.panel {
+  max-width: 650px;
+  background: #1e293b;
+  padding: 25px;
+  border-radius: 8px;
+  border: 1px solid #334155;
+}
+h2 { color: #38bdf8; margin-top: 0; }
+.fila { margin-bottom: 12px; }
+label { display: block; margin-bottom: 4px; color: #94a3b8; }
+input {
+  width: 95%; padding: 8px; background: #0f172a;
+  border: 1px solid #475569; color: #f8fafc; border-radius: 4px;
+}
+.botones-accion { display: flex; gap: 10px; margin-top: 15px; }
+button {
+  padding: 10px 16px; background-color: #0284c7; color: white;
+  border: none; font-weight: bold; cursor: pointer; border-radius: 4px;
+}
+button:hover { background-color: #0369a1; }
+#btnModificarDOM { background-color: #7c3aed; }
+#btnModificarDOM:hover { background-color: #6d28d9; }
+.visor {
+  margin-top: 20px; padding: 15px; background: #020617;
+  border-radius: 4px; border-left: 4px solid #38bdf8;
+  line-height: 1.6; white-space: pre-wrap;
+}
+.contenedor-dinamico {
+  margin-top: 15px; padding: 10px; background: #1e293b;
+  border: 1px dashed #64748b; min-height: 30px;
+}
