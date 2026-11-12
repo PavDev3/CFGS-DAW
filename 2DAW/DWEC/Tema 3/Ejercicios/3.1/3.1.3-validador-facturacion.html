@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <title>Actividad 3.1.3 - Validador de Facturación</title>
+</head>
+<body>
+  <h1>Validador de Facturación</h1>
+  <form id="formFactura">
+    <label for="precio">Precio sin IVA:</label>
+    <input type="text" id="precio" placeholder="ej. 19,99 € o 19.99" required>
+    <br>
+    <label for="iva">IVA (%):</label>
+    <input type="number" id="iva" value="21">
+    <br>
+    <button type="submit">Calcular</button>
+  </form>
+  <p id="resultado"></p>
+
+  <script src="3.1.3-validador-facturacion.js"></script>
+</body>
+</html>
