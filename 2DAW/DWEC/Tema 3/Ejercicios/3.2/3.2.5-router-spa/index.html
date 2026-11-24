@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <title>3.2.5 - Enrutador SPA de Navegación</title>
+  <link rel="stylesheet" href="https://unpkg.com/@picocss/pico@latest/css/pico.min.css">
+</head>
+<body>
+  <main class="container">
+    <nav>
+      <ul>
+        <li><button id="btn-inicio">Inicio</button></li>
+        <li><button id="btn-modulos">Módulos DAW</button></li>
+        <li><button id="btn-contacto">Contacto</button></li>
+      </ul>
+    </nav>
+    <nav>
+      <ul>
+        <li><button id="btn-filtro-1" class="secondary">Filtrar 1º Curso</button></li>
+        <li><button id="btn-filtro-2" class="secondary">Filtrar 2º Curso</button></li>
+      </ul>
+    </nav>
+
+    <main id="contenedor-vista"></main>
+  </main>
+  <script src="rutas.js"></script>
+</body>
+</html>
