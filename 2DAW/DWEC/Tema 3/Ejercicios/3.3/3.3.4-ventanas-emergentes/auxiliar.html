@@ -7,5 +7,20 @@
 <body>
   <h1>Ventana auxiliar</h1>
   <p>Esta ventana fue abierta desde principal.html mediante window.open().</p>
+
+  <script>
+    // resizeBy/moveBy/focus necesitan activacion de usuario "fresca" en esta
+    // ventana; principal.html solo nos avisa por postMessage y nosotros nos
+    // aplicamos el cambio a nosotros mismos.
+    window.addEventListener("message", (evento) => {
+      if (evento.data === "agrandar") {
+        self.resizeBy(40, 40);
+      } else if (evento.data === "bajar") {
+        self.moveBy(0, 30);
+      } else if (evento.data === "ponte-al-frente") {
+        self.focus();
+      }
+    });
+  </script>
 </body>
 </html>

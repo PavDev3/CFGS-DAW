@@ -23,4 +23,6 @@ Código en [`3.3.3-panel-control/`](./3.3.3-panel-control/) (parte del ejemplo b
 
 Código en [`3.3.4-ventanas-emergentes/`](./3.3.4-ventanas-emergentes/) (`principal.html` + `auxiliar.html`).
 
-`principal.html` abre `auxiliar.html` con `window.open()`, comprueba si el pop-up fue bloqueado (`!ventanaSecundaria || ventanaSecundaria.closed`), y tiene controles para `resizeBy(40, 40)`, `moveBy(0, 30)`, `focus()` y `close()` sobre la ventana secundaria.
+`principal.html` abre `auxiliar.html` con `window.open()`, comprueba si el pop-up fue bloqueado (`!ventanaSecundaria || ventanaSecundaria.closed`), y tiene controles para agrandar, bajar, traer al frente y cerrar la ventana secundaria.
+
+**Nota de depuración (probado en Chrome real por Pablo):** `resizeBy`, `moveBy` y `focus()` llamados directamente desde `principal.js` sobre la ventana secundaria no tenían ningún efecto visible, aunque no lanzaban error — Chrome exige "activación de usuario" fresca en la propia ventana que se va a mover/redimensionar, y un clic en la ventana principal no se la transfiere a la secundaria (confirmado: ejecutar `resizeBy(40,40)` a mano en la consola de la ventana secundaria sí funcionaba). Arreglado con `postMessage`: `principal.js` solo avisa a la ventana secundaria, y es ella quien se aplica `resizeBy`/`moveBy`/`focus` a sí misma al recibir el mensaje (ver el `<script>` al final de `auxiliar.html`). `close()` no tiene este problema porque esa restricción es al revés: solo puede cerrarla quien la abrió, así que se queda llamada directamente desde `principal.js`.
