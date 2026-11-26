@@ -14,6 +14,7 @@ document.getElementById("btnAbrir").addEventListener("click", () => {
 
 document.getElementById("btnAgrandar").addEventListener("click", () => {
   if (ventanaSecundaria && !ventanaSecundaria.closed) {
+    ventanaSecundaria.focus();
     ventanaSecundaria.resizeBy(40, 40);
   }
 });
